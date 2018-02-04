@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<center>
 	<head id = "title">
 		<title>Sergio Abreu Garcia</title>
 		<meta name = "author" content = "Sergio Abreu Garcia">
@@ -9,100 +8,175 @@
 		<meta name = "keywords" content = "programmer, translator, freelancer">
 		
 		<style type = "text/css">
+		/* http://meyerweb.com/eric/tools/css/reset/ 
+		v2.0 | 20110126
+		License: none (public domain)
+		*/
+
+			html, body, div, span, applet, object, iframe,
+			h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+			a, abbr, acronym, address, big, cite, code,
+			del, dfn, em, img, ins, kbd, q, s, samp,
+			small, strike, strong, sub, sup, tt, var,
+			b, u, i, center,
+			dl, dt, dd, ol, ul, li,
+			fieldset, form, label, legend,
+			table, caption, tbody, tfoot, thead, tr, th, td,
+			article, aside, canvas, details, embed, 
+			figure, figcaption, footer, header, hgroup, 
+			menu, nav, output, ruby, section, summary,
+			time, mark, audio, video {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-size: 100%;
+				font: inherit;
+				vertical-align: baseline;
+			}
+			/* HTML5 display-role reset for older browsers */
+			article, aside, details, figcaption, figure, 
+			footer, header, hgroup, menu, nav, section {
+				display: block;
+			}
+			body {
+				line-height: 1;
+			}
+			ol {
+				list-style: none;
+			}
+			blockquote, q {
+				quotes: none;
+			}
+			blockquote:before, blockquote:after,
+			q:before, q:after {
+				content: '';
+				content: none;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
 			.plainText{
-				color: red;
+				color: green;
 				font-size: 16px;
-			}
-			.topnav a{
-				float: left;
-				color: blue;
 				text-align: center;
-				padding: 10px 15px;
-				text-decoration: none;
-				font-size: 40px;
+			}
+			.wholePage{
+				background-color: #282828;
+			}
+			.topbar{
+				top: 0;
+				left: 0;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
 				position: fixed;
+				background-color: #e2fffb;
+				width: 100%;
+				overflow: hidden;
+				z-index: 1;
 			}
-			.topnav a:hover {
-				background-color: red;
-				color: black;
+			.topbar li{
+				float: left;
+				border-right: 1px solid #bbb;
 			}
-			.topnav a.active {
-				background-color: green;
-				color: white;
+			.topbar li a{
+				padding: 12px;
+				display: block;
+				text-decoration: none;
+				width: 60px;
+				text-align: center;
+				border-bottom: 3px solid #555;
 			}
+			.topbar li a:hover{
+				
+			}
+			.banner {
+				position: relative;
+				padding: 38px 0px;
+				margin: 0;
+				color: green;
+				font-size: 70px;
+			}
+			
 		</style>
 	</head>
+
+	<ul class = "topbar">
+		<li><a href = "#about">About</a></li>
+	</ul>	
 	
-	<div class = "topnav">
-		<a class = "active" href = "#about">About</a>
-		<a class = "active" href = "#about">About</a>
+	<div class=wholePage>
+		<div class = "banner">
+			<body>
+				<img src = "./mainPhoto.jpg" alt = "Imagine there was a photo of myself here"
+				width = "100%" height = "930" style = "display: block; margin-left: auto; margin-right: auto;"/>
+				
+				<h1 style = "position: absolute; top: 300px; left: 20%;">
+					Sergio Abreu<br />Garcia
+					<hr width = 450/>
+				</h1>
+				
+			</body>
+		</div>
+		
+		<div class = "plainText" id = "about">
+		<body>
+			<h2>About</h2>
+			
+			<p>Hello! My name is Sergio, I'm a freelancer programmer and translator. <br />
+			I started programming at the age of 11, thrown just by curiosity. <br />
+			I couldn't but love it, from that moment on I have been programming <br />
+			non-stop.</p>
+			
+			<p>
+			While learning to program, I started to build a strong relationship <br />
+			with the english language. I started to use it for everything, until <br />
+			I came to the point where I had the ability to translate everything I wanted with <br />
+			no effort, so I started working as a translator. <br />
+			</p>
+		</body>
+		</div>
+		<hr />
+		
+		<body class = "plainText">
+			<h2>Abilities</h2>
+			
+			<h3>Languages</h3>
+			<ul>
+				<li>Spanish - Native</li>
+				<li>Galician - Native</li>
+				<li>English - C2 level (in process of certification)</li>
+				<li>Portuguese - able to understand non-technical documents</li>
+			</ul>
+			
+			<h3>Programming languages</h3>
+			<ul>
+				<li>Python</li>
+				<li>Javascript</li>
+				<li>C++</li>
+				<li>Java</li>
+				<li>C#</li>
+				<li>HTML</li>
+				<li>CSS</li>
+			</ul>
+			
+			<h3>Technologies</h3>
+			<ul>
+				<li>Notepad++</li>
+				<li>Atom text editor</li>
+				<li>Unity 3D</li>
+				<li>Blender 3D</li>
+				<li>Gamemaker</li>
+				<li>Eclipse</li>
+				<li>Idea IntelliJ</li>
+				<li>Tkinter</li>
+				<li>SDL</li>
+				<li>LibGDX</li>
+				<li>Phaser</li>
+				<li>NodeJS</li>
+				<li>Tiled editor</li>
+			</ul>
+		</body>
 	</div>
-	
-	<body>
-		<img src = "./mainPhoto.png" alt = "Imagine there was a photo of myself here"
-		align = "right" width = "400" height = "500"/>
-		
-		<h1>Sergio Abreu<br />Garcia </h1>
-		<hr width = 180 />
-		<a class = "scroll" href = "#about">Fuck me<a/>
-	</body>
-	
-	<div class = "plainText" id = "about">
-	<body>
-		<h2>About</h2>
-		
-		<p>Hello! My name is Sergio, I'm a freelancer programmer and translator. <br />
-		I started programming at the age of 11, thrown just by curiosity. <br />
-		I couldn't but love it, from that moment on I have been programming <br />
-		non-stop.</p>
-		
-		<p>
-		While learning to program, I started to build a strong relationship <br />
-		with the english language. I started to use it for everything, until <br />
-		I came to the point where I had the ability to translate everything with <br />
-		no effort, so I adquired a C2 and started working as a translator. <br />
-		</p>
-	</body>
-	</div>
-	<hr />
-	
-	<body>
-		<h2>Abilities</h2>
-		
-		<h3>Languages</h3>
-		<ul>
-			<li>Spanish - Native</li>
-			<li>Galician - Native</li>
-			<li>English - C2 level</li>
-			<li>Portuguese - able to understand non-technical documents</li>
-		</ul>
-		
-		<h3>Programming languages</h3>
-		<ul>
-			<li>Python</li>
-			<li>Javascript</li>
-			<li>C++</li>
-			<li>Java</li>
-			<li>C#</li>
-			<li>HTML</li>
-		</ul>
-		
-		<h3>Technologies</h3>
-		<ul>
-			<li>Notepad++</li>
-			<li>Atom text editor</li>
-			<li>Unity 3D</li>
-			<li>Blender 3D</li>
-			<li>Gamemaker</li>
-			<li>Eclipse</li>
-			<li>Idea IntelliJ</li>
-			<li>Tkinter</li>
-			<li>SDL</li>
-			<li>LibGDX</li>
-			<li>Phaser</li>
-			<li>NodeJS</li>
-		</ul>
-	</body>
-	<hr />
-</center>
 </html>
