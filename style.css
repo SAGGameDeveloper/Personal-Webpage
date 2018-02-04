@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: prime;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -57,10 +58,10 @@ table {
 	border-spacing: 0;
 }
 .plainText{
-	color: green;
+	color: #b2d1ff;
 	font-size: 1.2rem;
 	text-align: center;
-	padding: 3rem 0;
+	padding: 3.5rem 0;
 }
 .wholePage{
 	background-color: #282828;
@@ -69,17 +70,20 @@ table {
 	top: 0;
 	left: 0;
 	list-style-type: none;
-	margin: 0 0 0 -5rem;
-	padding: 0 5rem 0 0;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 	position: fixed;
-	background-color: #75ceff;
 	width: 100%;
 	overflow: hidden;
 	z-index: 1;
+	background: white;
 }
 .topbar li{
 	float: right;
 	border-right: 0.1rem solid black;
+}
+.topbar li:last-child{
+	border-left: 0.1rem solid black;
 }
 .topbar li a{
 	padding: 1.5rem;
@@ -88,8 +92,8 @@ table {
 	width: 7rem;
 	text-align: center;
 	border-bottom: 0.22rem solid #555;
-	color: white;
-	font-size: 1.6rem;
+	color: black;
+	font-size: 1.3rem;
 }
 .topbar li a:hover{
 	color: #FF00FF;
@@ -99,7 +103,14 @@ table {
 }
 .banner {
 	position: relative;
-	padding: 2.8rem 0rem;
+	padding: 4.5rem 0 0 0;
 	margin: 0;
-	color: tomato;
+	color: black;
+}
+@font-face {
+    font-family: 'prime'; /*a name to be used later*/
+    src: url('./fonts/Prime Regular.otf'); /*URL to font*/
+}
+strong{
+	font-
 }
