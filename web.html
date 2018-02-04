@@ -7,112 +7,25 @@
 		<meta name = "revised" content = "1/2/2018">
 		<meta name = "keywords" content = "programmer, translator, freelancer">
 		
-		<style type = "text/css">
-		/* http://meyerweb.com/eric/tools/css/reset/ 
-		v2.0 | 20110126
-		License: none (public domain)
-		*/
-
-			html, body, div, span, applet, object, iframe,
-			h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-			a, abbr, acronym, address, big, cite, code,
-			del, dfn, em, img, ins, kbd, q, s, samp,
-			small, strike, strong, sub, sup, tt, var,
-			b, u, i, center,
-			dl, dt, dd, ol, ul, li,
-			fieldset, form, label, legend,
-			table, caption, tbody, tfoot, thead, tr, th, td,
-			article, aside, canvas, details, embed, 
-			figure, figcaption, footer, header, hgroup, 
-			menu, nav, output, ruby, section, summary,
-			time, mark, audio, video {
-				margin: 0;
-				padding: 0;
-				border: 0;
-				font-size: 100%;
-				font: inherit;
-				vertical-align: baseline;
-			}
-			/* HTML5 display-role reset for older browsers */
-			article, aside, details, figcaption, figure, 
-			footer, header, hgroup, menu, nav, section {
-				display: block;
-			}
-			body {
-				line-height: 1;
-			}
-			ol {
-				list-style: none;
-			}
-			blockquote, q {
-				quotes: none;
-			}
-			blockquote:before, blockquote:after,
-			q:before, q:after {
-				content: '';
-				content: none;
-			}
-			table {
-				border-collapse: collapse;
-				border-spacing: 0;
-			}
-			.plainText{
-				color: green;
-				font-size: 16px;
-				text-align: center;
-			}
-			.wholePage{
-				background-color: #282828;
-			}
-			.topbar{
-				top: 0;
-				left: 0;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				position: fixed;
-				background-color: #e2fffb;
-				width: 100%;
-				overflow: hidden;
-				z-index: 1;
-			}
-			.topbar li{
-				float: left;
-				border-right: 1px solid #bbb;
-			}
-			.topbar li a{
-				padding: 12px;
-				display: block;
-				text-decoration: none;
-				width: 60px;
-				text-align: center;
-				border-bottom: 3px solid #555;
-			}
-			.topbar li a:hover{
-				
-			}
-			.banner {
-				position: relative;
-				padding: 38px 0px;
-				margin: 0;
-				color: green;
-				font-size: 70px;
-			}
-			
-		</style>
+		<meta charset="utf-8"/>
+		<link rel = "stylesheet" type = "text/css" href = "./style.css">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="./scrollJQuery.js"></script>
 	</head>
 
 	<ul class = "topbar">
-		<li><a href = "#about">About</a></li>
+		<li><a class = "scroll" href = "#about">ABOUT</a></li>
+		<li><a class = "scroll" href = "#abilities">ABILITIES</a></li>
 	</ul>	
 	
-	<div class=wholePage>
+	<div class= "wholePage">
 		<div class = "banner">
 			<body>
 				<img src = "./mainPhoto.jpg" alt = "Imagine there was a photo of myself here"
 				width = "100%" height = "930" style = "display: block; margin-left: auto; margin-right: auto;"/>
 				
-				<h1 style = "position: absolute; top: 300px; left: 20%;">
+				<h1 style = "position: absolute; top: 17rem; left: 20%; text-align: center;">
 					Sergio Abreu<br />Garcia
 					<hr width = 450/>
 				</h1>
@@ -120,63 +33,77 @@
 			</body>
 		</div>
 		
-		<div class = "plainText" id = "about">
-		<body>
-			<h2>About</h2>
-			
-			<p>Hello! My name is Sergio, I'm a freelancer programmer and translator. <br />
-			I started programming at the age of 11, thrown just by curiosity. <br />
-			I couldn't but love it, from that moment on I have been programming <br />
-			non-stop.</p>
-			
-			<p>
-			While learning to program, I started to build a strong relationship <br />
-			with the english language. I started to use it for everything, until <br />
-			I came to the point where I had the ability to translate everything I wanted with <br />
-			no effort, so I started working as a translator. <br />
-			</p>
-		</body>
+		<div style = "text-align: left; max-width: 25rem; position:relative; left: 10%;">
+			<div class = "plainText" id = "about" style = "display: inline-block; text-align: center;">
+				<body>
+					<h2>ABOUT</h2>
+					<br />
+					<p>Hello! My name is Sergio, I'm a freelancer programmer and translator.
+					I started programming at the age of 11, thrown just by curiosity.
+					I couldn't but love it, from that moment on I have been programming
+					non-stop.</p>
+					<br />
+					<p>
+					While learning to program, I started to build a strong relationship
+					with the english language. I started to use it for everything, until
+					I came to the point where I had the ability to translate everything I wanted with
+					no effort, so I started working as a translator.
+					</p>
+				</body>
+			</div>
 		</div>
 		<hr />
 		
-		<body class = "plainText">
-			<h2>Abilities</h2>
+		<div class = "plainText" id = "abilities">
+		<body>
+			<h2>ABILITIES</h2>
 			
-			<h3>Languages</h3>
-			<ul>
-				<li>Spanish - Native</li>
-				<li>Galician - Native</li>
-				<li>English - C2 level (in process of certification)</li>
-				<li>Portuguese - able to understand non-technical documents</li>
-			</ul>
+			<div class = "abilitiesBlock">
+				<h3>LANGUAGES</h3>
+				<br />
+				<ul>
+					<li>Spanish - Native</li>
+					<li>Galician - Native</li>
+					<li>English - C2 level (in process of certification)</li>
+					<li>Portuguese - able to understand non-technical documents</li>
+				</ul>
+			</div>
 			
-			<h3>Programming languages</h3>
-			<ul>
-				<li>Python</li>
-				<li>Javascript</li>
-				<li>C++</li>
-				<li>Java</li>
-				<li>C#</li>
-				<li>HTML</li>
-				<li>CSS</li>
-			</ul>
+			<div class = "abilitiesBlock">
+				<h3>PROGRAMMING LANGUAGES</h3>
+				<br />
+				<ul>
+					<li>Python</li>
+					<li>Javascript</li>
+					<li>C++</li>
+					<li>Java</li>
+					<li>C#</li>
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>JQuery (shallow knowledge)</li>
+				</ul>
+			</div>
 			
-			<h3>Technologies</h3>
-			<ul>
-				<li>Notepad++</li>
-				<li>Atom text editor</li>
-				<li>Unity 3D</li>
-				<li>Blender 3D</li>
-				<li>Gamemaker</li>
-				<li>Eclipse</li>
-				<li>Idea IntelliJ</li>
-				<li>Tkinter</li>
-				<li>SDL</li>
-				<li>LibGDX</li>
-				<li>Phaser</li>
-				<li>NodeJS</li>
-				<li>Tiled editor</li>
-			</ul>
+			<div class = "abilitiesBlock">
+				<h3>TECHNOLOGIES</h3>
+				<br />
+				<ul>
+					<li>Notepad++</li>
+					<li>Atom text editor</li>
+					<li>Unity 3D</li>
+					<li>Blender 3D</li>
+					<li>Gamemaker</li>
+					<li>Eclipse</li>
+					<li>Idea IntelliJ</li>
+					<li>Tkinter</li>
+					<li>SDL</li>
+					<li>LibGDX</li>
+					<li>Phaser</li>
+					<li>NodeJS</li>
+					<li>Tiled editor</li>
+				</ul>
+			</div>
 		</body>
+		</div>
 	</div>
 </html>
