@@ -38,6 +38,7 @@ h1{
 h2{
 	font-size: 3.3rem;
 	color: white;
+	margin: 0 0 0.8em 0;
 }
 h3{
 	font-size: 2.1rem;
@@ -63,11 +64,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-.plainText{
+.section{
 	color: #b2d1ff;
 	font-size: 1.2rem;
 	text-align: center;
-	padding: 3.5rem 0;
+	padding: 3.3rem 0;
 }
 .wholePage{
 	background-color: #1e1e1e;
@@ -113,10 +114,22 @@ table {
 .nav-item a{
 	font-size: 1.15rem;
 }
+.work-element{
+	max-width: 20em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.contact{
+	max-width: 15em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
 hr {
     display: block;
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
-    margin: 1em 0;
+    margin: 1em 1%;
 }

@@ -20,7 +20,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>		
-		<script src="./scrollJQuery.js"></script>
+		<script src="./scripts/scrollJQuery.js"></script>
 	</head>
 	
 	<nav class = "navbar fixed-top navbar-expand-md navbar-light bg-faded">
@@ -35,6 +35,9 @@
 			<ul class = "navbar-nav ml-auto">				
 				<li class="nav-item"><a class = "nav-link scroll" href = "#about">ABOUT</a></li>
 				<li class="nav-item"><a class = "nav-link scroll" href = "#abilities">ABILITIES</a></li>
+				<li class="nav-item"><a class = "nav-link scroll" href = "#work">WORK</a></li>
+				<li class="nav-item"><a class = "nav-link scroll" href = "#contact">CONTACT</a></li>
+				<li class="nav-item"><a class = "nav-link scroll" href = "#extra">EXTRA</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -56,10 +59,10 @@
 		style = "display: block; position: relative; top: -7rem; left: 50%">
 		
 		<div style = "text-align: left; max-width: 25rem; position:relative; left: 10%;">
-			<div class = "plainText" id = "about" style = "display: inline-block; text-align: center;">
+			<div class = "section" id = "about" style = "display: inline-block; text-align: center;">
 				<body>
 					<h2>ABOUT</h2>
-					<br />
+					
 					<p>Hello! My name is Sergio, I'm a freelancer programmer and translator.
 					I started programming at the age of 11, thrown just by curiosity.
 					I couldn't but love it, from that moment on I have been programming
@@ -78,56 +81,175 @@
 		style = "display: block; margin-left: auto; margin-right: auto;">
 		<hr />
 		
-		<div class = "plainText" id = "abilities">
-		<body>
-			<h2>ABILITIES</h2>
-			
-			<div class = "abilitiesBlock">
-				<h3>LANGUAGES</h3>
-				<br />
-				<ul>
-					<li>Spanish - Native</li>
-					<li>Galician - Native</li>
-					<li>English - C2 level (in process of certification)</li>
-					<li>Portuguese - able to understand non-technical documents</li>
-				</ul>
+		<div class = "section" id = "abilities">
+			<body>
+				<h2>ABILITIES</h2>
+				
+				<div class = "abilitiesBlock">
+					<h3>LANGUAGES</h3>
+					<br />
+					<ul>
+						<li>Spanish - Native</li>
+						<li>Galician - Native</li>
+						<li>English - C2 level (in process of certification)</li>
+						<li>Portuguese - able to understand non-technical documents</li>
+					</ul>
+				</div>
+				
+				<div class = "abilitiesBlock">
+					<h3>PROGRAMMING LANGUAGES</h3>
+					<br />
+					<ul>
+						<li>Python</li>
+						<li>Javascript</li>
+						<li>C++</li>
+						<li>Java</li>
+						<li>C#</li>
+						<li>HTML</li>
+						<li>CSS</li>
+					</ul>
+				</div>
+				
+				<div class = "abilitiesBlock">
+					<h3>TECHNOLOGIES</h3>
+					<br />
+					<ul>
+						<li>Notepad++</li>
+						<li>Atom text editor</li>
+						<li>Unity 3D</li>
+						<li>Blender 3D</li>
+						<li>Gamemaker</li>
+						<li>Eclipse</li>
+						<li>Idea IntelliJ</li>
+						<li>Tkinter</li>
+						<li>SDL</li>
+						<li>LibGDX</li>
+						<li>Phaser</li>
+						<li>NodeJS</li>
+						<li>Tiled editor</li>
+						<li>JQuery (shallow knowledge)</li>
+					</ul>
+				</div>
+			</body>
+		</div>
+		
+		<img class = "button scroll" href = "#work" src = "./images/arrow.png" alt = "Arrow" width = "30" height = "18"
+		style = "display: block; margin-left: auto; margin-right: auto;">
+		<hr />
+		
+		<div class = "section" id = "work">
+			<h2>WORK</h2>
+		
+			<a class="btn btn-primary" data-toggle="collapse" href="#tryangle" aria-expanded="false" aria-controls="tryangle">The Tryangle</a>
+			<div class = "collapse work-element" id = "tryangle">
+				<br/>
+				This was the first project I ended as a programmer. I started it when I was 14 years old
+				and finished half a year later, working only in my spare time. Initially, it was done using
+				GameMaker, but at the middle of the development, I decided to move to Unity. Therefore, I learned C#
+				and remaked the game from scratch using the [new] 2D features of Unity. I finally decide to publish it
+				at the age of 17.
+				<br /><br />
+				Given the age I was and the experience I had when I did it; nor the design, nor the graphic style, nor
+				the programming is an actual representation of my current abilities. Still, for the knowledge I had
+				at the time, I find it to be an excelent proof of my vocation and dedication.
 			</div>
 			
-			<div class = "abilitiesBlock">
-				<h3>PROGRAMMING LANGUAGES</h3>
-				<br />
-				<ul>
-					<li>Python</li>
-					<li>Javascript</li>
-					<li>C++</li>
-					<li>Java</li>
-					<li>C#</li>
-					<li>HTML</li>
-					<li>CSS</li>
-				</ul>
+			<br/><br/>
+			
+			<a class="btn btn-primary" data-toggle="collapse" href="#kidicarus" aria-expanded="false" aria-controls="kidicarus">Kid Icarus with Javascript</a>
+			<div class = "collapse work-element" id = "kidicarus">
+				<br/>
+				While on college, a friend of mine and me decided to do a Kid Icarus reduced version. To do so,
+				we used HTML, Javascript, Phaser and NodeJS. The whole project is available and open on Github,
+				where you can also play it directly through Gihub Pages.
+				<br /><br />
+				The main focus of the development is on the programming part, as we were not game designers and
+				that was not the focus of the project. Being this so, our first priority was to make a solid
+				and scalable software arquitecture while learning more about the technologies we were using.
 			</div>
 			
-			<div class = "abilitiesBlock">
-				<h3>TECHNOLOGIES</h3>
-				<br />
-				<ul>
-					<li>Notepad++</li>
-					<li>Atom text editor</li>
-					<li>Unity 3D</li>
-					<li>Blender 3D</li>
-					<li>Gamemaker</li>
-					<li>Eclipse</li>
-					<li>Idea IntelliJ</li>
-					<li>Tkinter</li>
-					<li>SDL</li>
-					<li>LibGDX</li>
-					<li>Phaser</li>
-					<li>NodeJS</li>
-					<li>Tiled editor</li>
-					<li>JQuery (shallow knowledge)</li>
-				</ul>
+			<br/><br/>
+			
+			<a class="btn btn-primary" data-toggle="collapse" href="#webpage" aria-expanded="false" aria-controls="webpage">Personal Webpage</a>
+			<div class = "collapse work-element" id = "webpage">
+				<br/>
+				This own site is, of course, one of my works as a programmer and web-developer. I find having a
+				personal website is one of the best things you can do as a freelancer. It's the entry point from
+				which people can know who you are, what you do and how to reach you.
+				<br /><br />
+				So, the moment I went freelancer, the first obvious thing to do was this webpage. I approached it
+				from a modern perspective, being elegance, minimalism and responsiveness the main pillars of
+				the project.
 			</div>
-		</body>
+			
+			<br/><br/>
+			
+			<a class="btn btn-primary" data-toggle="collapse" href="#videogamesjournalism" aria-expanded="false" aria-controls="videogamesjournalism">Videogames journalism</a>
+			<div class = "collapse work-element" id = "videogamesjournalism">
+				<br/>
+				I have always been a huge lover of videogames and literature. Mixing those two at some point seemed
+				to be a logical step on my path. Some random day, I found the opportunity to make a trial for a
+				videogames digital magazine, no doubt I had to try. After passing, I started working as a videogames
+				journalist.
+				<br/><br/>
+				After 3 months, I found that was not what I have expected, so I quited. Even so, while working there
+				I learned quite a lot about writing and delivering good quality content. Moreover, I had to translate
+				quite a lot from english [news, declarations, interviews] to spanish, adquiring solid translation skills.
+				<br/><br/>
+				Here you have one of my finest works.
+			</div>
+			
+			<br/><br/>
+			
+			<a class="btn btn-primary" data-toggle="collapse" href="#muchmore" aria-expanded="false" aria-controls="muchmore">Much more to come</a>
+			<div class = "collapse work-element" id = "muchmore">
+				I have been a self-taught programmer for more than a decade, and a self-taught translator for almost 
+				5 years. That's not going to stop now, not ever. I'm always willing to learn more, to do more and to
+				be better at what I do. If you want to propose me a project, do not hesitate to contact me!
+				<br /><br />
+				As for personal projects, I'm right now working on different things. I'm creating a tilemap editor
+				in Python using Tkinter and JSON. I'm also diving in front end development using Jquery and Bootstrap
+				as my main technologies. I have some Android Java applications being developed which I will deploy to
+				the Play Store when finished.
+			</div>
+		</div>
+		
+		<img class = "button scroll" href = "#contact" src = "./images/arrow.png" alt = "Arrow" width = "30" height = "18"
+		style = "display: block; margin-left: auto; margin-right: auto;">
+		<hr />
+		
+		<div class = "section" id = "contact">
+			<h2>CONTACT</h2>
+			
+			<p class = "contact">
+			If you want to make me a proposal, ask for more information or just share any idea you
+			might have; do not hesitate to contact me:
+			<br/><br/>
+			saggamedeveloper@gmail.com
+			</p>
+		</div>
+		
+		<img class = "button scroll" href = "#extra" src = "./images/arrow.png" alt = "Arrow" width = "30" height = "18"
+		style = "display: block; margin-left: auto; margin-right: auto;">
+		<hr />
+		
+		<div class = "section" id = "extra">
+			<h2>EXTRA</h2>
+			
+			<p>
+			I have some non related to work facets you might find interesting.
+			<br/><br/>
+			I have been playing videogames for 16 years, that's with no doubt my biggest hobby. At
+			the age of 11 I decided I wanted to learn to make that I loved so much. So I started
+			playing around with game engines like Scratch, RPG Maker and GameMaker. This, combined
+			with my experience as videogames journalist, means that I have a very deep knowledge of
+			the videogames industry from three different standpoints: developer, journalist and player.
+			<br/><br/>
+			I'm very passionate for all the strenght sports, and I am myself a calisthenics athlete,
+			here you can see what I do. I have been training for almost 4 years now, and even if that
+			may not have a direct relation with my work, I find it a clean proof of my dedication
+			to things I love. I also played basketball for 8 years and figure skating for 3.
+			</p>
 		</div>
 	</div>
 </html>
