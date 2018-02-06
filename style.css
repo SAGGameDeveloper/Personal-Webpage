@@ -112,12 +112,21 @@ table {
 	-o-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
     -ms-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
 }
-.navbar-text{
+.navbar-light .navbar-text{
 	font-size: 2rem;
 	padding: 0 0 0 2rem;
 }
-.navbar-brand{
+.navbar-light .navbar-brand{
 	font-size: 2.5rem;
+	
+	transition: color 0.3s;
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	-o-transition: color 0.3s;
+	-ms-transition: color 0.3s;
+}
+.navbar-light .navbar-brand:hover{
+	color: #ef801f;
 }
 .nav-item a{
 	font-size: 1.15rem;
@@ -141,7 +150,7 @@ table {
 	text-align: left;
 	max-width: 25rem;
 	position:relative;
-	left: 10%;
+	left: 25%;
 	display: inline-block;
 	text-align: center;
 }
