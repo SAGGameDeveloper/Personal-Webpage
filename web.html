@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html>
 	<head id = "title">
-		<title>Sergio Abreu Garcia</title>
-		<meta name = "author" content = "Sergio Abreu Garcia">
+		<title>Sergio Abreu García</title>
+		<meta name = "author" content = "Sergio Abreu García">
 		<meta name = "description" content = "Programmer/translator freelancer personal page">
 		<meta name = "revised" content = "1/2/2018">
 		<meta name = "keywords" content = "programmer, translator, freelancer">
 		
 		<meta charset="utf-8"/>
-		<link rel = "stylesheet" type = "text/css" href = "./style.css">
+
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		
+		<!-- Own stylesheet -->
+		<link rel = "stylesheet" type = "text/css" href = "./style.css">
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>		
 		<script src="./scrollJQuery.js"></script>
 	</head>
-
-	<ul class = "topbar">
-		<div style = "float: left;">
-			<li><a class = "scroll" href = "#home""><strong>SAG</strong></a></li>
-		</div>
+	
+	<nav class = "navbar fixed-top navbar-expand-md navbar-light bg-faded">
+		<a class="navbar-brand scroll" href="#home">SAG</a>
+		<p class = "navbar-text">Sergio Abreu García</p>
 		
-		<li><a class = "scroll" href = "#abilities">ABILITIES</a></li>
-		<li><a class = "scroll" href = "#about">ABOUT</a></li>
-	</ul>	
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">	
+			<ul class = "navbar-nav ml-auto">				
+				<li class="nav-item"><a class = "nav-link scroll" href = "#abilities">ABILITIES</a></li>
+				<li class="nav-item"><a class = "nav-link scroll" href = "#about">ABOUT</a></li>
+			</ul>
+		</div>
+	</nav>
 	
 	<div class= "wholePage">
 		<div class = "banner" id = "home">
 			<body>
 				<img src = "./images/mainPhoto.jpg" alt = "Imagine there was a photo of myself here"
-				width = "100%" height = "930" style = "display: block; margin-left: auto; margin-right: auto;"/>
+				width = "100%" height = "900" style = "display: block; margin-left: auto; margin-right: auto;"/>
 				
 				<h1 style = "position: absolute; top: 17rem; left: 20%; text-align: center;">
-					Sergio Abreu<br />Garcia
-					<hr width = 450/>
+					Something cool here
 				</h1>
 				
 			</body>
 		</div>
 		
+		<img class = "button scroll" href = "#about" src = "./images/arrow.png" alt = "Arrow" width = "30" height = "18"
+		style = "display: block; position: relative; top: -7rem; left: 50%">
+		
 		<div style = "text-align: left; max-width: 25rem; position:relative; left: 10%;">
 			<div class = "plainText" id = "about" style = "display: inline-block; text-align: center;">
 				<body>
-					<h2 style = "color: white;">ABOUT</h2>
+					<h2>ABOUT</h2>
 					<br />
 					<p>Hello! My name is Sergio, I'm a freelancer programmer and translator.
 					I started programming at the age of 11, thrown just by curiosity.
@@ -56,11 +74,13 @@
 				</body>
 			</div>
 		</div>
+		<img class = "button scroll" href = "#abilities" src = "./images/arrow.png" alt = "Arrow" width = "30" height = "18"
+		style = "display: block; margin-left: auto; margin-right: auto;">
 		<hr />
 		
 		<div class = "plainText" id = "abilities">
 		<body>
-			<h2 style = "color: white;">ABILITIES</h2>
+			<h2>ABILITIES</h2>
 			
 			<div class = "abilitiesBlock">
 				<h3>LANGUAGES</h3>
@@ -84,7 +104,6 @@
 					<li>C#</li>
 					<li>HTML</li>
 					<li>CSS</li>
-					<li>JQuery (shallow knowledge)</li>
 				</ul>
 			</div>
 			
@@ -105,6 +124,7 @@
 					<li>Phaser</li>
 					<li>NodeJS</li>
 					<li>Tiled editor</li>
+					<li>JQuery (shallow knowledge)</li>
 				</ul>
 			</div>
 		</body>

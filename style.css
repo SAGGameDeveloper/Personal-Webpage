@@ -7,13 +7,14 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+small, strike, strong, button, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -22,7 +23,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: prime;
+	font-family: hero;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -32,9 +33,11 @@ footer, header, hgroup, menu, nav, section {
 
 h1{
 	font-size: 5rem;
+	color: black;
 }
 h2{
 	font-size: 3.3rem;
+	color: white;
 }
 h3{
 	font-size: 2.1rem;
@@ -43,6 +46,9 @@ body {
 	line-height: 1;
 }
 ol {
+	list-style: none;
+}
+ul {
 	list-style: none;
 }
 blockquote, q {
@@ -64,46 +70,14 @@ table {
 	padding: 3.5rem 0;
 }
 .wholePage{
-	background-color: #282828;
-}
-.topbar{
-	top: 0;
-	left: 0;
-	list-style-type: none;
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-	position: fixed;
-	width: 100%;
-	overflow: hidden;
-	z-index: 1;
-	background: white;
-}
-.topbar li{
-	float: right;
-	border-right: 0.1rem solid black;
-}
-.topbar li:last-child{
-	border-left: 0.1rem solid black;
-}
-.topbar li a{
-	padding: 1.5rem;
-	display: block;
-	text-decoration: none;
-	width: 7rem;
-	text-align: center;
-	border-bottom: 0.22rem solid #555;
-	color: black;
-	font-size: 1.3rem;
-}
-.topbar li a:hover{
-	color: #FF00FF;
+	background-color: #1e1e1e;
 }
 .abilitiesBlock{
 	padding: 1.4rem 0rem;
 }
 .banner {
 	position: relative;
-	padding: 4.5rem 0 0 0;
+	padding: 4.1rem 0 0 0;
 	margin: 0;
 	color: black;
 }
@@ -111,6 +85,38 @@ table {
     font-family: 'prime'; /*a name to be used later*/
     src: url('./fonts/Prime Regular.otf'); /*URL to font*/
 }
-strong{
-	font-
+@font-face {
+    font-family: 'hero'; /*a name to be used later*/
+    src: url('./fonts/Hero.otf'); /*URL to font*/
+}
+.button{
+	transition: opacity 0.3s;
+	-webkit-transition: opacity 0.3s;
+}
+.button:hover{
+	cursor: pointer;
+	opacity: 0.5;
+}
+.navbar{
+	background-color: white;
+	-webkit-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
+    -moz-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
+    box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
+}
+.navbar-text{
+	font-size: 2rem;
+	padding: 0 0 0 2rem;
+}
+.navbar-brand{
+	font-size: 2.5rem;
+}
+.nav-item a{
+	font-size: 1.15rem;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
 }
