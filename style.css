@@ -141,6 +141,18 @@ table {
 	margin-right: auto;
 	text-align: center;
 }
+.bottomBar{
+	background-color: white;
+	-webkit-box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
+    -moz-box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
+    box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
+}
+.bottomBarText{
+	font-size: 1 rem;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
 hr {
     display: block;
     height: 1px;
