@@ -93,7 +93,7 @@ table {
 }
 .section[type=about]{
 	text-align: left;
-	max-width: 25rem;
+	max-width: 50rem;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -194,7 +194,7 @@ table {
 	-o-transition: background-color 0.3s;
 	-ms-transition: background-color 0.3s;
 }
-btn-primary:hover{
+.btn-primary:hover{
 	background-color: var(--color4);
 }
 
@@ -234,6 +234,11 @@ btn-primary:hover{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+.defaultImage{
+	float: right;
+	height: auto;
+	margin: 1.2em;
 }
 .fab, .fa{
 	font-size: 2.8rem;
