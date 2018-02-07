@@ -32,7 +32,17 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-
+@media only screen and (max-width: 450px), only screen and (max-device-width: 450px) {
+	.garcia{
+		display: none;
+	}
+	.navbar-light .navbar-brand{
+		margin: 0;
+	}
+	.navbar-toggler, .navbar-toggler-icon{
+		padding: 0.1em;
+	}
+}
 
 :root{
 	--color1: white;
@@ -41,15 +51,15 @@ footer, header, hgroup, menu, nav, section {
 	--color4: #ff970f;
 }
 h1{
-	font-size: 5rem;
+	font-size: calc(1rem + 2.7vw);
 	color: black;
 }
 h2{
-	font-size: 3.3rem;
+	font-size: calc(1.7rem + 1.4vw);
 	color: white;
 }
 h3{
-	font-size: 2.1rem;
+	font-size: calc(1.3rem + 0.8vw);
 }
 p{
 	margin: 1em 0;
@@ -81,6 +91,13 @@ table {
 	text-align: center;
 	margin: 3.3rem 0;
 }
+.section[type=about]{
+	text-align: left;
+	max-width: 25rem;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
 .wholePage{
 	background-color: var(--color2);
 }
@@ -89,9 +106,13 @@ table {
 }
 .banner {
 	position: relative;
-	margin: 4.1rem 0 0 0;
+	margin-top: calc(2.8rem + 1.6vw);
 	padding: 0;
 	color: black;
+}
+.banner img{
+	width: 100%;
+	height: auto;
 }
 @font-face {
     font-family: 'prime'; /*a name to be used later*/
@@ -114,6 +135,7 @@ table {
 }
 .navbar{
 	background-color: var(--color1);
+	font-size: calc(0.5rem + 0.7vw);
 	
 	box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
 	-webkit-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
@@ -122,11 +144,11 @@ table {
     -ms-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
 }
 .navbar-light .navbar-text{
-	font-size: 2rem;
-	margin: 0 0 0 1em;
+	font-size: 2em;
+	margin: 0 0.7em;
 }
 .navbar-light .navbar-brand{
-	font-size: 2.5rem;
+	font-size: 2.5em;
 	
 	transition: color 0.3s;
 	-webkit-transition: color 0.3s;
@@ -138,16 +160,17 @@ table {
 	color: var(--color4);
 }
 .nav-item a{
-	font-size: 1.15rem;
+	font-size: 1.15em;
 	
-	transition: font-size 0.3s;
-	-webkit-transition: font-size 0.3s;
-	-moz-transition: font-size 0.3s;
-	-o-transition: font.size 0.3s;
-	-ms-transition: font.size 0.3s;
+	transition: font-size 0.3s, color 0.3s;
+	-webkit-transition: font-size 0.3s, color 0.3s;
+	-moz-transition: font-size 0.3s, color 0.3s;
+	-o-transition: font.size 0.3s, color 0.3s;
+	-ms-transition: font.size 0.3s, color 0.3s;
 }
 .nav-item a:hover{
-	font-size: 1.3rem;
+	font-size: 1.3em;
+	color: var(--color3) !important;
 }
 .btn{
 	border: 0;
@@ -167,14 +190,6 @@ table {
 	max-width: 24em;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;
-}
-.about{
-	text-align: left;
-	max-width: 25rem;
-	position:relative;
-	left: 25%;
-	display: inline-block;
 	text-align: center;
 }
 .contactContent{
@@ -198,9 +213,13 @@ table {
 	-o-box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
     -ms-box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
 }
-.bottomBarText{
-	font-size: 1 rem;
+.navbar-light .bottomBarText{
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.arrow{
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }

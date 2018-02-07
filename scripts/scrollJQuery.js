@@ -7,6 +7,6 @@ $("document").ready( function(){
 		var rem = parseInt(window.getComputedStyle(html)['fontSize']);
 		
 		var targetId = $(this).attr('href');
-		$('html,body').animate({scrollTop:$(targetId).offset().top - 4.3*rem}, 500);
+		$('html,body').animate({scrollTop:$(targetId).offset().top - 6*rem}, 500);
 	});
 });
