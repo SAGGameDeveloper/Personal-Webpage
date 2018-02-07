@@ -98,6 +98,17 @@ table {
 	margin-right: auto;
 	text-align: center;
 }
+.link{	
+	transition: color 0.3s;
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	-o-transition: color 0.3s;
+	-ms-transition: color 0.3s;
+}
+.link:hover{
+	text-decoration: none;
+	color: var(--color4);
+}
 .wholePage{
 	background-color: var(--color2);
 }
@@ -183,9 +194,10 @@ table {
 	-o-transition: background-color 0.3s;
 	-ms-transition: background-color 0.3s;
 }
-.btn-primary:hover{
+btn-primary:hover{
 	background-color: var(--color4);
 }
+
 .work-element{
 	max-width: 24em;
 	margin-left: auto;
