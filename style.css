@@ -126,7 +126,7 @@ table {
 	-ms-transition: color 0.3s;
 }
 .navbar-light .navbar-brand:hover{
-	color: #ef801f;
+	color: #ff970f;
 }
 .nav-item a{
 	font-size: 1.15rem;
@@ -179,6 +179,22 @@ table {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+}
+.fab, .fa{
+	font-size: 2.8rem;
+	padding: 0.5rem;
+	text-decoration: none;
+	
+	transition: font-size 0.3s, color 0.3s;
+	-webkit-transition: font-size 0.3s, color 0.3s;
+	-moz-transition: font-size 0.3s, color 0.3s;
+	-o-transition: font.size 0.3s, color 0.3s;
+	-ms-transition: font.size 0.3s, color 0.3s;
+}
+.fab:hover, .fa:hover{
+	font-size: 3.2rem;
+	text-decoration: none;
+	color: #ff970f;
 }
 hr {
     display: block;
