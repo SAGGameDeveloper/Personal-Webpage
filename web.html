@@ -25,8 +25,11 @@
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		
+		<!-- Flags stylesheet -->
+		<link rel = "stylesheet" type = "text/css" href = "./css/flag-icon.min.css">
+		
 		<!-- Own stylesheet -->
-		<link rel = "stylesheet" type = "text/css" href = "./style.css">
+		<link rel = "stylesheet" type = "text/css" href = "./css/style.css">
 	</head>
 	
 	<!-- Top navigation bar -->
@@ -60,7 +63,13 @@
 		<div class = "banner" id = "home">
 			<body>
 				<!-- Main image of the page -->
-				<img src = "./images/mainPhoto.jpg" alt = "Main image" style = "display: block; margin-left: auto; margin-right: auto;"/>
+				<img src = "./images/mainImage.jpg" alt = "Main image" style = "display: block; margin-left: auto; margin-right: auto;"/>
+				
+				<div class="flagsContainer">
+					<a href="#about"><img class="flag" src="./images/englishFlag.svg" style="top: 7%; left: 0"></img></a>
+					<a href="#about"><img class="flag" src="./images/spanishFlag.svg" style="top: 7%; left: 50%"></img></a>
+					<a href="#about"><img class="flag" src="./images/galicianFlag.svg" style="top: 7%; left: 100%"></img></a>
+				</div>
 				
 				<h1 style = "position: absolute; top: 25%; left: 12%; text-align: center;">
 					A modern<br/>approach to<br/>technology
@@ -190,6 +199,7 @@
 			<a class="btn btn-primary" data-toggle="collapse" href="#tryangle" aria-expanded="false" aria-controls="tryangle">The Tryangle</a>
 			<div class = "collapse work-element" id = "tryangle">
 				<p>
+				<img class="defaultImage" src="./images/tryangleImage.png" alt="tryangleImage" style="width: calc(6rem + 5vw); float: left;">
 				<a class = "link" href = "https://play.google.com/store/apps/details?id=com.SAG.TheTryangle" target="_blank">This</a>
 				was the first project I ended as a programmer. I started it when I was 14 years old
 				and finished half a year later, working only in my spare time. Initially, it was done using
@@ -216,6 +226,8 @@
 				<a class = "link" href = "https://dimart10.github.io/tplvi_Dai-Gurren/" target="_blank">play it directly</a>
 				through Gihub Pages.
 				</p>
+				<img class="defaultImage"  src="./images/kidicarusImage.jpg"
+					alt="kidicarusImage" style="width: calc(11rem + 7.5vw); float: none;">
 				<p>
 				The main focus of the development is on the programming part, as we were not game designers and
 				that was not the point of the project. Being this so, our first priority was to make a solid
@@ -233,6 +245,10 @@
 				videogames digital magazine, no doubt I had to try. After passing, I started working as a videogames
 				journalist.
 				</p>
+				<a href = "https://www.gamelegant.com/author/saggamedeveloper/" target="_blank">
+					<img class="defaultImage button"  src="./images/gamelegantImage.png"
+					alt="gamelegantImage" style="width: calc(6rem + 5vw); float: none;">
+				</a>
 				<p>
 				After 3 months, I found that was not what I have expected, so I quited. Even so, while working there
 				I learned quite a lot about writing and delivering good quality content. Moreover, I had to translate
@@ -252,7 +268,7 @@
 				I have been a self-taught programmer for more than a decade, and a self-taught translator for almost 
 				5 years. That's not going to stop now, not ever. I'm always willing to learn more, to do more and to
 				be better at what I do. If you want to propose me a project, do not hesitate to
-				<a class = "link" href = "#contact" class = "scroll">contact me!</a>
+				<a class = "link scroll" href = "#contact">contact me!</a>
 				</p>
 				<p>
 				As for personal projects, I'm right now working on different things. I'm creating a tilemap editor
@@ -277,7 +293,7 @@
 				</p>
 				<p>
 				<a href="https://github.com/SAGGameDeveloper" class="fab fa-github" target="_blank"></a>
-				<a href="https://github.com/SAGGameDeveloper" class="fab fa-linkedin" target="_blank"></a>
+				<a href="https://linkedin.com/in/sergio-abreu-garcía-826520159" class="fab fa-linkedin" target="_blank"></a>
 				<a href="https://t.me/SAGGameDeveloper" class="fab fa-telegram" target="_blank"></a>
 				<a href="mailto:saggamedeveloper@gmail.com" class="fa fa-envelope" target="_blank"></a>
 				<br/>

@@ -32,6 +32,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+
+
 @media only screen and (max-width: 450px), only screen and (max-device-width: 450px) {
 	.garcia{
 		display: none;
@@ -46,13 +48,13 @@ footer, header, hgroup, menu, nav, section {
 
 :root{
 	--color1: white;
-	--color2: #1e1e1e;
+	--color2: #0f0f0f;
 	--color3: #b2d1ff;
 	--color4: #ff970f;
 }
 h1{
 	font-size: calc(1rem + 2.7vw);
-	color: black;
+	color: white;
 }
 h2{
 	font-size: calc(1.7rem + 1.4vw);
@@ -110,7 +112,7 @@ table {
 	color: var(--color4);
 }
 .wholePage{
-	background-color: var(--color2);
+	background: none repeat scroll 0 0 var(--color2);
 }
 .abilitiesBlock{
 	margin: 1.4rem 0 2.3rem 0rem;
@@ -239,6 +241,12 @@ table {
 	float: right;
 	height: auto;
 	margin: 1.2em;
+
+	filter: drop-shadow(0px 0px 12px #000);
+	-webkit-filter: drop-shadow(0px 0px 12px #000);
+	-moz-filter: drop-shadow(0px 0px 12px #000);
+	-o-filter: drop-shadow(0px 0px 12px #000);
+	-ms-filter: drop-shadow(0px 0px 12px #000);
 }
 .fab, .fa{
 	font-size: 2.8rem;
@@ -255,6 +263,16 @@ table {
 	font-size: 3.2rem;
 	text-decoration: none;
 	color: var(--color4);
+}
+.flag{
+	width: calc(13px + 1.5vw) !important;
+	position: absolute;
+}
+.flagsContainer{
+	position: absolute;
+	top: 7%;
+	left: 65%;
+	width: calc(2rem + 7vw);
 }
 hr {
     display: block;
