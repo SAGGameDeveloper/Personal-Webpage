@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
 	<head id = "title">
-		<title>Sergio Abreu García</title>
+		<title>{{ page.title }}</title>
 		<meta name = "author" content = "Sergio Abreu García">
 		<meta name = "description" content = "Sergio Abreu García, developer/translator freelancer personal page">
 		<meta name = "revised" content = "6/2/2018">
@@ -38,6 +38,8 @@
 		<!-- Logo and name -->
 		<a class="navbar-brand scroll" href="#home">SAG</a>
 		<p class = "navbar-text">Sergio Abreu <span class = "garcia">García</span></p>
+
+		{% include {{page.lang}}/test.html %}
 
 		<!-- Collapsible menu button -->
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
