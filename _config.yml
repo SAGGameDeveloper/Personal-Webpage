@@ -3,4 +3,47 @@ markdown: kramdown
 
 languages:
   en:
-    about: aboutttt
+    about: ABOUT
+    abilities: ABILITIES
+    work: WORK
+    contact: CONTACT
+    extra: EXTRA
+    slogan: A modern approach to technology
+    languages: LANGUAGES
+    programmingLanguages: PROGRAMMING LANGUAGES
+    technologies: TECHNOLOGIES
+    personalWebpage: Personal Webpage
+    theTryangle: The Tryangle
+    kidIcarus: Kid Icarus with Javascript
+    videogamesJournalism: Videogames journalism
+    muchMore: Much more to come!
+  es:
+    about: ACERCA
+    abilities: HABILIDADES
+    work: TRABAJO
+    contact: CONTACTO
+    extra: EXTRA
+    slogan: Un enfoque moderno de la tecnología
+    languages: IDIOMAS
+    programmingLanguages: LENGUAJES DE PROGRAMACIÓN
+    technologies: TECNOLOGÍAS
+    personalWebpage: Página web personal
+    theTryangle: The Tryangle
+    kidIcarus: Kid Icarus con Javascript
+    videogamesJournalism: Periodismo de videojuegos
+    muchMore: Mucho más por venir!
+  gl:
+    about: ACERCA
+    abilities: HABILIDADES
+    work: TRABALLO
+    contact: CONTACTO
+    extra: EXTRA
+    slogan: Un enfoque moderno da tecnoloxía
+    languages: IDIOMAS
+    programmingLanguages: LINGUAXES DE PROGRAMACIÓN
+    technologies: TECNOLOXÍAS
+    personalWebpage: Páxina web personal
+    theTryangle: The Tryangle
+    kidIcarus: Kid Icarus con Javascript
+    videogamesJournalism: Periodismo de videoxogos
+    muchMore: Moito máis por venir!
