@@ -1,2 +1,6 @@
 name: Sergio Abreu García
 markdown: kramdown
+
+languages:
+  en:
+    about: aboutttt

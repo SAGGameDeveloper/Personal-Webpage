@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
 License: none (public domain)
 CSS reset
@@ -13,8 +13,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -27,7 +27,7 @@ time, mark, audio, video {
 	font-family: hero;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -100,7 +100,7 @@ table {
 	margin-right: auto;
 	text-align: center;
 }
-.link{	
+.link{
 	transition: color 0.3s;
 	-webkit-transition: color 0.3s;
 	-moz-transition: color 0.3s;
@@ -129,11 +129,11 @@ table {
 }
 @font-face {
     font-family: 'prime'; /*a name to be used later*/
-    src: url('./fonts/Prime Regular.otf'); /*URL to font*/
+    src: url('../fonts/Prime Regular.otf'); /*URL to font*/
 }
 @font-face {
     font-family: 'hero'; /*a name to be used later*/
-    src: url('./fonts/Hero.otf'); /*URL to font*/
+    src: url('../fonts/Hero.otf'); /*URL to font*/
 }
 .button{
 	transition: opacity 0.3s;
@@ -149,7 +149,7 @@ table {
 .navbar{
 	background-color: var(--color1);
 	font-size: calc(0.5rem + 0.7vw);
-	
+
 	box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
 	-webkit-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
     -moz-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
@@ -162,7 +162,7 @@ table {
 }
 .navbar-light .navbar-brand{
 	font-size: 2.5em;
-	
+
 	transition: color 0.3s;
 	-webkit-transition: color 0.3s;
 	-moz-transition: color 0.3s;
@@ -174,7 +174,7 @@ table {
 }
 .nav-item a{
 	font-size: 1.15em;
-	
+
 	transition: font-size 0.3s, color 0.3s;
 	-webkit-transition: font-size 0.3s, color 0.3s;
 	-moz-transition: font-size 0.3s, color 0.3s;
@@ -220,7 +220,7 @@ table {
 }
 .bottomBar{
 	background-color: var(--color1);
-	
+
 	 box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
 	-webkit-box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
     -moz-box-shadow: 0 -0.6rem 0.4rem -0.4rem #000;
@@ -252,7 +252,7 @@ table {
 	font-size: 2.8rem;
 	margin: 0.5rem;
 	text-decoration: none;
-	
+
 	transition: font-size 0.3s, color 0.3s;
 	-webkit-transition: font-size 0.3s, color 0.3s;
 	-moz-transition: font-size 0.3s, color 0.3s;
