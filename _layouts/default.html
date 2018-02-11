@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en">
+<html lang="{{ page.lang }}" xml:lang="{{ page.lang }}">
 	<head id = "title">
 		<title>{{ page.title }}</title>
-		<meta name = "author" content = "Sergio Abreu García">
-		<meta name = "description" content = "Sergio Abreu García, developer/translator freelancer personal page">
-		<meta name = "revised" content = "6/2/2018">
-		<meta name = "keywords" content = "developer, translator, freelancer">
+
+		<!-- Include the language dependant head section -->
+		{% include {{page.lang}}/head.html %}
+
+		<!-- Anti-spam link-->
+		<link rel="canonical" href="https://www.sag-dev.com" />
 
 		<!-- Character codification -->
 		<meta charset="utf-8"/>
