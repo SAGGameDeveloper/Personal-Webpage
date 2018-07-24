@@ -17,6 +17,7 @@ languages:
     theTryangle: The Tryangle
     kidIcarus: Kid Icarus with Javascript
     videogamesJournalism: Videogames journalism
+    iTriedToMakeAnRpg: I tried to make an RPG
     muchMore: Much more to come!
   es:
     about: ACERCA
@@ -32,6 +33,7 @@ languages:
     theTryangle: The Tryangle
     kidIcarus: Kid Icarus con Javascript
     videogamesJournalism: Periodismo de videojuegos
+    iTriedToMakeAnRpg: I tried to make an RPG
     muchMore: Mucho más por venir!
   gl:
     about: ACERCA
@@ -47,6 +49,7 @@ languages:
     theTryangle: The Tryangle
     kidIcarus: Kid Icarus con Javascript
     videogamesJournalism: Periodismo de videoxogos
+    iTriedToMakeAnRpg: I tried to make an RPG
     muchMore: Moito máis por venir!
 
 links:
@@ -57,4 +60,5 @@ links:
   gamelegantArticle: https://www.gamelegant.com/la-situacion-del-doblaje-videojuegos/
   gamelegantAuthor: https://www.gamelegant.com/author/saggamedeveloper/
   theTryangle: https://play.google.com/store/apps/details?id=com.SAG.TheTryangle
+  iTriedToMakeAnRpg: https://play.google.com/store/apps/details?id=com.sagdev.littlerpg
   instagram: https://www.instagram.com/sergio_calisthenics/
