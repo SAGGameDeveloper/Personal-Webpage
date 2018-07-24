@@ -162,7 +162,7 @@ q:before, q:after {
 	-o-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
   -ms-box-shadow: 0 0.6rem 0.4rem -0.4rem #000;
 }
-.navbar p, ul, li{
+.navbar p, .navbar ul, .navbar li{
 	margin: 0;	
 }
 
