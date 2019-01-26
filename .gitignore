@@ -1,2 +1,5 @@
 _site/
 favicon_package.zip
+node_modules/
+public/
+.cache/
