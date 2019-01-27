@@ -1,0 +1,33 @@
+.container {
+  flex: 1;
+  min-height: 100%;
+}
+
+.welcome {
+  background-color: blue;
+
+  #welcomeImage {
+    max-width: 50%;
+  }
+}
+
+.about {
+  background-color: purple;
+}
+
+.work {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: grey;
+}
+
+.skills {
+  background-color: white;
+}
+
+
+.contact {
+  background-color: green;
+}

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
-import Image from '../components/image'
+
+import '../sass/wrapper.scss'
 
 // Helper function to inject contents into the index from different files.
 function inject(files, title) {
@@ -14,15 +16,32 @@ export default function Index ( {data} ) {
   const { edges: files } = data.allMarkdownRemark;
   return (
     <Layout>
-      <div class="container">
-        <h1>Sergio Abreu García</h1>
-        <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-          <Link to="/gl"> <Image /> </Link>
-        </div>
+      <div class="container welcome">
 
-        { inject(files, 'about') }
+      <div id="welcomeImage"> <Img  fluid={data.welcomeImage.childImageSharp.fluid}/> </div>
+
+        <h1>Sergio Abreu García</h1>
+        <h2 dangerouslySetInnerHTML = {{ __html: inject(files, 'subhead') }}/>
+      </div>
+
+      <div dangerouslySetInnerHTML = {{ __html: inject(files, 'about') }} class = "container about">
 
       </div>
+
+      <div class = "container work">
+        { files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
+          return (<div dangerouslySetInnerHTML = {{ __html: file.node.html }} />);
+        }) }
+      </div>
+
+      <div dangerouslySetInnerHTML = {{ __html: inject(files, 'skills') }} class = "container skills">
+
+      </div>
+
+      <div dangerouslySetInnerHTML = {{ __html: inject(files, 'contact') }} class = "container contact">
+
+      </div>
+
     </Layout>
   )
 }
@@ -39,7 +58,16 @@ export const pageQuery = graphql`
           frontmatter {
             title
             lang
+            tag
           }
+        }
+      }
+    }
+
+    welcomeImage: file( relativePath: { eq: "welcomeImage.jpg" } ) {
+      childImageSharp {
+        fluid( quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
