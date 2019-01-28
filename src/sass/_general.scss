@@ -1,5 +1,12 @@
+@font-face {
+ font-family: mainFont;
+ src: url(../fonts/Hero.otf);
+}
+
 html, body{
   height: 100%;
+  font-size: 1.4rem;
+  font-family: mainFont;
 }
 
 #___gatsby {

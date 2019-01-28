@@ -4,10 +4,29 @@
 }
 
 .welcome {
-  background-color: blue;
+  color: white;
+  min-height: auto;
+
+  h1, h2 {
+    margin: 10%
+  }
 
   #welcomeImage {
-    max-width: 50%;
+    position: fixed;
+    z-index: -1;
+    overflow: hidden;
+
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+
+    img {
+      position: absolute;
+      min-height: 100%;
+      min-width: 100%;
+      top: 50%;
+      left: 50%;
+    }
   }
 }
 

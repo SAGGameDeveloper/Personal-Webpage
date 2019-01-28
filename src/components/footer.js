@@ -4,7 +4,9 @@ import { StaticQuery, graphql } from 'gatsby'
 
 const Footer = () => (
   <div class="footer">
-    Sergio Abreu García 2019
+  © 2018 - 2019 Sergio Abreu García. All rights reserved.
+  
+saggamedeveloper@gmail.com
   </div>
 )
 
