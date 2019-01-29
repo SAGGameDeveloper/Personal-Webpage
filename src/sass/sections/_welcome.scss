@@ -1,0 +1,48 @@
+.welcome {
+  color: white;
+
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .title {
+    text-align: center;
+    margin: 8%
+  }
+
+  #welcomeImage {
+    position: fixed;
+    z-index: -1;
+    overflow: hidden;
+
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+
+    img {
+      position: absolute;
+      min-height: 100%;
+      min-width: 100%;
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  .flags {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    margin: 3%;
+  }
+
+  .flag {
+      max-width: 1.8rem;
+      margin: 0.4rem;
+  }
+}

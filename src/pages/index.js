@@ -7,9 +7,16 @@ import Layout from '../components/layout'
 
 import '../sass/wrapper.scss'
 
+import galicianFlag from '../images/galicianFlag.svg'
+import englishFlag from '../images/englishFlag.svg'
+import spanishFlag from '../images/spanishFlag.svg'
+
 // Helper function to inject contents into the index from different files.
 function inject(files, title) {
-  return files.filter(file => file.node.frontmatter.title === title)[0].node.html;
+  var elementToInject = files.filter(file => file.node.frontmatter.title === title)[0];
+
+
+  return elementToInject != null?  elementToInject.node.html : 'MISSING CONTENT!!!';
 }
 
 export default function Index ( {data} ) {
@@ -18,10 +25,20 @@ export default function Index ( {data} ) {
     <Layout>
       <div class="container welcome">
 
-      <div id="welcomeImage"> <Img  fluid={data.welcomeImage.childImageSharp.fluid}/> </div>
+        <div id="welcomeImage"> <Img  fluid={data.welcomeImage.childImageSharp.fluid}/></div>
 
-        <h1>Sergio Abreu García</h1>
-        <h2 dangerouslySetInnerHTML = {{ __html: inject(files, 'subhead') }}/>
+        <div class = 'flags'>
+          <Link to="gl"> <img class='flag' src={galicianFlag} /> </Link>
+          <Link to=""> <img class='flag' src={englishFlag} /> </Link>
+          <Link to="es"> <img class='flag' src={spanishFlag} /> </Link>
+        </div>
+
+        <div class='title'>
+          <h1>Sergio Abreu García</h1>
+          <br/>
+          <h2 dangerouslySetInnerHTML = {{ __html: inject(files, 'subhead') }}/>
+        </div>
+
       </div>
 
       <div dangerouslySetInnerHTML = {{ __html: inject(files, 'about') }} class = "container about">
