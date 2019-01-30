@@ -4,24 +4,7 @@
 }
 
 @import 'sections/_welcome';
-
-.about {
-  background-color: purple;
-}
-
-.work {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: grey;
-}
-
-.skills {
-  background-color: white;
-}
-
-
-.contact {
-  background-color: green;
-}
+@import 'sections/_about';
+@import 'sections/_work';
+@import 'sections/_skills';
+@import 'sections/_contact';

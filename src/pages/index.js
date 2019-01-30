@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
@@ -20,17 +19,13 @@ export default function Index ( {data} ) {
   const { edges: files } = data.allMarkdownRemark;
   return (
     <Layout>
+      <div id="welcome-section" className="container welcome">
 
-
-      <div id="welcome-section" class="container welcome">
-
-        <div id="welcomeImage"> <Img  fluid={data.welcomeImage.childImageSharp.fluid}/></div>
-
+        <div id="welcomeImage"> <Img alt="welcomeImage" fluid={data.welcomeImage.childImageSharp.fluid}/></div>
         <Flags/>
-
         <Navbar/>
 
-        <div class='title'>
+        <div className='title'>
           <h1>Sergio Abreu García</h1>
           <br/>
           <h2 dangerouslySetInnerHTML = {{ __html: inject(files, 'subhead') }}/>
@@ -38,21 +33,21 @@ export default function Index ( {data} ) {
 
       </div>
 
-      <div id="about-section" dangerouslySetInnerHTML = {{ __html: inject(files, 'about') }} class = "container about">
+      <div id="about-section" dangerouslySetInnerHTML = {{ __html: inject(files, 'about') }} className = "container about">
 
       </div>
 
-      <div id="work-section" class = "container work">
+      <div id="work-section" className = "container work">
         { files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
           return (<div key={ file.node.frontmatter.title } dangerouslySetInnerHTML = {{ __html: file.node.html }} />);
         }) }
       </div>
 
-      <div id="skills-section" dangerouslySetInnerHTML = {{ __html: inject(files, 'skills') }} class = "container skills">
+      <div id="skills-section" dangerouslySetInnerHTML = {{ __html: inject(files, 'skills') }} className = "container skills">
 
       </div>
 
-      <div id="contact-section" dangerouslySetInnerHTML = {{ __html: inject(files, 'contact') }} class = "container contact">
+      <div id="contact-section" dangerouslySetInnerHTML = {{ __html: inject(files, 'contact') }} className = "container contact">
 
       </div>
 

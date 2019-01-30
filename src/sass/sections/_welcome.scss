@@ -1,5 +1,6 @@
 .welcome {
   color: white;
+  background-color: $welcome-color;;
 
   h1 {
     font-size: 4rem;
@@ -11,7 +12,7 @@
 
   .title {
     text-align: center;
-    margin: 8%
+    margin: 8%;
   }
 
   #welcomeImage {
