@@ -23,7 +23,8 @@ class Navbar extends Component {
   }
 
   // Based on https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
-  scrollTo(targetId, duration = 600, callback) {
+  // Scrolls to the element with the given ID, delays 'duration'
+  scrollTo(targetId, duration = 600) {
     function ease (t) {
       return t * (2 - t);
     }
@@ -46,23 +47,25 @@ class Navbar extends Component {
       if (elapsed < duration) requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(animate);requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
   }
 
+  // Updates the navigation bar active element to fit the current section
   onScroll() {
-    window.requestAnimationFrame( () => {
+    for (var i = 0; i < this.section_divs.length; i++) {
+      var section_pos = this.section_divs[i].getBoundingClientRect().top;
+      if (section_pos >= -window.innerHeight/2 && section_pos < window.innerHeight/2 ){
 
-      for (var i = 0; i < this.section_divs.length; i++) {
-        var section_pos = this.section_divs[i].getBoundingClientRect().top;
-        if (section_pos >= -window.innerHeight/2 && section_pos < window.innerHeight/2 ){
+        // eslint-disable-next-line
+        window.requestAnimationFrame( () => {
           this.section_navelements[this.currentSection].classList.remove('active-navelement');
           this.section_navelements[i].classList.add('active-navelement');
-
           this.currentSection = i;
-          break;
-        }
+        })
+
+        break;
       }
-    })
+    }
   }
 
   render() {
