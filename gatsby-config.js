@@ -1,9 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Personal webpage of Sergio Abreu García`,
+    title: `Sergio Abreu García`,
     author: `Sergio Abreu García`,
     languages: ['en', 'gl', 'es'],
+    description: { en: `Sergio Abreu García portfolio`,
+                   gl: `Sergio Abreu García portfolio`,
+                   es: `Sergio Abreu García portfolio`,
+                 },
+    url: 'https://sag-dev.com',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
