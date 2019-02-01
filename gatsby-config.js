@@ -1,13 +1,22 @@
 module.exports = {
   siteMetadata: {
-    title: `Sergio Abreu García`,
+    title: { en: `Sergio Abreu García | Software developer`,
+              es: `Sergio Abreu García | Desarrollador de software`,
+              gl: `Sergio Abreu García | Desarrollador de software`,
+            },
     author: `Sergio Abreu García`,
     languages: ['en', 'gl', 'es'],
-    description: { en: `Sergio Abreu García portfolio`,
-                   gl: `Sergio Abreu García portfolio`,
-                   es: `Sergio Abreu García portfolio`,
+    description: { en: `Portfolio website of Sergio Abreu García, software developer.`,
+                   gl: `Páxina portfolio de Sergio Abreu García, desarrollador de software`,
+                   es: `Página portfolio de Sergio Abreu García, desarrollador de software`,
                  },
     url: 'https://sag-dev.com',
+    keywords:{ general: ["sergio", "abreu", "garcía", "software",
+                        "blockchain", "portfolio", "frontend", "backend", "cv"],
+               en: ["english", "developer"],
+               gl: ["galego", "desarrollador"],
+               es: ["español", "desarrollador"],
+             },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -29,7 +38,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/galicianFlag.svg`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
 

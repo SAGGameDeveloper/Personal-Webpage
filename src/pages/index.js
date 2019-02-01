@@ -39,7 +39,9 @@ export default function Index ( {data} ) {
   const lang = files[0].node.frontmatter.lang;
   return (
     <Layout>
+    
       <SEO lang={ lang }/>
+
       <Navbar/>
 
       <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
