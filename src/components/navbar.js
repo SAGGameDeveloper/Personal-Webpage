@@ -12,7 +12,7 @@ class Navbar extends Component {
     this.section_divs = [];
     this.section_navelements = [];
 
-    window.onscroll = () => (this.onScroll());
+    window.addEventListener('scroll', () => (this.onScroll()));
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class Navbar extends Component {
 
   // Based on https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
   // Scrolls to the element with the given ID, delays 'duration'
-  scrollTo(targetId, duration = 600) {
+  static scrollTo(targetId, duration = 600) {
     function ease (t) {
       return t * (2 - t);
     }
@@ -72,7 +72,7 @@ class Navbar extends Component {
     return (
         <div className = 'navbar'>
           { sections.map((section) => (
-            <div key={ section+navelement_suffix } id={ section+navelement_suffix } className="navbar-element" onClick={() => (this.scrollTo("#"+section+section_suffix))}></div>
+            <div key={ section+navelement_suffix } id={ section+navelement_suffix } className="navbar-element" onClick={() => (Navbar.scrollTo("#"+section+section_suffix))}></div>
           )) }
         </div>
       );

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 //import Img from 'gatsby-image'
 
@@ -13,6 +13,7 @@ import '../sass/wrapper.scss'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Navbar from '../components/navbar'
+import Arrow from '../components/arrow'
 import Flags from '../components/flags'
 
 // Animate On Scroll initialization
@@ -34,53 +35,80 @@ function inject(files, title) {
   return elementToInject != null?  elementToInject.node.html : 'MISSING CONTENT!!!';
 }
 
-export default function Index ( {data} ) {
-  const { edges: files } = data.allMarkdownRemark;
-  const lang = files[0].node.frontmatter.lang;
-  return (
-    <Layout>
-    
-      <SEO lang={ lang }/>
+ class Index extends Component {
+  constructor(props) {
+    super(props);
 
-      <Navbar/>
+    this.files = props.data.allMarkdownRemark.edges;
+    this.lang = this.files[0].node.frontmatter.lang;
 
-      <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
-      data-aos-duration="1800" id="welcome-section" className="container welcome">
-        <Flags/>
-        <div className='title'>
+    window.addEventListener('scroll', () => (this.onScroll()));
+  }
+
+  componentDidMount() {
+    this.title = document.querySelector("#title");
+  }
+
+  onScroll() {
+    if (this.title.getBoundingClientRect().top <= 50) {
+      this.title.classList.add('title-logo');
+    }
+  }
+
+  render () {
+    return (
+      <Layout>
+
+        <SEO lang={ this.lang }/>
+
+        <Navbar/>
+
+        <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
+        data-aos-duration="1800" className='title' id='title'>
           <h1>Sergio Abreu García</h1>
 
           <br/>
-          <h2 dangerouslySetInnerHTML = {{ __html: inject(files, 'subhead') }}/>
+          <h2 dangerouslySetInnerHTML = {{ __html: inject(this.files, 'subhead') }}/>
         </div>
 
-      </div>
+        <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
+        data-aos-duration="1800" id="welcome-section" className="container welcome">
+          <Flags/>
 
-      <div data-aos="fade-right" id="about-section"
-      dangerouslySetInnerHTML = {{ __html: inject(files, 'about') }} className = "container about">
+          <Arrow target_id="about-section"/>
+        </div>
 
-      </div>
+        <div data-aos="fade-right" id="about-section" className = "container about">
+          <div dangerouslySetInnerHTML = {{ __html: inject(this.files, 'about') }} />
 
-      <div data-aos="fade-left" id="work-section" className = "container work">
-        { files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
-          return (<div key={ file.node.frontmatter.title }
-                    dangerouslySetInnerHTML = {{ __html: file.node.html }} />);
-        }) }
-      </div>
+          <Arrow target_id="work-section"/>
+        </div>
 
-      <div data-aos="fade-right" id="skills-section"
-      dangerouslySetInnerHTML = {{ __html: inject(files, 'skills') }} className = "container skills">
+        <div data-aos="fade-left" id="work-section" className = "container work">
+          { this.files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
+            return (<div key={ file.node.frontmatter.title }
+                      dangerouslySetInnerHTML = {{ __html: file.node.html }} />);
+          }) }
 
-      </div>
+          <Arrow target_id="skills-section"/>
+        </div>
 
-      <div data-aos="fade-left" id="contact-section"
-      dangerouslySetInnerHTML = {{ __html: inject(files, 'contact') }} className = "container contact">
+        <div data-aos="fade-right" id="skills-section" className = "container skills">
+          <div dangerouslySetInnerHTML = {{ __html: inject(this.files, 'skills') }} />
 
-      </div>
+          <Arrow target_id="contact-section"/>
+        </div>
 
-    </Layout>
-  )
+        <div data-aos="fade-left" id="contact-section" className = "container contact">
+          <div dangerouslySetInnerHTML = {{ __html: inject(this.files, 'contact') }} />
+        </div>
+
+      </Layout>
+    )
+  }
 }
+
+export default Index;
 
 // Queries every content file, those will be used to build the final index
 // through the 'inject' function. The language is given by the context on

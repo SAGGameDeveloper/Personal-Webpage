@@ -1,6 +1,12 @@
-.welcome {
-  color: white;
-  background-color: $welcome-color;;
+
+.title {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: 8% auto;
+
+  z-index: 2;
 
   h1 {
     font-size: 4rem;
@@ -10,10 +16,28 @@
     font-size: 2rem;
   }
 
-  .title {
-    text-align: center;
-    margin: 8%;
+  @include breakpoint1 {
+    margin: calc(2rem + 8%) 1rem;
   }
+
+  @include transition(all .2s ease-in-out);
+}
+
+.inactive-title {
+  display: none;
+}
+
+.title-logo {
+  position: fixed;
+  
+
+  @include transition(all .2s ease-in-out);
+}
+
+.welcome {
+  color: white;
+  background-color: $welcome-color;;
+
 
   #welcomeImage {
     position: fixed;
@@ -44,5 +68,10 @@
   .flag {
       max-width: 1.8rem;
       margin: 0.4rem;
+
+      @include breakpoint1 {
+        max-width: 1.5rem;
+        margin: 0.5rem;
+      }
   }
 }
