@@ -1,9 +1,10 @@
 import React from 'react'
-import Navbar from './navbar.js'
 import PropTypes from 'prop-types'
 
+import Scroll from '../utils/scroll'
+
 const Arrow = ( {target_id} ) => (
-  <div onClick={ () => (Navbar.scrollTo("#"+target_id)) } className="section-arrow" />
+  <div onClick={ () => (Scroll.scrollTo("#"+target_id)) } className="section-arrow" />
 )
 
 Arrow.propTypes = {

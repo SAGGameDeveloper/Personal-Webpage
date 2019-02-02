@@ -13,8 +13,13 @@ import '../sass/wrapper.scss'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Navbar from '../components/navbar'
-import Arrow from '../components/arrow'
-import Flags from '../components/flags'
+
+// Sections
+import Welcome from '../components/sections/welcome'
+import About from '../components/sections/about'
+import Work from '../components/sections/work'
+import Skills from '../components/sections/skills'
+import Contact from '../components/sections/contact'
 
 // Animate On Scroll initialization
 AOS.init({
@@ -28,31 +33,12 @@ AOS.init({
   anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 
-// Helper function to inject contents into the index from different files.
-function inject(files, title) {
-  var elementToInject = files.filter(file => file.node.frontmatter.title === title)[0];
-
-  return elementToInject != null?  elementToInject.node.html : 'MISSING CONTENT!!!';
-}
-
  class Index extends Component {
   constructor(props) {
     super(props);
 
     this.files = props.data.allMarkdownRemark.edges;
     this.lang = this.files[0].node.frontmatter.lang;
-
-    window.addEventListener('scroll', () => (this.onScroll()));
-  }
-
-  componentDidMount() {
-    this.title = document.querySelector("#title");
-  }
-
-  onScroll() {
-    if (this.title.getBoundingClientRect().top <= 50) {
-      this.title.classList.add('title-logo');
-    }
   }
 
   render () {
@@ -60,48 +46,13 @@ function inject(files, title) {
       <Layout>
 
         <SEO lang={ this.lang }/>
-
         <Navbar/>
 
-        <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
-        data-aos-duration="1800" className='title' id='title'>
-          <h1>Sergio Abreu García</h1>
-
-          <br/>
-          <h2 dangerouslySetInnerHTML = {{ __html: inject(this.files, 'subhead') }}/>
-        </div>
-
-        <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
-        data-aos-duration="1800" id="welcome-section" className="container welcome">
-          <Flags/>
-
-          <Arrow target_id="about-section"/>
-        </div>
-
-        <div data-aos="fade-right" id="about-section" className = "container about">
-          <div dangerouslySetInnerHTML = {{ __html: inject(this.files, 'about') }} />
-
-          <Arrow target_id="work-section"/>
-        </div>
-
-        <div data-aos="fade-left" id="work-section" className = "container work">
-          { this.files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
-            return (<div key={ file.node.frontmatter.title }
-                      dangerouslySetInnerHTML = {{ __html: file.node.html }} />);
-          }) }
-
-          <Arrow target_id="skills-section"/>
-        </div>
-
-        <div data-aos="fade-right" id="skills-section" className = "container skills">
-          <div dangerouslySetInnerHTML = {{ __html: inject(this.files, 'skills') }} />
-
-          <Arrow target_id="contact-section"/>
-        </div>
-
-        <div data-aos="fade-left" id="contact-section" className = "container contact">
-          <div dangerouslySetInnerHTML = {{ __html: inject(this.files, 'contact') }} />
-        </div>
+        <Welcome files={ this.files } />
+        <About files={ this.files } />
+        <Work files={ this.files } />
+        <Skills files={ this.files } />
+        <Contact files={ this.files } />
 
       </Layout>
     )

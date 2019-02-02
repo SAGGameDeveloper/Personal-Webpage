@@ -1,5 +1,5 @@
 ---
-title: subhead
+title: subtitle
 lang: en
 ---
 
