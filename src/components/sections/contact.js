@@ -13,7 +13,7 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-  files: PropTypes.isRequired,
+  files: PropTypes.array.isRequired,
 }
 
 export default Contact

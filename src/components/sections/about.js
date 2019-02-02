@@ -17,7 +17,7 @@ class About extends Component {
 }
 
 About.propTypes = {
-  files: PropTypes.isRequired,
+  files: PropTypes.array.isRequired,
 }
 
 export default About

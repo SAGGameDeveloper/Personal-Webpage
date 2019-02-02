@@ -12,32 +12,92 @@
     font-size: 4rem;
   }
 
-  h2 {
-    font-size: 2rem;
-  }
-
   @include breakpoint1 {
     margin: calc(2rem + 8%) 1rem;
   }
 
   @include transition(all .2s ease-in-out);
+
+  span {
+    white-space: pre-line;
+  }
+}
+
+.maintitle {
+  @include transition(all .6s ease-in-out);
+}
+
+.maintitle-helper {
+  display: inline-block;
+}
+
+.maintitle-clickable {
+  @include transition(all .2s ease-in-out);
+
+  * {
+    @include transition(all .2s ease-in-out);
+  }
+
+  &:hover {
+    @include scale(1.2);
+
+    cursor: pointer;
+    @include transition(all .2s ease-in-out);
+
+    * {
+      @include transition(all .2s ease-in-out)
+      color: #E9D056;
+    }
+  }
+}
+
+.subtitle {
+  @include transition(all .6s ease-in-out);
+
+  font-size: 2rem;
+}
+
+.title-placeholder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 8% auto;
+}
+
+.title-upper-caps {
+  color: white;
+}
+
+.title-lower-caps {
+  @include transition(all .6s ease-in-out);
 }
 
 .inactive-title {
-  display: none;
+  font-size: 0;
+  @include transition(all .6s ease-in-out);
 }
 
 .title-logo {
-  position: fixed;
-  
+  position: fixed !important;
+  margin: 0;
 
-  @include transition(all .2s ease-in-out);
+  h1, h2{
+    @include translate(calc(-46% + 4rem), 3rem);
+    @include transition(all .6s ease-in-out);
+
+    @include breakpoint1 {
+    @include translate(calc(-45% + 4rem), 2rem);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .welcome {
   color: white;
   background-color: $welcome-color;;
-
 
   #welcomeImage {
     position: fixed;

@@ -5,6 +5,8 @@ import inject from '../../utils/injector'
 import Arrow from '../../components/arrow'
 import Flags from '../../components/flags'
 
+import Scroll from '../../utils/scroll'
+
 class Welcome extends Component {
   constructor(props) {
     super(props);
@@ -13,23 +15,59 @@ class Welcome extends Component {
   }
 
   componentDidMount() {
-    this.title = document.querySelector("#title");
+    this.title = document.querySelector(".title");
+    this.title_lower_caps = this.title.getElementsByClassName("title-lower-caps");
+    this.subtitle = this.title.querySelector(".subtitle");
+
+    this.title_placeholder = document.querySelector(".title-placeholder");
+
+    this.title_as_logo = false;
+
+    this.maintitle_helper = this.title.querySelector(".maintitle-helper");
+    this.maintitle_helper.onclick = () => (Scroll.scrollTo("#welcome-section"));
   }
 
   onScroll() {
-    if (this.title.getBoundingClientRect().top <= 50) {
+    var titleY = this.title.getBoundingClientRect().top;
+    var placeholderY = this.title_placeholder.getBoundingClientRect().top;
+
+    if (titleY <= 0 && !this.title_as_logo) {
       this.title.classList.add('title-logo');
+      [].forEach.call(this.title_lower_caps,  (text) => (text.classList.add('inactive-title')));
+      this.subtitle.classList.add('inactive-title');
+      this.maintitle_helper.classList.add('maintitle-clickable');
+
+      this.title_as_logo = true;
+
+    } else if (placeholderY > 0 && this.title_as_logo) {
+      this.title.classList.remove('title-logo');
+      [].forEach.call(this.title_lower_caps,  (text) => (text.classList.remove('inactive-title')));
+      this.subtitle.classList.remove('inactive-title');
+      this.maintitle_helper.classList.remove('maintitle-clickable');
+
+      this.title_as_logo = false;
     }
   }
 
   render() {
     return (
       <>
+        <div className = "title-placeholder"/>
+
         <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
-        data-aos-duration="1800" className='title' id='title'>
-          <h1>Sergio Abreu García</h1>
+        data-aos-duration="1800" className='title'>
+          <h1 className='maintitle'>
+            <div className='maintitle-helper'>
+              <span className='title-upper-caps'>S</span>
+              <span className='title-lower-caps'>ergio </span>
+              <span className='title-upper-caps'>A</span>
+              <span className='title-lower-caps'>breu </span>
+              <span className='title-upper-caps'>G</span>
+              <span className='title-lower-caps'>arcia</span>
+            </div>
+          </h1>
           <br/>
-          <h2 dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'subtitle') }}/>
+          <h2 className='subtitle' dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'subtitle') }}/>
         </div>
 
         <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
@@ -44,7 +82,7 @@ class Welcome extends Component {
 }
 
 Welcome.propTypes = {
-  files: PropTypes.isRequired,
+  files: PropTypes.array.isRequired,
 }
 
 export default Welcome

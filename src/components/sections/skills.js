@@ -17,7 +17,7 @@ class Skills extends Component {
 }
 
 Skills.propTypes = {
-  files: PropTypes.isRequired,
+  files: PropTypes.array.isRequired,
 }
 
 export default Skills

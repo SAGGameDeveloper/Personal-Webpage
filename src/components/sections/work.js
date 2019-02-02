@@ -19,7 +19,7 @@ class Work extends Component {
 }
 
 Work.propTypes = {
-  files: PropTypes.isRequired,
+  files: PropTypes.array.isRequired,
 }
 
 export default Work
