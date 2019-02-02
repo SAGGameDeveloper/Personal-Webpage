@@ -29,6 +29,7 @@
 
 .maintitle-helper {
   display: inline-block;
+  min-height: 0;
 }
 
 .maintitle-clickable {
@@ -43,10 +44,13 @@
 
     cursor: pointer;
     @include transition(all .2s ease-in-out);
+    border: solid;
+    border-width: 3px 3px 3px 3px;
+    border-color: $shock_color;
 
     * {
       @include transition(all .2s ease-in-out)
-      color: #E9D056;
+      color: $shock_color;
     }
   }
 }

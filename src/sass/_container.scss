@@ -32,6 +32,11 @@
     @include transition(all .3s ease-in-out);
     cursor: pointer;
     outline: none;
+
+    @include scale(1.2)
+    border-width: 3px 3px 3px 3px;
+    border-color: $shock_color;
+    background-color: $arrow_animation_background;
   }
 
   &:focus{
