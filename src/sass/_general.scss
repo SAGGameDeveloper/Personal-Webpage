@@ -7,8 +7,12 @@ html, body{
   height: 100%;
   font-size: 1rem;
   font-family: mainFont;
+}
 
-  background-color: $welcome-color;
+body {
+    background-color: $welcome_foot_color;
+
+    @include transition(background-color 1s ease-in-out);
 }
 
 #___gatsby {

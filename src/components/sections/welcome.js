@@ -7,11 +7,18 @@ import Flags from '../../components/flags'
 
 import Scroll from '../../utils/scroll'
 
+import welcome_image from '../../images/welcome-image.svg'
+
+const welcome_image_anchor = 50;
+const welcome_image_threshold = 300;
+
 class Welcome extends Component {
   constructor(props) {
     super(props);
 
     window.addEventListener('scroll', () => (this.onScroll()));
+    window.addEventListener('scroll', () => (this.welcomeImage_update_opacity()));
+    window.addEventListener('resize', () => (this.welcomeImage_update_opacity()));
   }
 
   componentDidMount() {
@@ -25,28 +32,43 @@ class Welcome extends Component {
 
     this.maintitle_helper = this.title.querySelector(".maintitle-helper");
     this.maintitle_helper.onclick = () => (Scroll.scrollTo("#welcome-section"));
+
+    this.welcomeImage = document.querySelector(".welcome-image");
+  }
+
+  title_to_logo() {
+    this.title.classList.add('title-logo');
+    [].forEach.call(this.title_lower_caps,  (text) => (text.classList.add('inactive-title')));
+    this.subtitle.classList.add('inactive-title');
+    this.maintitle_helper.classList.add('maintitle-clickable');
+
+    this.title_as_logo = true;
+  }
+
+  logo_to_title() {
+    this.title.classList.remove('title-logo');
+    [].forEach.call(this.title_lower_caps,  (text) => (text.classList.remove('inactive-title')));
+    this.subtitle.classList.remove('inactive-title');
+    this.maintitle_helper.classList.remove('maintitle-clickable');
+
+    this.title_as_logo = false;
+  }
+
+  welcomeImage_update_opacity() {
+    window.requestAnimationFrame(() => {
+      var welcome_imageY = this.welcomeImage.getBoundingClientRect().top;
+      this.welcomeImage.style.opacity = (welcome_imageY+welcome_image_anchor) / welcome_image_threshold;
+    })
   }
 
   onScroll() {
     var titleY = this.title.getBoundingClientRect().top;
     var placeholderY = this.title_placeholder.getBoundingClientRect().top;
 
-    if (titleY <= 0 && !this.title_as_logo) {
-      this.title.classList.add('title-logo');
-      [].forEach.call(this.title_lower_caps,  (text) => (text.classList.add('inactive-title')));
-      this.subtitle.classList.add('inactive-title');
-      this.maintitle_helper.classList.add('maintitle-clickable');
-
-      this.title_as_logo = true;
-
-    } else if (placeholderY > 0 && this.title_as_logo) {
-      this.title.classList.remove('title-logo');
-      [].forEach.call(this.title_lower_caps,  (text) => (text.classList.remove('inactive-title')));
-      this.subtitle.classList.remove('inactive-title');
-      this.maintitle_helper.classList.remove('maintitle-clickable');
-
-      this.title_as_logo = false;
-    }
+    if (titleY <= 0 && !this.title_as_logo)
+      window.requestAnimationFrame(this.title_to_logo.bind(this));
+    else if (placeholderY > 0 && this.title_as_logo)
+      window.requestAnimationFrame(this.logo_to_title.bind(this));
   }
 
   render() {
@@ -63,7 +85,7 @@ class Welcome extends Component {
               <span className='title-upper-caps'>A</span>
               <span className='title-lower-caps'>breu </span>
               <span className='title-upper-caps'>G</span>
-              <span className='title-lower-caps'>arcia</span>
+              <span className='title-lower-caps'>arcía</span>
             </div>
           </h1>
           <br/>
@@ -73,8 +95,10 @@ class Welcome extends Component {
         <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
         data-aos-duration="1800" id="welcome-section" className="container welcome">
           <Flags/>
-
           <Arrow target_id="about-section"/>
+          <div className='fake-background'/>
+          <img alt="Welcome" className='welcome-image' src={ welcome_image } />
+
         </div>
       </>
     );

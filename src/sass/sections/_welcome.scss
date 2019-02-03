@@ -4,7 +4,7 @@
   text-align: center;
   left: 0;
   right: 0;
-  margin: 8% auto;
+  margin: 6% auto;
 
   z-index: 2;
 
@@ -13,7 +13,7 @@
   }
 
   @include breakpoint1 {
-    margin: calc(2rem + 8%) 1rem;
+    margin: calc(2.5rem + 10%) 1rem;
   }
 
   @include transition(all .2s ease-in-out);
@@ -48,6 +48,8 @@
     border-width: 3px 3px 3px 3px;
     border-color: $shock_color;
 
+    background-color: rgba(255, 255, 255, 0.1);
+
     * {
       @include transition(all .2s ease-in-out)
       color: $shock_color;
@@ -58,7 +60,7 @@
 .subtitle {
   @include transition(all .6s ease-in-out);
 
-  font-size: 2rem;
+  font-size: 2.3rem;
 }
 
 .title-placeholder {
@@ -101,7 +103,8 @@
 
 .welcome {
   color: white;
-  background-color: $welcome-color;;
+  background-color: $welcome-color;
+  z-index: 1;
 
   #welcomeImage {
     position: fixed;
@@ -121,12 +124,41 @@
     }
   }
 
+  .fake-background {
+    background-color: $welcome_foot_color;
+
+    position: absolute;
+    width: 100%;
+    height: 85%;
+    top: 0;
+    margin: auto;
+  }
+
+  .welcome-image {
+    position: absolute;
+    text-align: center;
+    bottom: calc(-1.5rem - 6%);
+    left: 0;
+    right: calc(0.5rem + 0.8%);
+    margin: 0 auto;
+    z-index: 1;
+
+    width: calc(20rem + 15%);
+    min-width: 27rem;
+
+    @include breakpoint1 {
+      bottom: calc(-2.5rem - 7%);
+    }
+  }
+
   .flags {
     position: absolute;
     top: 0;
     right: 0;
     text-align: right;
     margin: 3%;
+
+    z-index: 5;
   }
 
   .flag {
