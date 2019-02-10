@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
-//import Img from 'gatsby-image'
 
 // Animate On Scroll library: https://github.com/michalsnik/aos
 import AOS from 'aos';

@@ -8,6 +8,11 @@ class Skills extends Component {
   render() {
     return (
       <div data-aos="fade-right" id="skills-section" className = "container skills">
+        <hr/>
+        <div className="section-title">
+          <h1>What I can do</h1>
+        </div>
+
         <div dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'skills') }} />
 
         <Arrow target_id="contact-section"/>

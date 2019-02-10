@@ -17,8 +17,6 @@ class Welcome extends Component {
     super(props);
 
     window.addEventListener('scroll', () => (this.onScroll()));
-    window.addEventListener('scroll', () => (this.welcomeImage_update_opacity()));
-    window.addEventListener('resize', () => (this.welcomeImage_update_opacity()));
   }
 
   componentDidMount() {
@@ -52,13 +50,6 @@ class Welcome extends Component {
     this.maintitle_helper.classList.remove('maintitle-clickable');
 
     this.title_as_logo = false;
-  }
-
-  welcomeImage_update_opacity() {
-    window.requestAnimationFrame(() => {
-      var welcome_imageY = this.welcomeImage.getBoundingClientRect().top;
-      this.welcomeImage.style.opacity = (welcome_imageY+welcome_image_anchor) / welcome_image_threshold;
-    })
   }
 
   onScroll() {
@@ -97,8 +88,12 @@ class Welcome extends Component {
           <Flags/>
           <Arrow target_id="about-section"/>
           <div className='fake-background'/>
-          <img alt="Welcome" className='welcome-image' src={ welcome_image } />
+        </div>
 
+        <div className="welcome-image-wrapper">
+          <div className="welcome-image">
+            <img alt="Welcome" src={ welcome_image } />
+          </div>
         </div>
       </>
     );

@@ -1,19 +1,64 @@
 
+.welcome {
+  color: white;
+  background-color: $welcome-color;
+  z-index: 1;
+}
+
+.welcome-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-height: 0;
+
+  overflow-y: visible;
+}
+
+.welcome-image {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: calc(-2rem - 2%);
+
+  text-align: center;
+  right: 50.5%;
+  width: inherit;
+
+  z-index: 2;
+
+  img {
+    display: inline-block;
+
+    position: relative;
+    margin-right: -100%;
+
+    width: calc(20rem + 15%);
+    min-width: 32rem;
+
+    @include breakpoint1 {
+        min-width: 25rem;
+    }
+  }
+}
+
 .title {
   position: absolute;
+
   text-align: center;
   left: 0;
   right: 0;
   margin: 6% auto;
 
-  z-index: 2;
+  z-index: 5;
 
   h1 {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 
   @include breakpoint1 {
     margin: calc(2.5rem + 10%) 1rem;
+
+    h1 {
+      font-size: 3.7rem;
+    }
   }
 
   @include transition(all .2s ease-in-out);
@@ -60,7 +105,11 @@
 .subtitle {
   @include transition(all .6s ease-in-out);
 
-  font-size: 2.3rem;
+  font-size: 2.5rem;
+
+  @include breakpoint1 {
+    font-size: 2rem;
+  }
 }
 
 .title-placeholder {
@@ -88,11 +137,11 @@
   margin: 0;
 
   h1, h2{
-    @include translate(calc(-46% + 4rem), 3rem);
+    @include translate(calc(-46% + 4rem), 1.8rem);
     @include transition(all .6s ease-in-out);
 
     @include breakpoint1 {
-    @include translate(calc(-45% + 4rem), 2rem);
+      @include translate(calc(-45% + 4rem), 1rem);
     }
   }
 
@@ -101,80 +150,39 @@
   }
 }
 
-.welcome {
-  color: white;
-  background-color: $welcome-color;
-  z-index: 1;
+.fake-background {
+  background-color: $welcome_foot_color;
 
-  #welcomeImage {
-    position: fixed;
-    z-index: -1;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  top: 0;
+  margin: auto;
+}
 
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
+.flags {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  margin: 3%;
 
-    img {
-      position: absolute;
-      min-height: 100%;
-      min-width: 100%;
-      top: 50%;
-      left: 50%;
-    }
-  }
+  z-index: 5;
+}
 
-  .fake-background {
-    background-color: $welcome_foot_color;
+.flag {
+    max-width: 1.8rem;
+    margin: 0.4rem;
 
-    position: absolute;
-    width: 100%;
-    height: 85%;
-    top: 0;
-    margin: auto;
-  }
-
-  .welcome-image {
-    position: absolute;
-    text-align: center;
-    bottom: calc(-1.5rem - 6%);
-    left: 0;
-    right: calc(0.5rem + 0.8%);
-    margin: 0 auto;
-    z-index: 1;
-
-    width: calc(20rem + 15%);
-    min-width: 27rem;
+    @include transition(all .2s ease-in-out);
 
     @include breakpoint1 {
-      bottom: calc(-2.5rem - 7%);
+      max-width: 1.5rem;
+      margin: 0.5rem;
     }
-  }
 
-  .flags {
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-align: right;
-    margin: 3%;
-
-    z-index: 5;
-  }
-
-  .flag {
-      max-width: 1.8rem;
-      margin: 0.4rem;
-
+    &:hover {
+      @include scale(1.3)
       @include transition(all .2s ease-in-out);
-
-      @include breakpoint1 {
-        max-width: 1.5rem;
-        margin: 0.5rem;
-      }
-
-      &:hover {
-        @include scale(1.3)
-        @include transition(all .2s ease-in-out);
-      }
-  }
+    }
 }

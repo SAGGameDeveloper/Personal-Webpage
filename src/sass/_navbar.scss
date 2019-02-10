@@ -9,7 +9,7 @@
   @include translate(0, -50%)
 
   max-width: 2rem;
-  z-index: 2;
+  z-index: 10;
 
   @include breakpoint1 {
     right: 0.8rem;

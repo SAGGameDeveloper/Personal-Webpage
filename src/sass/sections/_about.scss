@@ -1,3 +1,8 @@
 .about {
-  background-color: $about-color;
+  background-color: $welcome-color;
+  z-index: 3;
+
+  hr {
+    width: 60%;
+  }
 }

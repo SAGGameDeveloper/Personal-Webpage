@@ -1,6 +1,14 @@
 .layout {
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  height: 100%;
+
+  width: 100%;
+  min-width: 100%;
+
+  height: auto;
   min-height: 100%;
+
+  overflow-x: hidden;
 }
