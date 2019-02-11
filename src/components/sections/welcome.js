@@ -96,7 +96,6 @@ class Welcome extends Component {
         <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
         data-aos-duration="1800" id="welcome-section" className="container welcome">
           <Flags/>
-          <Arrow target_id="about-section"/>
           <div className='fake-background'/>
         </div>
 
@@ -104,6 +103,7 @@ class Welcome extends Component {
           <div className="welcome-image">
             <img alt="Welcome" src={ welcome_image } />
           </div>
+          <Arrow target_id="about-section"/>
         </div>
       </>
     );

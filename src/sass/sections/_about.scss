@@ -1,8 +1,42 @@
 .about {
+  width: 100%;
+
   background-color: $welcome-color;
   z-index: 3;
 
   hr {
     width: 60%;
   }
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.about-text {
+  display: block;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  margin: calc(1% + 1.5rem);
+  width: 30rem;
+  max-width: 85%;
+  word-wrap: break-word;
+}
+
+.about-image {
+    left: 0;
+    right: 0;
+    margin: calc(1% + 1.5rem);
+
+    width: calc(15rem + 15%);
+    min-width: 20rem;
 }

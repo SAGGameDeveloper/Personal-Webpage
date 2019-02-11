@@ -4,6 +4,8 @@ import inject from '../../utils/injector'
 
 import Arrow from '../../components/arrow'
 
+import about_image from '../../images/welcome-image.svg'
+
 class About extends Component {
   render() {
     return (
@@ -13,7 +15,12 @@ class About extends Component {
           <h1>Who I am</h1>
         </div>
 
-        <div dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'about') }} />
+        <div className="about-content">
+          <div className="about-text" dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'about') }} />
+          <div className="about-image">
+            <img alt="Welcome" src={ about_image } />
+          </div>
+        </div>
 
         <Arrow target_id="work-section"/>
       </div>

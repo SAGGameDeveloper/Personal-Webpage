@@ -99,6 +99,10 @@
       @include transition(all .2s ease-in-out)
       color: $shock_color;
     }
+
+    .title-lower-caps {
+      color: black;
+    }
   }
 }
 
@@ -145,7 +149,7 @@
     @include transition(all .6s ease-in-out);
 
     @include breakpoint1 {
-      @include translate(calc(-45% + 4rem), 1rem);
+      @include translate(calc(-45% + 3.2rem), 1.6rem);
     }
   }
 
