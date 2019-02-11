@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import inject from '../../utils/injector'
+import '../../utils/getEmPixels'
 
 import Arrow from '../../components/arrow'
 import Flags from '../../components/flags'
@@ -9,29 +10,29 @@ import Scroll from '../../utils/scroll'
 
 import welcome_image from '../../images/welcome-image.svg'
 
-const welcome_image_anchor = 50;
-const welcome_image_threshold = 300;
-
 class Welcome extends Component {
   constructor(props) {
     super(props);
 
     window.addEventListener('scroll', () => (this.onScroll()));
+    window.addEventListener('resize', () => (this.updateSectionsHeight()));
   }
 
   componentDidMount() {
     this.title = document.querySelector(".title");
     this.title_lower_caps = this.title.getElementsByClassName("title-lower-caps");
     this.subtitle = this.title.querySelector(".subtitle");
-
     this.title_placeholder = document.querySelector(".title-placeholder");
-
     this.title_as_logo = false;
 
     this.maintitle_helper = this.title.querySelector(".maintitle-helper");
     this.maintitle_helper.onclick = () => (Scroll.scrollTo("#welcome-section"));
-
     this.welcomeImage = document.querySelector(".welcome-image");
+
+    this.sections = document.getElementsByClassName("container");
+    this.welcome_section = document.querySelector("#welcome-section");
+
+    this.updateSectionsHeight();
   }
 
   title_to_logo() {
@@ -50,6 +51,15 @@ class Welcome extends Component {
     this.maintitle_helper.classList.remove('maintitle-clickable');
 
     this.title_as_logo = false;
+  }
+
+  updateSectionsHeight() {
+    var minHeight = 50*window.getEmPixels();
+
+    if (window.innerHeight <= minHeight)
+      [].forEach.call(this.sections, (section) => (section.style.minHeight = minHeight+"px"));
+    else
+      [].forEach.call(this.sections, (section) => (section.style.minHeight = "100vh"));
   }
 
   onScroll() {

@@ -136,8 +136,12 @@
   position: fixed !important;
   margin: 0;
 
+  h1 {
+    font-size: 3.5rem;
+  }
+
   h1, h2{
-    @include translate(calc(-46% + 4rem), 1.8rem);
+    @include translate(calc(-46% + 3rem), 2.5rem);
     @include transition(all .6s ease-in-out);
 
     @include breakpoint1 {
