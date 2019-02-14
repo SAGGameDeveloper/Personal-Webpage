@@ -1,5 +1,14 @@
 .work {
   background-color: $work-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  hr {
+    flex: 0;
+    flex-basis: auto;
+    margin: 0;
+  }
 }
 
 .work-container {
@@ -8,38 +17,49 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-content: center;
   flex-wrap: wrap;
+
+  flex: 1;
 
   width: 100%;
   height: auto;
-  margin-bottom: calc(2rem + 2%);
+  margin-bottom: calc(3rem + 5%);
 }
 
 .work-element-wrapper {
   flex: 0;
   position: relative;
 
-  margin: calc(0.5rem + 1%);
-
   text-align: center;
   vertical-align: middle;
 
-  min-width: calc(5rem + 20%);
+  flex: 1;
+  min-width: 40%;
+  max-width: 40%;
+
+  @include breakpoint1 {
+    min-width: 80%;
+    max-width: 80%;
+  }
 
   @include transition(all .2s ease-in-out);
 
   &:hover{
     @include transition(all .2s ease-in-out);
 
-    @include scale(1.15);
     cursor: pointer;
 
     z-index: 2;
+
+    .work-element-content {
+      opacity: 1;
+    }
   }
 }
 
 .work-element {
-  padding-bottom: 100%;
+  padding-bottom: calc(9 / 16 * 100%);
 }
 
 .work-element-image {
@@ -62,6 +82,8 @@
 }
 
 .work-element-content {
-  position: relative;
+  position: absolute;
   z-index: 100;
+
+  opacity: 0;
 }

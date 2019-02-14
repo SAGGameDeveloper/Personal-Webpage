@@ -75,9 +75,17 @@
 .maintitle-helper {
   display: inline-block;
   min-height: 0;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1.3rem 8vw;
+
+  @include transition(all .6s ease-in-out);
 }
 
 .maintitle-clickable {
+  padding: 0.4rem;
+  padding-bottom: 0;
+
   @include transition(all .2s ease-in-out);
 
   * {
@@ -102,6 +110,10 @@
 
     .title-lower-caps {
       color: black;
+    }
+
+    @include breakpoint1 {
+      @include scale(1.1);
     }
   }
 }
@@ -142,15 +154,20 @@
 
   h1 {
     font-size: 3.5rem;
-  }
 
-  h1, h2{
-    @include translate(calc(-46% + 3rem), 2.5rem);
+    @include translate(calc(-46% + 3rem), 1.6rem);
     @include transition(all .6s ease-in-out);
 
     @include breakpoint1 {
-      @include translate(calc(-45% + 3.2rem), 1.6rem);
+      font-size: 2.2rem;
+
+      @include translate(calc(-46% + 2.4rem), 0.8rem);
+      @include transition(all 0.6s ease-in-out);
     }
+  }
+
+  h2 {
+        @include transition(all .3s ease-in-out);
   }
 
   &:focus {
