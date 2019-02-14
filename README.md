@@ -2,7 +2,7 @@
 
 I am a freelancer videogames developer, and this is the github repository of [my personal webpage](http://www.sag-dev.com).
 Here you can see my workflow and style as a web developer. If you are interested in my work, you can
-contact me at this mail: saggamedeveloper@gmail.com
+contact me at this mail: sergio@sag-dev.com
 
 ## Built upon Jekyll
 
