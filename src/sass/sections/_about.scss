@@ -23,11 +23,14 @@
   right: 0;
 
   text-align: center;
-
+  
   margin: calc(1% + 1.5rem);
   width: 30rem;
   max-width: 85%;
   word-wrap: break-word;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 6rem 1rem;
 }
 
 .about-image {

@@ -1,0 +1,48 @@
+
+.welcome-particle {
+  display: block;
+  position: absolute;
+  bottom: -2rem;
+
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+
+  border-radius: 0.1rem;
+}
+
+.particle-movement-0 {
+  @include transition(all 6s ease-out);
+
+  @include transform(translate(0,-20rem) rotate(360deg) scale(1.1));
+  opacity: 0;
+  background-color: yellow !important;
+}
+
+.particle-movement-1 {
+  @include transition(all 6.5s ease-in-out);
+
+  @include transform(translate(0,-35rem) rotate(150deg) scale(0.75));
+  opacity: 0;
+}
+
+.particle-movement-2 {
+  @include transition(all 7s ease-in-out);
+
+  @include transform(translate(0,-30rem) rotate(-500deg) scale(1.2));
+  opacity: 0;
+}
+
+.particle-movement-3 {
+  @include transition(all 7.5s ease-in-out);
+
+  @include transform(translate(0,-30rem) rotate(400deg) scale(0.9));
+  opacity: 0;
+}
+
+.particle-movement-4 {
+  @include transition(all 8s ease-in-out);
+
+  @include transform(translate(0,-30rem) rotate(-450deg) scale(1.3));
+  opacity: 0;
+}
