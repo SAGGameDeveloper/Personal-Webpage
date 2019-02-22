@@ -71,8 +71,10 @@ class Particles extends Component {
     var life_time = 6000 + (movement_type * 500);
     var particle_class = "particle-movement-" + movement_type;
 
-    spawned_particle.className = 'welcome-particle';
-    spawned_particle.style.left = x + '%';
+    window.requestAnimationFrame(() => {
+      spawned_particle.className = 'welcome-particle';
+      spawned_particle.style.left = x + '%';
+    })
 
     setTimeout(() => {
       spawned_particle.classList.add(particle_class);

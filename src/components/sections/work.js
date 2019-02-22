@@ -16,7 +16,7 @@ class Work extends Component {
           { this.props.files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
             return (
 
-                <div key={ file.node.frontmatter.title } className="work-element-wrapper">
+                <div data-aos="fade-left" key={ file.node.frontmatter.title } className="work-element-wrapper">
                   <div className="work-element">
                     <div className="work-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }} />
                     <div className="work-element-image">
