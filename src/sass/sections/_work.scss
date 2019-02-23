@@ -28,13 +28,12 @@
 }
 
 .work-element-wrapper {
-  flex: 0;
   position: relative;
+  flex: 1;
 
   text-align: center;
   vertical-align: middle;
 
-  flex: 1;
   min-width: 40%;
   max-width: 40%;
 
@@ -84,6 +83,7 @@
 .work-element-content {
   position: absolute;
   z-index: 100;
+  color: white;
 
   opacity: 0;
 }
