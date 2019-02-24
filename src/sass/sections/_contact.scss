@@ -1,3 +1,76 @@
 .contact {
   background-color: $contact-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  hr {
+    flex: 0;
+    flex-basis: auto;
+    margin: 0;
+  }
+}
+
+.contact-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  width: 70%;
+  margin: 3rem auto;
+
+  flex: 1;
+  text-align: center;
+
+  @include breakpoint1 {
+    flex-direction: column;
+  }
+
+  margin-bottom: 10%;
+}
+
+.contact-right-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 0 3rem;
+
+  flex:2;
+  text-align: center;
+
+  * {
+    margin: 1rem 0;
+  }
+}
+
+.contact-icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  a {
+    width: 100%;
+    img {
+      width: calc(15% + 5rem);
+    }
+  }
+}
+
+.contact-email {
+  flex: 1;
+  width: 100%;
+
+  margin: auto;
+
+  @include breakpoint1 {
+    width: 70%;
+  }
+
+  img {
+    width: calc(15rem + 60%);
+  }
 }

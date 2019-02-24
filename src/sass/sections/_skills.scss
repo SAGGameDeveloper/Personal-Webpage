@@ -20,17 +20,22 @@
   text-align: center;
   vertical-align: middle;
 
-  min-width: 40%;
-  max-width: 40%;
+  min-width: calc(8rem + 40%);
+  max-width: calc(8rem + 40%);
 
   margin: calc(0.5% + 1.2rem) 0;
+
+  @include breakpoint1 {
+    min-width: 58%;
+    max-width: 58%;
+  }
 }
 
 .skills-element-wrapper-left {
   right: 17%;
 
   @include breakpoint1 {
-    right: 7%;
+    right: 14%;
   }
 }
 
@@ -38,7 +43,7 @@
   left: 15%;
 
   @include breakpoint1 {
-    left: 7%;
+    left: 14%;
   }
 }
 

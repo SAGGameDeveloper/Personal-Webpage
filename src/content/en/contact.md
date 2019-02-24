@@ -3,4 +3,4 @@ title: contact
 lang: en
 ---
 
-About!
+Contact me at any time!
