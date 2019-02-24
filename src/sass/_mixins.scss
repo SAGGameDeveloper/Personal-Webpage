@@ -60,9 +60,28 @@
 }
 //transform origin
 @mixin transform-origin ($origin) {
-    moz-transform-origin: $origin;
+     -moz-transform-origin: $origin;
 	     -o-transform-origin: $origin;
 	    -ms-transform-origin: $origin;
 	-webkit-transform-origin: $origin;
           transform-origin: $origin;
+}
+
+
+// Box shadow
+@mixin box-shadow($parameters: $default-box-shadow, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: $parameters inset;
+    -moz-box-shadow: $parameters inset;
+    -o-box-shadow: $parameters inset;
+    -ms-box-shadow: $parameters inset;
+    box-shadow: $parameters inset;
+  }
+  @else {
+    -webkit-box-shadow: $parameters;
+    -moz-box-shadow: $parameters;
+    -o-box-shadow: $parameters;
+    -ms-box-shadow: $parameters;
+    box-shadow: $parameters;
+  }
 }

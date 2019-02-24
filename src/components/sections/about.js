@@ -12,7 +12,7 @@ class About extends Component {
       <div data-aos="fade-right" id="about-section" className = "container about">
         <hr/>
         <div className="section-title">
-          <h1>Who I am</h1>
+          <h1><span className="section-title-capital">W</span>ho I am</h1>
         </div>
 
         <div className="about-content">

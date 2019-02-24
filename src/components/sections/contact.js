@@ -13,7 +13,7 @@ class Contact extends Component {
       <div data-aos="fade-left" id="contact-section" className = "container contact">
         <hr/>
         <div className="section-title">
-          <h1>How to contact me</h1>
+          <h1><span className="section-title-capital">C</span>ontact me!</h1>
         </div>
 
         <div className="contact-wrapper">

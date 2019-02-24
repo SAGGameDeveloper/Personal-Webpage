@@ -13,7 +13,7 @@ class Skills extends Component {
       <div data-aos="fade-right" id="skills-section" className = "container skills">
         <hr/>
         <div className="section-title">
-          <h1>What I can do</h1>
+          <h1><span className="section-title-capital">W</span>hat I can do</h1>
         </div>
 
         <div className="skills-wrapper">

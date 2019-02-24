@@ -17,6 +17,9 @@
   position: relative;
   flex: 1;
 
+  @include box-shadow();
+
+
   text-align: center;
   vertical-align: middle;
 
