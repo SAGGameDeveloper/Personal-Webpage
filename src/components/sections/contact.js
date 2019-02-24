@@ -17,14 +17,14 @@ class Contact extends Component {
         </div>
 
         <div className="contact-wrapper">
-          <div className="contact-email"> <a href="mailto:sergio@sag-dev.com" target="_blank"> <img alt="email_icon" src={email_icon} /> </a> </div>
+          <div className="contact-email"> <a href="mailto:sergio@sag-dev.com" target="_blank" rel="noopener noreferrer"> <img alt="email_icon" src={email_icon} /> </a> </div>
 
           <div className="contact-right-wrapper">
             <div dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'contact') }} />
             <div className="contact-icons">
-              <a href="https://t.me/sag_dev" target="_blank"> <img alt="telegram_icon" src={telegram_icon} /> </a>
-              <a href="https://www.linkedin.com/in/sergio-abreu-garc%C3%ADa-826520159/" target="_blank"> <img alt="linkedin_icon" src={linkedin_icon} /> </a>
-              <a href="https://github.com/sag-dev" target="_blank"> <img alt="github_icon" src={github_icon} /> </a>
+              <a href="https://t.me/sag_dev" target="_blank" rel="noopener noreferrer"> <img alt="telegram_icon" src={telegram_icon} /> </a>
+              <a href="https://www.linkedin.com/in/sergio-abreu-garc%C3%ADa-826520159/" target="_blank" rel="noopener noreferrer"> <img alt="linkedin_icon" src={linkedin_icon} /> </a>
+              <a href="https://github.com/sag-dev" target="_blank" rel="noopener noreferrer"> <img alt="github_icon" src={github_icon} /> </a>
             </div>
           </div>
         </div>

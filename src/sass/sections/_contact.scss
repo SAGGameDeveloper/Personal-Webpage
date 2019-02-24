@@ -54,8 +54,11 @@
 
   a {
     width: 100%;
+    margin: 0 0.5rem;
+
     img {
       width: calc(15% + 5rem);
+      min-width: 2.5rem;
     }
   }
 }
@@ -72,5 +75,6 @@
 
   img {
     width: calc(15rem + 60%);
+    min-width: 13rem;
   }
 }
