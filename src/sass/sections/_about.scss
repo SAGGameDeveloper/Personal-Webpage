@@ -5,13 +5,15 @@
   hr {
     width: 60%;
   }
+
+
 }
 
 .about-content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   position: relative;
@@ -21,13 +23,15 @@
   display: block;
   left: 0;
   right: 0;
+  align-self: flex-start;
 
   text-align: center;
 
-  margin: calc(1% + 1.5rem);
-  width: 30rem;
+  width: 60%;
   max-width: 85%;
   word-wrap: break-word;
+
+  margin-top: 8%;
 
   background-color: rgba(0, 0, 0, 0.3);
   padding: 6rem 1rem;
@@ -38,8 +42,10 @@
 .about-image {
     left: 0;
     right: 0;
-    margin: calc(1% + 1.5rem);
 
-    width: calc(15rem + 15%);
+    width: calc(12rem + 12%);
     min-width: 20rem;
+
+    margin: auto;
+    margin-left: 4%;
 }

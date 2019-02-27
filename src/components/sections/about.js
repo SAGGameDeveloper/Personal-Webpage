@@ -4,7 +4,7 @@ import inject from '../../utils/injector'
 
 import Arrow from '../../components/arrow'
 
-import about_image from '../../images/welcome-image.svg'
+import about_image from '../../images/about-image.png'
 
 class About extends Component {
   render() {
