@@ -5,18 +5,21 @@
   hr {
     width: 60%;
   }
-
-
 }
 
 .about-content {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
 
   position: relative;
+
+  @include breakpoint1 {
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 .about-text {
@@ -37,6 +40,10 @@
   padding: 6rem 1rem;
 
   @include box-shadow();
+
+  @include breakpoint1 {
+    align-self: center;
+  }
 }
 
 .about-image {
@@ -48,4 +55,10 @@
 
     margin: auto;
     margin-left: 4%;
+
+    @include breakpoint1 {
+      margin: calc(2rem + 3%) auto;
+      margin-left: auto;
+      align-self: center;
+    }
 }

@@ -4,4 +4,4 @@ lang: en
 tag: skills
 ---
 
-I speak bla bla................................
+I speak bla bla... ..... ..... ... ........... ... ..

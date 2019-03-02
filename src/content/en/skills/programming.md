@@ -4,4 +4,4 @@ lang: en
 tag: skills
 ---
 
-I program bla bla..................................
+I program bla bla.... .... ........ .......... ..... ..

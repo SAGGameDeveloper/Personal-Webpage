@@ -4,8 +4,7 @@ import { withPrefix } from 'gatsby'
 
 import Arrow from '../../components/arrow'
 
-var side = "left"
-var oppositeSide = "right"
+var odd = true;
 
 class Skills extends Component {
   render() {
@@ -18,16 +17,14 @@ class Skills extends Component {
 
         <div className="skills-wrapper">
           { this.props.files.filter(file=>file.node.frontmatter.tag==="skills").map(file => {
-            let temp = oppositeSide;
-            oppositeSide = side;
-            side = temp;
+            odd = !odd;
             return (
-                <div data-aos={ "fade-"+oppositeSide } key={ file.node.frontmatter.title } className={ "skills-element-wrapper-"+side }>
-                  <div className="skills-element">
-                    <div className={ "skills-element-content-"+side } dangerouslySetInnerHTML = {{ __html: file.node.html }} />
+                <div data-aos="fade-right" key={ file.node.frontmatter.title } className="skills-element-wrapper">
+                  <div className={ "skills-element " + (odd? "skills-odd-element" : "") }>
                     <div className="skills-element-image">
-                      <img alt={ file.node.frontmatter.title }  src={withPrefix('/images/skills/'+file.node.frontmatter.title+'.png')} />
+                      <img alt={ file.node.frontmatter.title } src={withPrefix('/images/skills/'+file.node.frontmatter.title+'.png')} />
                     </div>
+                    <div className="skills-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }} />
                   </div>
                 </div>
             );

@@ -56,9 +56,11 @@ class Work extends Component {
 
         <div data-aos="fade-left" id="work-section" className = "container work">
           <hr/>
+
           <div className="section-title">
             <h1><span className="section-title-capital">W</span>hat I've done</h1>
           </div>
+
           <div className="work-container">
             { this.props.files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
               return (

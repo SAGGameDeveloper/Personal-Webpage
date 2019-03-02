@@ -1,91 +1,66 @@
 .skills {
   background-color: $skills-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  hr {
+    flex: 0;
+    flex-basis: auto;
+    margin: 0;
+  }
 }
 
 .skills-wrapper {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  align-content: center;
+  align-content: space-around;
 
-  margin: 0 0 calc(2% + 3rem) 0;
-}
-
-.skills-element-wrapper-left, .skills-element-wrapper-right {
-  position: relative;
   flex: 1;
 
-  @include box-shadow();
-
-
-  text-align: center;
-  vertical-align: middle;
-
-  min-width: calc(8rem + 40%);
-  max-width: calc(8rem + 40%);
-
-  margin: calc(0.5% + 1.2rem) 0;
-
-  @include breakpoint1 {
-    min-width: 58%;
-    max-width: 58%;
-  }
+  margin: 0 5% calc(2% + 3rem) 5%;
 }
 
-.skills-element-wrapper-left {
-  right: 17%;
+.skills-element-wrapper {
+  margin: 2.3rem 1rem;
+  flex-basis: 43%;
+
+  word-wrap: break-word;
 
   @include breakpoint1 {
-    right: 14%;
-  }
-}
-
-.skills-element-wrapper-right {
-  left: 15%;
-
-  @include breakpoint1 {
-    left: 14%;
+    flex-basis: 90%;
   }
 }
 
 .skills-element {
-  padding-bottom: calc(9 / 16 * 100%);
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.skills-element-content {
+  font-size: 1.4rem;
+  @include box-shadow();
 }
 
 .skills-element-image {
-  display: block;
+  display: inline-block;
 
-  z-index: 1;
+  min-width: calc(4rem + 7%);
+  max-width: calc(4rem + 7%);
 
-  img {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto 0;
+  margin: 0 1.1rem;
+}
+
+.skills-odd-element {
+  @include breakpoint1 {
+    flex-direction: row-reverse;
   }
-}
-
-.skills-element-content-right, .skills-element-content-left {
-  display: flex;
-  justify-content:center;
-  align-content:center;
-  flex-direction:column;
-
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: 100;
-  color: white;
-}
-
-.skills-element-content-right {
-  left: -50%;
-}
-
-.skills-element-content-left {
-  right: -50%;
 }
