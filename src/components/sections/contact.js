@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import inject from '../../utils/injector'
 
-import email_icon from '../../images/emailIcon.svg'
-import github_icon from '../../images/githubIcon.svg'
-import telegram_icon from '../../images/telegramIcon.svg'
-import linkedin_icon from '../../images/linkedinIcon.svg'
+import Icon from '../svgIcon'
 
 class Contact extends Component {
   render() {
@@ -17,14 +14,14 @@ class Contact extends Component {
         </div>
 
         <div className="contact-wrapper">
-          <div className="contact-email"> <a href="mailto:sergio@sag-dev.com" target="_blank" rel="noopener noreferrer"> <img alt="email_icon" src={email_icon} /> </a> </div>
+          <div data-aos="fade-right" className="contact-email"> <a href="mailto:sergio@sag-dev.com" rel="noopener noreferrer"> <Icon name="mail"/> </a> </div>
 
           <div className="contact-right-wrapper">
-            <div dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'contact') }} />
+            <div data-aos="fade-down" dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'contact') }} />
             <div className="contact-icons">
-              <a href="https://t.me/sag_dev" target="_blank" rel="noopener noreferrer"> <img alt="telegram_icon" src={telegram_icon} /> </a>
-              <a href="https://www.linkedin.com/in/sergio-abreu-garc%C3%ADa-826520159/" target="_blank" rel="noopener noreferrer"> <img alt="linkedin_icon" src={linkedin_icon} /> </a>
-              <a href="https://github.com/sag-dev" target="_blank" rel="noopener noreferrer"> <img alt="github_icon" src={github_icon} /> </a>
+              <a data-aos="fade-up" href="https://t.me/sag_dev" target="_blank" rel="noopener noreferrer"> <Icon name="telegram"/> </a>
+              <a data-aos="fade-up" href="https://www.linkedin.com/in/sergio-abreu-garc%C3%ADa-826520159/" target="_blank" rel="noopener noreferrer"> <Icon name="linkedin"/> </a>
+              <a data-aos="fade-up" href="https://github.com/sag-dev" target="_blank" rel="noopener noreferrer"> <Icon name="github"/> </a>
             </div>
           </div>
         </div>

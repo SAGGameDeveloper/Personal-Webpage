@@ -6,6 +6,10 @@
   margin: 3%;
 
   z-index: 5;
+
+  a:hover {
+    cursor: default;
+  }
 }
 
 .flag {
@@ -22,5 +26,7 @@
     &:hover {
       @include scale(1.3)
       @include transition(all .2s ease-in-out);
+
+      cursor: pointer;
     }
 }

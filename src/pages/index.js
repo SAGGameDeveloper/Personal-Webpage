@@ -71,6 +71,7 @@ export const pageQuery = graphql`
           html
           frontmatter {
             title
+            beautifulTitle
             lang
             tag
           }

@@ -1,5 +1,6 @@
 ---
 title: gamelegant
+beautifulTitle: GameElegant
 lang: en
 tag: work
 ---

@@ -1,5 +1,6 @@
 ---
 title: thetryangle
+beautifulTitle: The TryAngle
 lang: en
 tag: work
 ---

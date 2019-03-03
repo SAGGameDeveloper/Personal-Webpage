@@ -17,7 +17,7 @@ class About extends Component {
 
         <div className="about-content">
           <div data-aos="fade-right" className="about-text" dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'about') }} />
-          <div data-aos="fade-right" className="about-image">
+          <div data-aos="zoom-in" className="about-image">
             <img alt="Welcome" src={ about_image } />
           </div>
         </div>

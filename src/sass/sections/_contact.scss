@@ -17,6 +17,8 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
+  align-content: center;
+  align-items: center;
 
   width: 70%;
   margin: 3rem auto;
@@ -53,12 +55,16 @@
   justify-content: flex-start;
 
   a {
-    width: 100%;
-    margin: 0 0.5rem;
+    width: calc(15% + 5rem);
+    height: calc(15% + 5rem);
 
-    img {
-      width: calc(15% + 5rem);
-      min-width: 2.5rem;
+    margin: 0 1rem;
+
+    svg {
+      width: 70%;
+      height: auto;
+      min-width: 4rem;
+      margin: 0;
     }
   }
 }
@@ -66,15 +72,26 @@
 .contact-email {
   flex: 1;
   width: 100%;
+  height: 100%;
 
-  margin: auto;
+  margin: 2rem;
 
   @include breakpoint1 {
     width: 70%;
   }
 
-  img {
-    width: calc(15rem + 60%);
-    min-width: 13rem;
+  a {
+    width: 100%;
+    height: 100%;
+
+    svg { 
+      width: 100%;
+      height: 100%;
+      min-width: 15rem;
+
+      @include breakpoint1 {
+        width: 80%;
+      }
+    }
   }
 }

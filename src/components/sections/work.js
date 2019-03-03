@@ -9,34 +9,36 @@ class Work extends Component {
 
   componentDidMount() {
     this.work_elements = document.getElementsByClassName("work-element");
+
+    // Work overlay variables
     this.work_overlay = document.querySelector(".work-overlay");
+    this.work_overlay_title = this.work_overlay.querySelector(".work-overlay-title");
+    this.work_overlay_description = this.work_overlay.querySelector(".work-overlay-description");
+    this.work_overlay_image = this.work_overlay.querySelector(".work-overlay-image img");
     this.overlay_cross = this.work_overlay.querySelector(".work-overlay-cross");
     this.overlay_active = false;
 
     // Set the onclick events
     Array.prototype.forEach.call(this.work_elements, (element) => (element.onclick = this.zoomElement.bind(this, element)));
-    this.work_overlay.onclick = this.clickOutsideOverlay.bind(this);
     this.overlay_cross.onclick = this.setOverlayActive.bind(this, false);
   }
 
   zoomElement(element) {
     if (!this.overlay_active) {
-      this.setOverlayActive(true);
+      this.setOverlayActive(true, element);
     }
   }
 
-  clickOutsideOverlay(e) {
-    // Close the overlay when directly clicking on it
-    // and not on its children, that means cliking the background
-    if (e.target === this.work_overlay) {
-      this.setOverlayActive(false);
-    }
-  }
-
-  setOverlayActive(active) {
+  setOverlayActive(active, work_element) {
     if (!this.overlay_active && active){
+      // Activates the overlay
       this.work_overlay.classList.add("work-overlay-active");
       this.overlay_active = true;
+
+      // Sets the contents of the overlay to the ones of the selected element
+      this.work_overlay_title.innerHTML = work_element.querySelector(".work-element-title").innerHTML;
+      this.work_overlay_description.innerHTML = work_element.querySelector(".work-element-content").innerHTML;
+      this.work_overlay_image.src = work_element.querySelector(".work-element-image img").src;
     }
     else if (this.overlay_active) {
       this.work_overlay.classList.remove("work-overlay-active");
@@ -51,6 +53,12 @@ class Work extends Component {
           <div className="work-overlay-cross"><img alt="cross" src={ cross } /></div>
 
           <div className="work-overlay-wrapper">
+            <div className="work-overlay-image"><img alt="Project" src=""/></div>
+            <div className="work-overlay-text">
+              { /*eslint-disable-next-line*/ }
+              <h1 className="work-overlay-title"/>
+              <p className="work-overlay-description"/>
+            </div>
           </div>
         </div>
 
@@ -66,8 +74,9 @@ class Work extends Component {
               return (
 
                   <div data-aos="fade-left" key={ file.node.frontmatter.title } className="work-element-wrapper">
-                    <div className="work-element">
-                      <div className="work-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }} />
+                    <div className="work-element" id={ file.node.frontmatter.title }>
+                      <div className="work-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }}/>
+                      <div className="work-element-title" dangerouslySetInnerHTML = {{ __html: file.node.frontmatter.beautifulTitle }} />
                       <div className="work-element-image">
                         <img alt={ file.node.frontmatter.title }  src={withPrefix('/images/work/'+file.node.frontmatter.title+'.png')} />
                       </div>
