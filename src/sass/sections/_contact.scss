@@ -1,5 +1,5 @@
 .contact {
-  background-color: $contact-color;
+  background-color: $primary_color;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -40,6 +40,8 @@
   justify-content: center;
   margin: 0 3rem;
 
+  font-size: 2.1rem;
+
   flex:2;
   text-align: center;
 
@@ -54,6 +56,8 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
 
+  fill: $details_color;
+
   a {
     width: calc(15% + 5rem);
     height: calc(15% + 5rem);
@@ -65,6 +69,15 @@
       height: auto;
       min-width: 4rem;
       margin: 0;
+
+      @include transition(all .2s ease-in-out);
+
+      &:hover {
+        fill: $shock_color;
+        @include scale(1.15);
+
+        @include transition(all .2s ease-in-out);
+      }
     }
   }
 }
@@ -75,6 +88,7 @@
   height: 100%;
 
   margin: 2rem;
+  fill: $details_color;
 
   @include breakpoint1 {
     width: 70%;
@@ -84,13 +98,22 @@
     width: 100%;
     height: 100%;
 
-    svg { 
+    svg {
       width: 100%;
       height: 100%;
       min-width: 15rem;
 
+      @include transition(all .2s ease-in-out);
+
       @include breakpoint1 {
         width: 80%;
+      }
+
+      &:hover {
+        fill: $shock_color;
+        @include scale(1.15);
+
+        @include transition(all .2s ease-in-out);
       }
     }
   }

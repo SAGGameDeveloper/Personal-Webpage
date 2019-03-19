@@ -85,3 +85,12 @@
     box-shadow: $parameters;
   }
 }
+
+// Gradient - https://codepen.io/cathydutton/pen/dPPpWj
+@mixin gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: -ms-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}

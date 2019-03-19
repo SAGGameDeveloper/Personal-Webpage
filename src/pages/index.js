@@ -23,7 +23,7 @@ import Contact from '../components/sections/contact'
 // Animate On Scroll initialization
 AOS.init({
   // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 50, // offset (in px) from the original trigger point
+  offset: 70, // offset (in px) from the original trigger point
   delay: 0, // values from 0 to 3000, with step 50ms
   duration: 900, // values from 0 to 3000, with step 50ms
   easing: 'ease', // default easing for AOS animations

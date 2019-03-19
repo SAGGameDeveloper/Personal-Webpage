@@ -62,10 +62,10 @@ class Work extends Component {
           </div>
         </div>
 
-        <div data-aos="fade-left" id="work-section" className = "container work">
+        <div id="work-section" className = "container work">
           <hr/>
 
-          <div className="section-title">
+          <div data-aos="fade-down" className="section-title">
             <h1><span className="section-title-capital">W</span>hat I've done</h1>
           </div>
 

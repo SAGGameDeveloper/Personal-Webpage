@@ -8,7 +8,6 @@ class Title extends Component {
     super(props);
 
     window.addEventListener('scroll', () => (this.onScroll()));
-    window.addEventListener('resize', () => (this.updateSectionsHeight()));
   }
 
   componentDidMount() {
@@ -24,8 +23,6 @@ class Title extends Component {
 
     this.sections = document.getElementsByClassName("container");
     this.welcome_section = document.querySelector("#welcome-section");
-
-    this.updateSectionsHeight();
   }
 
   title_to_logo() {
@@ -44,15 +41,6 @@ class Title extends Component {
     this.maintitle_helper.classList.remove('maintitle-clickable');
 
     this.title_as_logo = false;
-  }
-
-  updateSectionsHeight() {
-    var minHeight = 50*window.getEmPixels();
-
-    if (window.innerHeight <= minHeight)
-      [].forEach.call(this.sections, (section) => (section.style.minHeight = minHeight+"px"));
-    else
-      [].forEach.call(this.sections, (section) => (section.style.minHeight = "100vh"));
   }
 
   onScroll() {

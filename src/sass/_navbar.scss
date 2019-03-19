@@ -33,7 +33,7 @@
 
   &:hover {
     @include transition(all .3s ease-in-out);
-    background-color: rgba(255,255,255,1);
+    background-color: $details_color;
     cursor: pointer;
     outline: none;
   }
@@ -50,7 +50,7 @@
 
 .active-navelement {
   @include transition(all .3s ease-in-out);
-  background-color: rgba(255,255,255,1);
+  background-color: $shock_color;
   cursor: pointer;
   outline: none;
 

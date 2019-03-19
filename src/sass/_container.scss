@@ -37,12 +37,11 @@ hr {
   width: calc(18rem + 20%);
   max-width: 65%;
   margin: auto;
-  padding: calc(1.5rem + 1%) 0 1.6rem 0;
+  padding: calc(1.2rem + 0.8%) 0 1.3rem 0;
   margin-bottom: calc(1rem + 1%);
 
-
   background-color: rgba(0, 0, 0, 0.3);
-  @include box-shadow();
+  @include box-shadow($title-box-shadow);
 
   @include breakpoint1 {
     font-size: calc(35% + 2.2rem);
@@ -51,7 +50,7 @@ hr {
 }
 
 .section-title-capital {
-  color: white;
+  color: $shock_color;
   font-size: 1.25em;
 }
 
@@ -64,7 +63,7 @@ hr {
   margin: 0 auto;
   z-index: 5;
 
-  border: solid $arrow_color;
+  border: solid $details_color;
   border-width: 0 3px 3px 0;
   display: inline-block;
 
@@ -87,7 +86,7 @@ hr {
     @include scale(1.2)
     border-width: 3px 3px 3px 3px;
     border-color: $shock_color;
-    background-color: $arrow_animation_background;
+    background-color: $extra_color;
   }
 
   &:focus{

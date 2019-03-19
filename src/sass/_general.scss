@@ -13,11 +13,12 @@ html, body{
 
   font-size: 1rem;
   font-family: mainFont;
+  color: $font_color;
 
 }
 
 body {
-    background-color: $welcome_foot_color;
+    background-color: $primary_color;
 
     @include transition(background-color 1s ease-in-out);
 }

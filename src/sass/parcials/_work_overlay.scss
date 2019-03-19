@@ -97,16 +97,14 @@
 
   h1 {
     font-size: 1.4rem;
-    margin: calc(2% + 2rem) 0;
+    margin: calc(0.4vw + 1rem) 0;
   }
 
   p {
     display: inline-block;
     text-align: left;
-    font-size: 1.9rem;
+    font-size: calc(0.7vw + 1.2rem);
   }
-
-
 }
 
 .work-overlay-image {

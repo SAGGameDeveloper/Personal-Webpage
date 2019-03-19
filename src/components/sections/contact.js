@@ -7,9 +7,9 @@ import Icon from '../svgIcon'
 class Contact extends Component {
   render() {
     return (
-      <div data-aos="fade-left" id="contact-section" className = "container contact">
+      <div id="contact-section" className = "container contact">
         <hr/>
-        <div className="section-title">
+        <div data-aos="fade-down" className="section-title">
           <h1><span className="section-title-capital">C</span>ontact me!</h1>
         </div>
 

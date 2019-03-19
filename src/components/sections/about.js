@@ -9,9 +9,9 @@ import about_image from '../../images/about-image.png'
 class About extends Component {
   render() {
     return (
-      <div data-aos="fade-right" id="about-section" className = "container about">
+      <div id="about-section" className = "container about">
         <hr/>
-        <div className="section-title">
+        <div data-aos="fade-down" className="section-title">
           <h1><span className="section-title-capital">W</span>ho I am</h1>
         </div>
 

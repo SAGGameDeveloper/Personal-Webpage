@@ -19,8 +19,6 @@ class Particles extends Component {
     this.particles = [];
     this.welcome_section = document.querySelector("#welcome-section");
     this.fake_background = this.welcome_section.querySelector(".fake-background");
-    this.welcome_background_color = window.getComputedStyle(this.welcome_section,
-                                      null).getPropertyValue('background-color');
     this.particle_spawn_side = true;
 
     // Set up particle spawning
@@ -56,7 +54,6 @@ class Particles extends Component {
       if (!(this.particles.length < max_particles)) return;
 
       spawned_particle = document.createElement('div');
-      spawned_particle.style.backgroundColor = this.welcome_background_color;
 
       this.particles.push(spawned_particle);
       this.fake_background.appendChild(spawned_particle);

@@ -13,7 +13,6 @@ class Navbar extends Component {
     this.currentSection = 0;
     this.section_divs = [];
     this.section_navelements = [];
-    this.section_background_colors = [];
 
     window.addEventListener('scroll', () => (this.onScroll()));
   }
@@ -21,9 +20,6 @@ class Navbar extends Component {
   componentDidMount() {
     this.section_divs = sections.map((section) => (document.querySelector("#"+section+section_suffix)));
     this.section_navelements = sections.map((section) => (document.querySelector("#"+section+navelement_suffix)));
-    this.section_background_colors = this.section_divs.map((section_div) => (
-      window.getComputedStyle( section_div, null).getPropertyValue('background-color')
-    ));
 
     this.onScroll();
   }
@@ -33,18 +29,12 @@ class Navbar extends Component {
     for (var i = 0; i < this.section_divs.length; i++) {
       var section_pos = this.section_divs[i].getBoundingClientRect().top;
       if (section_pos >= -window.innerHeight/2 && section_pos < window.innerHeight/2 ){
-
         // eslint-disable-next-line
         window.requestAnimationFrame( () => {
           this.section_navelements[this.currentSection].classList.remove('active-navelement');
           this.section_navelements[i].classList.add('active-navelement');
           this.currentSection = i;
-
-          // Changes the body background color
-          // to make a smooth transition to the next section
-          document.body.style.backgroundColor = this.section_background_colors[i];
         })
-
         break;
       }
     }

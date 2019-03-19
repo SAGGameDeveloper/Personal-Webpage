@@ -20,7 +20,9 @@ class Welcome extends Component {
         <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
         data-aos-duration="1800" id="welcome-section" className="container welcome">
           <Flags/>
-          <div className='fake-background'/>
+          <div className='fake-background'>
+            <hr/>
+          </div>
         </div>
 
         <div className="welcome-image-wrapper">

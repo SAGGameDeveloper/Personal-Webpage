@@ -6,7 +6,7 @@
 
   width: 2rem;
   height: 2rem;
-  background-color: red;
+  background-color: $secondary_color;
 
   border-radius: 0.1rem;
 }
@@ -16,7 +16,7 @@
 
   @include transform(translate(0,-20rem) rotate(360deg) scale(1.1) perspective(500px) rotateY(140deg));
   opacity: 0;
-  background-color: yellow !important;
+  background-color: $extra_color;
 }
 
 .particle-movement-1 {
