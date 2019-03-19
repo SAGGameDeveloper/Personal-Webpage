@@ -18,9 +18,16 @@ class Work extends Component {
     this.overlay_cross = this.work_overlay.querySelector(".work-overlay-cross");
     this.overlay_active = false;
 
-    // Set the onclick events
+    // Set the onclick event for each work element
     Array.prototype.forEach.call(this.work_elements, (element) => (element.onclick = this.zoomElement.bind(this, element)));
+
+    // Set the onclik event for the overlay exit cross
     this.overlay_cross.onclick = this.setOverlayActive.bind(this, false);
+
+    //Disable the overlay on 'Escape' press
+    window.addEventListener('keydown', (event) => {
+      if (this.overlay_active && event.key === "Escape") this.setOverlayActive(false);
+    });
   }
 
   zoomElement(element) {
@@ -40,7 +47,7 @@ class Work extends Component {
       this.work_overlay_description.innerHTML = work_element.querySelector(".work-element-content").innerHTML;
       this.work_overlay_image.src = work_element.querySelector(".work-element-image img").src;
     }
-    else if (this.overlay_active) {
+    else if (this.overlay_active && !active) {
       this.work_overlay.classList.remove("work-overlay-active");
       this.overlay_active = false;
     }

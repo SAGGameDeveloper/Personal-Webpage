@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { withPrefix } from 'gatsby'
 
+import Icon from '../svgIcon'
 import Arrow from '../../components/arrow'
+
 
 var odd = true;
 
@@ -22,7 +23,7 @@ class Skills extends Component {
                 <div data-aos="fade-right" key={ file.node.frontmatter.title } className="skills-element-wrapper">
                   <div className={ "skills-element " + (odd? "skills-odd-element" : "") }>
                     <div className="skills-element-image">
-                      <img alt={ file.node.frontmatter.title } src={withPrefix('/images/skills/'+file.node.frontmatter.title+'.png')} />
+                      <Icon name={ file.node.frontmatter.title } />
                     </div>
                     <div className="skills-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }} />
                   </div>

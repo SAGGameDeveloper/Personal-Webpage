@@ -15,6 +15,9 @@ html, body{
   font-family: mainFont;
   color: $font_color;
 
+  a {
+    color: $link_color;
+  }
 }
 
 body {
