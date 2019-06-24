@@ -22,7 +22,7 @@ class Skills extends Component {
             return (
                 <div data-aos="fade-right" key={ file.node.frontmatter.title } className="skills-element-wrapper">
                   <div className={ "skills-element " + (odd? "skills-odd-element" : "") }>
-                    <div className="skills-element-image">
+                    <div data-aos="svg-animation" className="skills-element-image">
                       <Icon name={ file.node.frontmatter.title } />
                     </div>
                     <div className="skills-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }} />

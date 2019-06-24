@@ -1,4 +1,4 @@
-$color_scheme: cool;
+$color_scheme: artei;
 
 // Default colors
 $primary_color: #84CEEB;
@@ -83,6 +83,15 @@ $font_color: white;
   $shock_color: #EDF5E1;
   $extra_color: #8EE4AF;
 }
+@else if ($color_scheme == artei) {
+  $primary_color: #3b160d;
+  $secondary_color: #eee2c4;
+
+  $details_color: #ae371e;
+  $shock_color: #d69e27;
+  $extra_color: #e16721;
+  $font_color: #eee2c4;
+}
 
 $welcome_gradient_colors: lighten($primary_color, 20),$primary_color;
 $link_color: $details_color;
@@ -92,5 +101,6 @@ $work_overlay_alpha: 0.9;
 
 $default-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.7);
 $title-box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.7);
+$glow-shadow: 0px 0px 1rem 0.7rem rgba(238, 226, 196, 0.9);
 
 $breakpoint1: 900px;

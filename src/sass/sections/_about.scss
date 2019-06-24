@@ -5,6 +5,10 @@
   hr {
     width: 60%;
   }
+
+  .section-title {
+    background-color: $primary_color;
+  }
 }
 
 .about-content {
@@ -36,7 +40,7 @@
 
   margin-top: 8%;
 
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: $primary_color;
   padding: 6rem 1rem;
 
   @include box-shadow();

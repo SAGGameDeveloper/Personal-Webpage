@@ -10,6 +10,10 @@
     flex-basis: auto;
     margin: 0;
   }
+
+  .section-title {
+    background-color: $primary_color;
+  }
 }
 
 .skills-wrapper {
@@ -48,6 +52,7 @@
 .skills-element-content {
   font-size: 1.3rem;
   padding: 0.5rem;
+  background-color: $primary_color;
 
   @include box-shadow();
 }

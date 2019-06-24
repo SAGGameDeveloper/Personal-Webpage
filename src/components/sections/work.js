@@ -73,7 +73,7 @@ class Work extends Component {
           <hr/>
 
           <div data-aos="fade-down" className="section-title">
-            <h1><span className="section-title-capital">W</span>hat I've done</h1>
+            <h1><span className="section-title-capital">L</span>et the work do the talk</h1>
           </div>
 
           <div className="work-container">
