@@ -2,18 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import '../../utils/getEmPixels'
 
-import Arrow from '../arrow'
 import Flags from '../flags'
 import Title from '../title'
-import Particles from '../particles'
-
-import welcome_image from '../../images/welcome-image.svg'
+import Game from '../game'
 
 class Welcome extends Component {
   render() {
     return (
       <>
-        <Particles/>
 
         <Title files={ this.props.files } />
 
@@ -21,16 +17,12 @@ class Welcome extends Component {
         data-aos-duration="1800" id="welcome-section" className="container welcome">
           <Flags/>
           <div className='fake-background'>
+            <Game/>
             <hr/>
           </div>
         </div>
 
-        <div className="welcome-image-wrapper">
-          <div className="welcome-image">
-            <img alt="Welcome" src={ welcome_image } />
-          </div>
-          <Arrow target_id="about-section"/>
-        </div>
+
       </>
     );
   }

@@ -1,11 +1,12 @@
 .footer {
-flex: 1;
+  flex: 1;
 
   position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: $secondary_color;
+  color: $primary_color;
 
   text-align: center;
   vertical-align: middle;

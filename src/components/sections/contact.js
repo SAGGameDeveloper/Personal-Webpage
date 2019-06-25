@@ -8,7 +8,6 @@ class Contact extends Component {
   render() {
     return (
       <div id="contact-section" className = "container contact">
-        <hr/>
         <div data-aos="fade-down" className="section-title">
           <h1><span className="section-title-capital">C</span>ontact me!</h1>
         </div>

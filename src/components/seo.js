@@ -88,6 +88,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               .concat(meta)}
             >
             <link rel="canonical" href="https://sag-dev.com"/>
+
           </Helmet>
         )
       }}

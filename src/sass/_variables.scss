@@ -84,12 +84,12 @@ $font_color: white;
   $extra_color: #8EE4AF;
 }
 @else if ($color_scheme == artei) {
-  $primary_color: #3b160d;
-  $secondary_color: #eee2c4;
+  $primary_color: #401f16;
+  $secondary_color: #e6dabc;
 
-  $details_color: #ae371e;
-  $shock_color: #d69e27;
-  $extra_color: #e16721;
+  $details_color: #d93916;
+  $shock_color: #e6a417;
+  $extra_color: #f27024;
   $font_color: #eee2c4;
 }
 
