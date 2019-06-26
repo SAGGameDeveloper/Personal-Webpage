@@ -7,9 +7,9 @@ import spanishFlag from '../images/spanishFlag.svg'
 
 const Flags = () => (
   <div className = 'flags'>
-    <Link to=""> <img alt="en" className='flag' src={englishFlag} /> </Link>
-    <Link to="gl"> <img alt="gl" className='flag' src={galicianFlag} /> </Link>
-    <Link to="es"> <img alt="es" className='flag' src={spanishFlag} /> </Link>
+    <Link to="/"> <img alt="en" className='flag' src={englishFlag} /> </Link>
+    <Link to="/gl"> <img alt="gl" className='flag' src={galicianFlag} /> </Link>
+    <Link to="/es"> <img alt="es" className='flag' src={spanishFlag} /> </Link>
   </div>
 )
 
