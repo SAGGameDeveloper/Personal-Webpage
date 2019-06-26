@@ -23,6 +23,7 @@ class Game extends Component {
 
     this.liquidfun_loaded = false;
     this.liquidfun_renderer_loaded = false;
+    this.allLoaded = false;
 
     this.app = new PIXI.Application({width: 800, height: 600, transparent: true});
     this.app.stage.position.x = 800/2;
@@ -85,17 +86,23 @@ class Game extends Component {
 
     this.app.view.addEventListener('click', this.onClick.bind(this));
     this.app.view.addEventListener('resize', this.onResize.bind(this));
+
+    this.allLoaded = true;
   }
 
   onClick(e) {
+    if (!this.allLoaded) return null;
+
     let x = ((e.clientX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / PTM;
     let y = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight/2) / PTM;
 
-    //this.spawnParticles(1, x, y);
-    this.createBox(x, y, 1, 1);
+    this.spawnParticles(1, x, y);
+    //this.createBox(x, y, 1, 1);
   }
 
   onResize() {
+    if (!this.allLoaded) return null;
+
     this.w = this.fake_background.scrollWidth;
     this.h = this.fake_background.scrollHeight;
 
@@ -107,6 +114,8 @@ class Game extends Component {
 
   // Updates the physics and graphics. Called by PIXI.Ticker.shared
   update() {
+    if (!this.allLoaded) return null;
+
     // Using an accumulator to guarantee (as much as possible)
     // physics stability even with low framerates
     this.accumulator += PIXI.Ticker.elapsedMS;
@@ -138,7 +147,7 @@ class Game extends Component {
   }
 
   spawnParticles(radius, x, y) {
-    // Don't spawn more particles if the limit is surpassed or the frame frame
+    // Don't spawn more particles if the limit is surpassed or the frame rate
     // drops too much
     if (this.particleSystem.GetParticleCount() >= MAX_PARTICLES
           || PIXI.Ticker.elapsedMS >= MAX_MS)
@@ -154,10 +163,10 @@ class Game extends Component {
     pgd.color = color;
     pgd.flags = flags;
     shape.position = new window.b2Vec2(x, y);
-    let group = this.particleSystem.CreateParticleGroup(pgd);
+    window.group = this.particleSystem.CreateParticleGroup(pgd);
 
     //console.log("Particles spawned!");
-    return group;
+    return window.group;
   }
 
 
