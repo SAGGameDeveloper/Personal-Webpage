@@ -1,3 +1,5 @@
+// This code is based on: https://github.com/doebi/liquidfun.js-demo
+
 import React, { Component } from 'react'
 import * as PIXI from 'pixi.js'
 import Script from 'react-load-script'
@@ -19,8 +21,10 @@ class Game extends Component {
   constructor(props) {
     super(props);
 
+    this.liquidfun_loaded = false;
+    this.liquidfun_renderer_loaded = false;
+
     this.app = new PIXI.Application({width: 800, height: 600, transparent: true});
-    this.app.renderer.autoResize = false;
     this.app.stage.position.x = 800/2;
     this.app.stage.position.y = 600/2;
 
@@ -34,25 +38,36 @@ class Game extends Component {
   componentDidMount() {
     // Pixi initialization
     this.fake_background = document.getElementsByClassName("fake-background")[0];
+    this.onResize();
+
     this.fake_background.appendChild(this.app.view);
     this.app.view.id = 'game-canvas';
+
+    this.readyInterval = setInterval(this.ready.bind(this), 10);
   }
 
   render() {
     return (<>
               <Script
                 url="scripts/liquidfun.js"
-                onLoad={this.setup.bind(this)}
+                onLoad={ () => {this.liquidfun_loaded = true} }
               />
-              <Script url="scripts/liquidfun-renderer.js"/>
+              <Script
+                url="scripts/liquidfun-renderer.js"
+                onLoad={ () => {this.liquidfun_renderer_loaded = true} }/>
             </>)
   }
 
+  ready() {
+    if (this.liquidfun_loaded && this.liquidfun_renderer_loaded) {
+      clearInterval(this.readyInterval);
+      this.setup();
+    }
+  }
 
   // --- GAME LOGIC ---
 
-  // Sets up liquidfun and Pixi and makes
-  // them work together
+  // Liquidfun and Pixi initializations
   setup() {
     let gravity = new window.b2Vec2(GRAVITY[0], GRAVITY[1]);
     this.world = new window.b2World(gravity);
@@ -68,15 +83,26 @@ class Game extends Component {
     // Show the canvas only when the physics are completely loaded
     this.app.view.style.opacity = '1';
 
-    this.app.view.addEventListener('click', this.onClickHandler.bind(this));
+    this.app.view.addEventListener('click', this.onClick.bind(this));
+    this.app.view.addEventListener('resize', this.onResize.bind(this));
   }
 
-  onClickHandler(e) {
+  onClick(e) {
     let x = ((e.clientX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / PTM;
     let y = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight/2) / PTM;
 
     //this.spawnParticles(1, x, y);
     this.createBox(x, y, 1, 1);
+  }
+
+  onResize() {
+    this.w = this.fake_background.scrollWidth;
+    this.h = this.fake_background.scrollHeight;
+
+    this.app.stage.position.x = this.w/2;
+    this.app.stage.position.y = this.h/2;
+
+    this.app.renderer.resize(this.w, this.h);
   }
 
   // Updates the physics and graphics. Called by PIXI.Ticker.shared
@@ -112,11 +138,13 @@ class Game extends Component {
   }
 
   spawnParticles(radius, x, y) {
-    if (this.particleSystem.GetParticleCount() >= MAX_PARTICLES)
+    // Don't spawn more particles if the limit is surpassed or the frame frame
+    // drops too much
+    if (this.particleSystem.GetParticleCount() >= MAX_PARTICLES
+          || PIXI.Ticker.elapsedMS >= MAX_MS)
       return null;
 
     let color = new window.b2ParticleColor(0, 0, 255, 255);
-    // flags
     let flags = (0<<0);
 
     let pgd = new window.b2ParticleGroupDef();
@@ -136,17 +164,16 @@ class Game extends Component {
 createBox(x, y, w, h) {
     let bd = new window.b2BodyDef();
     bd.position = new window.b2Vec2(x, y);
-
     let body = this.world.CreateBody(bd);
 
-    let shape = new window.b2PolygonShape;
+    let shape = new window.b2PolygonShape();
     shape.SetAsBoxXY(w, h);
     body.CreateFixtureFromShape(shape, 1.0);
 
     let sprite = PIXI.Sprite.from(PIXI.Texture.WHITE);
-    // dunno why this has to be times 2
     sprite.width = w * PTM * 2;
     sprite.height = h * PTM * 2;
+    sprite.position.set(x * PTM * 2, y * PTM * 2);
     sprite.anchor.set(0.5);
     sprite.body = body;
     this.app.stage.addChild(sprite);
