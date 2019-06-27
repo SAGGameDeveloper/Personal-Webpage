@@ -3,10 +3,7 @@
 import React, { Component } from 'react'
 import * as PIXI from 'pixi.js'
 import Script from 'react-load-script'
-
-// Define PIXI in the global context so the liquidfun Renderer
-// can use it
-window.PIXI = PIXI;
+import LiquidfunRenderer from '../utils/liquidfun_renderer'
 
 // Elapsed time between frames
 const TARGET_MS = 1000/60;
@@ -14,62 +11,43 @@ const MAX_MS = 1000/30;
 
 // Simulation parameters
 const PTM = 30; //Pixels per meter
-const MAX_PARTICLES = 500;
+const MAX_PARTICLES = 1000;
 const GRAVITY = [0, -9.81];
+
+// Using a customized renderer for the liquidfun particles
+PIXI.Renderer.registerPlugin('LiquidfunRenderer', LiquidfunRenderer);
 
 class Game extends Component {
   constructor(props) {
     super(props);
 
-    this.liquidfun_loaded = false;
-    this.liquidfun_renderer_loaded = false;
     this.allLoaded = false;
-
-    this.app = new PIXI.Application({width: 800, height: 600, transparent: true});
-    this.app.stage.position.x = 800/2;
-    this.app.stage.position.y = 600/2;
-
-    // Liquidfun load
-    const liquidfunScript = document.createElement("script");
-    liquidfunScript.src = "scripts/liquidfun.js";
-    liquidfunScript.asyn = 'true';
-    document.body.appendChild(liquidfunScript);
   }
 
-  componentDidMount() {
-    // Pixi initialization
-    this.fake_background = document.getElementsByClassName("fake-background")[0];
-    this.onResize();
-
-    this.fake_background.appendChild(this.app.view);
-    this.app.view.id = 'game-canvas';
-
-    this.readyInterval = setInterval(this.ready.bind(this), 10);
-  }
+  componentDidMount() {  }
 
   render() {
     return (<>
               <Script
                 url="scripts/liquidfun.js"
-                onLoad={ () => {this.liquidfun_loaded = true} }
+                onLoad={ this.setup.bind(this) }
               />
-              <Script
-                url="scripts/liquidfun-renderer.js"
-                onLoad={ () => {this.liquidfun_renderer_loaded = true} }/>
             </>)
-  }
-
-  ready() {
-    if (this.liquidfun_loaded && this.liquidfun_renderer_loaded) {
-      clearInterval(this.readyInterval);
-      this.setup();
-    }
   }
 
   // --- GAME LOGIC ---
 
   // Liquidfun and Pixi initializations
   setup() {
+    // Pixi initialization
+    this.app = new PIXI.Application({width: 800, height: 600, transparent: true});
+
+    this.fake_background = document.getElementsByClassName("fake-background")[0];
+    this.onResize();
+
+    this.fake_background.appendChild(this.app.view);
+    this.app.view.id = 'game-canvas';
+
     let gravity = new window.b2Vec2(GRAVITY[0], GRAVITY[1]);
     this.world = new window.b2World(gravity);
     window.world = this.world;
@@ -130,6 +108,8 @@ class Game extends Component {
       sprite.position.set(pos.x * PTM, pos.y * PTM);
       sprite.rotation = -sprite.body.GetAngle();
     });
+
+    this.app.renderer.plugins.LiquidfunRenderer.render();
   }
 
 
@@ -137,13 +117,6 @@ class Game extends Component {
     let psd = new window.b2ParticleSystemDef();
     psd.radius = 0.1;
     this.particleSystem = this.world.CreateParticleSystem(psd);
-    //this.particleSystem.SetMaxParticleCount(MAX_PARTICLES);
-
-    let dummy = PIXI.Sprite.from(PIXI.Texture.EMPTY);
-    this.app.stage.addChild(dummy);
-
-    this.particleSystemSprite = new window.LiquidfunSprite(this.particleSystem, this.app);
-    this.app.stage.addChild(this.particleSystemSprite);
   }
 
   spawnParticles(radius, x, y) {
@@ -163,10 +136,11 @@ class Game extends Component {
     pgd.color = color;
     pgd.flags = flags;
     shape.position = new window.b2Vec2(x, y);
-    window.group = this.particleSystem.CreateParticleGroup(pgd);
+    let group = this.particleSystem.CreateParticleGroup(pgd);
 
-    //console.log("Particles spawned!");
-    return window.group;
+    this.app.renderer.plugins.LiquidfunRenderer.setParticleSystem(this.particleSystem);
+
+    return group;
   }
 
 
