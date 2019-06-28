@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import * as PIXI from 'pixi.js'
 import Script from 'react-load-script'
-import LiquidfunRenderer from '../utils/liquidfun_renderer'
+import LiquidfunContainer from '../utils/liquidfun_container'
 
 // Elapsed time between frames
 const TARGET_MS = 1000/60;
@@ -11,11 +11,10 @@ const MAX_MS = 1000/30;
 
 // Simulation parameters
 const PTM = 30; //Pixels per meter
-const MAX_PARTICLES = 1000;
+const MAX_PARTICLES = 5000;
+const PARTICLE_SIZE = 0.12;
 const GRAVITY = [0, 9.81];
-
-// Using a customized renderer for the liquidfun particles
-PIXI.Renderer.registerPlugin('LiquidfunRenderer', LiquidfunRenderer);
+const COLOR = 0xE6DABC;
 
 class Game extends Component {
   constructor(props) {
@@ -40,7 +39,7 @@ class Game extends Component {
   // Liquidfun and Pixi initializations
   setup() {
     // Pixi initialization
-    this.app = new PIXI.Application({width: 800, height: 600, transparent: true});
+    this.app = new PIXI.Application({width: 1000, height: 1000, transparent: true});
 
     this.fake_background = document.getElementsByClassName("fake-background")[0];
     this.onResize();
@@ -53,18 +52,19 @@ class Game extends Component {
     window.world = this.world;
     this.createParticleSystem();
 
+    this.defaultContainer = new PIXI.Container();
+    this.app.stage.addChild(this.defaultContainer);
     this.accumulator = 0;
     this.sprites = [];
 
     // Sync Pixi with Liquidfun
-    this.app.renderer.plugins.LiquidfunRenderer.setup(this.particleSystem, this.app.stage, PTM);
     PIXI.Ticker.shared.add(this.update.bind(this));
 
     // Show the canvas only when the physics are completely loaded
     this.app.view.style.opacity = '1';
 
     this.app.view.addEventListener('click', this.onClick.bind(this));
-    this.app.view.addEventListener('resize', this.onResize.bind(this));
+    window.addEventListener('resize', this.onResize.bind(this));
 
     this.allLoaded = true;
   }
@@ -73,22 +73,19 @@ class Game extends Component {
     if (!this.allLoaded) return null;
 
     let x = ((e.clientX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / PTM;
-    let y = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight/2) / PTM;
+    let y = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight) / PTM;
 
-    this.spawnParticles(1, x, y);
-    //this.createBox(x, y, 1, 1);
+    if (e.shiftKey) this.spawnParticles(1, x, y);
+    else if (e.ctrlKey) this.createBox(x, y, 1, 1, false);
+    else this.createBox(x, y, 1, 1, true);
   }
 
   onResize() {
-    if (!this.allLoaded) return null;
-
     this.w = this.fake_background.scrollWidth;
     this.h = this.fake_background.scrollHeight;
-
-    this.app.stage.position.x = this.w/2;
-    this.app.stage.position.y = this.h/2;
-
     this.app.renderer.resize(this.w, this.h);
+
+    this.app.stage.position.set(this.w/2, this.h);
   }
 
   // Updates the physics and graphics. Called by PIXI.Ticker.shared
@@ -111,11 +108,13 @@ class Game extends Component {
     });
   }
 
-
   createParticleSystem() {
     let psd = new window.b2ParticleSystemDef();
-    psd.radius = 0.1;
+    psd.radius = PARTICLE_SIZE;
     this.particleSystem = this.world.CreateParticleSystem(psd);
+    this.particleContainer = new LiquidfunContainer();
+    this.particleContainer.setup(this.particleSystem, PTM, COLOR)
+    this.app.stage.addChild(this.particleContainer);
   }
 
   spawnParticles(radius, x, y) {
@@ -136,27 +135,28 @@ class Game extends Component {
     pgd.flags = flags;
     shape.position = new window.b2Vec2(x, y);
     let group = this.particleSystem.CreateParticleGroup(pgd);
-
     return group;
   }
 
 
-createBox(x, y, w, h) {
+createBox(x, y, w, h, fixed) {
     let bd = new window.b2BodyDef();
     bd.position = new window.b2Vec2(x, y);
+    if (!fixed) bd.type = 2;
     let body = this.world.CreateBody(bd);
 
     let shape = new window.b2PolygonShape();
     shape.SetAsBoxXY(w, h);
-    body.CreateFixtureFromShape(shape, 1.0);
+    body.CreateFixtureFromShape(shape, 3);
 
     let sprite = PIXI.Sprite.from(PIXI.Texture.WHITE);
+    sprite.tint = COLOR;
+    sprite.anchor.set(0.5);
     sprite.width = w * PTM * 2;
     sprite.height = h * PTM * 2;
     sprite.position.set(x * PTM * 2, y * PTM * 2);
-    sprite.anchor.set(0.5);
     sprite.body = body;
-    this.app.stage.addChild(sprite);
+    this.defaultContainer.addChild(sprite);
     this.sprites.push(sprite);
     return body;
   }
