@@ -12,7 +12,7 @@ const MAX_MS = 1000/30;
 // Simulation parameters
 const PTM = 30; //Pixels per meter
 const MAX_PARTICLES = 1000;
-const GRAVITY = [0, -9.81];
+const GRAVITY = [0, 9.81];
 
 // Using a customized renderer for the liquidfun particles
 PIXI.Renderer.registerPlugin('LiquidfunRenderer', LiquidfunRenderer);
@@ -56,7 +56,8 @@ class Game extends Component {
     this.accumulator = 0;
     this.sprites = [];
 
-    // Sync Pixi with Liquidfun in its update object
+    // Sync Pixi with Liquidfun
+    this.app.renderer.plugins.LiquidfunRenderer.setup(this.particleSystem, this.app.stage, PTM);
     PIXI.Ticker.shared.add(this.update.bind(this));
 
     // Show the canvas only when the physics are completely loaded
@@ -96,7 +97,7 @@ class Game extends Component {
 
     // Using an accumulator to guarantee (as much as possible)
     // physics stability even with low framerates
-    this.accumulator += PIXI.Ticker.elapsedMS;
+    this.accumulator += PIXI.Ticker.shared.elapsedMS;
     while (this.accumulator >= TARGET_MS) {
       this.world.Step(TARGET_MS/1000, 8, 3);
       this.accumulator -= TARGET_MS;
@@ -108,8 +109,6 @@ class Game extends Component {
       sprite.position.set(pos.x * PTM, pos.y * PTM);
       sprite.rotation = -sprite.body.GetAngle();
     });
-
-    this.app.renderer.plugins.LiquidfunRenderer.render();
   }
 
 
@@ -137,8 +136,6 @@ class Game extends Component {
     pgd.flags = flags;
     shape.position = new window.b2Vec2(x, y);
     let group = this.particleSystem.CreateParticleGroup(pgd);
-
-    this.app.renderer.plugins.LiquidfunRenderer.setParticleSystem(this.particleSystem);
 
     return group;
   }
