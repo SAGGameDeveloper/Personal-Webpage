@@ -1,3 +1,7 @@
+// I use GetParticleCount divided by 2 to avoid a Liquidfun
+// known bug, where GetParticleCount returns twice what it should, see
+// https://github.com/google/liquidfun/issues/50
+
 import * as PIXI from 'pixi.js'
 import ParticleImage from '../images/particle.png'
 import AlphaThresholdFilter from '../utils/filter-alpha-threshold.js'
@@ -7,7 +11,7 @@ import {GlowFilter} from '@pixi/filter-glow';
 function LiquidfunContainer() {
     PIXI.Container.call(this);
     this.radius = 1;
-    this.count = 0;
+    this.fixedCount = 0;
 
     this.texture = PIXI.Texture.from(ParticleImage);
     this.particleSystem = null;
@@ -34,7 +38,7 @@ LiquidfunContainer.prototype.render = function (renderer) {
   this.updateCount();
 
   let pos = this.particleSystem.GetPositionBuffer();
-  for (let i = 0; i < this.count; i++) {
+  for (let i = 0; i < this.fixedCount; i++) {
     this.children[i].position.set(pos[i*2]*this.PTM, pos[i*2+1]*this.PTM);
   }
 
@@ -42,13 +46,13 @@ LiquidfunContainer.prototype.render = function (renderer) {
 }
 
 LiquidfunContainer.prototype.updateCount = function() {
-  this.count = this.particleSystem.GetParticleCount();
+  this.fixedCount = this.particleSystem.GetParticleCount()/2;
   let spriteCount = this.children.length;
 
-  if (this.count < spriteCount) this.removeChildren(this.count, spriteCount);
-  else if (this.count > spriteCount) this.addParticles(this.count - spriteCount);
+  if (this.fixedCount < spriteCount) this.removeChildren(this.fixedCount, spriteCount);
+  else if (this.fixedCount > spriteCount) this.addParticles(this.fixedCount - spriteCount);
 
-  return this.count;
+  return this.fixedCount;
 }
 
 LiquidfunContainer.prototype.addParticles = function(n) {

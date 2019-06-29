@@ -1,5 +1,9 @@
 // This code is based on: https://github.com/doebi/liquidfun.js-demo
 
+// I use GetParticleCount divided by 2 to avoid a Liquidfun
+// known bug, where GetParticleCount returns twice what it should, see
+// https://github.com/google/liquidfun/issues/50
+
 import React, { Component } from 'react'
 import * as PIXI from 'pixi.js'
 import Script from 'react-load-script'
@@ -25,7 +29,7 @@ const TORNADO = {
 
   growth: 0.1,
   speed: 10,
-  maxSpeed: 60,
+  maxSpeed: 50,
   angle: 0.5,
   size: 20,
 }
@@ -91,6 +95,8 @@ class Game extends Component {
     this.allLoaded = true;
     this.onResize();
     this.spawnParticles(0, -SEA_DEPTH, this.w/2/PTM, SEA_DEPTH);
+    this.randomizeParticleIndexes();
+
   }
 
   updateMouseCoords(e) {
@@ -234,6 +240,32 @@ class Game extends Component {
         velBuf[i*2] = vX;
         velBuf[i*2+1] = vY;
       }
+    }
+  }
+
+  randomizeParticleIndexes() {
+    let fixedCount = this.particleSystem.GetParticleCount()/2;
+    let posBuf = this.particleSystem.GetPositionBuffer();
+    let velBuf = this.particleSystem.GetVelocityBuffer();
+
+    for (let i=0; i<fixedCount; i++) {
+      let rnd = Math.floor(Math.random()*(fixedCount+1));
+
+      //Swap positions
+      let tempX = posBuf[i*2];
+      let tempY = posBuf[i*2+1];
+      posBuf[i*2] = posBuf[rnd*2];
+      posBuf[i*2+1] = posBuf[rnd*2+1];
+      posBuf[rnd*2] = tempX;
+      posBuf[rnd*2+1] = tempY;
+
+      //Swap velocities
+      tempX = velBuf[i*2];
+      tempY = velBuf[i*2+1];
+      velBuf[i*2] = velBuf[rnd*2];
+      velBuf[i*2+1] = velBuf[rnd*2+1];
+      velBuf[rnd*2] = tempX;
+      velBuf[rnd*2+1] = tempY;
     }
   }
 }
