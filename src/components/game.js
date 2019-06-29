@@ -69,7 +69,6 @@ class Game extends Component {
     window.world = this.world;
     this.createParticleSystem();
     this.my_tornado = Object.assign({}, TORNADO);
-    this.app.view.addEventListener("mousemove", this.updateMouseCoords.bind(this));
 
     this.defaultContainer = new PIXI.Container();
     this.app.stage.addChild(this.defaultContainer);
@@ -83,8 +82,10 @@ class Game extends Component {
     // Show the canvas only when the physics are completely loaded
     this.app.view.style.opacity = '1';
 
-    this.app.view.addEventListener('click', this.onClick.bind(this));
     window.addEventListener('resize', this.onResize.bind(this));
+    this.app.view.addEventListener("mousedown", this.onMouseDown.bind(this));
+    this.app.view.addEventListener("mouseup", this.onMouseUp.bind(this));
+    this.app.view.addEventListener("mousemove", this.updateMouseCoords.bind(this));
 
     // Everything has been properly loaded
     this.allLoaded = true;
@@ -97,12 +98,18 @@ class Game extends Component {
     this.mouseY = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight) / PTM;
   }
 
-  onClick(e) {
+  onMouseDown(e) {
     if (!this.allLoaded) return null;
 
     this.updateMouseCoords(e);
     this.my_tornado = Object.assign({}, TORNADO);
-    this.my_tornado.active = !this.my_tornado.active;
+    this.my_tornado.active = true;
+  }
+
+  onMouseUp(e) {
+    if (!this.allLoaded) return null;
+
+    this.my_tornado.active = false;
   }
 
   onResize() {
@@ -119,7 +126,7 @@ class Game extends Component {
 
   // Updates the physics and graphics. Called by PIXI.Ticker.shared
   update() {
-    if (!this.allLoaded) return null;
+    if (!this.allLoaded || !document.hasFocus()) return null;
 
     // Using an accumulator to guarantee (as much as possible)
     // physics stability even with low framerates
