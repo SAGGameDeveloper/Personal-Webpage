@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js'
 import ParticleImage from '../images/particle.png'
 import AlphaThresholdFilter from '../utils/filter-alpha-threshold.js'
 import {ColorReplaceFilter} from '@pixi/filter-color-replace';
+import {GlowFilter} from '@pixi/filter-glow';
 
 function LiquidfunContainer() {
     PIXI.Container.call(this);
@@ -23,7 +24,8 @@ LiquidfunContainer.prototype.setup = function(particleSystem, PTM, color) {
 
   this.filters = [new PIXI.filters.BlurFilter(5, 5, 1, 11),
                   new AlphaThresholdFilter(0.25),
-                  new ColorReplaceFilter(0x000000, this.color, 1)];
+                  new ColorReplaceFilter(0x000000, this.color, 1),
+                  new GlowFilter(25, 4, 0, this.color, 1)];
 }
 
 LiquidfunContainer.prototype.render = function (renderer) {
