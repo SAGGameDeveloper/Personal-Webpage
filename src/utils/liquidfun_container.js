@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js'
 import ParticleImage from '../images/particle.png'
-import {AdjustmentFilter} from '@pixi/filter-adjustment';
+import AlphaThresholdFilter from '../utils/filter-alpha-threshold.js'
+import {ColorReplaceFilter} from '@pixi/filter-color-replace';
 
 function LiquidfunContainer() {
     PIXI.Container.call(this);
@@ -17,11 +18,12 @@ LiquidfunContainer.prototype.constructor = LiquidfunContainer;
 LiquidfunContainer.prototype.setup = function(particleSystem, PTM, color) {
   this.particleSystem = particleSystem;
   this.PTM = PTM;
-  this.tint = color;
+  this.color = color;
   this.radius = this.particleSystem.radius * PTM;
 
-  this.filters = [new PIXI.filters.BlurFilter(4, 5, 1, 11),
-                  new AdjustmentFilter({ gamma:1, saturation:0, contrast:1, brightness:1, red:1, green:1, blue:1, alpha:255})];
+  this.filters = [new PIXI.filters.BlurFilter(5, 5, 1, 11),
+                  new AlphaThresholdFilter(0.25),
+                  new ColorReplaceFilter(0x000000, this.color, 1)];
 }
 
 LiquidfunContainer.prototype.render = function (renderer) {
@@ -50,10 +52,9 @@ LiquidfunContainer.prototype.updateCount = function() {
 LiquidfunContainer.prototype.addParticles = function(n) {
   for (let i = 0; i < n; i++) {
     let particle_sprite = new PIXI.Sprite(this.texture);
-    particle_sprite.width = this.radius/2;
-    particle_sprite.height = this.radius/2;
-    particle_sprite.tint = this.tint;
-    particle_sprite.blendMode = PIXI.BLEND_MODES.MULTIPLY;
+    particle_sprite.width = this.radius*2;
+    particle_sprite.height = this.radius*2;
+    particle_sprite.blendMode = PIXI.BLEND_MODES.NORMAL;
     particle_sprite.anchor.set(0.5);
     this.addChild(particle_sprite);
   }
