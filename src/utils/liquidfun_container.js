@@ -23,9 +23,9 @@ LiquidfunContainer.prototype.setup = function(particleSystem, PTM, color) {
   this.radius = this.particleSystem.radius * PTM;
 
   this.filters = [new PIXI.filters.BlurFilter(5, 5, 1, 11),
-                  new AlphaThresholdFilter(0.25),
+                  new AlphaThresholdFilter(0.85),
                   new ColorReplaceFilter(0x000000, this.color, 1),
-                  new GlowFilter(25, 4, 0, this.color, 1)];
+                  new GlowFilter(25, 2.5, 0, this.color, 0.1)];
 }
 
 LiquidfunContainer.prototype.render = function (renderer) {
@@ -54,8 +54,8 @@ LiquidfunContainer.prototype.updateCount = function() {
 LiquidfunContainer.prototype.addParticles = function(n) {
   for (let i = 0; i < n; i++) {
     let particle_sprite = new PIXI.Sprite(this.texture);
-    particle_sprite.width = this.radius*2;
-    particle_sprite.height = this.radius*2;
+    particle_sprite.width = this.radius*4;
+    particle_sprite.height = this.radius*4;
     particle_sprite.blendMode = PIXI.BLEND_MODES.NORMAL;
     particle_sprite.anchor.set(0.5);
     this.addChild(particle_sprite);

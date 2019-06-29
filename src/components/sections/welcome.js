@@ -17,6 +17,7 @@ class Welcome extends Component {
         data-aos-duration="1800" id="welcome-section" className="container welcome">
           <Flags/>
           <div className='fake-background'>
+            <div className='fake-floor'></div>
             <Game/>
             <hr/>
           </div>
