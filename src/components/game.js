@@ -8,18 +8,19 @@ import React, { Component } from 'react'
 import * as PIXI from 'pixi.js'
 import Script from 'react-load-script'
 import LiquidfunContainer from '../utils/liquidfun_container'
+import BoatImage from '../images/boat.png'
 
 // Elapsed time between frames
 const TARGET_MS = 1000/60;
 
 // Simulation parameters
 const PTM = 30; //Pixels per meter
-const PARTICLE_SIZE = 0.15;
+const PARTICLE_SIZE = 0.17;
 const GRAVITY = [0, 9.81];
-const COLOR = 0xE6DABC;
+const COLOR = 0xe6dabc;
 const WALL_THICKNESS = 10;
 const WALL_LENGTH = 200;
-const SEA_DEPTH = 1.2;
+const SEA_DEPTH = 2;
 const WALL_MARGIN = 0.1;
 
 const TORNADO = {
@@ -29,7 +30,7 @@ const TORNADO = {
 
   growth: 0.1,
   speed: 10,
-  maxSpeed: 50,
+  maxSpeed: 40,
   angle: 0.5,
   size: 20,
 }
@@ -76,12 +77,12 @@ class Game extends Component {
 
     this.defaultContainer = new PIXI.Container();
     this.app.stage.addChild(this.defaultContainer);
-    this.accumulator = 0;
+    this.accumulator = TARGET_MS; // To allow the first update to be done
     this.sprites = [];
     this.createWalls(this.w/PTM, this.h/PTM, WALL_THICKNESS, WALL_LENGTH);
 
     // Sync Pixi with Liquidfun
-    PIXI.Ticker.shared.add(this.update.bind(this));
+    PIXI.Ticker.shared.add(this.update.bind(this), 75);
 
     // Show the canvas only when the physics are completely loaded
     this.app.view.style.opacity = '1';
@@ -95,6 +96,8 @@ class Game extends Component {
     this.allLoaded = true;
     this.onResize();
     this.spawnParticles(0, -SEA_DEPTH, this.w/2/PTM, SEA_DEPTH);
+    this.spawnBoat(0, -20, 4, 3.488);
+    this.world.Step(TARGET_MS/1000, 8, 3);
     this.randomizeParticleIndexes();
 
   }
@@ -182,12 +185,48 @@ class Game extends Component {
 
     let shape = new window.b2PolygonShape();
     shape.SetAsBoxXY(w, h);
-    body.CreateFixtureFromShape(shape, 0.5);
+    body.CreateFixtureFromShape(shape, 0.3);
 
     if (!createSprite) return body;
 
     let sprite = PIXI.Sprite.from(PIXI.Texture.WHITE);
     sprite.tint = COLOR;
+    sprite.anchor.set(0.5);
+    sprite.width = w * PTM * 2;
+    sprite.height = h * PTM * 2;
+    sprite.position.set(x * PTM * 2, y * PTM * 2);
+    sprite.body = body;
+    this.defaultContainer.addChild(sprite);
+    this.sprites.push(sprite);
+
+    return body;
+  }
+
+  spawnBoat(x, y, w, h) {
+    let b2Vec2 = window.b2Vec2;
+    let bd = new window.b2BodyDef();
+    bd.position = new b2Vec2(x, y);
+    bd.type = 2;
+    let body = this.world.CreateBody(bd);
+
+    //Floor
+    let shape = new window.b2PolygonShape();
+    shape.SetAsBoxXYCenterAngle(w/1.4, h/5, new b2Vec2(0, h/1.3), 0);
+    body.CreateFixtureFromShape(shape, 0.1);
+
+    //Mast
+    shape.SetAsBoxXYCenterAngle(w/7, h/1.7, new b2Vec2(0, -h/4), 0);
+    body.CreateFixtureFromShape(shape, 0.2);
+
+    //Right side
+    shape.SetAsBoxXYCenterAngle(w/6, h/3, new b2Vec2(w/1.7, h/2), Math.PI/4);
+    body.CreateFixtureFromShape(shape, 0.3);
+
+    //Left side
+    shape.SetAsBoxXYCenterAngle(w/6, h/3, new b2Vec2(-w/1.7, h/2), -Math.PI/4);
+    body.CreateFixtureFromShape(shape, 0.3);
+
+    let sprite = PIXI.Sprite.from(BoatImage);
     sprite.anchor.set(0.5);
     sprite.width = w * PTM * 2;
     sprite.height = h * PTM * 2;
