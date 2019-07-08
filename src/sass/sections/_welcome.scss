@@ -62,9 +62,12 @@
 #game-canvas{
   width: 102%;
   height: 100%;
-  opacity: 0;
   cursor: pointer !important;
   position: absolute;
 
-  @include transition(all 2s ease-in-out);
+  @include transition(opacity 3s ease-in-out);
+}
+
+.visible-canvas{
+  opacity: 1 !important;
 }

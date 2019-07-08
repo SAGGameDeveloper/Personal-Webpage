@@ -1,4 +1,4 @@
-// I use GetParticleCount divided by 2 to avoid a Liquidfun
+// I use GetParticleCount() divided by 2 to avoid a Liquidfun
 // known bug, where GetParticleCount returns twice what it should, see
 // https://github.com/google/liquidfun/issues/50
 
@@ -7,6 +7,8 @@ import ParticleImage from '../images/particle.png'
 import AlphaThresholdFilter from '../utils/filter-alpha-threshold.js'
 import {ColorReplaceFilter} from '@pixi/filter-color-replace';
 import {GlowFilter} from '@pixi/filter-glow';
+
+const MIN_RADIUS = 5;
 
 function LiquidfunContainer() {
     PIXI.Container.call(this);
@@ -24,7 +26,7 @@ LiquidfunContainer.prototype.setup = function(particleSystem, PTM, color) {
   this.particleSystem = particleSystem;
   this.PTM = PTM;
   this.color = color;
-  this.radius = this.particleSystem.radius * PTM;
+  this.radius = Math.max(this.particleSystem.radius * PTM, MIN_RADIUS);
 
   this.filters = [new PIXI.filters.BlurFilter(5, 5, 1, 11),
                   new AlphaThresholdFilter(0.85),
@@ -32,17 +34,30 @@ LiquidfunContainer.prototype.setup = function(particleSystem, PTM, color) {
                   new GlowFilter(25, 2.5, 0, this.color, 0.1)];
 }
 
+LiquidfunContainer.prototype.setPTM = function(PTM){
+  this.PTM = PTM;
+
+  // Update sizes accordingly
+  this.radius = Math.max(this.particleSystem.radius * PTM, MIN_RADIUS);
+  for (let i = 0; i < this.fixedCount; i++) {
+    this.children[i].width = this.children[i].height = this.radius*4;
+  }
+}
+
 LiquidfunContainer.prototype.render = function (renderer) {
   // Sync with liquidfun particle system
   if (this.particleSystem === null) return;
-  this.updateCount();
 
+  this.updateParticlePos();
+
+  PIXI.Container.prototype.render.call(this, renderer);
+}
+
+LiquidfunContainer.prototype.updateParticlePos = function () {
   let pos = this.particleSystem.GetPositionBuffer();
   for (let i = 0; i < this.fixedCount; i++) {
     this.children[i].position.set(pos[i*2]*this.PTM, pos[i*2+1]*this.PTM);
   }
-
-  PIXI.Container.prototype.render.call(this, renderer);
 }
 
 LiquidfunContainer.prototype.updateCount = function() {
@@ -58,8 +73,7 @@ LiquidfunContainer.prototype.updateCount = function() {
 LiquidfunContainer.prototype.addParticles = function(n) {
   for (let i = 0; i < n; i++) {
     let particle_sprite = new PIXI.Sprite(this.texture);
-    particle_sprite.width = this.radius*4;
-    particle_sprite.height = this.radius*4;
+    particle_sprite.width = particle_sprite.height = this.radius*4;
     particle_sprite.blendMode = PIXI.BLEND_MODES.NORMAL;
     particle_sprite.anchor.set(0.5);
     this.addChild(particle_sprite);

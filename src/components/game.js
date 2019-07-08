@@ -14,12 +14,12 @@ import BoatImage from '../images/boat.png'
 const TARGET_MS = 1000/60;
 
 // Simulation parameters
-const PTM = 30; //Pixels per meter
+const SIMULATION_WIDTH = 60;
 const PARTICLE_SIZE = 0.17;
 const GRAVITY = [0, 9.81];
 const COLOR = 0xe6dabc;
-const WALL_THICKNESS = 10;
-const WALL_LENGTH = 200;
+const WALL_THICKNESS = 20;
+const WALL_LENGTH = 250;
 const SEA_DEPTH = 2;
 const WALL_MARGIN = 0.1;
 
@@ -58,13 +58,14 @@ class Game extends Component {
   // Liquidfun and Pixi initializations
   setup() {
     // Pixi initialization
-    this.app = new PIXI.Application({width: 1000, height: 1000, transparent: true});
+    this.app = new PIXI.Application({transparent: true});
+    this.visible = false;
 
     this.fake_background = document.getElementsByClassName("fake-background")[0];
     this.fake_floor = document.getElementsByClassName("fake-floor")[0];
-    this.floor_removed = false;
     this.w = this.fake_background.scrollWidth;
     this.h = this.fake_background.scrollHeight;
+    this.PTM = this.w / SIMULATION_WIDTH;
 
     this.fake_background.appendChild(this.app.view);
     this.app.view.id = 'game-canvas';
@@ -79,13 +80,13 @@ class Game extends Component {
     this.app.stage.addChild(this.defaultContainer);
     this.accumulator = TARGET_MS; // To allow the first update to be done
     this.sprites = [];
-    this.createWalls(this.w/PTM, this.h/PTM, WALL_THICKNESS, WALL_LENGTH);
+    this.createWalls(SIMULATION_WIDTH, WALL_THICKNESS, WALL_LENGTH, WALL_MARGIN);
 
     // Sync Pixi with Liquidfun
     PIXI.Ticker.shared.add(this.update.bind(this), 75);
 
     // Show the canvas only when the physics are completely loaded
-    this.app.view.style.opacity = '1';
+    this.app.view.style.opacity = '0';
 
     window.addEventListener('resize', this.onResize.bind(this));
     this.app.view.addEventListener("mousedown", this.onMouseDown.bind(this));
@@ -95,16 +96,15 @@ class Game extends Component {
     // Everything has been properly loaded
     this.allLoaded = true;
     this.onResize();
-    this.spawnParticles(0, -SEA_DEPTH, this.w/2/PTM, SEA_DEPTH);
-    this.spawnBoat(0, -20, 4, 3.488);
-    this.world.Step(TARGET_MS/1000, 8, 3);
-    this.randomizeParticleIndexes();
 
+    this.spawnParticles(0, -SEA_DEPTH, SIMULATION_WIDTH/2, SEA_DEPTH);
+    this.spawnBoat(0, -this.h/this.PTM -20, 4, 3.488);
+    this.randomizeParticleIndexes();
   }
 
   updateMouseCoords(e) {
-    this.mouseX = ((e.clientX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / PTM;
-    this.mouseY = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight) / PTM;
+    this.mouseX = ((e.clientX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / this.PTM;
+    this.mouseY = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight) / this.PTM;
   }
 
   onMouseDown(e) {
@@ -126,11 +126,20 @@ class Game extends Component {
 
     this.w = this.fake_background.scrollWidth;
     this.h = this.fake_background.scrollHeight;
+    this.PTM = this.w/SIMULATION_WIDTH;
     this.app.renderer.resize(this.w, this.h);
-
-    this.repositionWalls(this.w/PTM, this.h/PTM);
-
     this.app.stage.position.set(this.w/2, this.h);
+
+    this.particleContainer.setPTM(this.PTM);
+
+    // Update sprite sizes
+    this.sprites.forEach(function(sprite, i, array){
+      sprite.width = sprite.bodyWidth*this.PTM*2;
+      sprite.height = sprite.bodyHeight*this.PTM*2;
+      let pos = sprite.body.GetPosition();
+      sprite.position.set(pos.x * this.PTM, pos.y * this.PTM);
+      sprite.rotation = sprite.body.GetAngle();
+    }.bind(this));
   }
 
   // Updates the physics and graphics. Called by PIXI.Ticker.shared
@@ -148,11 +157,16 @@ class Game extends Component {
     // Sync the sprites with their physical bodies
     this.sprites.forEach(function(sprite, i, array){
       let pos = sprite.body.GetPosition();
-      sprite.position.set(pos.x * PTM, pos.y * PTM);
+      sprite.position.set(pos.x * this.PTM, pos.y * this.PTM);
       sprite.rotation = sprite.body.GetAngle();
-    });
+    }.bind(this));
 
     this.updateTornado();
+
+    if (!this.visible) {
+      this.app.view.classList.add("visible-canvas");
+      this.visible = true;
+    }
   }
 
   createParticleSystem() {
@@ -160,7 +174,7 @@ class Game extends Component {
     psd.radius = PARTICLE_SIZE;
     this.particleSystem = this.world.CreateParticleSystem(psd);
     this.particleContainer = new LiquidfunContainer();
-    this.particleContainer.setup(this.particleSystem, PTM, COLOR)
+    this.particleContainer.setup(this.particleSystem, this.PTM, COLOR)
     this.app.stage.addChild(this.particleContainer);
   }
 
@@ -173,6 +187,9 @@ class Game extends Component {
     pgd.position = new window.b2Vec2(x, y);
     pgd.strength = 0.1;
     let group = this.particleSystem.CreateParticleGroup(pgd);
+
+    //Update the particle sprites container
+    this.particleContainer.updateCount();
     return group;
   }
 
@@ -192,9 +209,14 @@ class Game extends Component {
     let sprite = PIXI.Sprite.from(PIXI.Texture.WHITE);
     sprite.tint = COLOR;
     sprite.anchor.set(0.5);
-    sprite.width = w * PTM * 2;
-    sprite.height = h * PTM * 2;
-    sprite.position.set(x * PTM * 2, y * PTM * 2);
+
+     //Used to keep sprite ratio on window resize
+    sprite.bodyWidth = w;
+    sprite.bodyHeight = h;
+
+    sprite.width = w * this.PTM * 2;
+    sprite.height = h * this.PTM * 2;
+    sprite.position.set(x * this.PTM * 2, y * this.PTM * 2);
     sprite.body = body;
     this.defaultContainer.addChild(sprite);
     this.sprites.push(sprite);
@@ -212,7 +234,7 @@ class Game extends Component {
     //Floor
     let shape = new window.b2PolygonShape();
     shape.SetAsBoxXYCenterAngle(w/1.4, h/5, new b2Vec2(0, h/1.3), 0);
-    body.CreateFixtureFromShape(shape, 0.1);
+    body.CreateFixtureFromShape(shape, 0.2);
 
     //Mast
     shape.SetAsBoxXYCenterAngle(w/7, h/1.7, new b2Vec2(0, -h/4), 0);
@@ -228,28 +250,25 @@ class Game extends Component {
 
     let sprite = PIXI.Sprite.from(BoatImage);
     sprite.anchor.set(0.5);
-    sprite.width = w * PTM * 2;
-    sprite.height = h * PTM * 2;
-    sprite.position.set(x * PTM * 2, y * PTM * 2);
+
+    sprite.bodyWidth = w;
+    sprite.bodyHeight = h;
+
+    sprite.width = w * this.PTM * 2;
+    sprite.height = h * this.PTM * 2;
+    sprite.position.set(x * this.PTM * 2, y * this.PTM * 2);
     sprite.body = body;
     this.defaultContainer.addChild(sprite);
     this.sprites.push(sprite);
+    this.boat = sprite;
 
     return body;
   }
 
-  createWalls(width, height, thickness, length) {
-    this.walls = [this.createBox(0, thickness+WALL_MARGIN, length, thickness, true)]; //Bottom
-    this.walls[1] = this.createBox(width/2+thickness+WALL_MARGIN, -height, thickness, length, true); //Right
-    this.walls[2] = this.createBox(0, -height-thickness-WALL_MARGIN, length, thickness, true); //Top
-    this.walls[3] = this.createBox(-width/2-thickness-WALL_MARGIN, -height, thickness, length, true); //Left
-  }
-
-  repositionWalls(width, height) {
-    let b2Vec2 = window.b2Vec2;
-    this.walls[1].SetTransform(new b2Vec2(width/2+WALL_THICKNESS+WALL_MARGIN, -height), 0);
-    this.walls[2].SetTransform(new b2Vec2(0, -height-WALL_THICKNESS-WALL_MARGIN), 0);
-    this.walls[3].SetTransform(new b2Vec2(-width/2-WALL_THICKNESS-WALL_MARGIN, -height), 0);
+  createWalls(width, thickness, length, margin) {
+    this.walls = [this.createBox(0, thickness +margin, length, thickness, true, false)]; //Bottom
+    this.walls[1] = this.createBox(width/2+thickness +margin, 0, thickness, length, true, false); //Right
+    this.walls[2] = this.createBox(-width/2-thickness -margin, 0, thickness, length, true, false); //Left
   }
 
   updateTornado() {
