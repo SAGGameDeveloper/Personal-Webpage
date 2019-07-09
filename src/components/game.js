@@ -15,7 +15,7 @@ const TARGET_MS = 1000/60;
 const PHYSICS_MS = TARGET_MS*2;
 
 // Simulation
-const SIMULATION_WIDTH = 50;
+const SIMULATION_WIDTH = 45;
 const PARTICLE_SIZE = 0.17;
 const GRAVITY = [0, 9.81];
 
@@ -24,6 +24,10 @@ const WALL_THICKNESS = 20;
 const WALL_LENGTH = 250;
 const SEA_DEPTH = 2;
 const WALL_MARGIN = 0.1;
+
+// Boat
+const BOAT_WIDTH = 4;
+const BOAT_HEIGHT = 3.488;
 
 // Graphics
 const COLOR = 0xe6dabc;
@@ -104,7 +108,7 @@ class Game extends Component {
     // Spawn objects
     this.createParticleSystem();
     this.spawnParticles(0, -SEA_DEPTH, SIMULATION_WIDTH/2, SEA_DEPTH);
-    this.spawnBoat(0, -this.h/this.PTM -20, 4, 3.488);
+    this.spawnBoat(0, -this.h/this.PTM -20, BOAT_WIDTH, BOAT_HEIGHT);
     this.createWalls(SIMULATION_WIDTH, WALL_THICKNESS,
                       WALL_LENGTH, WALL_MARGIN);
     this.my_tornado = Object.assign({}, TORNADO);

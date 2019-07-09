@@ -1,0 +1,14 @@
+#game-canvas{
+  width: 100vw;
+  height: 101vh;
+  cursor: pointer !important;
+  position: absolute;
+  z-index: 6;
+  opacity: 0;
+
+  @include transition(opacity 3s ease-in-out);
+}
+
+.visible-canvas{
+  opacity: 1 !important;
+}
