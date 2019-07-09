@@ -1,4 +1,6 @@
 module.exports = {
+  pathPrefix: `/PersonalWebpage`,
+
   siteMetadata: {
     title: { en: `Sergio Abreu García | Software developer`,
               es: `Sergio Abreu García | Desarrollador de software`,
