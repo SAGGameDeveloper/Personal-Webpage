@@ -2,6 +2,7 @@
 // known bug, where GetParticleCount returns twice what it should, see
 // https://github.com/google/liquidfun/issues/50
 
+import isNode from 'detect-node'
 import * as PIXI from 'pixi.js'
 import ParticleImage from '../images/particle.png'
 import AlphaThresholdFilter from '../utils/filter-alpha-threshold.js'
@@ -19,6 +20,7 @@ function LiquidfunContainer() {
     this.particleSystem = null;
 }
 
+if (!isNode)
 LiquidfunContainer.prototype = Object.create(PIXI.Container.prototype);
 LiquidfunContainer.prototype.constructor = LiquidfunContainer;
 

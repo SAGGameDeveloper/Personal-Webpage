@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import '../../utils/getEmPixels'
 
 import Flags from '../flags'
 import Title from '../title'

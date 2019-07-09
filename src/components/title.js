@@ -7,10 +7,11 @@ class Title extends Component {
   constructor(props) {
     super(props);
 
-    window.addEventListener('scroll', () => (this.onScroll()));
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', () => (this.onScroll()));
+    
     this.title = document.querySelector(".title");
     this.title_lower_caps = this.title.getElementsByClassName("title-lower-caps");
     this.subtitle = this.title.querySelector(".subtitle");

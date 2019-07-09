@@ -1,3 +1,4 @@
+import isNode from 'detect-node'
 import * as PIXI from 'pixi.js'
 
 function AlphaThresholdFilter (minimum_alpha) {
@@ -21,6 +22,7 @@ function AlphaThresholdFilter (minimum_alpha) {
   this.blendMode = PIXI.BLEND_MODES.MULTIPLY;
 }
 
+if (!isNode)
 AlphaThresholdFilter.prototype = Object.create(PIXI.Filter.prototype);
 AlphaThresholdFilter.prototype.constructor = AlphaThresholdFilter;
 

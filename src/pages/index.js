@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
+import isNode from 'detect-node'
 
 // Animate On Scroll library: https://github.com/michalsnik/aos
 import AOS from 'aos';
@@ -21,7 +22,7 @@ import Skills from '../components/sections/skills'
 import Contact from '../components/sections/contact'
 
 // Animate On Scroll initialization
-AOS.init({
+if (!isNode) AOS.init({
   // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
   offset: 70, // offset (in px) from the original trigger point
   delay: 0, // values from 0 to 3000, with step 50ms

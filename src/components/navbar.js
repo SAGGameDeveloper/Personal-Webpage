@@ -14,10 +14,11 @@ class Navbar extends Component {
     this.section_divs = [];
     this.section_navelements = [];
 
-    window.addEventListener('scroll', () => (this.onScroll()));
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', () => (this.onScroll()));
+    
     this.section_divs = sections.map((section) => (document.querySelector("#"+section+section_suffix)));
     this.section_navelements = sections.map((section) => (document.querySelector("#"+section+navelement_suffix)));
 

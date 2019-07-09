@@ -34,3 +34,23 @@ exports.onCreatePage = async ({ page, actions }) => {
     resolve()
   })
 }
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /pixi.js/,
+            use: loaders.null(),
+          },
+		      {
+          test: /\.js$/,
+          include: [/node_modules\/@pixi/],
+          use: loaders.null()
+          },
+        ],
+      },
+    })
+  }
+}

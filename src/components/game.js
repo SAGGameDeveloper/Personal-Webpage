@@ -234,7 +234,7 @@ class Game extends Component {
     //Floor
     let shape = new window.b2PolygonShape();
     shape.SetAsBoxXYCenterAngle(w/1.4, h/5, new b2Vec2(0, h/1.3), 0);
-    body.CreateFixtureFromShape(shape, 0.2);
+    body.CreateFixtureFromShape(shape, 0.1);
 
     //Mast
     shape.SetAsBoxXYCenterAngle(w/7, h/1.7, new b2Vec2(0, -h/4), 0);
