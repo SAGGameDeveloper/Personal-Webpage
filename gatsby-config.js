@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: `/PersonalWebpage`,
+  pathPrefix: `/Personal-Webpage`,
 
   siteMetadata: {
     title: { en: `Sergio Abreu García | Software developer`,
