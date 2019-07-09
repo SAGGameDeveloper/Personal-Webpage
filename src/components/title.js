@@ -4,14 +4,9 @@ import inject from '../utils/injector'
 import Scroll from '../utils/scroll'
 
 class Title extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   componentDidMount() {
     window.addEventListener('scroll', () => (this.onScroll()));
-    
+
     this.title = document.querySelector(".title");
     this.title_lower_caps = this.title.getElementsByClassName("title-lower-caps");
     this.subtitle = this.title.querySelector(".subtitle");
