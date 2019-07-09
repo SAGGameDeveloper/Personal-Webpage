@@ -12,9 +12,10 @@ import BoatImage from '../images/boat.png'
 
 // Elapsed time between frames
 const TARGET_MS = 1000/60;
+const PHYSICS_MS = TARGET_MS*3;
 
 // Simulation parameters
-const SIMULATION_WIDTH = 60;
+const SIMULATION_WIDTH = 50;
 const PARTICLE_SIZE = 0.17;
 const GRAVITY = [0, 9.81];
 const COLOR = 0xe6dabc;
@@ -78,7 +79,7 @@ class Game extends Component {
 
     this.defaultContainer = new PIXI.Container();
     this.app.stage.addChild(this.defaultContainer);
-    this.accumulator = TARGET_MS; // To allow the first update to be done
+    this.accumulator = TARGET_MS*2; // To allow the first update to be done
     this.sprites = [];
     this.createWalls(SIMULATION_WIDTH, WALL_THICKNESS, WALL_LENGTH, WALL_MARGIN);
 
@@ -93,6 +94,11 @@ class Game extends Component {
     this.app.view.addEventListener("mouseup", this.onMouseUp.bind(this));
     this.app.view.addEventListener("mousemove", this.updateMouseCoords.bind(this));
 
+    // Touch screen compatibility
+    this.app.view.addEventListener("touchstart", this.onMouseDown.bind(this));
+    this.app.view.addEventListener("touchend", this.onMouseUp.bind(this));
+    this.app.view.addEventListener("drag", this.updateMouseCoords.bind(this));
+
     // Everything has been properly loaded
     this.allLoaded = true;
     this.onResize();
@@ -103,21 +109,23 @@ class Game extends Component {
   }
 
   updateMouseCoords(e) {
-    this.mouseX = ((e.clientX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / this.PTM;
-    this.mouseY = -(-(e.clientY - this.app.view.offsetTop) + this.app.view.scrollHeight) / this.PTM;
+    let coordX = e.clientX || e.touches[0].clientX;
+    let coordY = e.clientY || e.touches[0].clientY;
+
+    this.mouseX = ((coordX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / this.PTM;
+    this.mouseY = -(-(coordY - this.app.view.offsetTop + window.scrollY) + this.app.view.scrollHeight) / this.PTM;
   }
 
   onMouseDown(e) {
     if (!this.allLoaded) return null;
-
     this.updateMouseCoords(e);
     this.my_tornado = Object.assign({}, TORNADO);
     this.my_tornado.active = true;
+
   }
 
   onMouseUp(e) {
     if (!this.allLoaded) return null;
-
     this.my_tornado.active = false;
   }
 
@@ -144,14 +152,14 @@ class Game extends Component {
 
   // Updates the physics and graphics. Called by PIXI.Ticker.shared
   update() {
-    if (!this.allLoaded || !document.hasFocus()) return null;
-
+    if (!this.allLoaded || !document.hasFocus() || window.scrollY > this.app.view.scrollHeight) return null;
+    console.log(1);
     // Using an accumulator to guarantee (as much as possible)
     // physics stability even with low framerates
     this.accumulator += PIXI.Ticker.shared.elapsedMS;
-    while (this.accumulator >= TARGET_MS) {
-      this.world.Step(TARGET_MS/1000, 8, 3);
-      this.accumulator -= TARGET_MS;
+    while (this.accumulator >= PHYSICS_MS) {
+      this.world.Step(PHYSICS_MS/1000, 8, 3);
+      this.accumulator -= PHYSICS_MS;
     }
 
     // Sync the sprites with their physical bodies
