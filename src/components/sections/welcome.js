@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import Flags from '../flags'
 import Title from '../title'
-import Game from '../game'
 
 class Welcome extends Component {
   render() {
@@ -16,8 +15,6 @@ class Welcome extends Component {
         data-aos-duration="1800" id="welcome-section" className="container welcome">
           <Flags/>
           <div className='fake-background'>
-            <div className='fake-floor'></div>
-            <Game/>
             <hr/>
           </div>
         </div>

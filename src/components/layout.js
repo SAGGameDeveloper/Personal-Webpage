@@ -5,7 +5,7 @@ import Footer from '../components/footer'
 import './layout.css'
 
 const Layout = ({ children }) => (
-  <div className="layout">
+  <div className="layout" id="layout">
     { children }
     < Footer />
   </div>

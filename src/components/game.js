@@ -12,17 +12,22 @@ import BoatImage from '../images/boat.png'
 
 // Elapsed time between frames
 const TARGET_MS = 1000/60;
-const PHYSICS_MS = TARGET_MS*3;
+const PHYSICS_MS = TARGET_MS*2;
 
-// Simulation parameters
+// Simulation
 const SIMULATION_WIDTH = 50;
 const PARTICLE_SIZE = 0.17;
 const GRAVITY = [0, 9.81];
-const COLOR = 0xe6dabc;
+
+// Walls
 const WALL_THICKNESS = 20;
 const WALL_LENGTH = 250;
 const SEA_DEPTH = 2;
 const WALL_MARGIN = 0.1;
+
+// Graphics
+const COLOR = 0xe6dabc;
+const DOM_PARENT = 'layout';
 
 const TORNADO = {
   x: 0,
@@ -39,13 +44,12 @@ const TORNADO = {
 class Game extends Component {
   constructor(props) {
     super(props);
-
     this.allLoaded = false;
   }
 
   componentDidMount() {  }
 
-  render() {
+  render() { // Initialize the setup once Liquidfun has been loaded
     return (<>
               <Script
                 url="scripts/liquidfun.js"
@@ -54,91 +58,126 @@ class Game extends Component {
             </>)
   }
 
+
+
   // --- GAME LOGIC ---
 
-  // Liquidfun and Pixi initializations
+  // Initializes libraries and starts the game
   setup() {
-    // Pixi initialization
-    this.app = new PIXI.Application({transparent: true});
-    this.visible = false;
-
-    this.fake_background = document.getElementsByClassName("fake-background")[0];
-    this.fake_floor = document.getElementsByClassName("fake-floor")[0];
-    this.w = this.fake_background.scrollWidth;
-    this.h = this.fake_background.scrollHeight;
-    this.PTM = this.w / SIMULATION_WIDTH;
-
-    this.fake_background.appendChild(this.app.view);
-    this.app.view.id = 'game-canvas';
-
-    let gravity = new window.b2Vec2(GRAVITY[0], GRAVITY[1]);
-    this.world = new window.b2World(gravity);
-    window.world = this.world;
-    this.createParticleSystem();
-    this.my_tornado = Object.assign({}, TORNADO);
-
-    this.defaultContainer = new PIXI.Container();
-    this.app.stage.addChild(this.defaultContainer);
-    this.accumulator = TARGET_MS*2; // To allow the first update to be done
-    this.sprites = [];
-    this.createWalls(SIMULATION_WIDTH, WALL_THICKNESS, WALL_LENGTH, WALL_MARGIN);
-
-    // Sync Pixi with Liquidfun
-    PIXI.Ticker.shared.add(this.update.bind(this), 75);
-
-    // Show the canvas only when the physics are completely loaded
-    this.app.view.style.opacity = '0';
-
-    window.addEventListener('resize', this.onResize.bind(this));
-    this.app.view.addEventListener("mousedown", this.onMouseDown.bind(this));
-    this.app.view.addEventListener("mouseup", this.onMouseUp.bind(this));
-    this.app.view.addEventListener("mousemove", this.updateMouseCoords.bind(this));
-
-    // Touch screen compatibility
-    this.app.view.addEventListener("touchstart", this.onMouseDown.bind(this));
-    this.app.view.addEventListener("touchend", this.onMouseUp.bind(this));
-    this.app.view.addEventListener("drag", this.updateMouseCoords.bind(this));
+    // Initializations
+    this.initGraphics();
+    this.initPhysics();
+    this.setupBindings();
 
     // Everything has been properly loaded
     this.allLoaded = true;
-    this.onResize();
 
+    // Set initial sizes properly and initialize the game
+    this.onResize();
+    this.initGame();
+  }
+
+  initGraphics() {
+    // Pixi initialization
+    this.app = new PIXI.Application({transparent: true});
+    this.app.view.id = 'game-canvas';
+
+    this.parent_div = document.getElementById(DOM_PARENT);
+    this.parent_div.appendChild(this.app.view);
+
+    this.sprites = [];
+    this.spritesContainer = new PIXI.Container();
+    this.app.stage.addChild(this.spritesContainer);
+  }
+
+  initPhysics() {
+    let gravity = new window.b2Vec2(GRAVITY[0], GRAVITY[1]);
+    this.world = new window.b2World(gravity);
+    window.world = this.world;
+
+    // Initializing the accumulator to PHYSICS_MS avoids
+    // skipping the first physics update
+    this.accumulator = PHYSICS_MS;
+  }
+
+  initGame() {
+    // Spawn objects
+    this.createParticleSystem();
     this.spawnParticles(0, -SEA_DEPTH, SIMULATION_WIDTH/2, SEA_DEPTH);
     this.spawnBoat(0, -this.h/this.PTM -20, 4, 3.488);
+    this.createWalls(SIMULATION_WIDTH, WALL_THICKNESS,
+                      WALL_LENGTH, WALL_MARGIN);
+    this.my_tornado = Object.assign({}, TORNADO);
+
+    // Randomize indexes to avoid the tornado being too linear
     this.randomizeParticleIndexes();
+
+    // Make one first update with the canvas still invisible,
+    // avoiding initial graphic glitches and slowdowns
+    this.update();
+    this.app.view.classList.add("visible-canvas");
+  }
+
+  setupBindings() {
+    // Setup a custom update with high priority for the game logic
+    PIXI.Ticker.shared.add(this.update.bind(this), 75);
+
+    window.addEventListener('resize', this.onResize.bind(this));
+
+    // Tornado controls
+    this.app.view.addEventListener("mousedown",
+                                      this.tornadoControl.bind(this));
+    this.app.view.addEventListener("mouseup",
+                                      this.tornadoControl.bind(this));
+    this.app.view.addEventListener("mousemove",
+                                      this.updateMouseCoords.bind(this));
+
+    // Tornado touchscreen compatibility
+    this.app.view.addEventListener("touchstart",
+                                      this.tornadoControl.bind(this));
   }
 
   updateMouseCoords(e) {
-    let coordX = e.clientX || e.touches[0].clientX;
-    let coordY = e.clientY || e.touches[0].clientY;
+    let windowX, windowY;
+    if (e.touches) { // Touchscreen compatibility
+      windowX = e.touches[0].clientX;
+      windowY = e.touches[0].clientY;
+    }
+    else {
+      windowX = e.clientX;
+      windowY = e.clientY;
+    }
 
-    this.mouseX = ((coordX - this.app.view.offsetLeft) - this.app.view.scrollWidth/2) / this.PTM;
-    this.mouseY = -(-(coordY - this.app.view.offsetTop + window.scrollY) + this.app.view.scrollHeight) / this.PTM;
+    this.mouseX = ((windowX - this.app.view.offsetLeft)
+                    - this.app.view.scrollWidth/2) / this.PTM;
+    this.mouseY = -(-(windowY - this.app.view.offsetTop + window.scrollY)
+                    + this.app.view.scrollHeight) / this.PTM;
   }
 
-  onMouseDown(e) {
+  // Turns the tornado on/off depending on its current state
+  tornadoControl(e) {
     if (!this.allLoaded) return null;
-    this.updateMouseCoords(e);
-    this.my_tornado = Object.assign({}, TORNADO);
-    this.my_tornado.active = true;
 
-  }
+    if (!this.my_tornado.active) {
+      this.updateMouseCoords(e);
+      this.my_tornado = Object.assign({}, TORNADO);
+    }
 
-  onMouseUp(e) {
-    if (!this.allLoaded) return null;
-    this.my_tornado.active = false;
+    this.my_tornado.active = !this.my_tornado.active;
   }
 
   onResize() {
     if (!this.allLoaded) return null;
 
-    this.w = this.fake_background.scrollWidth;
-    this.h = this.fake_background.scrollHeight;
+    // Adjust variable values to the new size
+    this.w = this.app.view.scrollWidth;
+    this.h = this.app.view.scrollHeight;
     this.PTM = this.w/SIMULATION_WIDTH;
+
+    // Resize whatever needs to be resized
     this.app.renderer.resize(this.w, this.h);
     this.app.stage.position.set(this.w/2, this.h);
-
-    this.particleContainer.setPTM(this.PTM);
+    if (this.particleContainer) this.particleContainer.setPTM(this.PTM);
 
     // Update sprite sizes
     this.sprites.forEach(function(sprite, i, array){
@@ -152,15 +191,21 @@ class Game extends Component {
 
   // Updates the physics and graphics. Called by PIXI.Ticker.shared
   update() {
-    if (!this.allLoaded || !document.hasFocus() || window.scrollY > this.app.view.scrollHeight) return null;
-    console.log(1);
+    if (!this.allLoaded || !document.hasFocus()
+        || window.scrollY > this.app.view.scrollHeight) return null;
+
     // Using an accumulator to guarantee (as much as possible)
     // physics stability even with low framerates
+    let physicsUpdated = false;
     this.accumulator += PIXI.Ticker.shared.elapsedMS;
     while (this.accumulator >= PHYSICS_MS) {
       this.world.Step(PHYSICS_MS/1000, 8, 3);
       this.accumulator -= PHYSICS_MS;
+
+      physicsUpdated = true;
     }
+
+    if (!physicsUpdated) return;
 
     // Sync the sprites with their physical bodies
     this.sprites.forEach(function(sprite, i, array){
@@ -170,11 +215,6 @@ class Game extends Component {
     }.bind(this));
 
     this.updateTornado();
-
-    if (!this.visible) {
-      this.app.view.classList.add("visible-canvas");
-      this.visible = true;
-    }
   }
 
   createParticleSystem() {
@@ -226,7 +266,7 @@ class Game extends Component {
     sprite.height = h * this.PTM * 2;
     sprite.position.set(x * this.PTM * 2, y * this.PTM * 2);
     sprite.body = body;
-    this.defaultContainer.addChild(sprite);
+    this.spritesContainer.addChild(sprite);
     this.sprites.push(sprite);
 
     return body;
@@ -234,6 +274,7 @@ class Game extends Component {
 
   spawnBoat(x, y, w, h) {
     let b2Vec2 = window.b2Vec2;
+
     let bd = new window.b2BodyDef();
     bd.position = new b2Vec2(x, y);
     bd.type = 2;
@@ -241,7 +282,7 @@ class Game extends Component {
 
     //Floor
     let shape = new window.b2PolygonShape();
-    shape.SetAsBoxXYCenterAngle(w/1.4, h/5, new b2Vec2(0, h/1.3), 0);
+    shape.SetAsBoxXYCenterAngle(w/1.4, h/4, new b2Vec2(0, h/1.4), 0);
     body.CreateFixtureFromShape(shape, 0.1);
 
     //Mast
@@ -257,16 +298,16 @@ class Game extends Component {
     body.CreateFixtureFromShape(shape, 0.3);
 
     let sprite = PIXI.Sprite.from(BoatImage);
-    sprite.anchor.set(0.5);
 
+    sprite.anchor.set(0.5);
     sprite.bodyWidth = w;
     sprite.bodyHeight = h;
-
     sprite.width = w * this.PTM * 2;
     sprite.height = h * this.PTM * 2;
     sprite.position.set(x * this.PTM * 2, y * this.PTM * 2);
+
     sprite.body = body;
-    this.defaultContainer.addChild(sprite);
+    this.spritesContainer.addChild(sprite);
     this.sprites.push(sprite);
     this.boat = sprite;
 
@@ -274,41 +315,52 @@ class Game extends Component {
   }
 
   createWalls(width, thickness, length, margin) {
-    this.walls = [this.createBox(0, thickness +margin, length, thickness, true, false)]; //Bottom
-    this.walls[1] = this.createBox(width/2+thickness +margin, 0, thickness, length, true, false); //Right
-    this.walls[2] = this.createBox(-width/2-thickness -margin, 0, thickness, length, true, false); //Left
+    this.walls = [this.createBox(0, thickness +margin,
+                  length, thickness, true, false)]; //Bottom
+    this.walls[1] = this.createBox(width/2+thickness +margin, 0,
+                    thickness, length, true, false); //Right
+    this.walls[2] = this.createBox(-width/2-thickness -margin, 0,
+                    thickness, length, true, false); //Left
   }
 
   updateTornado() {
-    if (this.my_tornado.active) {
-      this.my_tornado.size += this.my_tornado.growth*this.my_tornado.size*PIXI.Ticker.shared.elapsedMS/1000;
-      if (this.my_tornado.speed < this.my_tornado.maxSpeed)
-        this.my_tornado.speed += this.my_tornado.growth/3*this.my_tornado.speed*PIXI.Ticker.shared.elapsedMS/1000;
+    if (!this.my_tornado.active) return;
 
-      this.my_tornado.x = this.mouseX;
-      this.my_tornado.y = this.mouseY;
+    let t = this.my_tornado;
+    let ms = PIXI.Ticker.shared.elapsedMS;
+    let fixedCount = this.particleSystem.GetParticleCount()/2;
 
-      let posBuf = this.particleSystem.GetPositionBuffer();
-      let velBuf = this.particleSystem.GetVelocityBuffer();
-      for (let i = 0; i < this.my_tornado.size; i++) {
-        //Perpendicular vector
-        let vX = this.my_tornado.y - posBuf[i*2+1];
-        let vY = - (this.my_tornado.x - posBuf[i*2]);
+    // Make it grow
+    t.size = Math.min(t.size + t.growth * t.size * ms/1000, fixedCount);
+    t.speed = Math.min(t.speed + t.growth/3 * t.speed * ms/1000, t.maxSpeed);
 
-        //Rotate it to get the tornade effect
-        vX = Math.cos(this.my_tornado.angle)*vX - Math.sin(this.my_tornado.angle)*vY;
-        vY = Math.sin(this.my_tornado.angle)*vX + Math.cos(this.my_tornado.angle)*vY;
+    t.x = this.mouseX;
+    t.y = this.mouseY;
 
-        let magnitude = Math.sqrt(Math.pow(vX,2) + Math.pow(vY,2));
-        vX = (vX/magnitude) * this.my_tornado.speed;
-        vY = (vY/magnitude) * this.my_tornado.speed;
+    // Update the velocity vector of the particles under the tornado influence
+    let posBuf = this.particleSystem.GetPositionBuffer();
+    let velBuf = this.particleSystem.GetVelocityBuffer();
+    for (let i = 0; i < t.size; i++) {
+      // Perpendicular vector
+      let vX = t.y - posBuf[i*2+1];
+      let vY = - (t.x - posBuf[i*2]);
 
-        velBuf[i*2] = vX;
-        velBuf[i*2+1] = vY;
-      }
+      // Rotate it to get the tornade effect
+      vX = Math.cos(t.angle)*vX - Math.sin(t.angle)*vY;
+      vY = Math.sin(t.angle)*vX + Math.cos(t.angle)*vY;
+
+      // Transform the vector to use the given speed
+      let magnitude = Math.sqrt(Math.pow(vX,2) + Math.pow(vY,2));
+      vX = (vX/magnitude) * t.speed;
+      vY = (vY/magnitude) * t.speed;
+
+      velBuf[i*2] = vX;
+      velBuf[i*2+1] = vY;
     }
   }
 
+  // Iterates the position and velocity particle buffers switching each
+  // particle with another random one.
   randomizeParticleIndexes() {
     let fixedCount = this.particleSystem.GetParticleCount()/2;
     let posBuf = this.particleSystem.GetPositionBuffer();
