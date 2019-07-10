@@ -10,6 +10,8 @@ import Script from 'react-load-script'
 import LiquidfunContainer from '../utils/liquidfun_container'
 import BoatImage from '../images/boat.png'
 
+const MIN_WIDTH = 1280;
+
 // Elapsed time between frames
 const TARGET_MS = 1000/60;
 const PHYSICS_MS = TARGET_MS*2;
@@ -51,14 +53,20 @@ class Game extends Component {
     this.allLoaded = false;
   }
 
-  componentDidMount() {  }
+  isGameAvailable() {
+    return (window.screen.width >= MIN_WIDTH);
+  }
 
   render() { // Initialize the setup once Liquidfun has been loaded
+    let liquidfunScript;
+    if (this.isGameAvailable())
+      liquidfunScript = <Script
+                          url="scripts/liquidfun.js"
+                          onLoad={ this.setup.bind(this) }
+                        />
+
     return (<>
-              <Script
-                url="scripts/liquidfun.js"
-                onLoad={ this.setup.bind(this) }
-              />
+            { liquidfunScript }
             </>)
   }
 
