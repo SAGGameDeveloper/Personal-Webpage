@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import inject from '../utils/injector'
-
 import Scroll from '../utils/scroll'
+import inject from '../utils/injector'
 
 class Title extends Component {
   componentDidMount() {
@@ -13,8 +12,7 @@ class Title extends Component {
     this.title_placeholder = document.querySelector(".title-placeholder");
     this.title_as_logo = false;
 
-    this.maintitle_helper = this.title.querySelector(".maintitle-helper");
-    this.maintitle_helper.onclick = () => (Scroll.scrollTo("#welcome-section"));
+    this.title.onclick = () => (Scroll.scrollTo("#welcome-section"));
     this.welcomeImage = document.querySelector(".welcome-image");
 
     this.sections = document.getElementsByClassName("container");
@@ -25,7 +23,7 @@ class Title extends Component {
     this.title.classList.add('title-logo');
     [].forEach.call(this.title_lower_caps,  (text) => (text.classList.add('inactive-title')));
     this.subtitle.classList.add('inactive-title');
-    this.maintitle_helper.classList.add('maintitle-clickable');
+    this.title.classList.add('title-clickable');
 
     this.title_as_logo = true;
   }
@@ -34,18 +32,18 @@ class Title extends Component {
     this.title.classList.remove('title-logo');
     [].forEach.call(this.title_lower_caps,  (text) => (text.classList.remove('inactive-title')));
     this.subtitle.classList.remove('inactive-title');
-    this.maintitle_helper.classList.remove('maintitle-clickable');
+    this.title.classList.remove('title-clickable');
 
     this.title_as_logo = false;
   }
 
   onScroll() {
-    var titleY = this.title.getBoundingClientRect().top;
-    var placeholderY = this.title_placeholder.getBoundingClientRect().top;
+    let titleY = this.title.getBoundingClientRect().top;
+    let placeholderY = this.title_placeholder.getBoundingClientRect().top;
 
-    if (titleY <= 0 && !this.title_as_logo)
+    if (titleY < 0 && !this.title_as_logo)
       window.requestAnimationFrame(this.title_to_logo.bind(this));
-    else if (placeholderY > 0 && this.title_as_logo)
+    else if (placeholderY > -20 && this.title_as_logo)
       window.requestAnimationFrame(this.logo_to_title.bind(this));
   }
 
@@ -57,16 +55,13 @@ class Title extends Component {
         <div data-aos="zoom-out" data-aos-once="true" data-aos-mirror="false"
           data-aos-duration="1800" className='title'>
           <h1 className='maintitle'>
-            <div className='maintitle-helper'>
               <span className='title-upper-caps'>S</span>
-              <span className='title-lower-caps'>ergio </span>
+              <span className='title-lower-caps'>ERGIO </span>
               <span className='title-upper-caps'>A</span>
-              <span className='title-lower-caps'>breu </span>
+              <span className='title-lower-caps'>BREU </span>
               <span className='title-upper-caps'>G</span>
-              <span className='title-lower-caps'>arcía</span>
-            </div>
+              <span className='title-lower-caps'>ARCÍA</span>
           </h1>
-          <br/>
           <h2 className='subtitle' dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'subtitle') }}/>
         </div>
       </>

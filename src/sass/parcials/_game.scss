@@ -1,7 +1,7 @@
 #game-canvas{
   width: 100vw;
   height: 101vh;
-  cursor: pointer !important;
+  cursor: crosshair !important;
   position: absolute;
   z-index: 6;
   opacity: 0;
@@ -11,4 +11,40 @@
 
 .visible-canvas{
   opacity: 1 !important;
+}
+
+.disableButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15rem;
+  height: 15rem;
+  cursor: pointer;
+  vertical-align: bottom;
+
+  opacity: 1;
+  z-index: 7;
+  text-align: center;
+
+  @include transform-origin(0.5 0.5);
+  @include transform(translate(-50%, -50%) rotate(-45deg) );
+
+  @include transition(all .5s ease-in-out);
+}
+
+.disable-span {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  font-size: 1.3rem;
+  padding: 0.4rem 0;
+  color: $secondary_color;
+
+  background-color: $details_color;
+}
+
+.disableButtonInvisible {
+  opacity: 0;
+  @include transform(translate(-100%, -100%) rotate(-45deg) );
 }

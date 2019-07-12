@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Icon from '../svgIcon'
 import Arrow from '../../components/arrow'
 
-
 var odd = true;
 
 class Skills extends Component {

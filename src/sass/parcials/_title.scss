@@ -1,21 +1,25 @@
 
 .title {
+  background-color: $font_color;
   position: absolute;
+  display: inline-block;
+  width: 60%;
+  max-width: 90%;
+  padding: 3rem 0 1.4rem 0;
+  border-radius: 0 0 0.6rem 0;
 
   text-align: center;
   left: 0;
-  right: 0;
-  margin: 6% auto;
+  top: 0;
+  margin: auto;
 
   z-index: 5;
 
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   @include breakpoint1 {
-    margin: calc(2.5rem + 10%) 1rem;
-
     h1 {
       font-size: 3.7rem;
     }
@@ -30,28 +34,13 @@
 
 .maintitle {
   @include transition(all .6s ease-in-out);
+  color: $secondary-color;
+  position: relative;
 }
 
-.maintitle-helper {
-  display: inline-block;
-  min-height: 0;
-
-  background-color: rgba(0, 0, 0, 0.35);
-  border-radius: 0.2rem;
-  padding: 1.3rem 4vw;
-
-  @include box-shadow();
-
-
-  @include transition(all .6s ease-in-out);
-}
-
-.maintitle-clickable {
-  padding: 0.4rem;
-  padding-bottom: 0;
-
+.title-clickable {
   @include transition(all .2s ease-in-out);
-
+  padding: 0;
   * {
     @include transition(all .2s ease-in-out);
   }
@@ -84,8 +73,10 @@
 
 .subtitle {
   @include transition(all .6s ease-in-out);
-
-  font-size: 2.5rem;
+  color: $details_color;
+  font-size: 2rem;
+  text-align: right;
+  width: 90%;
 
   @include breakpoint1 {
     font-size: 2rem;
@@ -97,10 +88,6 @@
   left: 0;
   right: 0;
   margin: 8% auto;
-}
-
-.title-upper-caps {
-  color: $shock_color;
 }
 
 .title-lower-caps {
@@ -115,19 +102,20 @@
 .title-logo {
   position: fixed !important;
   margin: 0;
+  padding: 1.2rem 1rem 0 1.2rem;
   z-index: 8;
+  width: auto;
+  height: auto;
 
   h1 {
-    font-size: 3.5rem;
-
-    @include translate(calc(-46% + 3rem), 1.6rem);
     @include transition(all .6s ease-in-out);
 
-    @include breakpoint1 {
-      font-size: 2.2rem;
+    font-size: 3.5rem;
 
-      @include translate(calc(-46% + 2.4rem), 0.8rem);
+    @include breakpoint1 {
       @include transition(all 0.6s ease-in-out);
+
+      font-size: 2.2rem;
     }
   }
 

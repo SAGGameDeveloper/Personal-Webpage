@@ -1,104 +1,20 @@
 $color_scheme: artei;
 
 // Default colors
-$primary_color: #84CEEB;
-$secondary_color: #5F46A0;
+$primary_color: #303030;
+$secondary_color: #1d4aaa;
 
-$details_color: #white;
-$shock_color: #E9D056;
-$extra_color: #f2ff73;
-$font_color: white;
+$details_color: #f78e0c;
+$shock_color: #f2ec38;
+$extra_color: #4c4b3b;
+$font_color: #e0e0e0;
 
-
-// Diferent color schemes
-@if ($color_scheme == energetic) {
-  $primary_color: #085DCB;
-  $secondary_color: #41B3A3;
-
-  $details_color: #E8A87C;
-  $shock_color: #E27D60;
-  $extra_color: #C38D9E;
-}
-@else if ($color_scheme == striking) {
-  $primary_color: #0B0C10;
-  $secondary_color: #1F2833;
-
-  $details_color: #66FCF1;
-  $shock_color: #45A29E;
-  $extra_color: #C5C6C7;
-}
-@else if ($color_scheme == sharp) {
-  $primary_color: #2A1B3D;
-  $secondary_color: #44318D;
-
-  $details_color: #E98074;
-  $shock_color: #D83F87;
-  $extra_color: #A4B3B6;
-}
-@else if ($color_scheme == clean) {
-  $primary_color: #5680E9;
-  $secondary_color: #84CEEB;
-
-  $details_color: #5AB9EA;
-  $shock_color: white;
-  $extra_color: #C1C8E4;
-}
-@else if ($color_scheme == snowy) {
-  $primary_color: #3B8BEB;
-  $secondary_color: #E7E3D4;
-
-  $details_color: #C4DBF6;
-  $shock_color: #B23850;
-  $extra_color: #8590AA;
-}
-@else if ($color_scheme == pop) {
-  $primary_color: #2D283E;
-  $secondary_color: #564F6F;
-
-  $details_color: #D1D7E0;
-  $shock_color: #802BB1;
-  $extra_color: #4C495D;
-}
-@else if ($color_scheme == serious) {
-  $primary_color: #265077;
-  $secondary_color: #022140;
-
-  $details_color: #1E4258;
-  $shock_color: #2D5F5D;
-  $extra_color: #494B68;
-}
-@else if ($color_scheme == earthy) {
-  $primary_color: #659DBD;
-  $secondary_color: #BC986A;
-
-  $details_color: #DAAD86;
-  $shock_color: #FBEEC1;
-  $extra_color: #8D8741;
-}
-@else if ($color_scheme == cool) {
-  $primary_color: #5CDB95;
-  $secondary_color: #05386B;
-
-  $details_color: #379683;
-  $shock_color: #EDF5E1;
-  $extra_color: #8EE4AF;
-}
-@else if ($color_scheme == artei) {
-  $primary_color: #401f16;
-  $secondary_color: #e6dabc;
-
-  $details_color: #f27024;
-  $shock_color: #78b7bf;
-  $extra_color: #f27024;
-  $font_color: #eee2c4;
-}
-
-$welcome_gradient_colors: lighten($primary_color, 20),$primary_color;
 $link_color: $details_color;
 
 // Other parameters
 $work_overlay_alpha: 0.9;
 
+// Shadows
 $default-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.7);
 $title-box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.7);
 $glow-shadow: 0px 0px 0.8rem 0.4rem rgba(238, 226, 196, 0.7);

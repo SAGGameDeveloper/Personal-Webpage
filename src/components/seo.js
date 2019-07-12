@@ -8,9 +8,12 @@ function SEO({ description, lang, meta, keywords, title }) {
     <StaticQuery
       query={detailsQuery}
       render={data => {
+        let generalKeywords = data.site.siteMetadata.keywords.general;
+        let langKeywords = data.site.siteMetadata.keywords[lang]
+        let langDescription = data.site.siteMetadata.description[lang];
 
-        const metaDescription = description || data.site.siteMetadata.description[lang];
-        keywords = keywords.concat(data.site.siteMetadata.keywords.general).concat(data.site.siteMetadata.keywords[lang]);
+        let metaDescription = description || langDescription;
+        keywords = keywords.concat(generalKeywords).concat(langKeywords);
         title = title || data.site.siteMetadata.title[lang];
 
         return (

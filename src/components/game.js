@@ -10,14 +10,12 @@ import Script from 'react-load-script'
 import LiquidfunContainer from '../utils/liquidfun_container'
 import BoatImage from '../images/boat.png'
 
-const MIN_WIDTH = 1280;
-
 // Elapsed time between frames
 const TARGET_MS = 1000/60;
 const PHYSICS_MS = TARGET_MS*2;
 
 // Simulation
-const SIMULATION_WIDTH = 45;
+const SIMULATION_WIDTH = 30;
 const PARTICLE_SIZE = 0.17;
 const GRAVITY = [0, 9.81];
 
@@ -28,8 +26,8 @@ const SEA_DEPTH = 2;
 const WALL_MARGIN = 0.1;
 
 // Boat
-const BOAT_WIDTH = 4;
-const BOAT_HEIGHT = 3.488;
+const BOAT_WIDTH = 3;
+const BOAT_HEIGHT = 2.616;
 
 // Graphics
 const COLOR = 0xe6dabc;
@@ -53,20 +51,16 @@ class Game extends Component {
     this.allLoaded = false;
   }
 
-  isGameAvailable() {
-    return (window.screen.width >= MIN_WIDTH);
-  }
-
   render() { // Initialize the setup once Liquidfun has been loaded
-    let liquidfunScript;
-    if (this.isGameAvailable())
-      liquidfunScript = <Script
-                          url="scripts/liquidfun.js"
-                          onLoad={ this.setup.bind(this) }
-                        />
-
     return (<>
-            { liquidfunScript }
+              <Script
+                url="/scripts/liquidfun.js"
+                onLoad={ this.setup.bind(this) }
+              />
+
+              <div className="disableButton" onClick={ this.end.bind(this) }>
+                <span className="disable-span"> DISABLE GAME </span>
+              </div>
             </>)
   }
 
@@ -89,9 +83,20 @@ class Game extends Component {
     this.initGame();
   }
 
+  end() {
+    this.allLoaded = false;
+
+    this.bindingsCleanup();
+    this.physicsCleanup();
+    this.graphicsCleanup();
+
+    let disableButton = document.getElementsByClassName('disableButton')[0];
+    disableButton.classList.add('disableButtonInvisible');
+  }
+
   initGraphics() {
     // Pixi initialization
-    this.app = new PIXI.Application({transparent: true});
+    this.app = new PIXI.Application({transparent: true, sharedTicker: true});
     this.app.view.id = 'game-canvas';
 
     this.parent_div = document.getElementById(DOM_PARENT);
@@ -149,7 +154,52 @@ class Game extends Component {
                                       this.tornadoControl.bind(this));
   }
 
+  physicsCleanup() {
+    // Destroy every body
+    while (this.world.bodies.length > 0)
+      this.world.DestroyBody(this.world.bodies[0]);
+
+    // Destroy every particle system
+    while (this.world.particleSystems.length > 0)
+      this.world.DestroyParticleSystem(this.world.particleSystems[0]);
+  }
+
+  graphicsCleanup() {
+    // Remove the canvas from the DOM
+    this.parent_div.removeChild(this.app.view);
+
+    // Destroy every container and its sprites
+    this.spritesContainer.destroy(true);
+    this.particleContainer.destroy(true);
+
+    // Destroy every texture
+    Object.keys(PIXI.utils.TextureCache).forEach(function(texture) {
+        PIXI.utils.TextureCache[texture].destroy(true);
+      });
+
+    // Stop and destroy the ticker before destroying the app,
+    // or else it would keep requesting animation frames in the
+    // background
+    this.app.ticker.stop();
+    this.app.ticker.destroy();
+    this.app.destroy(true);
+  }
+
+  bindingsCleanup() {
+    window.removeEventListener('resize', this.onResize.bind(this));
+    this.app.view.removeEventListener("mousedown",
+                                      this.tornadoControl.bind(this));
+    this.app.view.removeEventListener("mouseup",
+                                      this.tornadoControl.bind(this));
+    this.app.view.removeEventListener("mousemove",
+                                      this.updateMouseCoords.bind(this));
+    this.app.view.removeEventListener("touchstart",
+                                      this.tornadoControl.bind(this));
+  }
+
   updateMouseCoords(e) {
+    if (!this.allLoaded) return;
+
     let windowX, windowY;
     if (e.touches) { // Touchscreen compatibility
       windowX = e.touches[0].clientX;

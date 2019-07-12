@@ -9,7 +9,7 @@ import AlphaThresholdFilter from '../utils/filter-alpha-threshold.js'
 import {ColorReplaceFilter} from '@pixi/filter-color-replace';
 import {GlowFilter} from '@pixi/filter-glow';
 
-const MIN_RADIUS = 5;
+const MIN_RADIUS = 8;
 
 function LiquidfunContainer() {
     PIXI.Container.call(this);
@@ -30,8 +30,8 @@ LiquidfunContainer.prototype.setup = function(particleSystem, PTM, color) {
   this.color = color;
   this.radius = Math.max(this.particleSystem.radius * PTM, MIN_RADIUS);
 
-  this.filters = [new PIXI.filters.BlurFilter(5, 5, 1, 11),
-                  new AlphaThresholdFilter(0.85),
+  this.filters = [new PIXI.filters.BlurFilter(8, 5, 1, 11),
+                  new AlphaThresholdFilter(0.9),
                   new ColorReplaceFilter(0x000000, this.color, 1),
                   new GlowFilter(25, 2.5, 0, this.color, 0.1)];
 }

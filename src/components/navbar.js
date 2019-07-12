@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-
 import Scroll from '../utils/scroll'
 
-const sections = ["welcome", "about", "work", "skills", "contact"];
-const section_suffix = "-section";
-const navelement_suffix = "-navelement";
+// Section parameters
+const SECTIONS = ["welcome", "about", "work", "skills", "contact"];
+const SECTION_SUFFIX = "-section";
+const NAVELEMENT_SUFFIX = "-navelement";
 
 class Navbar extends Component {
   constructor(props) {
@@ -13,39 +13,55 @@ class Navbar extends Component {
     this.currentSection = 0;
     this.section_divs = [];
     this.section_navelements = [];
-
   }
 
   componentDidMount() {
-    setInterval(this.onScroll.bind(this), 1100);
+    // The navbar doesn't need to update fast, a lower
+    // interval time would slow down the browser for no reason
+    setInterval(this.update.bind(this), 1000);
 
-    this.section_divs = sections.map((section) => (document.querySelector("#"+section+section_suffix)));
-    this.section_navelements = sections.map((section) => (document.querySelector("#"+section+navelement_suffix)));
+    this.section_divs = SECTIONS.map((section) =>
+                (document.querySelector("#"+section+SECTION_SUFFIX)));
+    this.section_navelements = SECTIONS.map((section) =>
+                (document.querySelector("#"+section+NAVELEMENT_SUFFIX)));
 
-    this.onScroll();
+    this.update();
   }
 
   // Updates the navigation bar active element to fit the current section
-  onScroll() {
+  update() {
+    // Check the position of every section until finding the current one
     for (var i = 0; i < this.section_divs.length; i++) {
       var section_pos = this.section_divs[i].getBoundingClientRect().top;
-      if (section_pos >= -window.innerHeight/2 && section_pos < window.innerHeight/2 ){
-        // eslint-disable-next-line
-        window.requestAnimationFrame( () => {
-          this.section_navelements[this.currentSection].classList.remove('active-navelement');
-          this.section_navelements[i].classList.add('active-navelement');
-          this.currentSection = i;
-        })
+
+      // Updates the navbar and breaks the loop
+      if (section_pos >= -window.innerHeight/2
+              && section_pos < window.innerHeight/2 ){
+        window.requestAnimationFrame(this.swapActiveNavbar.bind(this, i))
         break;
       }
     }
   }
 
+  swapActiveNavbar(i) {
+    let currentNavelement = this.section_navelements[this.currentSection];
+    let nextNavelement = this.section_navelements[i];
+
+    currentNavelement.classList.remove('active-navelement');
+    nextNavelement.classList.add('active-navelement');
+
+    this.currentSection = i;
+  }
+
   render() {
     return (
         <div className = 'navbar'>
-          { sections.map((section) => (
-            <div key={ section+navelement_suffix } id={ section+navelement_suffix } className="navbar-element" onClick={() => (Scroll.scrollTo("#"+section+section_suffix))}></div>
+          { SECTIONS.map((section) => (
+            <div
+              key={ section+NAVELEMENT_SUFFIX }
+              id={ section+NAVELEMENT_SUFFIX }
+              className="navbar-element"
+              onClick={()=>(Scroll.scrollTo("#"+section+SECTION_SUFFIX))}></div>
           )) }
         </div>
       );

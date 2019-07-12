@@ -2,7 +2,6 @@
 
 .work {
   background-color: $primary_color;
-  @include gradient(to bottom right, $welcome_gradient_colors);
 
   display: flex;
   flex-direction: column;
