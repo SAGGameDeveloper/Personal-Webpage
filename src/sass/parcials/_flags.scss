@@ -19,8 +19,8 @@
     @include transition(all .2s ease-in-out);
 
     @include breakpoint1 {
-      max-width: 1.5rem;
-      margin: 0.5rem;
+      max-width: 1.1rem;
+      margin: 0.2rem 0.3rem;
     }
 
     &:hover {

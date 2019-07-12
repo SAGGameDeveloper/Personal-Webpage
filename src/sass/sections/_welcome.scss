@@ -3,41 +3,43 @@
 @import '../parcials/_game.scss';
 
 .welcome {
+  position: absolute;
   color: white;
-  background-color: $primary_color;
-  z-index: 1;
+  z-index: 2;
+  overflow: visible;
 }
 
-.welcome-image-wrapper {
-  position: relative;
-  width: 100%;
-  max-height: 0;
+.fake-background {
+  position: absolute;
+  background-color: $primary-color;
+  right: 0;
+  top: 0;
 
-  overflow-y: visible;
+  width: calc(123vw + 123vh);
+  height: calc(123vw + 123vh);
+  z-index: 3;
+
+  border-bottom: 0.5rem solid $font-color;
+
+  @include transform-origin(50% 50%);
+  @include transform(translate(50%, -50%) rotate(45deg))
 }
 
-.welcome-image {
+.corner-text {
+  display: flex;
+  text-align: center;
+  align-items: center;
+
+  width: auto;
+  flex-direction: column;
+  color: $details_color;
+
   position: absolute;
   bottom: 0;
-  margin-bottom: calc(-2rem - 2%);
 
-  text-align: center;
-  right: 50.5%;
-  width: inherit;
+  @include translate(-50%, 50%);
 
-  z-index: 2;
-
-  img {
-    display: inline-block;
-
-    position: relative;
-    margin-right: -100%;
-
-    width: calc(20rem + 15%);
-    min-width: 32rem;
-
-    @include breakpoint1 {
-        min-width: 25rem;
-    }
+  span {
+    width: 100%;
   }
 }

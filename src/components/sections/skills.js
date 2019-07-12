@@ -10,7 +10,6 @@ class Skills extends Component {
   render() {
     return (
       <div id="skills-section" className = "container skills">
-        <hr/>
         <div className="section-title">
           <h1><span className="section-title-capital">W</span>hat I can do</h1>
         </div>
