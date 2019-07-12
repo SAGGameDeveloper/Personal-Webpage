@@ -5,6 +5,9 @@ import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap"
 
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
+// TEST OBJECT. CAN I USE CSS CLASS TO TRANSITION?????????? RESEARCH THIS YOU FOOL
+const TEST_ANIMATION = {width: "10%", backgroundColor: "blue", scale: 0.7};
+
 class ScrollAnimation extends Component {
   constructor(props){
     super(props);
@@ -12,11 +15,12 @@ class ScrollAnimation extends Component {
   }
 
   componentDidMount() {
+    // TEST SCENE
     this.scene = new ScrollMagic.Scene({
       offset: 0,
       duration: 500
     }).setPin('#about-section')
-      .setTween("#contact-navelement", {borderTop: "30px solid white", backgroundColor: "blue", scale: 0.7})
+      .setTween("#title", TEST_ANIMATION)
       .addTo(this.sm_controller);
   }
 

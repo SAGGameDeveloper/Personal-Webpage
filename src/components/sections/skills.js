@@ -11,7 +11,7 @@ class Skills extends Component {
     return (
       <div id="skills-section" className = "container skills">
         <hr/>
-        <div data-aos="fade-down" className="section-title">
+        <div className="section-title">
           <h1><span className="section-title-capital">W</span>hat I can do</h1>
         </div>
 
@@ -19,9 +19,9 @@ class Skills extends Component {
           { this.props.files.filter(file=>file.node.frontmatter.tag==="skills").map(file => {
             odd = !odd;
             return (
-                <div data-aos="fade-right" key={ file.node.frontmatter.title } className="skills-element-wrapper">
+                <div key={ file.node.frontmatter.title } className="skills-element-wrapper">
                   <div className={ "skills-element " + (odd? "skills-odd-element" : "") }>
-                    <div data-aos="svg-animation" className="skills-element-image">
+                    <div className="skills-element-image">
                       <Icon name={ file.node.frontmatter.title } />
                     </div>
                     <div className="skills-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }} />

@@ -71,7 +71,7 @@ class Work extends Component {
 
         <div id="work-section" className = "container work">
 
-          <div data-aos="fade-down" className="section-title">
+          <div className="section-title">
             <h1><span className="section-title-capital">L</span>et the work do the talk</h1>
           </div>
 
@@ -79,7 +79,7 @@ class Work extends Component {
             { this.props.files.filter(file=>file.node.frontmatter.tag==="work").map(file => {
               return (
 
-                  <div data-aos="fade-left" key={ file.node.frontmatter.title } className="work-element-wrapper">
+                  <div key={ file.node.frontmatter.title } className="work-element-wrapper">
                     <div className="work-element" id={ file.node.frontmatter.title }>
                       <div className="work-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }}/>
                       <div className="work-element-title" dangerouslySetInnerHTML = {{ __html: file.node.frontmatter.beautifulTitle }} />

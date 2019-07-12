@@ -7,12 +7,12 @@ class About extends Component {
   render() {
     return (
       <div id="about-section" className = "container about">
-        <div data-aos="fade-down" className="section-title">
+        <div className="section-title">
           <h1><span className="section-title-capital">W</span>ho I am</h1>
         </div>
 
         <div className="about-content">
-          <div data-aos="fade-right" className="about-text" dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'about') }} />
+          <div className="about-text" dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'about') }} />
         </div>
 
         <Arrow target_id="work-section"/>
