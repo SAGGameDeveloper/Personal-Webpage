@@ -1,14 +1,23 @@
 .flags {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+
   position: absolute;
   top: 0;
   right: 0;
-  text-align: right;
-  margin: 5%;
+  margin: 4%;
 
   z-index: 8;
 
   a:hover {
     cursor: default;
+  }
+
+  @include breakpoint1 {
+    flex-direction: column;
+    bottom: 0;
+    top: auto;
   }
 }
 

@@ -32,8 +32,10 @@ hr {
 }
 
 .section-title {
+  font-family: titlesFont;
   text-align: center;
-  font-size: calc(40% + 2.3rem);
+  font-size: 3.5rem;
+  border-radius: 0 0 0.6rem 0.6rem;
 
   width: calc(18rem + 20%);
   max-width: 65%;
@@ -41,16 +43,14 @@ hr {
   padding: calc(1.2rem + 0.8%) 0 1.3rem 0;
   margin-bottom: calc(1rem + 1%);
 
-  @include box-shadow($title-box-shadow);
-
   @include breakpoint1 {
-    font-size: calc(35% + 2.2rem);
+    font-size: 2.3rem;
     width: 65%;
   }
 }
 
 .section-title-capital {
-  color: $shock_color;
+  color: $details_color;
   font-size: 1.25em;
 }
 

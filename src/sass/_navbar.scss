@@ -27,7 +27,7 @@
   border-radius: 50%;
   margin: 0.7rem;
 
-  border: 2px solid $font_color;
+  border: 0.1rem solid $font_color;
 
   @include transition(all .2s ease-in-out);
 

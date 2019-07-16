@@ -1,13 +1,13 @@
 $color_scheme: artei;
 
 // Default colors
-$primary_color: #303030;
-$secondary_color: #1d4aaa;
+$primary_color: #2c2c2c;
+$secondary_color: #5424C1;
 
-$details_color: #f78e0c;
-$shock_color: #f2ec38;
-$extra_color: #4c4b3b;
-$font_color: #e0e0e0;
+$details_color: #DF1474;
+$shock_color: #F4FD6E;
+$extra_color: #9218BD;
+$font_color: #e4e4e4;
 
 $link_color: $details_color;
 
@@ -18,7 +18,6 @@ $work_overlay_alpha: 0.9;
 $default-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.7);
 $title-box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.7);
 $glow-shadow: 0px 0px 0.8rem 0.4rem rgba(238, 226, 196, 0.7);
-$neon-shadow: 0px 0px 12px 7px rgba(224,224,224,1);
 $empty-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 
-$breakpoint1: 900px;
+$breakpoint1: 1024px;

@@ -3,6 +3,11 @@
  src: url(../fonts/Hero.otf);
 }
 
+@font-face {
+ font-family: titlesFont;
+ src: url(../fonts/Cities_Typeface.otf);
+}
+
 html, body{
   width: 100%;
   min-width: 100%;
@@ -11,7 +16,7 @@ html, body{
   height: 100%;
   min-height: 100%;
 
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: mainFont;
   color: $font_color;
 
