@@ -36,6 +36,7 @@ class Welcome extends Component {
           <div className="fake-background">
             <div className="corner-text"/>
           </div>
+          <div id="scroll-about-helper"/>
         </div>
       </>
     );

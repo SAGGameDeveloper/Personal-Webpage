@@ -8,6 +8,9 @@ class Contact extends Component {
   render() {
     return (
       <div id="contact-section" className = "container contact">
+        <div className="ornament"/>
+        <div className="vertical-ornament"/>
+
         <div className="section-title">
           <h1><span className="section-title-capital">C</span>ontact me!</h1>
         </div>

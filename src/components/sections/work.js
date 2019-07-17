@@ -70,6 +70,8 @@ class Work extends Component {
         </div>
 
         <div id="work-section" className = "container work">
+          <div className="ornament"/>
+          <div className="vertical-ornament"/>
 
           <div className="section-title">
             <h1><span className="section-title-capital">L</span>et the work do the talk</h1>

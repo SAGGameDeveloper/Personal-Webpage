@@ -3,6 +3,7 @@ import * as ScrollMagic from 'scrollmagic'
 import { TweenMax, TimelineMax, Linear } from 'gsap/TweenMax'
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap"
 
+
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 class ScrollAnimation extends Component {
