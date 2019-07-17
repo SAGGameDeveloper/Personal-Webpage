@@ -24,7 +24,7 @@ class Welcome extends Component {
 
   onClick(e) {
     if (e.target === this.welcome_section)
-      Scroll.scrollTo("#about-section");
+      Scroll.scrollTo("#welcome-section", true);
   }
 
   render() {
@@ -36,7 +36,6 @@ class Welcome extends Component {
           <div className="fake-background">
             <div className="corner-text"/>
           </div>
-          <div id="scroll-about-helper"/>
         </div>
       </>
     );

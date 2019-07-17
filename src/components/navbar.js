@@ -24,6 +24,13 @@ class Navbar extends Component {
                 (document.querySelector("#"+section+SECTION_SUFFIX)));
     this.section_navelements = SECTIONS.map((section) =>
                 (document.querySelector("#"+section+NAVELEMENT_SUFFIX)));
+    SECTIONS.forEach((section, i)=>(this.section_navelements[i].onclick =
+                        ()=>(Scroll.scrollTo("#"+section+SECTION_SUFFIX))))
+
+    // Special scroll for the second div, since ScrollMagic positioning
+    // can break scroll detection
+    this.section_navelements[1].onclick =
+      ()=>(Scroll.scrollTo("#welcome-section", true));
 
     this.update();
   }
@@ -60,8 +67,7 @@ class Navbar extends Component {
             <div
               key={ section+NAVELEMENT_SUFFIX }
               id={ section+NAVELEMENT_SUFFIX }
-              className="navbar-element"
-              onClick={()=>(Scroll.scrollTo("#"+section+SECTION_SUFFIX))}></div>
+              className="navbar-element"/>
           )) }
         </div>
       );

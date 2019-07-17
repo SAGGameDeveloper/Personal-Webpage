@@ -1,5 +1,5 @@
 .contact {
-  background-color: $primary_color;
+  background-color: $secondary_color;
 
   display: flex;
   flex-direction: column;
@@ -9,11 +9,6 @@
     flex: 0;
     flex-basis: auto;
     margin: 0;
-  }
-
-  .ornament {
-    left: auto;
-    right: 0;
   }
 }
 
