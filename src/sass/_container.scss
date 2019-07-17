@@ -40,8 +40,9 @@ hr {
   width: calc(18rem + 20%);
   max-width: 65%;
   margin: auto;
-  padding: calc(1.2rem + 0.8%) 0 1.3rem 0;
+  padding: calc(2rem + 1.2%) 0 1.3rem 0;
   margin-bottom: calc(1rem + 1%);
+  left: 0;
 
   @include breakpoint1 {
     font-size: 2.3rem;
@@ -99,9 +100,3 @@ hr {
   }
 
 }
-
-@import 'sections/_welcome';
-@import 'sections/_about';
-@import 'sections/_work';
-@import 'sections/_skills';
-@import 'sections/_contact';

@@ -2,17 +2,39 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import inject from '../../utils/injector'
 import Arrow from '../../components/arrow'
+import Icon from '../svgIcon'
+
 
 class About extends Component {
   render() {
+    let odd = true;
+
     return (
       <div id="about-section" className = "container about">
+        <div className="about-fake-background"/>
         <div className="section-title">
-          <h1><span className="section-title-capital">W</span>ho I am</h1>
+          <h1><span className="section-title-capital">A</span>bout me</h1>
         </div>
 
         <div className="about-content">
-          <div className="about-text" dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'about') }} />
+          <div className="about-description" dangerouslySetInnerHTML = {{ __html: inject(this.props.files, 'about') }} />
+
+          <div id="about-skills" className = "skills-wrapper">
+              { this.props.files.filter(file=>file.node.frontmatter.tag==="skills").map(file => {
+                odd = !odd;
+                return (
+                    <div key={ file.node.frontmatter.title } className="skills-element-wrapper">
+                      <div className={ "skills-element " + (odd? "skills-odd-element" : "") }>
+                        <div className="skills-element-image">
+                          <Icon name={ file.node.frontmatter.title } />
+                        </div>
+                        <div className="skills-element-content" dangerouslySetInnerHTML = {{ __html: file.node.html }} />
+                      </div>
+                    </div>
+                );
+              }) }
+          </div>
+
         </div>
 
         <Arrow target_id="work-section"/>

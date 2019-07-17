@@ -14,7 +14,6 @@ import SEO from '../components/seo'
 import Welcome from '../components/sections/welcome'
 import About from '../components/sections/about'
 import Work from '../components/sections/work'
-import Skills from '../components/sections/skills'
 import Contact from '../components/sections/contact'
 import ScrollAnimation from '../components/scroll_animation'
 
@@ -40,7 +39,6 @@ import ScrollAnimation from '../components/scroll_animation'
         <Welcome files={ this.files } sm_controller={ this.sm_controller }  />
         <About files={ this.files } />
         <Work files={ this.files } />
-        <Skills files={ this.files } />
         <Contact files={ this.files } />
     </>)
   }

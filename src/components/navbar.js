@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Scroll from '../utils/scroll'
 
 // Section parameters
-const SECTIONS = ["welcome", "about", "work", "skills", "contact"];
+const SECTIONS = ["welcome", "about", "work", "contact"];
 const SECTION_SUFFIX = "-section";
 const NAVELEMENT_SUFFIX = "-navelement";
 

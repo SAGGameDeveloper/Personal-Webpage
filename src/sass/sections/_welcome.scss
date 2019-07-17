@@ -19,7 +19,6 @@
   height: calc(123vw + 123vh);
   z-index: 3;
 
-  border-bottom: 0.2rem solid $font_color;
 
   @include transform-origin(50% 50%);
   @include transform(translate(50%, -50%) rotate(45deg))

@@ -1,10 +1,18 @@
+// Utility
 @import 'reset';
 @import '_variables';
 @import '_media_queries';
 @import '_mixins';
 
+// General elements
 @import '_general';
 @import '_navbar';
 @import '_layout';
 @import '_container';
 @import '_footer';
+
+// Sections
+@import 'sections/_welcome';
+@import 'sections/_about';
+@import 'sections/_work';
+@import 'sections/_contact';

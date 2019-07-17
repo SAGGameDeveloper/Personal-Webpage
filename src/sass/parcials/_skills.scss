@@ -1,41 +1,18 @@
-.skills {
-  background-color: $secondary_color;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  hr {
-    flex: 0;
-    flex-basis: auto;
-    margin: 0;
-    background-color: $primary_color;
-    height: 0.5rem;
-  }
-}
-
 .skills-wrapper {
+  position: relative;
+  flex: 1;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   align-content: space-around;
-
-  flex: 1;
-
-  margin: 0 5% calc(2% + 3rem) 5%;
 }
 
 .skills-element-wrapper {
   margin: 2.3rem 1rem;
-  flex-basis: 43%;
-
-  word-wrap: break-word;
-
-  @include breakpoint1 {
-    flex-basis: 90%;
-  }
+  flex-basis: 90%;
 }
 
 .skills-element {
@@ -51,15 +28,20 @@
   font-size: 1.3rem;
   padding: 0.5rem;
   background-color: $primary_color;
+  border-radius: 0.3rem;
 
   @include box-shadow();
+
+  @include breakpoint1{
+    @include box-shadow(0 0 0 0 black);
+  }
 }
 
 .skills-element-image {
   display: inline-block;
 
-  min-width: calc(3.5rem + 6.5%);
-  max-width: calc(3.5rem + 6.5%);
+  min-width: calc(3.8rem + 5%);
+  max-width: calc(3.8rem + 5%);
 
   margin: 0 1.1rem;
 
@@ -71,7 +53,11 @@
 }
 
 .skills-odd-element {
-  @include breakpoint1 {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
+
+  .skills-element-content {
+    @include breakpoint1 {
+      background-color: $secondary_color;
+    }
   }
 }
