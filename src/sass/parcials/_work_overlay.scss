@@ -74,6 +74,7 @@
   left: 0;
   right: 0;
   margin: auto;
+  padding: 2rem;
 
   @include transition(all .2s ease-in-out);
 
@@ -96,14 +97,14 @@
   text-align: center;
 
   h1 {
-    font-size: 1.4rem;
-    margin: calc(0.4vw + 1rem) 0;
+    font-size: 1.3rem;
+    margin: calc(0.3vw + 1rem) 0;
   }
 
   p {
     display: inline-block;
     text-align: left;
-    font-size: calc(0.7vw + 1.2rem);
+    font-size: calc(0.4vw + 1.5rem);
   }
 }
 
@@ -111,6 +112,10 @@
   min-width: 25rem;
   max-width: calc(20rem + 45%);
   flex: 2;
+
+  img {
+    width: 100%;
+  }
 
   @include breakpoint1 {
     width: 90%;
