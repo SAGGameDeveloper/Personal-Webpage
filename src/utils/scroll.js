@@ -5,7 +5,7 @@ class Scroll {
       // Scrolls to the element with the given ID, delays 'duration'.
       // If no duration is provided, the dealy will depend on pixel distance
       // using the constant PIXEL_SPEED to transform pixels to ms
-      static scrollTo(targetId, bottom=false, duration = 600) {
+      static scrollTo(targetId, extra=0, bottom=false) {
         function ease (t) {
           return t * (2 - t);
         }
@@ -16,8 +16,10 @@ class Scroll {
         var distanceToTarget = target.getBoundingClientRect().top;
         if (bottom === true)
           distanceToTarget = target.getBoundingClientRect().bottom;
+        if (distanceToTarget === 0) return;
+        distanceToTarget += extra;
 
-        duration=Math.abs(PIXEL_SPEED*distanceToTarget);
+        let duration=Math.abs(PIXEL_SPEED*distanceToTarget);
 
         var initPos = window.pageYOffset;
         var initTime = null;

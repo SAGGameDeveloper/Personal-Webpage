@@ -25,14 +25,17 @@ class Navbar extends Component {
     this.section_navelements = SECTIONS.map((section) =>
                 (document.querySelector("#"+section+NAVELEMENT_SUFFIX)));
     SECTIONS.forEach((section, i)=>(this.section_navelements[i].onclick =
-                        ()=>(Scroll.scrollTo("#"+section+SECTION_SUFFIX))))
+                        this.navigationCallback.bind(this, section)));
 
-    // Special scroll for the second div, since ScrollMagic positioning
-    // can break scroll detection
-    this.section_navelements[1].onclick =
-      ()=>(Scroll.scrollTo("#welcome-section", true));
+    this.section_navelements[1].onclick = ()=>(Scroll.scrollTo("#welcome-section", 0, true));
 
     this.update();
+  }
+
+  navigationCallback(section, addExtra) {
+    let bottom = this.section_divs[0].getBoundingClientRect().bottom;
+    let extra = bottom > 0? bottom : 0;
+    Scroll.scrollTo("#"+section+SECTION_SUFFIX, addExtra? extra : 0);
   }
 
   // Updates the navigation bar active element to fit the current section

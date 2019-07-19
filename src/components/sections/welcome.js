@@ -19,7 +19,6 @@ class Welcome extends Component {
   onResize() {
     let ratio = this.fake_background.getBoundingClientRect().height/this.fake_background.getBoundingClientRect().width;
     this.corner_text.style.left = ratio * this.fake_background.getBoundingClientRect().width/2 + 'px';
-    console.log(ratio);
   }
 
   onClick(e) {
