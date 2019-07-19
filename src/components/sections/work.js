@@ -12,6 +12,7 @@ class Work extends Component {
 
     // Work overlay variables
     this.work_overlay = document.querySelector(".work-overlay");
+    this.work_overlay_wrapper = document.querySelector(".work-overlay-wrapper");
     this.work_overlay_title = this.work_overlay.querySelector(".work-overlay-title");
     this.work_overlay_description = this.work_overlay.querySelector(".work-overlay-description");
     this.work_overlay_image = this.work_overlay.querySelector(".work-overlay-image img");
@@ -27,6 +28,12 @@ class Work extends Component {
     //Disable the overlay on 'Escape' press
     window.addEventListener('keydown', (event) => {
       if (this.overlay_active && event.key === "Escape") this.setOverlayActive(false);
+    });
+
+    this.work_overlay.addEventListener('click', (e) => {
+      if (e.target === this.work_overlay
+            || e.target === this.work_overlay_wrapper)
+        this.setOverlayActive(false)
     });
   }
 
