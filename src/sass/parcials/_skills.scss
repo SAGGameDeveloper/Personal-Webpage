@@ -13,6 +13,7 @@
 .skills-element-wrapper {
   margin: 2.3rem 1rem;
   flex-basis: 90%;
+
 }
 
 .skills-element {
@@ -22,6 +23,10 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
+  @include transition(all 1s ease-in-out);
+
+  opacity: 0;
+  @include translate(-25%, 0);
 }
 
 .skills-element-content {
@@ -54,6 +59,8 @@
 
 .skills-odd-element {
   flex-direction: row-reverse;
+  @include translate(25%, 0);
+
 
   .skills-element-content {
     @include breakpoint1 {

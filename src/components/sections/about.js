@@ -12,7 +12,7 @@ class About extends Component {
     return (
       <div id="about-section" className = "container about">
         <div className="about-fake-background"/>
-        <div className="section-title">
+        <div className="section-title about-title">
           <h1><span className="section-title-capital">A</span>bout me</h1>
         </div>
 

@@ -1,4 +1,5 @@
-const PIXEL_SPEED = 0.3;
+const PIXEL_SPEED = 0.6;
+let SCROLLING = false;
 
 class Scroll {
       // Based on https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
@@ -9,6 +10,9 @@ class Scroll {
         function ease (t) {
           return t * (2 - t);
         }
+
+        if (SCROLLING) return;
+        SCROLLING = true;
 
         var target = document.querySelector(targetId);
         if (target == null) return;
@@ -33,6 +37,10 @@ class Scroll {
 
           window.scrollTo(0, Math.ceil(initPos + (yPercentage * distanceToTarget)));
           if (elapsed < duration) requestAnimationFrame(animate);
+          else {
+            window.scrollTo(0, initPos + distanceToTarget);
+            SCROLLING = false;
+          }
         }
 
         requestAnimationFrame(animate);

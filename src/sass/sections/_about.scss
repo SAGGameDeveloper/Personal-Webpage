@@ -8,18 +8,26 @@
   flex-direction: column;
   justify-content: flex-start;
   overflow: visible;
+}
 
-  .section-title {
-    width: 100%;
-    max-width: 100%;
-    margin: inherit;
-    text-align: left;
+.about-title {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 5rem;
+  text-align: left;
 
-    h1 {
-      display: inline-block;
-      margin-left: 38.2%;
-      @include translate(-4em, 0);
-    }
+  @include translate(0, -200%);
+  @include transition(all 1s ease-in-out);
+  opacity: 0;
+
+  h1 {
+    display: inline-block;
+    margin-left: 38.2%;
+    @include translate(-4em, 0);
+  }
+
+  @include breakpoint1 {
+    margin-top: 3.5rem;
   }
 }
 
@@ -50,6 +58,9 @@
 
   flex: 0 0 38.2%;
 
+  @include translate(-100%, 0);
+  @include transition(all 1s ease-in-out);
+
   p {
     margin: 1rem 2rem;
   }
@@ -67,6 +78,9 @@
   left: 0;
   width: 38.2%;
   height: 500%;
+
+  @include translate(-100%, 0);
+  @include transition(all 1s ease-in-out);
 
   background-color: $primary_color;
 }
