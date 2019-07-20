@@ -140,6 +140,15 @@
     width: 3rem;
     height: 3rem;
     margin: 2rem;
+
+    @include transition(all .2s ease-in-out);
+
+    &:hover {
+      fill: $shock_color;
+      @include scale(1.1);
+
+      @include transition(all .2s ease-in-out);
+    }
   }
 
   @include breakpoint1 {

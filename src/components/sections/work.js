@@ -100,7 +100,7 @@ class Work extends Component {
                 <a id="source-link" alt="source_link" href="/">
                   <Icon name="github"/></a>
                 <a id="demo-link" alt="demo_link" href="/">
-                  <Icon name="telegram"/></a>
+                  <Icon name="demo"/></a>
               </div>
             </div>
           </div>
