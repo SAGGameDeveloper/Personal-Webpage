@@ -122,3 +122,33 @@
     flex: 0;
   }
 }
+
+.work-overlay-links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2rem;
+  flex: 1;
+  fill: $details_color;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+    margin: 2rem;
+  }
+
+  @include breakpoint1 {
+    margin: 1rem;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      margin: 1.1rem;
+    }
+  }
+}

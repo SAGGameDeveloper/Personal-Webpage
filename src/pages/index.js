@@ -60,15 +60,9 @@ export const pageQuery = graphql`
             beautifulTitle
             lang
             tag
+            source
+            demo
           }
-        }
-      }
-    }
-
-    welcomeImage: file( relativePath: { eq: "welcomeImage.jpg" } ) {
-      childImageSharp {
-        fluid( quality: 100) {
-          ...GatsbyImageSharpFluid
         }
       }
     }

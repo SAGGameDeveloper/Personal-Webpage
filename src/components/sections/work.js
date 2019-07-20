@@ -4,6 +4,7 @@ import { withPrefix } from 'gatsby'
 
 import Arrow from '../../components/arrow'
 import cross from '../../images/cross.svg'
+import Icon from '../svgIcon'
 
 class Work extends Component {
 
@@ -16,6 +17,7 @@ class Work extends Component {
     this.work_overlay_title = this.work_overlay.querySelector(".work-overlay-title");
     this.work_overlay_description = this.work_overlay.querySelector(".work-overlay-description");
     this.work_overlay_image = this.work_overlay.querySelector(".work-overlay-image img");
+    this.work_overlay_links = this.work_overlay.querySelector(".work-overlay-links");
     this.overlay_cross = this.work_overlay.querySelector(".work-overlay-cross");
     this.overlay_active = false;
 
@@ -53,11 +55,33 @@ class Work extends Component {
       this.work_overlay_title.innerHTML = work_element.querySelector(".work-element-title").innerHTML;
       this.work_overlay_description.innerHTML = work_element.querySelector(".work-element-content").innerHTML;
       this.work_overlay_image.src = work_element.querySelector(".work-element-image img").src;
+
+      this.updateLinks(work_element);
     }
     else if (this.overlay_active && !active) {
       this.work_overlay.classList.remove("work-overlay-active");
       this.overlay_active = false;
     }
+  }
+
+  updateLinks(work_element) {
+    let links_element = work_element.querySelector(".work-element-links");
+    let source_string = links_element.getAttribute('source');
+    let demo_string = links_element.getAttribute('demo');
+    let source_link = this.work_overlay_links.children[0];
+    let demo_link = this.work_overlay_links.children[1];
+
+    if (source_string && source_string !== '') {
+      source_link.href = source_string;
+      source_link.style.display = 'block';
+    }
+    else source_link.style.display = 'none';
+
+    if (demo_string && demo_string !== '') {
+      demo_link.href = demo_string;
+      demo_link.style.display = 'block';
+    }
+    else demo_link.style.display = 'none';
   }
 
   render() {
@@ -72,6 +96,12 @@ class Work extends Component {
               { /*eslint-disable-next-line*/ }
               <h1 className="work-overlay-title"/>
               <p className="work-overlay-description"/>
+              <div className="work-overlay-links">
+                <a id="source-link" alt="source_link" href="/">
+                  <Icon name="github"/></a>
+                <a id="demo-link" alt="demo_link" href="/">
+                  <Icon name="telegram"/></a>
+              </div>
             </div>
           </div>
         </div>
@@ -92,6 +122,11 @@ class Work extends Component {
                       <div className="work-element-image">
                         <img alt={ file.node.frontmatter.title }  src={withPrefix('/images/work/'+file.node.frontmatter.title+'.png')} />
                       </div>
+
+                      <div className="work-element-links"
+                        source={file.node.frontmatter.source}
+                        demo={file.node.frontmatter.demo}/>
+
                     </div>
                   </div>
 
