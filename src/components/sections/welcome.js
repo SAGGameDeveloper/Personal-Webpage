@@ -23,7 +23,7 @@ class Welcome extends Component {
 
   onClick(e) {
     if (e.target === this.welcome_section)
-      Scroll.scrollTo("#welcome-section", true);
+      Scroll.scrollTo("#welcome-section", 0, true)
   }
 
   render() {

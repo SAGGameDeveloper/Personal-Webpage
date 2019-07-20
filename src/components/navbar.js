@@ -27,7 +27,9 @@ class Navbar extends Component {
     SECTIONS.forEach((section, i)=>(this.section_navelements[i].onclick =
                         this.navigationCallback.bind(this, section)));
 
-    this.section_navelements[1].onclick = ()=>(Scroll.scrollTo("#welcome-section", 0, true));
+    this.section_navelements[1].onclick = ()=>(
+      Scroll.scrollTo("#welcome-section", 0, true)
+    );
 
     this.update();
   }

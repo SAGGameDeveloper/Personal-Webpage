@@ -134,7 +134,7 @@ class Work extends Component {
             }) }
           </div>
 
-          <Arrow target_id="skills-section"/>
+          <Arrow target_id="contact-section"/>
         </div>
       </>
     );
