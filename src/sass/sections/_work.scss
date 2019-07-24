@@ -14,6 +14,12 @@
   }
 }
 
+.work-title {
+  opacity: 0;
+  @include translate(-15%, 0);
+  @include transition(all 1s ease-in-out);
+}
+
 .work-container {
   position: relative;
 
@@ -45,12 +51,15 @@
 
   @include box-shadow();
 
+  opacity: 0;
+
   @include breakpoint1 {
     min-width: 80%;
     max-width: 80%;
   }
 
   @include transition(all .2s ease-in-out);
+  @include transition(opacity 1s ease-in-out);
 
   &:hover{
     @include transition(all .2s ease-in-out);

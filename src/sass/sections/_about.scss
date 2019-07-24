@@ -16,14 +16,13 @@
   margin-top: 5rem;
   text-align: left;
 
-  @include translate(0, -200%);
+  @include translate(50%, 0);
   @include transition(all 1s ease-in-out);
   opacity: 0;
 
   h1 {
     display: inline-block;
-    margin-left: 38.2%;
-    @include translate(-4em, 0);
+    margin-left: calc(38.2% - 3.9em);
   }
 
   @include breakpoint1 {

@@ -7,7 +7,7 @@ class Title extends Component {
     return (
       <>
         <div id ='title' className='title' onClick={ ()=>(Scroll.scrollTo('#welcome-section')) }>
-          <h1 className='maintitle'>
+          <h1 className='maintitle glitch' data-text="SERGIO ABREU GARCIA">
               <span className='title-upper-caps'>S</span>
               <span className='title-lower-caps'>ERGIO </span>
               <span className='title-upper-caps'>A</span>

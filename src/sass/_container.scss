@@ -44,15 +44,17 @@ hr {
   margin-bottom: calc(1rem + 1%);
   left: 0;
 
+  color: $shock_color;
+
   @include breakpoint1 {
     font-size: 2.3rem;
     width: 65%;
   }
-}
 
-.section-title-capital {
-  color: $details_color;
-  font-size: 1.25em;
+  h1::first-letter {
+    color: $details_color;
+    font-size: 1.25em;
+  }
 }
 
 .section-arrow {

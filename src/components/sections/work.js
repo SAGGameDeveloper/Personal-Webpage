@@ -85,6 +85,10 @@ class Work extends Component {
   }
 
   render() {
+    let title_file = this.props.files.filter(file =>
+      file.node.frontmatter.title === 'work_title')[0];
+    let title = title_file.node.frontmatter.beautifulTitle;
+
     return (
       <>
         <div className="work-overlay">
@@ -107,8 +111,8 @@ class Work extends Component {
         </div>
 
         <div id="work-section" className = "container work">
-          <div className="section-title">
-            <h1><span className="section-title-capital">L</span>et the work do the talk</h1>
+          <div className="section-title work-title">
+            <h1 className="glitch" data-text={ title }>{ title }</h1>
           </div>
 
           <div className="work-container">

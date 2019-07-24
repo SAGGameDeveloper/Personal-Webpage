@@ -2,8 +2,6 @@ import { Component } from 'react'
 import * as ScrollMagic from 'scrollmagic'
 import { TweenMax, TimelineMax, Linear } from 'gsap/TweenMax'
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap"
-import Scroll from '../utils/scroll'
-
 
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
@@ -18,8 +16,6 @@ class ScrollAnimation extends Component {
     this.setupAboutScenes();
     this.setupWorkScenes();
     this.setupContactScenes();
-
-    this.setupScrollSnap();
   }
 
   setupWelcomeScenes() {
@@ -40,49 +36,10 @@ class ScrollAnimation extends Component {
       .addTo(this.sm_controller);
   }
 
-  setupScrollSnap() {
-    let sections = document.getElementsByClassName('container');
-    let body = document.querySelector('body');
-    for (let i=0; i<sections.length; i++) {
-      new ScrollMagic.Scene({
-                triggerElement: sections[i],
-                offset: 10,
-                triggerHook: 1,
-              })
-              .on('start', (e)=>{
-                if (e.scrollDirection === 'FORWARD')
-                  Scroll.scrollTo('#'+sections[i].id);
-              })
-              .on('enter', (e) => {
-                body.classList.add('body-locked');
-                setTimeout(() => {
-                    body.classList.remove('body-locked');
-                },1200)
-              })
-              .addTo(this.sm_controller);
-
-      if (i === 0) continue;
-      new ScrollMagic.Scene({
-                triggerElement: sections[i],
-                offset: -10,
-                triggerHook: 0,
-              })
-              .on('start', (e)=>{
-                if (e.scrollDirection === 'REVERSE')
-                  Scroll.scrollTo('#'+sections[i-1].id);
-              })
-              .on('enter', (e) => {
-                body.classList.add('body-locked');
-                setTimeout(() => {
-                    body.classList.remove('body-locked');
-                },1200)
-              })
-              .addTo(this.sm_controller);
-    }
-  }
-
   setupAboutScenes() {
     let skills = document.getElementsByClassName('skills-element');
+    let about_section = document.querySelector('#about-section');
+
     for (let i=0; i < skills.length; i++) {
       new ScrollMagic.Scene({
 								triggerElement: skills[i],
@@ -95,8 +52,8 @@ class ScrollAnimation extends Component {
 
     let about_title = document.querySelector('.about-title');
     new ScrollMagic.Scene({
-              triggerElement: skills[0],
-              offset: '5%',
+              triggerElement: about_section,
+              offset: '100%',
               triggerHook: 0.9,
             })
             .setClassToggle(about_title, "display-on-scroll")
@@ -122,10 +79,67 @@ class ScrollAnimation extends Component {
   }
 
   setupWorkScenes() {
+    let works = document.getElementsByClassName('work-element-wrapper');
+    let work_section = document.querySelector('#work-section');
 
+    for (let i=0; i < works.length; i++) {
+      new ScrollMagic.Scene({
+								triggerElement: works[i],
+								offset: '65%',
+								triggerHook: 0.9,
+							})
+							.setClassToggle(works[i], "display-on-scroll")
+							.addTo(this.sm_controller);
+    }
+
+    let work_title = document.querySelector('.work-title');
+    new ScrollMagic.Scene({
+              triggerElement: work_section,
+              offset: '50%',
+              triggerHook: 0.9,
+            })
+            .setClassToggle(work_title, "display-on-scroll")
+            .addTo(this.sm_controller);
   }
 
   setupContactScenes() {
+    let contact_section = document.querySelector('#contact-section');
+    let contact_title = document.querySelector('.contact-title');
+
+    new ScrollMagic.Scene({
+              triggerElement: contact_section,
+              offset: '50%',
+              triggerHook: 0.9,
+            })
+            .setClassToggle(contact_title, "display-on-scroll")
+            .addTo(this.sm_controller);
+
+    let contact_email = document.querySelector('.contact-email');
+    new ScrollMagic.Scene({
+              triggerElement: contact_title,
+              offset: '60%',
+              triggerHook: 0.5,
+            })
+            .setClassToggle(contact_email, "display-on-scroll")
+            .addTo(this.sm_controller);
+
+    let contact_text = document.querySelector('.contact-text');
+    new ScrollMagic.Scene({
+              triggerElement: contact_title,
+              offset: '60%',
+              triggerHook: 0.5,
+            })
+            .setClassToggle(contact_text, "display-on-scroll")
+            .addTo(this.sm_controller);
+
+    let contact_icons = document.querySelector('.contact-icons');
+    new ScrollMagic.Scene({
+              triggerElement: contact_title,
+              offset: '60%',
+              triggerHook: 0.5,
+            })
+            .setClassToggle(contact_icons, "display-on-scroll")
+            .addTo(this.sm_controller);
 
   }
 

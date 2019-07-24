@@ -8,12 +8,15 @@ import Icon from '../svgIcon'
 class About extends Component {
   render() {
     let odd = true;
+    let title_file = this.props.files.filter(file =>
+      file.node.frontmatter.title === 'about_title')[0];
+    let title = title_file.node.frontmatter.beautifulTitle;
 
     return (
       <div id="about-section" className = "container about">
         <div className="about-fake-background"/>
         <div className="section-title about-title">
-          <h1><span className="section-title-capital">A</span>bout me</h1>
+          <h1 className="glitch" data-text={ title }>{ title }</h1>
         </div>
 
         <div className="about-content">
