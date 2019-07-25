@@ -1,13 +1,10 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "sag-dev",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "sag-dev.com gatsby build",
+  "version": "0.8",
+  "author": "Sergio Abreu Garcia <sergio@sag-dev.com>",
   "dependencies": {
-    "@pixi/filter-color-replace": "^3.0.3",
-    "@pixi/filter-glow": "^3.0.3",
-    "detect-node": "^2.0.4",
     "gatsby": "^2.10.2",
     "gatsby-image": "^2.2.3",
     "gatsby-plugin-layout": "^1.1.0",
