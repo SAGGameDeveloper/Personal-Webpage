@@ -12,6 +12,7 @@ class Work extends Component {
     this.work_elements = document.getElementsByClassName("work-element");
 
     // Work overlay variables
+    this.body = document.querySelector("body");
     this.work_overlay = document.querySelector(".work-overlay");
     this.work_overlay_wrapper = document.querySelector(".work-overlay-wrapper");
     this.work_overlay_title = this.work_overlay.querySelector(".work-overlay-title");
@@ -56,10 +57,14 @@ class Work extends Component {
       this.work_overlay_description.innerHTML = work_element.querySelector(".work-element-content").innerHTML;
       this.work_overlay_image.src = work_element.querySelector(".work-element-image img").src;
 
+      // Blocks scroll
+      this.body.classList.add("block-scroll");
+
       this.updateLinks(work_element);
     }
     else if (this.overlay_active && !active) {
       this.work_overlay.classList.remove("work-overlay-active");
+      this.body.classList.remove("block-scroll");
       this.overlay_active = false;
     }
   }
