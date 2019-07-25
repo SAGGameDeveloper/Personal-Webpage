@@ -5,7 +5,7 @@ const Flags = () => (
   <div className = 'flags'>
     <Link to="/" activeClassName='active-flag'><div className='flag'>en</div></Link>
     <Link to="/es" activeClassName='active-flag'><div className='flag'>es</div></Link>
-    <Link to="/gl"><div className='flag'>gl</div></Link>
+    <Link to="/gl" activeClassName='active-flag'><div className='flag'>gl</div></Link>
   </div>
 )
 

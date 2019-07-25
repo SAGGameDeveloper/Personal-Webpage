@@ -9,13 +9,14 @@ import '../sass/wrapper.scss'
 
 // Components
 import SEO from '../components/seo'
+import Navbar from '../components/navbar'
+import ScrollAnimation from '../components/scroll_animation'
 
 // Sections
 import Welcome from '../components/sections/welcome'
 import About from '../components/sections/about'
 import Work from '../components/sections/work'
 import Contact from '../components/sections/contact'
-import ScrollAnimation from '../components/scroll_animation'
 
  class Index extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ import ScrollAnimation from '../components/scroll_animation'
   render () {
     return (<>
         <SEO lang={ this.lang }/>
+        <Navbar/>
         <ScrollAnimation/>
 
         <Welcome files={ this.files } sm_controller={ this.sm_controller }  />
