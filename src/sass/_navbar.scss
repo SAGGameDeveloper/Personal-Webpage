@@ -11,7 +11,7 @@
   z-index: 10;
 
   @include breakpoint1 {
-    right: 0.8rem;
+    right: 1.1rem;
   }
 }
 
@@ -42,9 +42,9 @@
   }
 
   @include breakpoint1 {
-    width: 0.6rem;
-    height: 0.6rem;
-    margin: 0.8rem 0;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin: 0.9rem 0;
   }
 
 }
