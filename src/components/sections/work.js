@@ -106,9 +106,9 @@ class Work extends Component {
               <h1 className="work-overlay-title"/>
               <p className="work-overlay-description"/>
               <div className="work-overlay-links">
-                <a id="source-link" alt="source_link" href="/">
+                <a id="source-link" alt="source_link" href="/" target='_blank'>
                   <Icon name="github"/></a>
-                <a id="demo-link" alt="demo_link" href="/">
+                <a id="demo-link" alt="demo_link" href="/" target='_blank'>
                   <Icon name="demo"/></a>
               </div>
             </div>

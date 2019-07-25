@@ -1,6 +1,6 @@
 ---
 title: programming
-lang: en
+lang: gl
 tag: skills
 ---
 

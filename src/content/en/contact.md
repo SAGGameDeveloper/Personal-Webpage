@@ -3,4 +3,4 @@ title: contact
 lang: en
 ---
 
-Contact me at any time!
+¡Contact me whenever you want!

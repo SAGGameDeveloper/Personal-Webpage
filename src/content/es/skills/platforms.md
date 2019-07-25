@@ -4,5 +4,4 @@ lang: es
 tag: skills
 ---
 
-He realizado proyectos para web, escritorio y Android;
-me siento cómodo en cualquier plataforma.
+Estoy cómodo en cualquier plataforma: web, escritorio, móvil

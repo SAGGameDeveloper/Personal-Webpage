@@ -3,6 +3,7 @@ title: about
 lang: es
 ---
 
-Hola! Soy Sergio, un desarrollador de software de Galicia, España.
-Mi pasión es usar la tecnología para dar soluciones a problemas reales,
-y creo que la mejor manera es un código elegante y eficiente.
+Siempre me ha fascinado la idea de llevar la tecnología a sus límites, y
+para ello he tratado de entenderla desde todos sus ángulos. He desarrollado
+videojuegos, webs y aplicaciones. Pero lo que ha estado llamando mi atención
+estos últimos años es la IA y la tecnología de blockchain.

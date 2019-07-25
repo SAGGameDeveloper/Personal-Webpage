@@ -1,10 +1,11 @@
 ---
 title: gamelegant
-beautifulTitle: GameElegant
+beautifulTitle: GamElegant
 lang: es
 tag: work
-source: https://www.gamelegant.com/la-situacion-del-doblaje-videojuegos/
-demo: testing
+demo: https://www.gamelegant.com/la-situacion-del-doblaje-videojuegos/
 ---
 
-I worked as joutlaindla.......
+Trabajé durante unos meses en una revista de videojuegos, aunque definitivamente
+no era lo mío. Aún así, aprendí un montón sobre como se llevan a cabo los
+procesos de producción y estándares de calidad en un entorno profesional.

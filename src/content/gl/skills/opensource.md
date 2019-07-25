@@ -1,8 +1,8 @@
 ---
 title: opensource
-lang: es
+lang: gl
 tag: skills
 ---
 
-Soy parte activa de la comunidad de
+Son parte activa da comunidade de
 <a href="https://github.com/Sag-Dev" target="blank_">Github</a>

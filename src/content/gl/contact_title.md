@@ -1,5 +1,5 @@
 ---
 title: contact_title
 beautifulTitle: CONTACTO
-lang: es
+lang: gl
 ---

@@ -3,9 +3,11 @@ title: itriedtomakeanrpg
 beautifulTitle: I tried to make an RPG
 lang: en
 tag: work
+demo: https://play.google.com/store/apps/details?id=com.sagdev.littlerpg
+source: https://github.com/Sag-Dev/LittleRPG
 ---
 
-itriedtomakeanrpg fdasklfjdasñl jfkdj kjf ldasj kfjas laañl fjdlas
- jfdaso fj fjlasdjk jjjjjjjjjd das jañlas kas klas jñlas j klfjas
-  jdñlas jdlasjfasf lasj klas  kdka ñl kjñlas jfas
-   dfjask ñdflasdkfl as
+This was my second mobile project, being my main objective to strengthen my
+Android development and explore the possibilities of LibGDX and Box2D. The
+outcome is not specially interesting, but the development process taught me
+a lot.

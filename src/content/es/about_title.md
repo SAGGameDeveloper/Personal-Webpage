@@ -1,5 +1,5 @@
 ---
 title: about_title
-beautifulTitle: Sobre mi
+beautifulTitle: SOBRE MI
 lang: es
 ---
