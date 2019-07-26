@@ -1,23 +1,22 @@
 module.exports = {
-  pathPrefix: `/Personal-Webpage`,
-
   siteMetadata: {
-    title: { en: `Sergio Abreu García | Software developer`,
-              es: `Sergio Abreu García | Desarrollador de software`,
-              gl: `Sergio Abreu García | Desarrollador de software`,
+    title: { en: `Sergio Abreu García`,
+              es: `Sergio Abreu García`,
+              gl: `Sergio Abreu García`,
             },
     author: `Sergio Abreu García`,
     languages: ['en', 'gl', 'es'],
-    description: { en: `Portfolio website of Sergio Abreu García, software developer.`,
-                   gl: `Páxina portfolio de Sergio Abreu García, desarrollador de software`,
-                   es: `Página portfolio de Sergio Abreu García, desarrollador de software`,
+    description: { en: `Sergio Abreu García, software developer`,
+                   gl: `Sergio Abreu García, desarrollador de software`,
+                   es: `Sergio Abreu García, desarrollador de software`,
                  },
     url: 'https://sag-dev.com',
     keywords:{ general: ["sergio", "abreu", "garcía", "software",
-                        "blockchain", "portfolio", "frontend", "backend", "cv"],
-               en: ["english", "developer"],
-               gl: ["galego", "desarrollador"],
-               es: ["español", "desarrollador"],
+                        "portfolio", "frontend", "backend", "cv", "resume",
+                        "web"],
+               en: ["english", "developer", "programmer", "coder"],
+               gl: ["galego", "desarrollador", "programador"],
+               es: ["español", "desarrollador", "programador"],
              },
   },
   plugins: [
@@ -40,7 +39,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // Relative to the root of the site.
         include_favicon: true,
       },
     },
