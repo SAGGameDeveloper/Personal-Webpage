@@ -3,12 +3,15 @@ import * as ScrollMagic from 'scrollmagic'
 import { TweenMax, TimelineMax, Linear } from 'gsap/TweenMax'
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap"
 
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 class ScrollAnimation extends Component {
   constructor(props){
     super(props);
-    this.sm_controller = new ScrollMagic.Controller();
+
+    if (typeof(window) !== 'undefined' && window) {
+      ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+      this.sm_controller = new ScrollMagic.Controller();
+    }
   }
 
   componentDidMount() {

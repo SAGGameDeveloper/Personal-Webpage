@@ -1,5 +1,5 @@
 ---
 title: work_title
-beautifulTitle: QUE O TRABALLO FALE
+beautifulTitle: TRABALLO
 lang: gl
 ---

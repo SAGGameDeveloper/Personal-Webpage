@@ -1,5 +1,5 @@
 ---
 title: work_title
-beautifulTitle: LET THE WORK DO THE TALK
+beautifulTitle: WORK
 lang: en
 ---

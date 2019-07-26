@@ -1,5 +1,5 @@
 ---
 title: work_title
-beautifulTitle: QUE EL TRABAJO HABLE
+beautifulTitle: TRABAJO
 lang: es
 ---

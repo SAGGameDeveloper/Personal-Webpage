@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Footer from '../components/footer'
+import Footer from './footer'
 
 const Layout = ({ children }) => {
   return (
     <div className="layout" id="layout">
       { children }
-      < Footer />
+      <Footer/>
     </div>
   )
 }

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 
-// Scroll animation library
-import ScrollMagic from 'scrollmagic'
-
 // Sass wrapper
 import '../sass/wrapper.scss'
 
@@ -11,6 +8,7 @@ import '../sass/wrapper.scss'
 import SEO from '../components/seo'
 import Navbar from '../components/navbar'
 import ScrollAnimation from '../components/scroll_animation'
+import WelcomeThree from '../components/welcome_three'
 
 // Sections
 import Welcome from '../components/sections/welcome'
@@ -24,12 +22,6 @@ import Contact from '../components/sections/contact'
 
     this.files = props.data.allMarkdownRemark.edges;
     this.lang = this.files[0].node.frontmatter.lang;
-
-    this.sm_controller = new ScrollMagic.Controller();
-  }
-
-  componentWillUnmount() {
-    this.sm_controller.destroy(true);
   }
 
   render () {
@@ -37,6 +29,7 @@ import Contact from '../components/sections/contact'
         <SEO lang={ this.lang }/>
         <Navbar/>
         <ScrollAnimation/>
+        <WelcomeThree/>
 
         <Welcome files={ this.files } sm_controller={ this.sm_controller }  />
         <About files={ this.files } />
