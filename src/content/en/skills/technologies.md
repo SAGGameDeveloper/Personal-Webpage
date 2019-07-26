@@ -4,4 +4,4 @@ lang: en
 tag: skills
 ---
 
-The best results demand the best technologies
+I like to work with the best available technologies

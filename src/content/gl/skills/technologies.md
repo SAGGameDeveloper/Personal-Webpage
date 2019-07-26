@@ -4,4 +4,4 @@ lang: gl
 tag: skills
 ---
 
-Os mellores resultados exixen as mellores tecnoloxías
+Gústame traballar coas mellores tecnoloxías disponibles

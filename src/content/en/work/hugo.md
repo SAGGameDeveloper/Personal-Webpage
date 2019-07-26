@@ -8,5 +8,7 @@ demo: https://sag-dev.github.io/hugo-minimalist-spa/
 ---
 
 Looking to improve my abilities as a web developer, I decided to make a theme
-for Hugo following the Single Page Application concept (not natively supported
+for
+<a href='https://gohugo.io/' target='_blank'>Hugo</a>
+following the Single Page Application pattern (not natively supported
 by Hugo).

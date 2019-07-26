@@ -9,6 +9,9 @@ source: https://github.com/Sag-Dev/LittleRPG
 
 
 Éste fue mi segundo proyecto para móvil, siendo mi objetivo principal
-afianzar mi manejo del desarrollo Android y explorar las posibilidades de LibGDX
-y Box2D. Aunque el resultado no es especialmente interesante, el proceso de
-desarrollo me enseño un montón.
+afianzar mi manejo del desarrollo Android y explorar
+<a href='https://libgdx.badlogicgames.com/' target='_blank'>LibGDX</a>
+y
+<a href='https://box2d.org/' target='_blank'>Box2D</a>
+. Aunque el resultado no es especialmente interesante, el proceso de
+desarrollo fue bastante enriquecedor.

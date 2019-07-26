@@ -4,4 +4,4 @@ lang: es
 tag: skills
 ---
 
-Los mejores resultados exigen las mejores tecnologías
+Me gusta trabajar con las mejores tecnologías disponibles
