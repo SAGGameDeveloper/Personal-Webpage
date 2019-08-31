@@ -9,13 +9,13 @@ permalink:           /:title
 # Setup
 timezone:            Europe/Madrid # eg. Asia/Kathmandu
 locale:              your locale language # eg. en_us
-name:				         site name
-title:               site title
-tagline:             'tagline'
-description:         'description'
-url:                 site url
+name:				 Artei
+title:               Artei
+tagline:             'artei tecnologia futuro blog'
+description:         'Artei'
+url:                 sag-dev.github.io
 rss:                 rss feed url
-baseurl:             '/'
+baseurl:             '/meigo'
 baseurl_posts_img:   '/assets/images/posts/'
 baseurl_featured_img: '/assets/images/hero/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'
@@ -24,8 +24,8 @@ icon:                your site icon path # /assets/img/icon.png [best 300px X 30
 disqus:              disqus_shortname # get it on https://disqus.com/admin/
 
 author:
-  name:           	 your name
-  url:            	 your site url
+  name:           	 Sergio Abreu Garcia
+  url:            	 sag-dev.com
   facebook:          username
   twitter:           username
   google_plus:       username
