@@ -17,9 +17,16 @@ var messages = {
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll-build', function (done) {
-    browserSync.notify(messages.jekyllBuild);
-    return cp.exec('jekyll build --config=_config.yml');
+gulp.task('jekyll-serve', function (done) {
+	var child = cp.exec('jekyll serve --config=_config.yml');
+    child.stdout.pipe(process.stdout);
+	child.stderr.pipe(process.stderr);
+	
+	gulp.watch('_scss/**/*.scss').on('change', function() {
+		gulp.task('styles')();
+	})
+	
+	return child;
 });
 
 /**
@@ -36,21 +43,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('assets/css'));
 });
 
-
-/**
- * Wait for jekyll-build, then launch the Server
- */
-gulp.task('browser-sync', gulp.series('styles', 'jekyll-build', function() {
-  browserSync.init({
-    server: {
-      baseDir: '_site'
-    },
-    startPath: "/index.html"
-  });
-}));
-
 // To support opacity in IE 8
-
 var opacity = function(css) {
   css.eachDecl(function(decl, i) {
     if (decl.prop === 'opacity') {
@@ -73,30 +66,7 @@ gulp.task("thumbnails", function () {
 });
 
 /**
- * Watch scss files for changes & recompile
- * Watch html/md files, run jekyll
- * Watch _site generation, reload BrowserSync
- */
-gulp.task('watch', function() {
-  gulp.watch('_scss/**/*.scss', ['styles']);
-  gulp.watch('assets/images/hero/*.{jpg,png}', ['thumbnails']);
-  gulp.watch(['*.html',
-          '*.txt',
-          'about/**',
-          '_posts/*.markdown',
-          'assets/javascripts/**/**.js',
-          'assets/images/**',
-          'assets/fonts/**',
-          '_layouts/**',
-          '_includes/**',
-          'assets/css/**'
-        ],
-        ['jekyll-build']);
-  gulp.watch("_site/index.html").on('change', browserSync.reload);
-});
-
-/**
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', gulp.series('thumbnails', 'browser-sync', 'watch'));
+gulp.task('default', gulp.series('thumbnails', 'styles', 'jekyll-serve'));

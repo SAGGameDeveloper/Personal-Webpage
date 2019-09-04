@@ -7,32 +7,29 @@ highlighter:         pygments
 permalink:           /:title
 
 # Setup
-timezone:            Europe/Madrid # eg. Asia/Kathmandu
-locale:              your locale language # eg. en_us
+timezone:            Europe/Madrid
+locale:              es_es
 name:				 Artei
 title:               Artei
-tagline:             'artei tecnologia futuro blog'
+tagline:             'La historia de la humanidad es la historia del progreso'
 description:         'Artei'
 url:                 sag-dev.github.io
 rss:                 rss feed url
-baseurl:             '/meigo'
+baseurl:             ''
 baseurl_posts_img:   '/assets/images/posts/'
 baseurl_featured_img: '/assets/images/hero/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'
 baseurl_javascripts: '/assets/javascripts/'
-icon:                your site icon path # /assets/img/icon.png [best 300px X 300px]
+icon:                assets/images/icon.png
 disqus:              disqus_shortname # get it on https://disqus.com/admin/
 
 author:
-  name:           	 Sergio Abreu Garcia
+  name:           	 Sergio Abreu García
   url:            	 sag-dev.com
   facebook:          username
   twitter:           username
-  google_plus:       username
   linkedin:          username
-  dribbble:          username
-  pinterest:         username
-  kiva:              username
+  youtube:           Artei
 
 fb_admins:           your facebook profile id
 fb_appid:            your facebook app id

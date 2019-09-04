@@ -2,6 +2,13 @@
 // Colors
 // --------------------------------------------------
 
+$dark:					#282828;
+$light:					#e5e5e5;
+$color1:				#fafa5f;	
+$color2:				#583bb6;
+$color3:				#8431b1;
+$color4:				#d0318b;
+
 $gray-darker:           lighten(#000, 13.5%) !default; // #222
 $gray-dark:             lighten(#000, 20%) !default;   // #333
 $gray:                  lighten(#000, 33.5%) !default; // #555
@@ -10,12 +17,6 @@ $gray-lighter:          lighten(#000, 93.5%) !default; // #eee
 
 $white:                 #fff;
 $black:                 #222;
-
-$brand-primary:         #428bca !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
 
 $body-bg:               #fff !default;
 $frontpage-body-bg:     #f2f2f2 !default;

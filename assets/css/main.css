@@ -548,20 +548,11 @@ body {
 }
 
 .textLogo--frontpage {
-  position: absolute;
-  top: 132px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
   z-index: 500;
   margin: 0;
   width: 276px;
-  height: 50px;
   background-size: 100%;
   background-position: 0;
-  opacity: 0.9;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
 }
 
 @media (max-width: 767px) {
@@ -570,6 +561,15 @@ body {
     height: 33px;
     top: 99px;
   }
+}
+
+.container-frontpage {
+  position: absolute;
+  top: 132px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 * {
@@ -1633,7 +1633,8 @@ body {
   width: 100%;
   top: 0;
   position: relative;
-  color: #222;
+  color: #282828;
+  background-color: #e5e5e5;
 }
 
 .section--first,
@@ -1875,7 +1876,7 @@ body {
 
 .section--postsWrapper {
   width: 100%;
-  background: #f2f2f2;
+  background: #282828;
   padding-top: 0;
   position: relative;
   clear: both;
