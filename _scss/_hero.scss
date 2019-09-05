@@ -148,19 +148,18 @@
 }
 
 .postMeta-wrapper {
-  margin-top: $leading;
+  position: relative;
+  margin: auto;
   display: inline-block;
 }
 
 .postMeta-wrapper--frontpage {
-  position: absolute;
   display: inherit;
-  top: 165px;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: $zIndex-5--tagline-frontpage;
-
+  width: 100%;
+  
   .postMeta-tagline {
+  	width: 100%;
     font-weight: 300;
     letter-spacing: 0.04rem;
     color: $gray-light;
@@ -172,8 +171,6 @@
   }
 
   @media (max-width: $screen-xs-max) {
-    width: 300px;
-    top: 100px;
   }
 }
 
@@ -192,7 +189,7 @@
   font-size: $font-XS;
   text-transform: uppercase;
   letter-spacing: 2px;
-
+  
   &:after {
     content: '';
     display: inline-block;

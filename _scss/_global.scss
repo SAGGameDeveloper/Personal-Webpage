@@ -59,21 +59,26 @@ body {
 
 .textLogo--frontpage {
   z-index: $zIndex-5--textlogo-frontpage;
-  margin: 0;
+  margin: auto;
   width: 276px;
   background-size: 100%;
   background-position: 0;
 
   @media (max-width: $screen-xs-max) {
     width: 182px;
-    height: 33px;
-    top: 99px;
   }
 }
 
 .container-frontpage {
   position: absolute;
-  top: 132px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 110px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+  
+  @media (max-width: $screen-xs-max) {
+    top: 50px;
+  }
 }
