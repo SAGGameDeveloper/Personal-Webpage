@@ -17,9 +17,13 @@ body {
 
 a {
   @include transition(all 0.2s);
-  
+  text-decoration: underline;
+  text-decoration-color: $light;
+  color: $light;
+
   &:hover {
 	color: $color4;
+	text-decoration-color: $color4;
   }
 }
 

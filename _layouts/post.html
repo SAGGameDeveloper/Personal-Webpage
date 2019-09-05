@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="postWrapper">
-  <section class="section--first is-darkBackgrounded u-table">
+  <section class="section--first u-table">
     <div class="section-backgroundImage">
 
       {% if page.image.feature %}
@@ -21,7 +21,7 @@ layout: default
       section-gradient--lighter
     {% endif %}
     "></div>
-    <div class="section-title is-darkBackgrounded u-tableCell u-verticalAlignMiddle">
+    <div class="section-title u-tableCell u-verticalAlignMiddle">
       <div class="container">
         <h2>{{ page.title }}</h2>
         <div class="postMeta-wrapper">
@@ -48,7 +48,7 @@ layout: default
               </time>
             </li>
             <li class="postMeta-author">
-              Por {{ site.author.name }}
+              Por <a href="{{ site.baseurl }}/about/">{{ site.author.name }}</a>
             </li>
             <li class="postMeta-tags">
               {{ page.categories }}
@@ -71,11 +71,13 @@ layout: default
     <hr/>
     <div class="container container--content">
       <div class="content-body">
-        {% include subscribe.html %}
         {% include comments.html %}
       </div>
     </div>
   </section>
+  
+  {% include subscribe.html %}
+		  
   <footer class="postFooter">
     {% if page.previous.url %}
       <section class="section--prePost is-darkBackgrounded u-table">

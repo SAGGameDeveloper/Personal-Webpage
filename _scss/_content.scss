@@ -12,7 +12,7 @@
   -moz-transition: padding 100ms cubic-bezier(0.565, 1.65, 0.765, 0.88);
   -o-transition: padding 100ms cubic-bezier(0.565, 1.65, 0.765, 0.88);
   transition: padding 100ms cubic-bezier(0.565, 1.65, 0.765, 0.88);
-
+  
   @media (max-width: $screen-xs-max) {
     overflow-y: hidden;
   }
@@ -122,12 +122,14 @@
     background: $color3;
     width: 100%;
     padding-bottom: 2*$leading;
-    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    box-shadow: 0 1px 8px rgba(0,0,0,.4);
 
-    &:hover {
-      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 10px 1px rgba(0,0,0,.2);
-    }
+
+	overflow: hidden;
+	
+	a {
+		text-decoration: none;
+	}
   }
 
   .postArticle a {
@@ -174,7 +176,7 @@
     }
 	
 	&:hover {
-		@include scale(1.03);
+		@include scale(1.05);
 	}
   }
 
@@ -222,6 +224,16 @@
    hr {
 	border-color: $dark;
   }
+  
+  a {
+	text-decoration-color: $dark;
+	color: $dark;
+	
+	&:hover {
+		text-decoration-color: $color4;
+		color: $color4;
+	}
+  }
 }
 
 .newsletterForm-wrapper {
@@ -241,6 +253,16 @@
 
   a:not(.socialAccount) {
     background-position: 0 16px;
+  }
+  
+   a {
+	text-decoration-color: $dark;
+	color: $dark;
+	
+	&:hover {
+		text-decoration-color: $color4;
+		color: $color4;
+	}
   }
 }
 
@@ -305,7 +327,8 @@
   position: relative;
   clear: both;
   padding: 1*$leading 0 4*$leading;
-  background: $white;
+  background: $dark;
+  color: $light;
 }
 
 .content-author {

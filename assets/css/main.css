@@ -508,10 +508,16 @@ body * {
 a {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #e5e5e5;
+          text-decoration-color: #e5e5e5;
+  color: #e5e5e5;
 }
 
 a:hover {
   color: #d0318b;
+  -webkit-text-decoration-color: #d0318b;
+          text-decoration-color: #d0318b;
 }
 
 .brandLogo {
@@ -1653,8 +1659,11 @@ a:hover {
   width: 100%;
   top: 0;
   position: relative;
-  color: #282828;
-  background-color: #e5e5e5;
+  color: #e5e5e5;
+}
+
+.section--first a {
+  text-decoration: none;
 }
 
 .section--first,
@@ -1848,7 +1857,7 @@ a:hover {
   margin-left: 4px;
   border-radius: 100%;
   margin-bottom: 2px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #d0318b;
 }
 
 .postMeta li:last-child:after {
@@ -1985,17 +1994,13 @@ a:hover {
   background: #8431b1;
   width: 100%;
   padding-bottom: 3rem;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
-.blockGroup-list .postArticle-wrapper:hover {
-  -webkit-transition: -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2);
+.blockGroup-list .postArticle-wrapper a {
+  text-decoration: none;
 }
 
 .blockGroup-list .postArticle a {
@@ -2045,9 +2050,9 @@ a:hover {
 }
 
 .blockGroup-list .postArticle-image:hover {
-  -ms-transform: scale(1.03);
-  -webkit-transform: scale(1.03);
-  transform: scale(1.03);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .blockGroup-list .block-postMeta {
@@ -2094,6 +2099,18 @@ a:hover {
   border-color: #282828;
 }
 
+.section--subscribe a {
+  -webkit-text-decoration-color: #282828;
+          text-decoration-color: #282828;
+  color: #282828;
+}
+
+.section--subscribe a:hover {
+  -webkit-text-decoration-color: #d0318b;
+          text-decoration-color: #d0318b;
+  color: #d0318b;
+}
+
 .newsletterForm-wrapper {
   padding: 1.5rem 0;
 }
@@ -2111,6 +2128,18 @@ a:hover {
 
 .section--footer a:not(.socialAccount) {
   background-position: 0 16px;
+}
+
+.section--footer a {
+  -webkit-text-decoration-color: #282828;
+          text-decoration-color: #282828;
+  color: #282828;
+}
+
+.section--footer a:hover {
+  -webkit-text-decoration-color: #d0318b;
+          text-decoration-color: #d0318b;
+  color: #d0318b;
 }
 
 .socialAccountList {
@@ -2181,7 +2210,8 @@ a:hover {
   position: relative;
   clear: both;
   padding: 1.5rem 0 6rem;
-  background: #fff;
+  background: #282828;
+  color: #e5e5e5;
 }
 
 .content-author {
