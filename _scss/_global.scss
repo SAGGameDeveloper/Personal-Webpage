@@ -9,6 +9,18 @@ body {
   @media (max-width: $screen-xs-max) {
     padding-right: 0;
   }
+
+  * {
+	@include transition(all 0.2s);
+  }
+}
+
+a {
+  @include transition(all 0.2s);
+  
+  &:hover {
+	color: $color4;
+  }
 }
 
 .brandLogo {

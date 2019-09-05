@@ -499,6 +499,21 @@ body {
   }
 }
 
+html *,
+body * {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+a {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: #d0318b;
+}
+
 .brandLogo {
   background-image: url(../images/logo-white.svg);
   background-size: contain;
@@ -1967,7 +1982,7 @@ body {
 
 .blockGroup-list .postArticle-wrapper {
   position: relative;
-  background: #fff;
+  background: #8431b1;
   width: 100%;
   padding-bottom: 3rem;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -1984,8 +1999,12 @@ body {
 }
 
 .blockGroup-list .postArticle a {
-  color: #222;
+  color: #e5e5e5;
   background: transparent;
+}
+
+.blockGroup-list .postArticle a:hover {
+  color: #fafa5f;
 }
 
 .blockGroup-list .postArticle-title {
@@ -2025,11 +2044,17 @@ body {
   }
 }
 
+.blockGroup-list .postArticle-image:hover {
+  -ms-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
 .blockGroup-list .block-postMeta {
   position: absolute;
   bottom: 0;
   padding-bottom: 10px;
-  color: #ccc;
+  color: #282828;
   font-size: 16px;
   text-transform: uppercase;
 }
@@ -2055,7 +2080,7 @@ body {
 
 .section--subscribe {
   width: 100%;
-  background: #fff;
+  background: #e5e5e5;
   padding: 1.5rem 0 0;
   position: relative;
   z-index: 400;
@@ -2065,13 +2090,17 @@ body {
   margin-top: 1.5rem;
 }
 
+.section--subscribe hr {
+  border-color: #282828;
+}
+
 .newsletterForm-wrapper {
   padding: 1.5rem 0;
 }
 
 .section--footer {
   width: 100%;
-  background: #fff;
+  background: #e5e5e5;
   padding: 1.5rem 0 3rem;
   position: relative;
   z-index: 400;
@@ -2105,7 +2134,7 @@ body {
   float: left;
   margin: 0;
   padding: 0 15px;
-  width: 14.2%;
+  width: 25%;
   height: 25px;
   text-decoration: none;
   background-repeat: no-repeat;

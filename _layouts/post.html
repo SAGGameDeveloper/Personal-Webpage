@@ -28,11 +28,27 @@ layout: default
           <ul class="postMeta">
             <li class="postMeta-datetime">
               <time datetime="{{ page.date }}">
-                {{ page.date | date_to_string }}
+                {% assign m = page.date | date: "%-m" %}
+				{{ page.date | date: "%-d" }}
+				{% case m %}
+				  {% when '1' %}ENE
+				  {% when '2' %}FEB
+				  {% when '3' %}MAR
+				  {% when '4' %}ABR
+				  {% when '5' %}MAY
+				  {% when '6' %}JUN
+				  {% when '7' %}JUL
+				  {% when '8' %}AGO
+				  {% when '9' %}SEP
+				  {% when '10' %}OCT
+				  {% when '11' %}NOV
+				  {% when '12' %}DIC
+				{% endcase %}
+				{{ page.date | date: "%Y" }}
               </time>
             </li>
             <li class="postMeta-author">
-              By {{ site.author.name }}
+              Por {{ site.author.name }}
             </li>
             <li class="postMeta-tags">
               {{ page.categories }}

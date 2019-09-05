@@ -119,7 +119,7 @@
 
   .postArticle-wrapper {
     position: relative;
-    background: $white;
+    background: $color3;
     width: 100%;
     padding-bottom: 2*$leading;
     box-shadow: 0 1px 4px rgba(0,0,0,.2);
@@ -131,8 +131,12 @@
   }
 
   .postArticle a {
-    color: $black;
+    color: $light;
     background: transparent;
+	
+	&:hover {
+		color: $color1;
+	}
   }
 
   .postArticle-title {
@@ -168,13 +172,17 @@
     @media (max-width: $screen-xs-max) {
       padding-top: 50%;
     }
+	
+	&:hover {
+		@include scale(1.03);
+	}
   }
 
   .block-postMeta {
     position: absolute;
     bottom: 0;
     padding-bottom: 10px;
-    color: #ccc;
+    color: $dark;
     font-size: 16px;
     text-transform: uppercase;
   }
@@ -202,13 +210,17 @@
 // Newsletter subscription area
 .section--subscribe {
   width: 100%;
-  background: $white;
+  background: $light;
   padding: $leading 0 0;
   position: relative;
   z-index: $zIndex-4--posts-wrapper;
 
   h3 {
     margin-top: $leading;
+  }
+  
+   hr {
+	border-color: $dark;
   }
 }
 
@@ -219,7 +231,7 @@
 // Footer
 .section--footer {
   width: 100%;
-  background: $white;
+  background: $light;
   padding: $leading 0 2*$leading;
   position: relative;
   z-index: $zIndex-4--posts-wrapper;
@@ -245,7 +257,7 @@
   float: left;
   margin: 0;
   padding: 0 15px;
-  width: 14.2%;
+  width: 25%;
   height: 25px;
   text-decoration: none;
   background-repeat: no-repeat;
