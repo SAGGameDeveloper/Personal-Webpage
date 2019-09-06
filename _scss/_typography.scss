@@ -27,6 +27,11 @@ $body-primary-font: 'Source Serif Pro', serif;
 $title-primary-font: 'PT Sans', sans-serif;
 $title-secondary-font: 'Roboto', sans-serif;
 
+@font-face {
+  font-family: titleFont;
+  src: url(../fonts/Cities_Typeface.otf);
+}
+
 /* Setup */
 
 html {

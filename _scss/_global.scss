@@ -27,6 +27,10 @@ a {
   }
 }
 
+hr {
+	margin: 0;
+}
+
 .brandLogo {
   background-image: url(../images/logo-white.svg);
   background-size: contain;
@@ -46,7 +50,7 @@ a {
   background-image: url(../images/logo-black.svg);
 }
 
-.textLogo {
+.textLogo-image {
   display: block;
   background-image: url(../images/logo-text-black.svg);
   background-size: contain;
@@ -55,6 +59,30 @@ a {
   padding: 0;
   text-indent: -100em;
   overflow: hidden;
+  
+  width: 276px;
+
+  @media (max-width: $screen-xs-max) {
+    width: 182px;
+  }
+}
+
+.textLogo {
+  display: block;
+  padding: 0;
+  color: $dark;
+  font-family: titleFont;
+  text-align: center;
+  background-position: 0 0;
+  background-size: contain;
+
+  
+  font-size: 4.5rem;
+  font-weight: 400;
+
+  @media (max-width: $screen-xs-max) {
+    font-size: 3.2rem;
+  }
 }
 
 .textLogo--white {
@@ -68,6 +96,14 @@ a {
   background-position: center;
   opacity: 0.8;
 
+  font-size: 3rem;
+  color: $light;
+  text-decoration: none;
+  
+  @media (max-width: $screen-xs-max) {
+    font-size: 2.5rem;
+  }
+  
   &:hover {
     opacity: 1;
   }
@@ -76,13 +112,6 @@ a {
 .textLogo--frontpage {
   z-index: $zIndex-5--textlogo-frontpage;
   margin: auto;
-  width: 276px;
-  background-size: 100%;
-  background-position: 0;
-
-  @media (max-width: $screen-xs-max) {
-    width: 182px;
-  }
 }
 
 .container-frontpage {

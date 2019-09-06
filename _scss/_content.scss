@@ -277,7 +277,7 @@
 .socialAccount {
   display: block;
   float: left;
-  width: 33.333%;
+  width: 25%;
   height: 25px;
   text-decoration: none;
   fill: $dark;
@@ -297,6 +297,12 @@
   padding: 1*$leading 0 4*$leading;
   background: $dark;
   color: $light;
+  
+  hr {
+	margin: 1rem 19.1%;
+	width: 61.8%
+	
+  }
 }
 
 .content-author {

@@ -18,7 +18,7 @@ var messages = {
  * Build the Jekyll Site
  */
 gulp.task('jekyll-serve', function (done) {
-	var child = cp.exec('jekyll serve --config=_config.yml');
+	var child = cp.exec('jekyll serve --config=_config.yml --host=0.0.0.0');
     child.stdout.pipe(process.stdout);
 	child.stderr.pipe(process.stderr);
 	

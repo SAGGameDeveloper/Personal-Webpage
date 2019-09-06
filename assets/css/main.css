@@ -229,6 +229,11 @@ th {
           transform: scale(0);
 }
 
+@font-face {
+  font-family: titleFont;
+  src: url(../fonts/Cities_Typeface.otf);
+}
+
 /* Setup */
 html {
   /* Change default typefaces here */
@@ -506,6 +511,10 @@ a:hover {
           text-decoration-color: #d0318b;
 }
 
+hr {
+  margin: 0;
+}
+
 .brandLogo {
   background-image: url(../images/logo-white.svg);
   background-size: contain;
@@ -525,7 +534,7 @@ a:hover {
   background-image: url(../images/logo-black.svg);
 }
 
-.textLogo {
+.textLogo-image {
   display: block;
   background-image: url(../images/logo-text-black.svg);
   background-size: contain;
@@ -534,6 +543,31 @@ a:hover {
   padding: 0;
   text-indent: -100em;
   overflow: hidden;
+  width: 276px;
+}
+
+@media (max-width: 767px) {
+  .textLogo-image {
+    width: 182px;
+  }
+}
+
+.textLogo {
+  display: block;
+  padding: 0;
+  color: #282828;
+  font-family: titleFont;
+  text-align: center;
+  background-position: 0 0;
+  background-size: contain;
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .textLogo {
+    font-size: 3.2rem;
+  }
 }
 
 .textLogo--white {
@@ -547,6 +581,15 @@ a:hover {
   background-position: center;
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  font-size: 3rem;
+  color: #e5e5e5;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .textLogo--sidebar {
+    font-size: 2.5rem;
+  }
 }
 
 .textLogo--sidebar:hover {
@@ -557,15 +600,6 @@ a:hover {
 .textLogo--frontpage {
   z-index: 500;
   margin: auto;
-  width: 276px;
-  background-size: 100%;
-  background-position: 0;
-}
-
-@media (max-width: 767px) {
-  .textLogo--frontpage {
-    width: 182px;
-  }
 }
 
 .container-frontpage {
@@ -1385,6 +1419,10 @@ a:hover {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
+.sidebar hr {
+  margin: 0.9rem 0;
+}
+
 .sidebar--left {
   position: fixed;
   top: 0;
@@ -1799,6 +1837,7 @@ a:hover {
   position: relative;
   margin: auto;
   display: inline-block;
+  text-align: center;
 }
 
 .postMeta-wrapper--frontpage {
@@ -1813,6 +1852,7 @@ a:hover {
   letter-spacing: 0.04rem;
   color: #777777;
   text-transform: none;
+  line-height: 0.9rem;
 }
 
 @media (max-width: 767px) {
@@ -2151,7 +2191,7 @@ a:hover {
 .socialAccount {
   display: block;
   float: left;
-  width: 33.333%;
+  width: 25%;
   height: 25px;
   text-decoration: none;
   fill: #282828;
@@ -2170,6 +2210,11 @@ a:hover {
   padding: 1.5rem 0 6rem;
   background: #282828;
   color: #e5e5e5;
+}
+
+.section--last hr {
+  margin: 1rem 19.1%;
+  width: 61.8%;
 }
 
 .content-author {
