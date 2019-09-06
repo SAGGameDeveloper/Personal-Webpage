@@ -13,26 +13,21 @@ name:				 Artei
 title:               Artei
 tagline:             'La historia de la humanidad es la historia del progreso'
 description:         'Artei'
-url:                 sag-dev.github.io
-rss:                 rss feed url
+url:                 https://sag-dev.github.io
+rss:                 https://sag-dev.github.io/meigo/feed.xml
 baseurl:             ''
 baseurl_posts_img:   '/assets/images/posts/'
 baseurl_featured_img: '/assets/images/hero/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'
 baseurl_javascripts: '/assets/javascripts/'
 icon:                assets/images/icon.png
-disqus:              disqus_shortname # get it on https://disqus.com/admin/
+disqus:              artei
 
 author:
   name:           	 Sergio Abreu García
   url:            	 sag-dev.com
-  facebook:          username
-  twitter:           username
-  linkedin:          username
+  twitter:           ArteiTech
   youtube:           ArteiTech
-
-fb_admins:           your facebook profile id
-fb_appid:            your facebook app id
 
 # Server
 destination:      	 ./_site

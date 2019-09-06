@@ -366,20 +366,6 @@ h6 {
   font-size: 0.9331rem;
 }
 
-a {
-  color: rgba(0, 0, 0, 0.8);
-  text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(75%, transparent), color-stop(75%, rgba(0, 0, 0, 0.8)));
-  background-image: linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, 0.8) 75%);
-  background-repeat: repeat-x;
-  background-position: 0 22px;
-  background-size: 2px 2px;
-}
-
-a:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-
 /* Tables */
 table {
   margin-top: 1.5rem;
@@ -1678,6 +1664,10 @@ a:hover {
   }
 }
 
+.section--frontpage {
+  background-color: #e5e5e5;
+}
+
 .section--frontpage,
 .section--frontpage ~ .post-featuredImage {
   height: 18rem;
@@ -2161,49 +2151,17 @@ a:hover {
 .socialAccount {
   display: block;
   float: left;
-  margin: 0;
-  padding: 0 15px;
-  width: 25%;
+  width: 33.333%;
   height: 25px;
   text-decoration: none;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  fill: #282828;
 }
 
 .socialAccount:hover {
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-}
-
-.socialAccount--twitter {
-  background-image: url(../images/twitter--black.svg);
-}
-
-.socialAccount--facebook {
-  background-image: url(../images/facebook--black.svg);
-}
-
-.socialAccount--linkedin {
-  background-image: url(../images/linkedin--black.svg);
-}
-
-.socialAccount--dribbble {
-  background-image: url(../images/dribbble--black.svg);
-}
-
-.socialAccount--pinterest {
-  background-image: url(../images/pinterest--black.svg);
-}
-
-.socialAccount--kiva {
-  background-image: url(../images/kiva--black.svg);
-}
-
-.socialAccount--rss {
-  background-image: url(../images/rss--black.svg);
+  fill: #583bb6;
+  -ms-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .section--last {
@@ -2579,7 +2537,6 @@ a:hover {
   -ms-user-select: none;
   user-select: none;
   outline: none;
-  background: transparent;
   border-radius: 99px;
   font-family: "Roboto", sans-serif;
   letter-spacing: .02em;
@@ -2602,12 +2559,17 @@ a:hover {
 }
 
 .button--primary {
-  border: 2px solid rgba(34, 34, 34, 0.8);
-  color: #222;
+  border: 2px solid rgba(40, 40, 40, 0.8);
+  color: #282828;
+  background: #fafa5f;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, #fafa5f));
+  background: linear-gradient(to bottom, transparent 50%, #fafa5f 50%);
+  background-size: 100% 200%;
+  background-position: left top;
 }
 
 .button--primary:hover {
-  border-color: #222;
+  background-position: left bottom;
 }
 
 .u-clearfix:before, .u-clearfix:after {

@@ -277,47 +277,15 @@
 .socialAccount {
   display: block;
   float: left;
-  margin: 0;
-  padding: 0 15px;
-  width: 25%;
+  width: 33.333%;
   height: 25px;
   text-decoration: none;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  opacity: 0.8;
+  fill: $dark;
 
   &:hover {
-    opacity: 1;
+	fill: $color2;
+	@include scale(1.15);
   }
-}
-
-.socialAccount--twitter {
-  background-image: url(../images/twitter--black.svg);
-}
-
-.socialAccount--facebook {
-  background-image: url(../images/facebook--black.svg);
-}
-
-.socialAccount--linkedin {
-  background-image: url(../images/linkedin--black.svg);
-}
-
-.socialAccount--dribbble {
-  background-image: url(../images/dribbble--black.svg);
-}
-
-.socialAccount--pinterest {
-  background-image: url(../images/pinterest--black.svg);
-}
-
-.socialAccount--kiva {
-  background-image: url(../images/kiva--black.svg);
-}
-
-.socialAccount--rss {
-  background-image: url(../images/rss--black.svg);
 }
 
 // Sections

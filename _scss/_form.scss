@@ -33,7 +33,7 @@
   -ms-user-select: none;
   user-select: none;
   outline: none;
-  background: transparent;
+	
   border-radius: 99px;
   font-family: $title-secondary-font;
   letter-spacing: .02em;
@@ -54,14 +54,15 @@
 }
 
 .button--primary {
-  border: 2px solid rgba($black, .8);
-  color: $black;
+  border: 2px solid rgba($dark, .8);
+  color: $dark;
 
+  background: $color1;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, $color1 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+  
   &:hover {
-    border-color: $black;
+	background-position: left bottom;
   }
-}
-
-.button--large {
-
 }

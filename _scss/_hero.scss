@@ -22,6 +22,10 @@
   }
 }
 
+.section--frontpage {
+	background-color: $light;
+}
+
 .section--frontpage,
 .section--frontpage ~ .post-featuredImage {
   height: 12 * $leading;
