@@ -119,11 +119,10 @@
 
   .postArticle-wrapper {
     position: relative;
-    background: $color3;
+    background: $light;
     width: 100%;
     padding-bottom: 2*$leading;
     box-shadow: 0 1px 8px rgba(0,0,0,.4);
-
 
 	overflow: hidden;
 	
@@ -133,11 +132,11 @@
   }
 
   .postArticle a {
-    color: $light;
+    color: $dark;
     background: transparent;
 	
 	&:hover {
-		color: $color1;
+		color: $color4;
 	}
   }
 

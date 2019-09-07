@@ -43,6 +43,8 @@
   color: $gray-light;
   text-decoration: none;
   text-transform: uppercase;
+  
+  max-width: 90%;
 
   &:hover {
     border-color: $gray-light;
@@ -50,6 +52,7 @@
 
   @media (max-width: $screen-xs-max) {
     font-size: 14px;
+	padding: 6px 20px 6px 20px;
   }
 }
 

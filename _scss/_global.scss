@@ -32,7 +32,7 @@ hr {
 }
 
 .brandLogo {
-  background-image: url(../images/logo-white.svg);
+  background-image: url(../images/logo.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -70,7 +70,7 @@ hr {
 .textLogo {
   display: block;
   padding: 0;
-  color: $dark;
+  color: $light;
   font-family: titleFont;
   text-align: center;
   background-position: 0 0;

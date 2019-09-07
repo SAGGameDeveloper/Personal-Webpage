@@ -42,6 +42,10 @@
   hr {
 	margin: 0.9rem 0;
   }
+    
+  @media (max-width: $screen-xs-max) {
+    width: 12.5rem;
+  }
 }
 
 .sidebar--left {
@@ -75,18 +79,25 @@
   z-index: $zIndex-5--sidebar-toggle-wrapper;
   top: 30px;
   right: 3%;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
   cursor: pointer;
   border-radius: 99px;
-  background-color: $white;
+  background-color: $dark;
+  
+  opacity: 0.75;
+  
+  @media (max-width: $screen-xs-max) {
+    height: 35px;
+	width: 35px;
+  }
 }
 
-.sidebar-toggle-wrapper:hover .sidebar-toggle {
-  background-color: #666;
+.sidebar-toggle-wrapper:hover {
+  opacity: 1;
 }
 
 // Sidebar toggle
@@ -100,9 +111,8 @@
   display: block;
   width: 20px;
   height: 2px;
-  background: $black;
-  /* background-color: transparent;
-  border-radius: 4px; */
+  background: $light;
+
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   transition: background 0.3s;
@@ -154,16 +164,18 @@
 
 /* #sidebar-checkbox:checked ~ .postWrapper, */
 #sidebar-checkbox:checked ~ .sidebar,
-#sidebar-checkbox:checked ~ .sidebar-toggle-wrapper {
-  -webkit-transform: translateX(-14rem);
-  -ms-transform: translateX(-14rem);
-  transform: translateX(-14rem);
+#sidebar-checkbox:checked ~ .sidebar-toggle-wrapper {  
+  @include translate(-14rem, 0);
+  
+   @media (max-width: $screen-xs-max) {
+    @include translate(-12.5rem, 0);
+  }
 }
 
 .sidebar-toggle:active,
 #sidebar-checkbox:checked ~ .sidebar-toggle-wrapper {
   position: fixed;
-  background-color: rgba($black,0.8);
+  background-color: $light;
 }
 
 #sidebar-checkbox:checked ~ .sidebar-toggle-wrapper .sidebar-toggle {
@@ -171,7 +183,7 @@
 
   &:before,
   &:after {
-    background: $white;
+    background: $dark;
   }
 
   &:before {
@@ -198,9 +210,8 @@
 }
 
 .postWrapper,
-.sidebar-toggle-wrapper {
-  -webkit-transition: -webkit-transform .3s ease-in-out;
-  transition: transform .3s ease-in-out;
+.sidebar-toggle-wrapper {  
+  @include transition(all .3s ease-in-out);
 }
 
 // Sidebar content
@@ -226,7 +237,7 @@
   }
 
   a:hover {
-    color: rgba($white,1);
+    color: $color4;
   }
 
   li {
@@ -256,6 +267,10 @@
     left: 50%;
     transform: translateX(-50%);
   }
+  
+  &:hover {
+	@include scale(1.04);
+  }
 }
 
 // Left side menu
@@ -280,6 +295,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+	opacity: 0.75;
   }
 
   a {
@@ -300,9 +316,9 @@
 }
 
 .menuWrapper ul li:hover {
-  // display: block;
-  opacity: 0.8;
-
+  opacity: 1;
+  @include scale(1.07);
+  
   > ul {
     display: block;
   }

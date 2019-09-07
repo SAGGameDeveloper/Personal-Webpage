@@ -23,7 +23,7 @@
 }
 
 .section--frontpage {
-	background-color: $light;
+	background-color: $color3;
 }
 
 .section--frontpage,
@@ -168,11 +168,12 @@
   
   .postMeta-tagline {
   	width: 100%;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.04rem;
-    color: $gray-light;
+    color: $dark;
     text-transform: none;
-	line-height: 0.9rem;
+	line-height: 1rem;
+	font-size: 0.85rem;
 
     @media (max-width: $screen-xs-max) {
       width: 100%;

@@ -60,3 +60,17 @@
 .img--16xLeading {
   height: 16*$leading;
 }
+
+.img-subtitle {
+	margin: 0.3rem 0 1rem 0;
+	font-size: 0.75em;
+	color: $color3;
+	font-style: italic;
+	text-align: center;
+	word-break: break-word;
+	
+	a {
+		color: $color3;
+		text-decoration-color: $color3;
+	}
+}
