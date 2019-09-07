@@ -276,7 +276,7 @@
 .socialAccount {
   display: block;
   float: left;
-  width: 25%;
+  width: 20%;
   height: 25px;
   text-decoration: none;
   fill: $dark;
@@ -327,10 +327,10 @@
 
 .section--prePost .section-title a {
   background: transparent;
-  color: rgba($white, 0.9);
+  color: $light;
 
   &:hover {
-    color: rgba($white, 1);
+    color: $color2;
   }
 }
 
@@ -341,11 +341,12 @@
 
 .section--prePost,
 .section--prePost .section-backgroundImage {
-  height: 11 * $leading;
+  height: 8.6 * $leading;
+  overflow: hidden;
 }
 
 .section--prePost .section-backgroundImage img {
-  min-height: 11 * $leading;
+  min-height: 8.6 * $leading;
   position: relative !important;
   top: 0;
 }

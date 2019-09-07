@@ -2239,7 +2239,7 @@ hr {
 .socialAccount {
   display: block;
   float: left;
-  width: 25%;
+  width: 20%;
   height: 25px;
   text-decoration: none;
   fill: #282828;
@@ -2287,11 +2287,11 @@ hr {
 
 .section--prePost .section-title a {
   background: transparent;
-  color: rgba(255, 255, 255, 0.9);
+  color: #e5e5e5;
 }
 
 .section--prePost .section-title a:hover {
-  color: white;
+  color: #583bb6;
 }
 
 .section--prePost .section-title h2 {
@@ -2301,11 +2301,12 @@ hr {
 
 .section--prePost,
 .section--prePost .section-backgroundImage {
-  height: 16.5rem;
+  height: 12.9rem;
+  overflow: hidden;
 }
 
 .section--prePost .section-backgroundImage img {
-  min-height: 16.5rem;
+  min-height: 12.9rem;
   position: relative !important;
   top: 0;
 }
@@ -2571,18 +2572,26 @@ hr {
   float: left;
   margin: 0;
   padding: 0 15px;
-  width: 16.66%;
+  width: 33.33%;
   height: 80px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  fill: #e5e5e5;
+}
+
+.shareWrapper li .shareButton svg {
+  width: 100%;
+  height: 100%;
 }
 
 .shareWrapper li .shareButton:hover {
-  opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  fill: #d0318b;
+  -ms-transform: scale(1.08);
+  -webkit-transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 @media (min-width: 991px) and (max-width: 1200px) {
@@ -2599,30 +2608,6 @@ hr {
     height: 40px;
     margin-bottom: 20px;
   }
-}
-
-.shareButton--twitter {
-  background-image: url(../images/twitter.svg);
-}
-
-.shareButton--facebook {
-  background-image: url(../images/facebook.svg);
-}
-
-.shareButton--linkedin {
-  background-image: url(../images/linkedin.svg);
-}
-
-.shareButton--buffer {
-  background-image: url(../images/buffer.svg);
-}
-
-.shareButton--hackernews {
-  background-image: url(../images/ycombinator.svg);
-}
-
-.shareButton--pocket {
-  background-image: url(../images/pocket.svg);
 }
 
 .textInput {

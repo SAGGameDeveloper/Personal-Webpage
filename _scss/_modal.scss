@@ -251,17 +251,24 @@
     float: left;
     margin: 0;
     padding: 0 15px;
-    width: 16.66%;
+    width: 33.33%;
     height: 80px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-    opacity: 0.8;
+    opacity: 1;
 
-    &:hover {
-      opacity: 1;
-    }
+	fill: $light;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 
+	&:hover {
+		fill: $color4;
+		@include scale(1.08);
+	}
+	
     @media (min-width: $screen-sm-max) and (max-width: $screen-lg-min) {
       width: 16.66%;
       height: 60px;
@@ -276,26 +283,3 @@
   }
 }
 
-.shareButton--twitter {
-  background-image: url(../images/twitter.svg);
-}
-
-.shareButton--facebook {
-  background-image: url(../images/facebook.svg);
-}
-
-.shareButton--linkedin {
-  background-image: url(../images/linkedin.svg);
-}
-
-.shareButton--buffer {
-  background-image: url(../images/buffer.svg);
-}
-
-.shareButton--hackernews {
-  background-image: url(../images/ycombinator.svg);
-}
-
-.shareButton--pocket {
-  background-image: url(../images/pocket.svg);
-}
