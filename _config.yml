@@ -15,7 +15,7 @@ tagline:             'La historia de la humanidad es la historia del progreso'
 description:         'Blog sobre las tecnologías que dan forma al mundo'
 url:                 https://sag-dev.github.io
 rss:                 https://sag-dev.github.io/meigo/feed.xml
-baseurl:             ''
+baseurl:             '/meigo'
 baseurl_posts_img:   '/assets/images/posts/'
 baseurl_featured_img: '/assets/images/hero/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'

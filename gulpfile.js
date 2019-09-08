@@ -8,14 +8,17 @@ var gulp = require('gulp'),
     imageResize = require('gulp-image-resize'),
     parallel = require("concurrent-transform"),
     os = require("os"),
-    cp = require('child_process');
+    cp = require('child_process'),
+	deploy = require('gulp-gh-pages'),
+	del = require('del');
 
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
+
 /**
- * Build the Jekyll Site
+ * Serve the Jekyll Site
  */
 gulp.task('jekyll-serve', function (done) {
 	var child = cp.exec('jekyll serve --config=_config.yml --host=0.0.0.0');
@@ -25,6 +28,17 @@ gulp.task('jekyll-serve', function (done) {
 	gulp.watch('_scss/**/*.scss').on('change', function() {
 		gulp.task('styles')();
 	})
+	
+	return child;
+});
+
+/**
+ * Build the Jekyll Site
+ */
+gulp.task('jekyll-build', function (done) {
+	var child = cp.exec('jekyll build --config=_config.yml');
+    child.stdout.pipe(process.stdout);
+	child.stderr.pipe(process.stderr);
 	
 	return child;
 });
@@ -65,8 +79,20 @@ gulp.task("thumbnails", function () {
     .pipe(gulp.dest("assets/images/thumbnail"));
 });
 
+gulp.task("clean", function() {
+	return del(['_site/**', '.jekyll-cache/**', '.sass-cache/**'], {force:true});
+});
+
 /**
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
 gulp.task('default', gulp.series('thumbnails', 'styles', 'jekyll-serve'));
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', gulp.series('clean', 'thumbnails', 'styles', 'jekyll-build', function () {
+  return gulp.src("./_site/**/*")
+    .pipe(deploy())
+}));
