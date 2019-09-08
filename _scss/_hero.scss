@@ -22,10 +22,6 @@
   }
 }
 
-.section--frontpage {
-	background-color: $color3;
-}
-
 .section--frontpage,
 .section--frontpage ~ .post-featuredImage {
   height: 12 * $leading;
@@ -170,7 +166,7 @@
   	width: 100%;
     font-weight: 400;
     letter-spacing: 0.04rem;
-    color: $dark;
+    color: $light;
     text-transform: none;
 	line-height: 1rem;
 	font-size: 0.85rem;
@@ -191,7 +187,8 @@
 }
 
 .postMeta li {
-  float: left;
+  display: inline-block;
+  text-align: center;
   margin: 0;
   padding: 0 0 0 10px;
   font-family: $title-secondary-font;
