@@ -1,6 +1,6 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
-  <link type="text/plain" rel="author" href="{{ site.url }}/humans.txt" />
+  <link type="text/plain" rel="author" href="https://sag-dev.com" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -66,8 +66,10 @@
   <title>
     {% if page.title == "Home" %}
       {{ site.title }}
+	{% else if page.title == "Blog" %}
+      {{ site.name }} Blog
     {% else %}
-      {{ page.title }} | {{ site.title }}
+      {{ page.title }} | {{ site.name }}
     {% endif %}
   </title>
 
@@ -80,9 +82,9 @@
   {% endif %}
 
   <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:700,400' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:700,400' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
 
   <!-- Icons -->
   <link rel="shortcut icon" href="{{ site.baseurl }}/assets/images/favicon.ico">

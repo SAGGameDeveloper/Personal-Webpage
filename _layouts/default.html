@@ -4,23 +4,26 @@
   {% include head.html %}
 
   <body>
-    {% if page.url !=  "/" %}
-      <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-      {% include sidebar-nav.html %}
-      {% include menu.html %}
+    {% if page.url ==  "/" %}
+      {% include blog-link.html %}
+	{% else %}
+	  {% include portfolio-link.html %}
     {% endif %}
 
     {{ content }}
 
-    {% if page.url !=  "/" %}
+    {% if page.url !=  "/blog" %}
+	   <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+      {% include sidebar-nav.html %}
       {% include sidebar-toggle.html %}
     {% endif %}
 
-    {% if page.url ==  "/" %}
+    {% if page.url != "/" %}
       {% include subscribe.html %}
-      {% include footer.html %}
     {% endif %}
-
+	
+	{% include contact.html %}
+	{% include footer.html %}
     {% include footer-scripts.html %}
   </body>
 </html>

@@ -329,11 +329,13 @@ h4,
 h5,
 h6 {
   /* Change heading typefaces here */
-  font-family: "PT Sans", sans-serif;
+  font-family: titleFont;
   margin-top: 1.5rem;
   margin-bottom: 0;
   line-height: 1.5rem;
   letter-spacing: -0.02em;
+  font-weight: 600;
+  color: white;
 }
 
 h1 {
@@ -347,7 +349,6 @@ h2 {
   font-size: 2.666rem;
   line-height: 3rem;
   margin-top: 3rem;
-  font-weight: 300;
 }
 
 h3 {
@@ -417,6 +418,15 @@ hr {
 .is-darkBackgrounded a:hover,
 .is-darkBackgrounded a:visited {
   color: #fff;
+}
+
+.darkTitles h1,
+.darkTitles h2,
+.darkTitles h3,
+.darkTitles h4,
+.darkTitles h5,
+.darkTitles h6 {
+  color: black;
 }
 
 .img {
@@ -531,18 +541,14 @@ hr {
 }
 
 .brandLogo {
-  background-image: url(../images/logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 0 0;
   padding: 0;
-  text-indent: -100em;
-  overflow: hidden;
+  color: #e5e5e5;
+  font-family: titleFont;
 }
 
 .brandLogo--small {
-  width: 44px;
-  height: 44px;
+  width: auto;
+  height: auto;
 }
 
 .brandLogo--black {
@@ -570,7 +576,7 @@ hr {
 .textLogo {
   display: block;
   padding: 0;
-  color: #fafa5f;
+  color: #e5e5e5;
   font-family: titleFont;
   text-align: center;
   background-position: 0 0;
@@ -1691,7 +1697,6 @@ hr {
 
 .menuWrapper ul a {
   display: block;
-  color: #333;
   text-decoration: none;
   padding: 0 15px;
 }
@@ -2019,6 +2024,30 @@ hr {
   }
 }
 
+.blockGroup-list .work-block {
+  display: block;
+  width: 50%;
+  margin-bottom: 1.5rem;
+  font-family: "Roboto", sans-serif;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+
+.blockGroup-list .work-block .postArticle-image {
+  padding-top: 50%;
+}
+
+.blockGroup-list .work-block .postArticle-title {
+  font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+  .blockGroup-list .work-block {
+    width: 100%;
+  }
+}
+
 .blockGroup-list li:nth-child(1).block {
   width: 100%;
 }
@@ -2192,8 +2221,8 @@ hr {
 
 .section--footer {
   width: 100%;
-  background: #e5e5e5;
-  padding: 1.5rem 0 3rem;
+  background: #dbdbdb;
+  padding: 1.5rem 0 1.5rem;
   position: relative;
   z-index: 400;
   font-family: "Roboto", sans-serif;
@@ -2217,6 +2246,39 @@ hr {
   color: #d0318b;
 }
 
+.section--contact {
+  width: 100%;
+  background: #e5e5e5;
+  padding: 1.5rem 0 3rem;
+  position: relative;
+  z-index: 400;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.section--contact a:not(.socialAccount) {
+  background-position: 0 16px;
+}
+
+.section--contact a {
+  -webkit-text-decoration-color: #282828;
+          text-decoration-color: #282828;
+  color: #282828;
+}
+
+.section--contact a:hover {
+  -webkit-text-decoration-color: #d0318b;
+          text-decoration-color: #d0318b;
+  color: #d0318b;
+}
+
+.section--contact h2 {
+  margin: 1rem 0 2rem 0;
+  font-family: titleFont;
+  font-weight: 600;
+}
+
 .socialAccountList {
   list-style: none;
   margin: 1.5rem auto;
@@ -2236,8 +2298,8 @@ hr {
 .socialAccount {
   display: block;
   float: left;
-  width: 25%;
-  height: 25px;
+  width: 33.3%;
+  height: 35px;
   text-decoration: none;
   fill: #282828;
 }
@@ -2247,6 +2309,17 @@ hr {
   -ms-transform: scale(1.15);
   -webkit-transform: scale(1.15);
   transform: scale(1.15);
+}
+
+.socialAccount svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rssIcon {
+  width: 100%;
+  margin-top: 1.5rem;
+  float: none;
 }
 
 .section--last {

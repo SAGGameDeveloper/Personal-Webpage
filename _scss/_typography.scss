@@ -125,11 +125,13 @@ h4,
 h5,
 h6 {
   /* Change heading typefaces here */
-  font-family: $title-primary-font;
+  font-family: titleFont;
   margin-top: $leading;
   margin-bottom: 0;
   line-height: $leading;
   letter-spacing: -0.02em;
+  font-weight: 600;
+  color: white;
 }
 h1 {
   font-size: 3 * $scale * 1rem;
@@ -141,7 +143,6 @@ h2 {
   font-size: 2 * $scale * 1rem;
   line-height: 2 * $leading;
   margin-top: 2 * $leading;
-  font-weight: 300;
 }
 h3 {
   /* font-size: 1.33 * $scale * 1rem;
@@ -209,4 +210,15 @@ hr {
 .is-darkBackgrounded a:hover,
 .is-darkBackgrounded a:visited {
   color: #fff;
+}
+
+.darkTitles {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: black;
+	}
 }

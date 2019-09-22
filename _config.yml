@@ -9,37 +9,41 @@ permalink:           /:title
 # Setup
 timezone:            Europe/Madrid
 locale:              es_es
-name:				 Artei
-title:               Artei
-tagline:             'La historia de la humanidad es la historia del progreso'
-description:         'Blog sobre las tecnologías que dan forma al mundo'
-url:                 https://sag-dev.github.io
-rss:                 https://sag-dev.github.io/meigo/feed.xml
-baseurl:             '/meigo'
+name:				 SAG
+title:               Sergio Abreu García
+tagline:             'Programming blog'
+description:         'Sergio Abreu Garcia, software developer. Portfolio and blog'
+url:                 https://sag-dev.com
+rss:                 https://sag-dev.com/feed.xml
+baseurl:             ''
 baseurl_posts_img:   '/assets/images/posts/'
-baseurl_featured_img: '/assets/images/hero/'
+baseurl_featured_img: '/assets/images/featured/'
+baseurl_work_img:     '/assets/images/work/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'
 baseurl_javascripts: '/assets/javascripts/'
 icon:                assets/images/icon.png
-disqus:              artei
+disqus:              sagdev
 
 author:
   name:           	 Sergio Abreu García
   url:            	 sag-dev.com
-  twitter:           ArteiTech
-  youtube:           ArteiTech
-  facebook:          ArteiTech
-  email:             sagdev0@gmail.com
+  email:             contact@sag-dev.com
+  linkedin:          sag-dev
+  github:            Sag-Dev
 
 # Server
 destination:      	 ./_site
 exclude:          	 [".editorconfig", ".gitignore", "bower.json", "composer.json", "CONTRIBUTING.md", "CNAME", "LICENSE", "Gruntfile.js", "package.json", "node_modules", "README.md", "sass", "haml"]
+include:             ["CNAME"]
 port:             	 9001
 
 defaults:
-  -
-    scope:
+  - scope:
       path: "_posts"
       type: "posts"
     values:
       layout: "default"
+      
+collections:
+  - work
+

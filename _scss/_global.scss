@@ -32,18 +32,14 @@ hr {
 }
 
 .brandLogo {
-  background-image: url(../images/logo.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 0 0;
   padding: 0;
-  text-indent: -100em;
-  overflow: hidden;
+  color: $light;
+  font-family: titleFont
 }
 
 .brandLogo--small {
-  width: 44px;
-  height: 44px;
+  width: auto;
+  height: auto;
 }
 
 .brandLogo--black {
@@ -70,7 +66,7 @@ hr {
 .textLogo {
   display: block;
   padding: 0;
-  color: $color1;
+  color: $light;
   font-family: titleFont;
   text-align: center;
   background-position: 0 0;
