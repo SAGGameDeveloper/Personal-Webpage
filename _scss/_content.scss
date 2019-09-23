@@ -166,6 +166,7 @@
     display: block;
     margin-top: 0.5*$leading;
     font-weight: 300;
+	color: $dark;
   }
 
   .postArticle-image {
@@ -195,10 +196,6 @@
     @media (max-width: $screen-xs-max) {
       padding-top: 50%;
     }
-	
-	&:hover {
-		@include scale(1.05);
-	}
   }
 
   .block-postMeta {
@@ -336,7 +333,7 @@
   fill: $dark;
 
   &:hover {
-	fill: $color2;
+	fill: $color4;
 	@include scale(1.15);
   }
   

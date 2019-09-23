@@ -1,0 +1,186 @@
+
+.work-overlay {
+  position: fixed;
+  z-index: 600;
+
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: block;
+
+  top: 0;
+  bottom: 0;
+  left: -102%;
+  right: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  background-color: rgba(0, 0, 0, 0.95);
+
+  @include transition(all .2s ease-in-out);
+}
+
+.work-overlay-active {
+  left: 0;
+  opacity: 1;
+  display: block;
+
+  @include transition(all .2s ease-in-out);
+}
+
+.work-overlay-cross {
+  z-index: 20;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  
+  width: 1.7rem;
+  height: auto;
+
+  @include transition(all .2s ease-in-out);
+  @include transform-origin(50% 50% 0);
+
+  @media (max-width: $screen-xs-max) {
+    top: 1.2rem;
+	right: 1.2rem;
+    width: 1.4rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    cursor: pointer;
+    @include transform(translate(0, 0) scale(1.2));
+
+    @include transition(all .2s ease-in-out);
+  }
+}
+
+.work-overlay-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  min-height: 40rem;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 3.5rem 0rem;
+
+  @include transition(all .2s ease-in-out);
+
+  @media (max-width: $screen-xs-max) {
+    width: 90%;
+    flex-direction: column;
+    justify-content: center;
+
+    @include transition(all .2s ease-in-out);
+  }
+}
+
+.work-overlay-text {
+  color: white;
+  width: 100%;
+
+  flex: 1;
+  margin: 1.5rem;
+
+  text-align: center;
+
+  h1 {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+	line-height: 1.5rem;
+  }
+
+  p {
+    display: inline-block;
+    text-align: left;
+    font-size: 1rem;
+	margin-top: 0;
+  }
+  
+  @media (max-width: $screen-xs-max) {
+    margin: 0;
+  }
+}
+
+.work-overlay-image {
+  min-width: 20rem;
+  max-width: calc(20rem + 30%);
+  flex: 2;
+
+  img {
+    width: 100%;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    width: 90%;
+    flex: 0;
+  }
+}
+
+.work-overlay-links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0.5rem;
+  flex: 1;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 1.5rem;
+	fill: $light;
+
+    @include transition(all .2s ease-in-out);
+
+    &:hover {
+      fill: $color4;
+      @include scale(1.05);
+
+      @include transition(all .2s ease-in-out);
+    }
+  }
+
+  
+  @media (max-width: $screen-xs-max) {
+    margin: 0.1rem;
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      margin: 0 1rem;
+    }
+  }
+}
+
+.work-overlay-description {
+	font-family: $body-primary-font;
+}
+
+.work-element:hover {
+	cursor: pointer;
+	.postArticle-image {
+		@include scale(1.05);
+	}
+}
+
+.work-element-content {
+	display: none;
+}
