@@ -1,6 +1,7 @@
 let htmlElement = document.querySelector("html");
 let work_elements = document.getElementsByClassName("work-element");
 
+// Overlay DOM elements
 let work_overlay = document.querySelector(".work-overlay");
 let work_overlay_wrapper = document.querySelector(".work-overlay-wrapper");
 let work_overlay_title = work_overlay.querySelector(".work-overlay-title");
@@ -9,6 +10,9 @@ let work_overlay_image = work_overlay.querySelector(".work-overlay-image img");
 let work_overlay_links = work_overlay.querySelector(".work-overlay-links");
 let overlay_cross = work_overlay.querySelector(".work-overlay-cross");
 let overlay_active = false;
+
+// Sidebar checkbox to disable the side menu
+let sidebar_checkbox = document.getElementById("sidebar-checkbox");
 
 for (let i = 0; i<work_elements.length; i++) {
 	work_elements[i].onclick = function() {
@@ -35,6 +39,7 @@ function setOverlayActive(active) {
 	if (active && !overlay_active) {		
 		htmlElement.style.overflow = "hidden";
 		work_overlay.classList.add("work-overlay-active");
+		sidebar_checkbox.checked = false;
 		overlay_active = true;
 	}
 	else if (!active && overlay_active) {

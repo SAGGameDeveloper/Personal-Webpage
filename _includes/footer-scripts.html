@@ -1,7 +1,10 @@
 <!-- Javascript -->
 <script src="{{ site.baseurl }}{{ site.baseurl_javascripts }}jquery.min.js"></script>
 <script src="{{ site.baseurl }}{{ site.baseurl_javascripts }}imagesloaded.pkgd.min.js"></script>
-<script src="{{ site.baseurl }}{{ site.baseurl_javascripts }}work-overlay.js"></script>
+
+{% if page.url ==  "/" %}
+	<script src="{{ site.baseurl }}{{ site.baseurl_javascripts }}work-overlay.js"></script>
+{% endif %}
 
 {% if page.syntaxHighlighter %}
   <script src="{{ site.baseurl }}{{ site.baseurl_javascripts }}prism.js"></script>
