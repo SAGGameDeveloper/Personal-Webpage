@@ -13,7 +13,7 @@
   appearance: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   border-radius: 4px;
-  font-family: $title-secondary-font;
+  font-family: $title-primary-font;
   font-weight: 300;
 }
 
@@ -35,7 +35,7 @@
   outline: none;
 	
   border-radius: 99px;
-  font-family: $title-secondary-font;
+  font-family: $title-primary-font;
   letter-spacing: .02em;
   padding: 10px 40px 9px 40px;
   margin-top: $leading;

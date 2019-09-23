@@ -345,8 +345,8 @@ h1 {
 }
 
 h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 2.666rem;
+  font-family: titleFont;
+  font-size: 2.33275rem;
   line-height: 3rem;
   margin-top: 3rem;
 }
@@ -581,8 +581,7 @@ hr {
   text-align: center;
   background-position: 0 0;
   background-size: contain;
-  font-size: 4.5rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 @media (max-width: 767px) {
@@ -625,7 +624,7 @@ hr {
 
 .container-frontpage {
   position: absolute;
-  top: 110px;
+  top: 7rem;
   left: 0;
   right: 0;
   margin: auto;
@@ -635,7 +634,7 @@ hr {
 
 @media (max-width: 767px) {
   .container-frontpage {
-    top: 50px;
+    top: 6rem;
   }
 }
 
@@ -1410,7 +1409,7 @@ hr {
   width: 14rem;
   visibility: hidden;
   padding: 30px 20px;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   font-size: 1rem;
   background-color: #222222;
   z-index: 900;
@@ -1756,13 +1755,13 @@ hr {
 
 .section--frontpage,
 .section--frontpage ~ .post-featuredImage {
-  height: 18rem;
+  height: 22.5rem;
 }
 
 @media (max-width: 767px) {
   .section--frontpage,
   .section--frontpage ~ .post-featuredImage {
-    height: 15rem;
+    height: 21rem;
   }
 }
 
@@ -1921,7 +1920,7 @@ hr {
   text-align: center;
   margin: 0;
   padding: 0 0 0 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -2012,7 +2011,7 @@ hr {
   display: block;
   width: 25%;
   margin-bottom: 1.5rem;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -2028,7 +2027,7 @@ hr {
   display: block;
   width: 50%;
   margin-bottom: 1.5rem;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -2225,7 +2224,7 @@ hr {
   padding: 1.5rem 0 1.5rem;
   position: relative;
   z-index: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   font-size: 0.75rem;
   text-align: center;
 }
@@ -2252,7 +2251,7 @@ hr {
   padding: 1.5rem 0 3rem;
   position: relative;
   z-index: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   font-size: 0.75rem;
   text-align: center;
 }
@@ -2693,7 +2692,7 @@ hr {
           appearance: none;
   -webkit-tap-highlight-color: transparent;
   border-radius: 4px;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   font-weight: 300;
 }
 
@@ -2714,7 +2713,7 @@ hr {
   user-select: none;
   outline: none;
   border-radius: 99px;
-  font-family: "Roboto", sans-serif;
+  font-family: titleFont;
   letter-spacing: .02em;
   padding: 10px 40px 9px 40px;
   margin-top: 1.5rem;

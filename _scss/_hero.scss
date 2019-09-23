@@ -24,10 +24,10 @@
 
 .section--frontpage,
 .section--frontpage ~ .post-featuredImage {
-  height: 12 * $leading;
+  height: 15 * $leading;
 
   @media (max-width: $screen-xs-max) {
-    height: 10 * $leading;
+    height: 14 * $leading;
   }
 }
 
@@ -191,7 +191,7 @@
   text-align: center;
   margin: 0;
   padding: 0 0 0 10px;
-  font-family: $title-secondary-font;
+  font-family: $title-primary-font;
   font-weight: 700;
   font-size: $font-XS;
   text-transform: uppercase;

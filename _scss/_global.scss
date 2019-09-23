@@ -34,7 +34,7 @@ hr {
 .brandLogo {
   padding: 0;
   color: $light;
-  font-family: titleFont
+  font-family: $title-primary-font
 }
 
 .brandLogo--small {
@@ -67,13 +67,12 @@ hr {
   display: block;
   padding: 0;
   color: $light;
-  font-family: titleFont;
+  font-family: $title-primary-font;
   text-align: center;
   background-position: 0 0;
   background-size: contain;
   
-  font-size: 4.5rem;
-  font-weight: 400;
+  font-weight: 600;
 
   @media (max-width: $screen-xs-max) {
     font-size: 3.2rem;
@@ -111,7 +110,7 @@ hr {
 
 .container-frontpage {
   position: absolute;
-  top: 110px;
+  top: 7rem;
   left: 0;
   right: 0;
   margin: auto;
@@ -119,6 +118,6 @@ hr {
   width: 90%;
   
   @media (max-width: $screen-xs-max) {
-    top: 50px;
+    top: 6rem;
   }
 }

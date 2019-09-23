@@ -24,11 +24,10 @@ $font-XXXXL:         5.61rem;
 
 // Font type
 $body-primary-font: 'Source Serif Pro', serif;
-$title-primary-font: 'PT Sans', sans-serif;
-$title-secondary-font: 'Roboto', sans-serif;
+$title-primary-font: titleFont;
 
 @font-face {
-  font-family: titleFont;
+  font-family: $title-primary-font;
   src: url(../fonts/Cities_Typeface.otf);
 }
 
@@ -125,7 +124,7 @@ h4,
 h5,
 h6 {
   /* Change heading typefaces here */
-  font-family: titleFont;
+  font-family: $title-primary-font;
   margin-top: $leading;
   margin-bottom: 0;
   line-height: $leading;
@@ -139,8 +138,8 @@ h1 {
   margin-top: 2 * $leading;
 }
 h2 {
-  font-family: $title-secondary-font;
-  font-size: 2 * $scale * 1rem;
+  font-family: $title-primary-font;
+  font-size: 1.75 * $scale * 1rem;
   line-height: 2 * $leading;
   margin-top: 2 * $leading;
 }
