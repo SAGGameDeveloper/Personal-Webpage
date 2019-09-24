@@ -3,8 +3,8 @@
 	<channel>
 		<title>SAG</title>
 		<description>Sergio Abreu Garcia, software developer. Portfolio and blog</description>
-		<link>https://sag-dev.com</link>
-		<atom:link href="https://sag-dev.com/feed.xml" rel="self" type="application/rss+xml" />
+		<link>https://sag-dev.github.io/personal-webpage</link>
+		<atom:link href="https://sag-dev.github.io/personal-webpage/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Mickey Mouse's Debut</title>
@@ -13,8 +13,8 @@
 					<description>Disney had Ub Iwerks secretly begin animating a new cartoon while still under contract with Universal...</description>
 				
 				<pubDate>Sun, 18 Nov 1928 01:00:00 +0000</pubDate>
-				<link>https://sag-dev.com/shenzhen</link>
-				<guid isPermaLink="true">https://sag-dev.com/shenzhen</guid>
+				<link>https://sag-dev.github.io/personal-webpage/shenzhen</link>
+				<guid isPermaLink="true">https://sag-dev.github.io/personal-webpage/shenzhen</guid>
 			</item>
 		
 	</channel>
