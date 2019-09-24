@@ -41,17 +41,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /pixi.js/,
-            use: loaders.null(),
-          },
-          {
             test: /scrollmagic/,
             use: loaders.null(),
-          },
-		      {
-          test: /\.js$/,
-          include: [/node_modules\/@pixi/],
-          use: loaders.null()
           },
         ],
       },
