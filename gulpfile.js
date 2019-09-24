@@ -24,11 +24,11 @@ gulp.task('jekyll-serve', function (done) {
 	var child = cp.exec('jekyll serve --config=_config.yml --host=0.0.0.0');
     child.stdout.pipe(process.stdout);
 	child.stderr.pipe(process.stderr);
-	
+
 	gulp.watch('_scss/**/*.scss').on('change', function() {
 		gulp.task('styles')();
 	})
-	
+
 	return child;
 });
 
@@ -39,7 +39,7 @@ gulp.task('jekyll-build', function (done) {
 	var child = cp.exec('jekyll build --config=_config.yml');
     child.stdout.pipe(process.stdout);
 	child.stderr.pipe(process.stderr);
-	
+
 	return child;
 });
 
@@ -74,7 +74,7 @@ var opacity = function(css) {
  * Automatically resize post feature images and turn them into thumbnails
  */
 gulp.task("thumbnails", function () {
-  return gulp.src("assets/images/hero/*.{jpg,png}")
+  return gulp.src("assets/images/featured/*.{jpg,png}")
     .pipe(imageResize({ width : 350 }))
     .pipe(gulp.dest("assets/images/thumbnail"));
 });
