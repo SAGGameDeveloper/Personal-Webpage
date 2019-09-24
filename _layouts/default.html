@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us" class="no-js">
+<html lang="{{ page.lang }}" class="no-js">
 
   {% include head.html %}
 
   <body>
-    {% if page.url ==  "/" %}
+    {% if page.title ==  "Home" %}
       {% include blog-link.html %}
 	  {% include work-overlay.html %}
 	{% else %}
@@ -13,18 +13,13 @@
 
     {{ content }}
 
-    {% if page.url !=  "/blog" %}
+    {% if page.title !=  "Blog" %}
 	   <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
       {% include sidebar-nav.html %}
       {% include sidebar-toggle.html %}
     {% endif %}
-
-    {% if page.url != "/" %}
-      {% include subscribe.html %}
-    {% endif %}
-	
-	{% include contact.html %}
-	{% include footer.html %}
+    
+	{% include footer.html footer=page.footer %}
     {% include footer-scripts.html %}
   </body>
 </html>

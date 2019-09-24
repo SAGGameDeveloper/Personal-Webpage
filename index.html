@@ -1,69 +1,11 @@
 ---
-layout: default
+layout: portfolio
 title: Home
+
+lang: en
+subtitle: Software developer
+aboutTitle: My story
+workTitle: What I've done
 ---
-<article class="postWrapper">
-  <section class="section--first section--about is-darkBackgrounded u-table">
-    <div class="section-backgroundImage">
-        <img class="post-featuredImage" src="{{site.baseurl}}/assets/images/about/hector-martinez-HmnMQD51h1o-unsplash.jpg" style="" alt="">
-    </div>
-    <div class="section-gradient"></div>
-    <div class="section-title is-darkBackgrounded u-tableCell u-verticalAlignMiddle">
-      <div class="container">
-        <h2>Sergio Abreu García</h2>
-        <div class="postMeta-wrapper">
-          <ul class="postMeta">
-            <li class="postMeta-author">
-				Desarrollador de software
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section--last">
-    <div class="container container--content">
-      <div class="content-body">
-        <h4>Mi historia</h4>
-		<p>Hola, soy Sergio, nací en Vigo, Galicia, y una de mis grandes pasiones siempre ha sido la tecnología.
-		Cuando era pequeño me pasaba el día destrozando todo tipo de dispositivos, con el fin de entender cómo y
-		por qué funcionaban de determinada manera. Con la llegada de Internet y las nuevas tecnologías, esa
-		curiosidad se fue derivando hacia lo digital, y acabe encontrando my gran pasión en la programación de
-		software.
-		</p>
-		
-		<div class="img img--fullContainer img--14xLeading" style="background-image: url({{ site.baseurl }}/assets/images/about/frank-wang-ogxlyCA1BQc-unsplash.jpg);"></div>
-		<div class="img-subtitle">Foto por <a href="https://unsplash.com/@nicetomeetyou">Frank Wang</a> en Unsplash</div>
-		
-		<br/><hr/><br/>
 
-		<h4>Qué he hecho</h4>
-				
-		<div class="blockGroup">
-		  <ul class="blockGroup-list" style="margin: 0; margin-top: 1.5rem;">
-			{% for work in site.work %}
-			  <li class="work-block">
-				<div class="postArticle-wrapper work-element" style="padding-bottom: 0.5rem">
-					<div class="work-element-content">{{ work.content }}</div>
-					<div class="work-element-links" source="{{ work.links.source }}" demo="{{ work.links.demo }}" github="{{ work.links.github }}"></div>
-					<article class="postArticle postArticle--short">
-					{% if work.image.feature %}
-						<div class="postArticle-image" style="background-image:url('{{ site.baseurl }}{{ site.baseurl_work_img }}{{ work.image.feature }}')">
-						</div>
-					{% else %}
-					  <div class="postArticle-image" style="background-image:url('{{site.baseurl}}assets/images/logo-black.svg')">
-					  </div>
-					{% endif %}
-					<div class="postArticle-title">{{ work.title }}</div>
-				  </article>
-				</div>
-			  </li>
-			{% endfor %}
-		  </ul>
-		</div>
-		
-	  </div>
-  </section>
-</article>
-
-
+english thing

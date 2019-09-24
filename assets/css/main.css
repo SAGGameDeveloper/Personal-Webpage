@@ -2325,7 +2325,7 @@ hr {
 }
 
 .section--last hr {
-  margin: 1rem 19.1%;
+  margin: 1.5rem 19.1% 0 19.1%;
   width: 61.8%;
 }
 
@@ -2967,6 +2967,63 @@ hr {
 
 .work-element-content {
   display: none;
+}
+
+.lang-selector {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0;
+  width: 7rem;
+  font-family: titleFont;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  clear: both;
+}
+
+@media (max-width: 767px) {
+  .lang-selector {
+    width: 5rem;
+  }
+}
+
+.lang {
+  width: 33%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.lang a {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.85rem;
+  color: #e5e5e5;
+}
+
+@media (max-width: 767px) {
+  .lang a {
+    font-size: 0.7rem;
+  }
+}
+
+.lang a:hover {
+  cursor: pointer;
+  color: #d0318b;
+}
+
+.active-lang a {
+  color: #583bb6;
 }
 
 .u-clearfix:before, .u-clearfix:after {

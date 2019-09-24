@@ -1,0 +1,58 @@
+.lang-selector {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0;
+  width: 7rem;
+  font-family: $title-primary-font;
+
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  clear: both;
+
+  @media (max-width: $screen-xs-max) {
+    width: 5rem;
+  }
+}
+
+.lang {
+    width: 33%;
+    height: 100%;
+    text-align:center;
+
+    @include transition(all .2s ease-in-out);
+
+    a {
+      @include transition(all .2s ease-in-out);
+
+      font-size: 0.85rem;
+      color: $light;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 0.7rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $color4;
+      }
+    }
+}
+
+.active-lang {
+  a {
+    color: $color2;
+  }
+}

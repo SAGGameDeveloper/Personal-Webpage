@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<article class="postWrapper">
+  <section class="section--first section--about u-table">
+    <div class="section-backgroundImage">
+        <img class="post-featuredImage" src="{{site.baseurl}}/assets/images/about/hector-martinez-HmnMQD51h1o-unsplash.jpg" style="" alt="">
+    </div>
+    <div class="section-gradient"></div>
+    <div class="section-title u-tableCell u-verticalAlignMiddle">
+      <div class="container">
+        <h2>Sergio Abreu García</h2>
+        <div class="postMeta-wrapper">
+          <ul class="postMeta">
+            <li class="postMeta-author">
+				{{ page.subtitle }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+	{% include lang-selector.html lang=page.lang %}
+  </section>
+  <section class="section--last">
+    <div class="container container--content">
+      <div class="content-body">
+
+		<h4>{{ page.aboutTitle }}</h4>
+		<p>{{ page.content }}</p>
+		<div class="img img--fullContainer img--14xLeading" style="background-image: url({{ site.baseurl }}/assets/images/about/frank-wang-ogxlyCA1BQc-unsplash.jpg);"></div>
+
+		<br/><hr/><br/>
+
+		<h4>{{ page.workTitle }}</h4>
+
+		<div class="blockGroup">
+		  <ul class="blockGroup-list" style="margin: 0; margin-top: 1.5rem;">
+			{% assign works = site.work | where:"lang",page.lang %}
+			{% for work in works %}
+			  <li class="work-block">
+				<div class="postArticle-wrapper work-element" style="padding-bottom: 0.5rem">
+					<div class="work-element-content">{{ work.content }}</div>
+					<div class="work-element-links" source="{{ work.links.source }}" demo="{{ work.links.demo }}" github="{{ work.links.github }}"></div>
+					<article class="postArticle postArticle--short">
+					{% if work.image.feature %}
+						<div class="postArticle-image" style="background-image:url('{{ site.baseurl }}{{ site.baseurl_work_img }}{{ work.image.feature }}')">
+						</div>
+					{% else %}
+					  <div class="postArticle-image" style="background-image:url('{{site.baseurl}}assets/images/logo-black.svg')">
+					  </div>
+					{% endif %}
+					<div class="postArticle-title">{{ work.title }}</div>
+				  </article>
+				</div>
+			  </li>
+			{% endfor %}
+		  </ul>
+		</div>
+
+	  </div>
+  </section>
+</article>
+
+{% include contact.html contactTitle=page.contactTitle %}

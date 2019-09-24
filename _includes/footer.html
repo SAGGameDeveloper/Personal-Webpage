@@ -1,10 +1,14 @@
 <footer class="section--footer">
   <div class="container container--content">
     <div>
-      Created by <a href="{{ site.baseurl }}/">{{site.author.name}}</a>
-    </div>
-    <div>
-      © 2019 All rights reserved. Based on <a href="https://github.com/vincentchan/mickey" target="_blank">Mickey theme</a> for Jekyll.
+	  {% if include.footer[0] %} {{ include.footer[0] }} {% else %} Created by {% endif %}
+	  <a href="{{ site.baseurl }}/">{{ site.author.name }}</a>
+	  
+	  </br></br>
+	  
+      © 2019  {% if include.footer[0] %} {{ include.footer[0] }} {% else %} All rights reserved. Based on {% endif %}
+	  <a href="https://github.com/vincentchan/mickey" target="_blank">Mickey theme</a>
+	  & <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
     </div>
   </div>
 </footer>

@@ -22,7 +22,7 @@ baseurl_work_img:     '/assets/images/work/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'
 baseurl_javascripts: '/assets/javascripts/'
 icon:                assets/images/icon.png
-disqus:              sagdev
+disqus:              artei
 
 author:
   name:           	 Sergio Abreu García
@@ -43,7 +43,6 @@ defaults:
       type: "posts"
     values:
       layout: "default"
-      
+
 collections:
   - work
-
