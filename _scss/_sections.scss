@@ -7,7 +7,7 @@
   top: 0;
   position: relative;
   color: $light;
-  
+
   a {
 	text-decoration: none;
   }
@@ -161,7 +161,7 @@
   display: inherit;
   z-index: $zIndex-5--tagline-frontpage;
   width: 100%;
-  
+
   .postMeta-tagline {
   	width: 100%;
     font-weight: 400;
@@ -196,7 +196,7 @@
   font-size: $font-XS;
   text-transform: uppercase;
   letter-spacing: 2px;
-  
+
   &:after {
     content: '';
     display: inline-block;
@@ -219,5 +219,26 @@
 
   @media (max-width: $screen-xs-max) {
     font-size: $font-XXS;
+  }
+}
+
+.portrait {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 9rem;
+  width: 5.5rem;
+  height: 5.5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    bottom: 5.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }

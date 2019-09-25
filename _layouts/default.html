@@ -6,9 +6,9 @@
   <body>
     {% if page.title ==  "Home" %}
       {% include blog-link.html %}
-	  {% include work-overlay.html %}
-	{% else %}
-	  {% include portfolio-link.html %}
+	    {% include work-overlay.html %}
+	  {% else %}
+	    {% include portfolio-link.html %}
     {% endif %}
 
     {{ content }}
@@ -18,8 +18,11 @@
       {% include sidebar-nav.html %}
       {% include sidebar-toggle.html %}
     {% endif %}
-    
-	{% include footer.html footer=page.footer %}
+
+    {% if page.title !=  "Oops..." %}
+	    {% include footer.html footer=page.footer %}
+    {% endif %}
+
     {% include footer-scripts.html %}
   </body>
 </html>

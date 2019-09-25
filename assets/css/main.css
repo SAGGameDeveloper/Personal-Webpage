@@ -1953,6 +1953,29 @@ hr {
   }
 }
 
+.portrait {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 9rem;
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .portrait {
+    bottom: 5.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+
 .postWrapper {
   position: relative;
   width: 100%;
