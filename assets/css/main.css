@@ -624,7 +624,7 @@ hr {
 
 .container-frontpage {
   position: absolute;
-  top: 7rem;
+  top: 8rem;
   left: 0;
   right: 0;
   margin: auto;
@@ -634,7 +634,7 @@ hr {
 
 @media (max-width: 767px) {
   .container-frontpage {
-    top: 6rem;
+    top: 7rem;
   }
 }
 
@@ -2012,7 +2012,7 @@ hr {
 .blockGroup-list {
   list-style: none;
   padding: 0;
-  margin-top: -4.5rem;
+  margin-top: -7.5rem;
   margin-left: -10px;
   margin-right: -10px;
   display: -webkit-box;
