@@ -9,9 +9,9 @@ permalink:           /:title
 # Setup
 timezone:            Europe/Madrid
 locale:              es_es
-name:				 SAG
+name:				         SAG
 title:               Sergio Abreu García
-tagline:             'Programming blog'
+tagline:             'Technology & Software'
 description:         'Sergio Abreu Garcia, software developer. Portfolio and blog'
 url:                 https://sag-dev.github.io/Personal-Webpage
 rss:                 https://sag-dev.github.io/Personal-Webpage/feed.xml
@@ -22,11 +22,11 @@ baseurl_work_img:     '/assets/images/work/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'
 baseurl_javascripts: '/assets/javascripts/'
 icon:                assets/images/icon.png
-disqus:              artei
+disqus:              sag-dev
 
 author:
   name:           	 Sergio Abreu García
-  url:            	 sag-dev.com
+  url:            	 https://sag-dev.com
   email:             contact@sag-dev.com
   linkedin:          sergio-abreu-garcía
   github:            Sag-Dev

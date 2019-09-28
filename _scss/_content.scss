@@ -215,16 +215,11 @@
 }
 
 .desaturate {
-  opacity: 0.8;
-  -moz-filter: contrast(1.5) url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-  -o-filter: contrast(1.5) url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-  -webkit-filter: contrast(1.5) grayscale(100%);
-  filter: gray;
-  filter: contrast(1.5) url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
-}
-
-.block:hover .desaturate {
-  filter: none;
+  opacity: 1;
+  filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
+  -moz-filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
+  -o-filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
+  -webkit-filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
 }
 
 // Newsletter subscription area

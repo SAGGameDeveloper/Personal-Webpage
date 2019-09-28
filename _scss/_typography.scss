@@ -156,6 +156,7 @@ h4 {
 }
 h5 {
   font-size: 0.8 * $scale * 1rem;
+  color: $color3;
 }
 h6 {
   font-size: 0.7 * $scale * 1rem;
@@ -202,6 +203,10 @@ hr {
 
 .container--content {
   max-width: 700px; // limit to 65-90 characters per line
+
+  ul {
+    color: $color3;
+  }
 }
 
 .is-darkBackgrounded,

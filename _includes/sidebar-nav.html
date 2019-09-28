@@ -9,7 +9,7 @@
       <li>
         {% if post.image.feature %}
           <a href="{{ site.baseurl }}{{ post.url }}" class="sidebar-recentPosts-image-wrapper">
-            <img src="{{ site.baseurl }}{{ site.baseurl_featured_thumbnail }}{{ post.image.feature }}" style="" alt="">
+            <img class="desaturate" src="{{ site.baseurl }}{{ site.baseurl_featured_thumbnail }}{{ post.image.feature }}" style="" alt="">
           </a>
         {% endif %}
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>

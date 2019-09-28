@@ -366,6 +366,7 @@ h4 {
 
 h5 {
   font-size: 1.0664rem;
+  color: #8431b1;
 }
 
 h6 {
@@ -411,6 +412,10 @@ hr {
 
 .container--content {
   max-width: 700px;
+}
+
+.container--content ul {
+  color: #8431b1;
 }
 
 .is-darkBackgrounded,
@@ -1966,6 +1971,8 @@ hr {
 .portrait img {
   width: 100%;
   height: 100%;
+  border: solid 2px #e5e5e5;
+  border-radius: 20rem;
 }
 
 @media (max-width: 767px) {
@@ -2192,16 +2199,12 @@ hr {
 }
 
 .desaturate {
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  -moz-filter: contrast(1.5) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-  -o-filter: contrast(1.5) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-  filter: gray;
-  filter: contrast(1.5) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-}
-
-.block:hover .desaturate {
-  filter: none;
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
+  -moz-filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
+  -o-filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
+  -webkit-filter: grayscale(20%) sepia(0.2) saturate(0.8) brightness(90%) contrast(85%);
 }
 
 .section--subscribe {

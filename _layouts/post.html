@@ -76,9 +76,6 @@ layout: default
     </div>
   </section>
 
-  {% include subscribe.html %}
-  {% include contact.html %}
-
   <footer class="postFooter">
     {% if page.previous.url %}
       <section class="section--prePost is-darkBackgrounded u-table">
@@ -109,4 +106,6 @@ layout: default
   </footer>
 </article>
 
+{% include subscribe.html %}
+{% include contact.html %}
 {% include modal.html %}
