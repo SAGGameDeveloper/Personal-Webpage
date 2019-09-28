@@ -3,8 +3,8 @@
 	<channel>
 		<title>SAG</title>
 		<description>Sergio Abreu Garcia, software developer. Portfolio and blog</description>
-		<link>https://sag-dev.github.io/Personal-Webpage</link>
-		<atom:link href="https://sag-dev.github.io/Personal-Webpage/feed.xml" rel="self" type="application/rss+xml" />
+		<link>https://sag-dev.com</link>
+		<atom:link href="https://sag-dev.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>The rise of Shenzhen</title>
@@ -13,8 +13,8 @@
 					<description>How did this fisherman village become the technological epicentre of the world?</description>
 				
 				<pubDate>Sat, 28 Sep 2019 19:00:00 +0000</pubDate>
-				<link>https://sag-dev.github.io/Personal-Webpage/shenzhen</link>
-				<guid isPermaLink="true">https://sag-dev.github.io/Personal-Webpage/shenzhen</guid>
+				<link>https://sag-dev.com/the-rise-of-shenzhen</link>
+				<guid isPermaLink="true">https://sag-dev.com/the-rise-of-shenzhen</guid>
 			</item>
 		
 	</channel>
