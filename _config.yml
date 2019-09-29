@@ -15,7 +15,7 @@ tagline:             'Technology & Software'
 description:         'Sergio Abreu Garcia, software developer. Portfolio and blog'
 url:                 https://sag-dev.com
 rss:                 https://sag-dev.com/feed.xml
-baseurl:             '/'
+baseurl:             ''
 baseurl_posts_img:   '/assets/images/posts/'
 baseurl_featured_img: '/assets/images/featured/'
 baseurl_work_img:     '/assets/images/work/'
