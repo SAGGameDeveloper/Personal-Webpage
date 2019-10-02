@@ -21,14 +21,14 @@ baseurl_featured_img: '/assets/images/featured/'
 baseurl_work_img:     '/assets/images/work/'
 baseurl_featured_thumbnail: '/assets/images/thumbnail/'
 baseurl_javascripts: '/assets/javascripts/'
-icon:                assets/images/icon.png
+defaultImg:          '/assets/images/default.jpg'
 disqus:              sag-dev
 
 author:
   name:           	 Sergio Abreu García
   url:            	 https://sag-dev.com
   email:             contact@sag-dev.com
-  linkedin:          sergio-abreu-garcía
+  linkedin:          sag-dev
   github:            Sag-Dev
 
 # Server
