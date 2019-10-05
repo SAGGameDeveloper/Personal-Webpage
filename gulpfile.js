@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     os = require("os"),
     cp = require('child_process'),
   	ghpages = require('gh-pages'),
-  	del = require('del');
+  	del = require('del'),
+    date_and_time = require('date-and-time');
 
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -92,6 +93,10 @@ gulp.task('default', gulp.series('thumbnails', 'styles', 'jekyll-serve'));
 /**
  * Push build to gh-pages
  */
-gulp.task('deploy', gulp.series('clean', 'thumbnails', 'styles', 'jekyll-build', function () {
-  return ghpages.publish('_site', function(err){ console.log("[ERROR] gh-pages plugin:", err); });
+gulp.task('deploy', gulp.series('clean', 'thumbnails', 'styles', 'jekyll-build',
+function () {
+  let d = new Date();
+  let message = date_and_time.format(d, 'DD/MM/YYYY - HH:mm:ss')
+  return ghpages.publish('_site', {message: message+". Auto-gen commit."},
+            function(err){ console.log("[ERROR] gh-pages plugin:", err); });
 }));

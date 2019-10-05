@@ -20,6 +20,7 @@
     "gulp-sass": "^2.0.4"
   },
   "dependencies": {
+    "date-and-time": "^0.10.0",
     "gh-pages": "^2.1.1",
     "gulp-clean-css": "^4.2.0",
     "gulp-gm": "0.0.9"

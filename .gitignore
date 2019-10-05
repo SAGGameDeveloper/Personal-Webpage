@@ -6,3 +6,5 @@ node_modules
 
 .jekyll-cache
 .cache
+
+package-lock.json
