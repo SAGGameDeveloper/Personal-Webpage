@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     parallel = require("concurrent-transform"),
     os = require("os"),
     cp = require('child_process'),
-  	deploy = require('gulp-gh-pages'),
+  	ghpages = require('gh-pages'),
   	del = require('del');
 
 var messages = {
@@ -93,6 +93,5 @@ gulp.task('default', gulp.series('thumbnails', 'styles', 'jekyll-serve'));
  * Push build to gh-pages
  */
 gulp.task('deploy', gulp.series('clean', 'thumbnails', 'styles', 'jekyll-build', function () {
-  return gulp.src("./_site/**/*")
-    .pipe(deploy())
+  return ghpages.publish('_site', function(err){ console.log("[ERROR] gh-pages plugin:", err); });
 }));
