@@ -14,13 +14,13 @@
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "~3.0.2",
-    "gulp-gh-pages": "^0.5.4",
     "gulp-image-resize": "^0.13.1",
     "gulp-postcss": "~6.0.0",
     "gulp-rename": "~1.2.2",
     "gulp-sass": "^2.0.4"
   },
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "gulp-clean-css": "^4.2.0",
     "gulp-gm": "0.0.9"
   }
