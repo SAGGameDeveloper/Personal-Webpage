@@ -238,7 +238,7 @@ th {
 html {
   /* Change default typefaces here */
   font-family: "Source Serif Pro", serif;
-  font-size: 137.5%;
+  font-size: 131.25%;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.8);
   -webkit-font-smoothing: antialiased;
@@ -247,6 +247,12 @@ html {
   -webkit-font-feature-settings: "kern";
   -moz-font-feature-settings: "kern";
   -moz-font-feature-settings: "kern=1";
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 118.75%;
+  }
 }
 
 /* Copy & Lists */
@@ -383,7 +389,7 @@ table {
 td,
 th {
   padding: 0;
-  line-height: 33px;
+  line-height: 31.5px;
 }
 
 /* Code blocks */
