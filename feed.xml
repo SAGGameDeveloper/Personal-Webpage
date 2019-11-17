@@ -5,7 +5,7 @@
 		<description>Sergio Abreu García Blog | Tech &amp; Software</description>
 		<link>https://sag-dev.com/blog/</link>
 		<image>
-    	<url>https://sag-dev.com/assets/images/favicon.ico</url>
+    	<url>https://sag-dev.com/assets/images/favicon.png</url>
    		<link>https://sag-dev.com/blog/</link>
 		</image>
 		<atom:link href="https://sag-dev.com/feed.xml" rel="self" type="application/rss+xml" />
