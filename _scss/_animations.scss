@@ -17,3 +17,18 @@
 .scaleIn {
 	transform: scale(0);
 }
+
+@keyframes float {
+	0% {
+		color: $light;
+		transform: translatey(+8px);
+	}
+	50% {
+    color: $color1;
+		transform: translatey(-8px);
+	}
+	100% {
+    color: $light;
+		transform: translatey(+8px);
+	}
+}

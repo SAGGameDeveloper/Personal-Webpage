@@ -1,1 +1,0 @@
-# Artei blog

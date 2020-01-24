@@ -68,9 +68,24 @@
 	font-style: italic;
 	text-align: center;
 	word-break: break-word;
-	
+
 	a {
 		color: $color3;
 		text-decoration-color: $color3;
 	}
+}
+
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%
+}
+
+.iframe-video {
+  position:absolute;
+  top:0;
+  left:0;
+
+  width: 100%;
+  height: 100%;
 }

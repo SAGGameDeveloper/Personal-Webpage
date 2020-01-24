@@ -61,7 +61,7 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  
+
   @media (max-width: $screen-xs-max) {
     height: 35px;
 	width: 35px;
@@ -80,17 +80,17 @@
 	-webkit-transform: scale(1);
 	-webkit-transition: all 0.3s ease-out;
   z-index: $zIndex-7--modal-toggle-wrapper;
-  
+
   &:hover {
 	@include scale(1.1);
   }
-  
+
   svg {
 	fill: $dark;
 	width: 61.8%;
 	height: 61.8%;
 	margin: 19.1%;
-	
+
 	&:hover {
 		fill: $color4;
 	}
@@ -114,7 +114,7 @@
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  
+
   .modal-toggle-close {
     position: absolute;
     top: 48%;
@@ -171,10 +171,10 @@
 .modal-toggle-close-wrapper.active {
   opacity: 1;
   z-index: $zIndex-6--modal-toggle-close;
-  
+
   .modal-toggle-close {
     background: transparent;
-	
+
     &:before,
     &:after {
       background: $light;
@@ -198,7 +198,7 @@
       transform: rotate(225deg);
     }
   }
-  
+
 
 }
 
@@ -268,7 +268,7 @@
 		fill: $color4;
 		@include scale(1.08);
 	}
-	
+
     @media (min-width: $screen-sm-max) and (max-width: $screen-lg-min) {
       width: 16.66%;
       height: 60px;
@@ -282,4 +282,3 @@
     }
   }
 }
-

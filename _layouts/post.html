@@ -51,7 +51,7 @@ layout: default
               By <a href="{{ site.baseurl }}/">{{ site.author.name }}</a>
             </li>
             <li class="postMeta-tags">
-              {{ page.categories }}
+              {{ page.categories | array_to_sentence_string: "" | replace: ",", ", " }}
             </li>
           </ul>
         </div>

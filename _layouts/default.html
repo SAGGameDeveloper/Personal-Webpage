@@ -7,8 +7,10 @@
     {% if page.title ==  "Home" %}
       {% include blog-link.html %}
 	    {% include work-overlay.html %}
-	  {% else %}
+	  {% elsif page.title == "Blog" %}
 	    {% include portfolio-link.html %}
+    {% else %}
+      {% include backtoblog-link.html %}
     {% endif %}
 
     {{ content }}

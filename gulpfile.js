@@ -98,5 +98,5 @@ function () {
   let d = new Date();
   let message = date_and_time.format(d, 'DD/MM/YYYY - HH:mm:ss')
   return ghpages.publish('_site', {message: message+". Auto-gen commit."},
-            function(err){ console.log("[ERROR] gh-pages plugin:", err); });
+            function(err){ if(err) console.log("[ERROR] gh-pages plugin:", err.message); });
 }));

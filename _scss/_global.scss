@@ -31,10 +31,15 @@ hr {
 	margin: 0;
 }
 
+.bloglink {
+  font-size: 118%;
+  animation: float 4.5s ease-in-out infinite;
+}
+
 .brandLogo {
   padding: 0;
   color: $light;
-  font-family: $title-primary-font
+  font-family: $title-primary-font;
 }
 
 .brandLogo--small {

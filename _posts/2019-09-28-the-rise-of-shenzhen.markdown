@@ -4,7 +4,7 @@ title:  "The rise of Shenzhen"
 date:   2019-09-28 19:00:00
 last_modified_at:  2019-09-28 19:00:00
 excerpt: "How did this fisherman village become the technological epicentre of the world?"
-categories: History
+categories: history
 tags: shenzhen, tech, history
 image:
   feature: hendrik-will-QCjgGQIvy44-unsplash.jpg
