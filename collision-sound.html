@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="" class="no-js">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <link type="text/plain" rel="author" href="https://sag-dev.com" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!-- Optimized for search engines -->
+  <meta name="description" content="Let's talk about an easy yet powerful way of adding sound to collisions in Unity">
+
+  
+
+  <link rel="canonical" href="https://sag-dev.com/collision-sound">
+
+  
+
+  
+    <link rel="prev" href="https://sag-dev.com/the-rise-of-shenzhen" title="The rise of Shenzhen">
+  
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@https://sag-dev.com">
+  <meta name="twitter:creator" content="@Sergio Abreu García">
+  <meta name="twitter:title" content="Playing Sounds on Collision in Unity">
+  <meta name="twitter:description" content="Let's talk about an easy yet powerful way of adding sound to collisions in Unity">
+  <meta name="twitter:image" content="https://sag-dev.com/assets/images/featured/collision-sound.jpg">
+  <meta name="twitter:url" content="https://sag-dev.com/collision-sound">
+
+  <!-- Open graph -->
+  <meta property="og:title" content="Playing Sounds on Collision in Unity">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sag-dev.com/collision-sound">
+  <meta property="og:image" content="https://sag-dev.com/assets/images/featured/collision-sound.jpg">
+  <meta property="og:description" content="Let's talk about an easy yet powerful way of adding sound to collisions in Unity">
+  <meta property="og:site_name" content="SAG">
+  <meta property="og:locale" content="es_es">
+
+  
+    <meta property="article:modified_time" content="2020-01-24T17:30:00+00:00">
+    <meta property="article:published_time" content="2020-01-24T17:00:00+00:00">
+    <meta property="article:author" content="https://www.facebook.com/">
+    
+      <meta property="og:see_also" content="https://sag-dev.com/the-rise-of-shenzhen">
+    
+  
+
+  
+    
+    <meta property="article:section" content="tutorial,">
+    
+  
+
+  
+    
+    <meta property="article:tag" content="unity,">
+    
+    <meta property="article:tag" content="collision,">
+    
+    <meta property="article:tag" content="sound,">
+    
+    <meta property="article:tag" content="fmod,">
+    
+    <meta property="article:tag" content="studio">
+    
+  
+
+  <title>
+    
+      Playing Sounds on Collision in Unity | SAG
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  
+
+  <!-- Fonts -->
+  <link href='/assets/css/body-font.css' rel='stylesheet' type='text/css'>
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="SAG Blog" href="https://sag-dev.com/feed.xml">
+
+  <!-- modernizer -->
+  <script type="text/javascript" src="/assets/javascripts/modernizr.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/assets/javascripts/html5shiv.min.js"></script>
+  <![endif]-->
+
+  <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="/assets/javascripts/respond.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+</head>
+
+
+  <body>
+    
+      <nav class="menuWrapper">
+  <ul class="popover popover--menu">
+    <li class="menu-avatar">
+      <a href="/blog/" class="brandLogo brandLogo--small">BACK TO BLOG</a>
+    </li>
+  </ul>
+</nav>
+
+    
+
+    <article class="postWrapper">
+  <section class="section--first u-table">
+    <div class="section-backgroundImage">
+
+      
+        <img class="post-featuredImage" src="/assets/images/featured/collision-sound.jpg" style="
+        
+          top:-320px;
+        
+        " alt="">
+      
+
+    </div>
+    <div class="section-gradient
+    
+      section-gradient--darker
+    
+    "></div>
+    <div class="section-title u-tableCell u-verticalAlignMiddle">
+      <div class="container">
+        <h2>Playing Sounds on Collision in Unity</h2>
+        <div class="postMeta-wrapper">
+          <ul class="postMeta">
+            <li class="postMeta-datetime">
+              <time datetime="2020-01-24 17:00:00 +0000">
+                
+				24
+				ENE
+				  
+				2020
+              </time>
+            </li>
+            <li class="postMeta-author">
+              By <a href="/">Sergio Abreu García</a>
+            </li>
+            <li class="postMeta-tags">
+              tutorial,   programming
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section--last">
+    <div class="container container--content">
+      <div class="content-body">
+
+        <p><strong>Unity</strong> sound engine offers a decent performance for most little projects, but when
+looking for more advanced audio features, it usually falls short. With this
+project we aim to mix the power of <strong>FMOD Studio</strong> with the <strong>Unity</strong> physics engine.</p>
+
+<p>Keep reading if you want to learn more!</p>
+
+<h4 id="unity-audio-engine-is-good-isnt-it">Unity audio engine is good, isn’t it?</h4>
+<p>For the past month, I’ve been working with
+<a href="https://github.com/dimart10" target="_blank">a colleague of mine</a>
+on this idea about making a solid <strong>collision sound engine</strong>. At first it may seem
+like there’s not much to do, since Unity already provides its own audio capabilities,
+and syncing it with the physics engine is an easy task.</p>
+
+<p>The problem is, Unity’s audio engine is not really prepared to handle more
+advanced projects. As a game’s complexity grows, so does its audio’s.
+In order to keep a clean, understandable and easy to modify audio project,
+middleware such are FMOD can come in handy.</p>
+
+<h4 id="the-power-of-fmod">The power of FMOD</h4>
+
+<p>In <em>FMOD Studio</em>, the base unit is the event,
+if you want to play a sound, you must create an event and assign the
+audio file to it. Since the key element are the events, specific files
+lose importance. This means you could change the entire audio of a game
+while keeping the same structure.</p>
+
+<p>For example, if you are making a shooter, at some point you’d probably like
+your gun to play a shoot sound. If using Unity, you’d need to add an <em>Audio Source</em>
+component to your gun, and then make it play from your code when shooting.
+That’s an okay reasoning, it’s easy to understand and pretty straightforward.</p>
+
+<p>But if you try to make it more complex, you start to notice some weaknesses. Like
+if you tried to make slightly different sounds for each bullet, not to make it
+look so repetitive. You would need, of course, to code it. But how the sound
+sounds is a problem that should be taken care by the sound designer, so why in
+hell would you need to code something like that?</p>
+
+<div class="img img--fullContainer img--9xLeading" style="background-image: url(/assets/images/posts/collision-sound/fmod-logo.png); background-size: contain"></div>
+
+<p>If instead you were using FMOD Studio, the programming gets out of the equation,
+the sound designer can just randomize a parameter every time an event gets played,
+and apply different effects depending on that. As easy as that.</p>
+
+<h4 id="so-what-about-the-project">So what about the project?</h4>
+
+<p>If you want to play sounds anytime a collision is detected between two objects,
+you can use the Unity engine, but if you’ve read the previous paragraphs, you’ll
+notice why this is not such a great idea.</p>
+
+<p>If your game audio starts growing in
+complexity, it will get completely out of control, and changing the smallest
+sound will become a nightmare. This gets specially troublesome when working in a
+team, because your sound designer would need to mess with the Unity project to
+do his/her work.</p>
+
+<p>So, you tight up your shoes and get into the FMOD business, how hard can it be?
+While the FMOD Unity integration can be easily handled, synchronizing and tuning
+it up correctly with the physics engine can require much more work than one may
+initially think.</p>
+
+<p>You can use the trigger function that comes with the <em>FMOD Studio
+Event Emitter</em>, but that won’t get you very far, since you’d still need to code
+the selection of the event depending on which body the GameObject collides with.</p>
+
+<p>That’s where this project comes into picture, the idea is to provide an extended
+Unity FMOD integration for those who wanna handle sounds on collision.</p>
+
+<h4 id="how-does-it-work">How does it work</h4>
+<p>Let’s take a look at how to setup a simple <strong>Collision Sound</strong> project, I will not
+delve into much detail in this post, if you want an in depth guide
+you can find it <a href="https://github.com/Sag-Dev/collision-sound#how-to-use" target="_blank">here</a>.</p>
+
+<p>We’ve tried to keep the project as clear and straightforward as possible, but
+if you’ve never worked with FMOD before, you should go
+<a href="https://www.fmod.com/learn" target="_blank">learn the basics</a> before trying
+to use <strong>Collision Sound</strong>.</p>
+
+<p>The project works [in general terms] as following: from the FMOD side, there’s a
+project with all the events that will play on different collisions, it will handle
+everything related to the sound itself; Unity will take care of the logic,
+you only have to configure the <strong>SoundCollider</strong> script on the <em>GameObjects</em> you want
+to behave as such.</p>
+
+<p>I recommend you to <a href="https://github.com/Sag-Dev/collision-sound/releases" target="_blank">download this demo</a>,
+it will be much easier to understand than just reading about it.</p>
+
+<h5 id="fmod-setup">FMOD Setup</h5>
+<p>In the FMOD Project, there’s a parent folder named <strong>SoundMaterials</strong> at the
+root of the project, and each of its events must be assigned to a bank with that
+same name.</p>
+
+<p>Every subfolder under <strong>SoundMaterials</strong> represents each different material, and
+it must have at least one event with the same name as the folder. This is the
+default event, it will be played when colliding if no other more specific event
+can be found.</p>
+
+<p>Specific collision interactions can be created by adding one event with the name
+of one of the materials under the folder of the other material. e.g. “wood/metal”:
+metal event under the <em>wood</em> folder, it will be played every time wood collides
+with metal (or vice versa).</p>
+
+<h5 id="unity-setup">Unity Setup</h5>
+<p>Unity setup is very simple, just import the package, add a <em>FMOD Studio Listener</em>
+to your camera and start adding <strong>SoundCollider</strong> events to anything you want to
+play sounds on collision. Just remember that it must have a valid material name
+and as well as a <em>Collider[2d]</em> and a <em>RigidBody[2d]</em> (<strong>unless the collider is a
+trigger</strong>).</p>
+
+<h5 id="features">Features</h5>
+<p>Those are some of the key features of <strong>Collision Sound</strong>:</p>
+<ul>
+  <li><strong>Generic &amp; specific</strong> sound material interactions (different events depending on what collides with what).</li>
+  <li><strong>Built in parameters</strong> that auto sync in runtime: velocity, mass and size.</li>
+  <li><strong>Custom parameters</strong>, you set your custom FMOD parameters from code for any <em>SoundCollider</em>.</li>
+</ul>
+
+<h4 id="showcase">Showcase</h4>
+<p>We’ve put up a very simple demo in Unity to show how this project works and how
+it should be used. Check out the video to see it working, or
+<a href="https://github.com/Sag-Dev/collision-sound/releases" target="blank">download the Unity project</a>
+if you want to test it yourself.</p>
+
+<p><br /></p>
+<div class="iframe-wrapper">
+<iframe class="iframe-video" src="https://www.youtube.com/embed/9sOHbRK5zb4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+
+<h4 id="thank-you">Thank you!</h4>
+<p>Thank you for reading to the very end, I hope you liked the project. If you didn’t,
+please let us know why and how would you improve it, it would be of great help!</p>
+
+<p>If you want, you can
+<a href="https://github.com/Sag-Dev/collision-sound#contributing" target="_blank">contribute to the project on Github</a>
+; not only with code, but also posting any issue you find or requesting features
+you reckon would be cool to have.</p>
+
+
+      </div>
+    </div>
+    <hr class="u-clearHr"/>
+    <hr class="u-clearHr"/>
+    <hr/>
+    <div class="container container--content">
+      <div class="content-body">
+        <div class="content-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES * * */
+      var disqus_shortname = 'sag-dev';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="postFooter">
+    
+      <section class="section--prePost is-darkBackgrounded u-table">
+        <div class="section-backgroundImage section-backgroundImage--previousPage">
+          <img class="post-featuredImage"
+          
+            src="/assets/images/featured/hendrik-will-QCjgGQIvy44-unsplash.jpg"
+          
+          style="top:0" alt="">
+        </div>
+        <div class="section-gradient
+        
+          section-gradient--darker
+        
+        "></div>
+        <div class="section-title u-tableCell u-verticalAlignMiddle">
+          <div class="container">
+            <h4>Next story:</h4>
+            <a class="prev" href="/the-rise-of-shenzhen">
+              <h2>The rise of Shenzhen</h2>
+            </a>
+          </div>
+        </div>
+      </section>
+    
+  </footer>
+</article>
+
+<section class="section--subscribe">
+  <div class="container container--content darkTitles">
+    <h3 class="u-alignCenter">Thank you for reading me</h3>
+    <p>
+      Hi, I'm <a href="/">Sergio Abreu García</a> and this is my
+  	  blog, where I mainly talk about technology & software. You can use my <a href="https://sag-dev.com/feed.xml" target="_blank">RSS feed</a>
+      to easily keep up with my content.
+      <br><br>
+      <a href="https://sag-dev.com/feed.xml" class="socialAccount" style="width: 100%;" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/></svg>
+      </a>
+      <br><br><br>
+  	</p>
+    <hr/>
+  </div>
+</section>
+
+<footer class="section--contact darkTitles">
+  <div class="container container--content">
+	<h2> Contact </h2>
+	<p>
+    <ul class="socialAccountList">
+  	  <li><a href="mailto: contact@sag-dev.com" class="socialAccount" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+  	  </a></li>
+  	  <li><a href="https://linkedin.com/in/sag-dev" class="socialAccount" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+  	  </a></li>
+  	  <li><a href="https://github.com/Sag-Dev" class="socialAccount" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+  	  </a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="modal-toggle-group animate scaleIn">
+  <div class="modal-toggle-bubbleShadow"></div>
+  <div class="modal-toggle-bubble"></div>
+  <div class="modal-toggle-wrapper">
+	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="27.448px" viewBox="0 4.552 32 27.448" enable-background="new 0 4.552 32 27.448" xml:space="preserve">
+		<g>
+			<g>
+				<path d="M23,6.552c3.718,0,6.917,3.351,6.984,7.316l0.003,0.124c-0.013,0.092-0.023,0.191-0.03,0.318
+					c-0.354,9.597-11.31,14.476-14.077,15.556c-2.74-1.089-13.503-5.973-13.842-15.59c-0.004-0.092-0.013-0.178-0.024-0.27
+					l0.002-0.138C2.083,9.902,5.282,6.552,9,6.552c2.053,0,4.022,1.049,5.404,2.878L16,11.542l1.596-2.112
+					C18.978,7.601,20.947,6.552,23,6.552 M23,4.552c-2.844,0-5.35,1.488-7,3.672c-1.65-2.184-4.156-3.672-7-3.672
+					c-4.918,0-8.9,4.374-8.984,9.282H0c0,0.03,0.006,0.058,0.006,0.088C0.006,13.944,0,13.966,0,13.99c0,0.138,0.034,0.242,0.04,0.374
+					C0.48,26.872,15.874,32,15.874,32s15.62-5.122,16.082-17.616C31.964,14.244,32,14.134,32,13.99c0-0.024-0.006-0.046-0.006-0.068
+					c0-0.032,0.006-0.058,0.006-0.088h-0.016C31.9,8.926,27.918,4.552,23,4.552L23,4.552z"/>
+			</g>
+		</g>
+	</svg></div>
+  <div class="modal-toggle-close-wrapper">
+    <div class="modal-toggle-close"></div>
+  </div>
+</div>
+
+<div class="fullscreenModal u-table">
+  <div class="u-tableCell u-verticalAlignMiddle">
+    <h2 class="h2--shareTitle">Share this story</h2>
+    <ul class="shareWrapper">
+      <li><a class="shareButton" href="https://twitter.com/intent/tweet?text=Playing Sounds on Collision in Unity - SAG&url=https%3A%2F%2Fsag-dev.com%2Fcollision-sound" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+	  </a></li>
+      <li><a class="shareButton" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsag-dev.com%2Fcollision-sound" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/></svg>
+	  </a></li>
+      <li><a class="shareButton" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsag-dev.com%2Fcollision-sound&title=Playing Sounds on Collision in Unity"  target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+	  </a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+    
+	   <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+      <nav role="navigation" class="sidebar sidebar--right">
+  <a href="/blog/" class="textLogo textLogo--sidebar">BLOG</a>
+  <hr>
+  <ul class="sidebar-recentPosts">
+    
+      
+        <!-- exclude current post -->
+      
+    
+      
+      <li>
+        
+          <a href="/the-rise-of-shenzhen" class="sidebar-recentPosts-image-wrapper">
+            <img class="desaturate" src="/assets/images/thumbnail/hendrik-will-QCjgGQIvy44-unsplash.jpg" style="" alt="">
+          </a>
+        
+        <a href="/the-rise-of-shenzhen">The rise of Shenzhen</a>
+        <div class="postMeta">28 Sep 2019</div>
+      </li>
+      
+    
+  </ul>
+</nav>
+
+      <label for="sidebar-checkbox" class="sidebar-toggle-wrapper">
+  <div class="sidebar-toggle"></div>
+</label>
+
+    
+
+    
+	    <footer class="section--footer">
+  <div class="container container--content">
+    <div>
+	   Created by 
+	  <a href="/">Sergio Abreu García</a>
+	  
+	  </br></br>
+	  
+      © 2019   All rights reserved. Based on 
+	  <a href="https://github.com/vincentchan/mickey" target="_blank">Mickey theme</a>
+	  & <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
+    </div>
+  </div>
+</footer>
+
+    
+
+    <!-- Javascript -->
+<script src="/assets/javascripts/jquery.min.js"></script>
+<script src="/assets/javascripts/imagesloaded.pkgd.min.js"></script>
+
+
+
+
+
+<script>
+  $(document).ready(function(){
+
+    // Featured image loaded behavior
+    $('.section-backgroundImage img').imagesLoaded()
+      .done( function( instance ) {
+        $('.post-featuredImage').addClass('is-loaded');
+      });
+
+    // Modal toggle behavior
+    $('.modal-toggle-wrapper').click(function() {
+    	$(this).toggleClass('active');
+      $('.modal-toggle-bubble').toggleClass('active');
+    	$('.modal-toggle-bubbleShadow').toggleClass('active');
+      $('.modal-toggle-close-wrapper').toggleClass('active');
+      $('.fullscreenModal').toggleClass('active');
+    });
+
+    // Prevent default anchor event and make a share popup
+    $.fn.sharePopup = function (e, intWidth, intHeight, blnResize) {
+
+      e.preventDefault();
+      intWidth = intWidth || '750';
+      intHeight = intHeight || '500';
+      strResize = (blnResize ? 'yes' : 'no');
+
+      //// Set title and open popup with focus on it
+      var strTitle = ((typeof this.attr('title') !== 'undefined') ? this.attr('title') : 'Social Share'),
+          strParam = 'width=' + intWidth + ',height=' + intHeight + ',resizable=' + strResize,
+          objWindow = window.open(this.attr('href'), strTitle, strParam).focus();
+    }
+
+    $('.shareButton').on("click", function(e) {
+      $(this).sharePopup(e);
+    });
+  });
+
+  // Show modal toggle after scrolling 300px
+  $(document).scroll(function() {
+    $('.modal-toggle-group').toggleClass('active', $(document).scrollTop() >= 300);
+  });
+</script>
+
+  </body>
+</html>

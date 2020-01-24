@@ -229,6 +229,42 @@ th {
           transform: scale(0);
 }
 
+@-webkit-keyframes float {
+  0% {
+    color: #e5e5e5;
+    -webkit-transform: translatey(8px);
+            transform: translatey(8px);
+  }
+  50% {
+    color: #fafa5f;
+    -webkit-transform: translatey(-8px);
+            transform: translatey(-8px);
+  }
+  100% {
+    color: #e5e5e5;
+    -webkit-transform: translatey(8px);
+            transform: translatey(8px);
+  }
+}
+
+@keyframes float {
+  0% {
+    color: #e5e5e5;
+    -webkit-transform: translatey(8px);
+            transform: translatey(8px);
+  }
+  50% {
+    color: #fafa5f;
+    -webkit-transform: translatey(-8px);
+            transform: translatey(-8px);
+  }
+  100% {
+    color: #e5e5e5;
+    -webkit-transform: translatey(8px);
+            transform: translatey(8px);
+  }
+}
+
 @font-face {
   font-family: titleFont;
   src: url(../fonts/Cities_Typeface.otf);
@@ -238,7 +274,7 @@ th {
 html {
   /* Change default typefaces here */
   font-family: "Source Serif Pro", serif;
-  font-size: 131.25%;
+  font-size: 118.75%;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.8);
   -webkit-font-smoothing: antialiased;
@@ -251,7 +287,7 @@ html {
 
 @media (max-width: 767px) {
   html {
-    font-size: 118.75%;
+    font-size: 106.25%;
   }
 }
 
@@ -345,14 +381,14 @@ h6 {
 }
 
 h1 {
-  font-size: 3.999rem;
-  line-height: 4.5rem;
+  font-size: 3.51rem;
+  line-height: 4.05rem;
   margin-top: 3rem;
 }
 
 h2 {
   font-family: titleFont;
-  font-size: 2.33275rem;
+  font-size: 1.95rem;
   line-height: 3rem;
   margin-top: 3rem;
 }
@@ -367,16 +403,19 @@ h3 {
 }
 
 h4 {
-  font-size: 1.333rem;
+  font-size: 1.3rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.25rem 0.8rem;
+  border-radius: 0.15rem;
 }
 
 h5 {
-  font-size: 1.0664rem;
+  font-size: 1.105rem;
   color: #8431b1;
 }
 
 h6 {
-  font-size: 0.9331rem;
+  font-size: 0.845rem;
 }
 
 /* Tables */
@@ -389,7 +428,7 @@ table {
 td,
 th {
   padding: 0;
-  line-height: 31.5px;
+  line-height: 28.5px;
 }
 
 /* Code blocks */
@@ -408,7 +447,7 @@ hr {
 
 /* Leading paragraph text */
 .lead {
-  font-size: 1.333rem;
+  font-size: 1.3rem;
 }
 
 /* Hug a the block above you */
@@ -420,8 +459,27 @@ hr {
   max-width: 700px;
 }
 
-.container--content ul {
+.content-body ul {
+  list-style: none;
+}
+
+.content-body ul li {
+  margin: 0 0 0.5rem 0;
+}
+
+.content-body ul li::before {
+  content: "\2022";
+  /* Add content: \2022 is the CSS Code/unicode for a bullet */
   color: #8431b1;
+  /* Change the color */
+  font-weight: bold;
+  /* If you want it to be bold */
+  display: inline-block;
+  /* Needed to add space between the bullet and the text */
+  width: 1rem;
+  /* Also needed for space (tweak if needed) */
+  margin-left: -1rem;
+  /* Also needed for space (tweak if needed) */
 }
 
 .is-darkBackgrounded,
@@ -514,6 +572,20 @@ hr {
           text-decoration-color: #8431b1;
 }
 
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.iframe-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -549,6 +621,12 @@ a:hover {
 
 hr {
   margin: 0;
+}
+
+.bloglink {
+  font-size: 118%;
+  -webkit-animation: float 4.5s ease-in-out infinite;
+          animation: float 4.5s ease-in-out infinite;
 }
 
 .brandLogo {
@@ -1932,7 +2010,7 @@ hr {
   margin: 0;
   padding: 0 0 0 10px;
   font-family: titleFont;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -2373,6 +2451,10 @@ hr {
 
 .postFooter {
   text-align: center;
+}
+
+.postFooter h4 {
+  background: none;
 }
 
 .section--prePost {
