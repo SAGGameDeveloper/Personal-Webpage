@@ -30,12 +30,6 @@ layout: default
     <div class="container container--content">
       <div class="content-body">
 
-		<h4>{{ page.aboutTitle }}</h4>
-    
-		{{ page.content }}
-
-		<br/><hr/><br/>
-
 		<h4>{{ page.workTitle }}</h4>
 
 		<div class="blockGroup">
@@ -61,6 +55,12 @@ layout: default
 			{% endfor %}
 		  </ul>
 		</div>
+
+    <br/><hr/><br/>
+
+    <h4>{{ page.aboutTitle }}</h4>
+
+    {{ page.content }}
 
 	  </div>
   </section>

@@ -193,7 +193,7 @@
   padding: 0 0 0 10px;
   font-family: $title-primary-font;
   font-weight: 400;
-  font-size: $font-XS;
+  font-size: $font-S;
   text-transform: uppercase;
   letter-spacing: 2px;
 
@@ -218,7 +218,7 @@
   }
 
   @media (max-width: $screen-xs-max) {
-    font-size: $font-XXS;
+    font-size: $font-XS;
   }
 }
 
@@ -227,9 +227,9 @@
   left: 0;
   right: 0;
   margin: auto;
-  bottom: 9rem;
-  width: 5.5rem;
-  height: 5.5rem;
+  bottom: 8rem;
+  width: 6.5rem;
+  height: 6.5rem;
 
   img {
     width: 100%;
@@ -241,7 +241,7 @@
 
   @media (max-width: $screen-xs-max) {
     bottom: 5.5rem;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }

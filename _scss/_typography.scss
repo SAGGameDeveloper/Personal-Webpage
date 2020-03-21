@@ -23,12 +23,17 @@ $font-XXXL:          4.209rem;
 $font-XXXXL:         5.61rem;
 
 // Font type
-$body-primary-font: 'Source Serif Pro', serif;
+$body-primary-font: body-font;
 $title-primary-font: titleFont;
 
 @font-face {
   font-family: $title-primary-font;
   src: url(../fonts/Cities_Typeface.otf);
+}
+
+@font-face {
+  font-family: $body-primary-font;
+  src: url(../fonts/NanumMyeongjo-Regular.ttf);
 }
 
 /* Setup */
@@ -147,6 +152,8 @@ h2 {
   font-size: 1.5 * $scale * 1rem;
   line-height: 2 * $leading;
   margin-top: 2 * $leading;
+
+  letter-spacing: 0.04em;
 }
 h3 {
   /* font-size: 1.33 * $scale * 1rem;
@@ -159,9 +166,10 @@ h3 {
 h4 {
   font-size: 1 * $scale * 1rem;
 
-  background-color: rgba(0,0,0, 0.2);
+  background-color: rgba(0,0,0, 0.16);
   padding: 0.25rem 0.8rem;
   border-radius: 0.15rem;
+  letter-spacing: 0.08em;
 }
 h5 {
   font-size: 0.85 * $scale * 1rem;

@@ -12,8 +12,8 @@ locale:              es_es
 name:				         SAG
 title:               Sergio Abreu García
 tagline:             'Technology & Software'
-description:         'Software developer | Portfolio & Blog'
-rss_description:     'Sergio Abreu García Blog | Tech & Software'
+description:         'Game developer | Portfolio & Blog'
+rss_description:     'SAG Blog | Tech & Software'
 url:                 https://sag-dev.com
 rss:                 https://sag-dev.com/feed.xml
 baseurl:             ''
