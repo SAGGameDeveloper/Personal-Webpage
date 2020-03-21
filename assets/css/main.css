@@ -270,10 +270,15 @@ th {
   src: url(../fonts/Cities_Typeface.otf);
 }
 
+@font-face {
+  font-family: body-font;
+  src: url(../fonts/NanumMyeongjo-Regular.ttf);
+}
+
 /* Setup */
 html {
   /* Change default typefaces here */
-  font-family: "Source Serif Pro", serif;
+  font-family: body-font;
   font-size: 118.75%;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.8);
@@ -391,6 +396,7 @@ h2 {
   font-size: 1.95rem;
   line-height: 3rem;
   margin-top: 3rem;
+  letter-spacing: 0.04em;
 }
 
 h3 {
@@ -404,9 +410,10 @@ h3 {
 
 h4 {
   font-size: 1.3rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.16);
   padding: 0.25rem 0.8rem;
   border-radius: 0.15rem;
+  letter-spacing: 0.08em;
 }
 
 h5 {
@@ -2011,7 +2018,7 @@ hr {
   padding: 0 0 0 10px;
   font-family: titleFont;
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -2038,7 +2045,7 @@ hr {
 
 @media (max-width: 767px) {
   .postMeta li {
-    font-size: 0.563rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -2047,9 +2054,9 @@ hr {
   left: 0;
   right: 0;
   margin: auto;
-  bottom: 9rem;
-  width: 5.5rem;
-  height: 5.5rem;
+  bottom: 8rem;
+  width: 6.5rem;
+  height: 6.5rem;
 }
 
 .portrait img {
@@ -2062,8 +2069,8 @@ hr {
 @media (max-width: 767px) {
   .portrait {
     bottom: 5.5rem;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 
@@ -2870,7 +2877,7 @@ hr {
   bottom: 0;
   left: -102%;
   right: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   background-color: rgba(0, 0, 0, 0.95);
   -webkit-transition: all 0.2s ease-in-out;
@@ -2940,7 +2947,7 @@ hr {
   position: absolute;
   width: 95%;
   height: auto;
-  min-height: 40rem;
+  min-height: 100%;
   top: 0;
   left: 0;
   right: 0;
@@ -3066,7 +3073,7 @@ hr {
 }
 
 .work-overlay-description {
-  font-family: "Source Serif Pro", serif;
+  font-family: body-font;
 }
 
 .work-element:hover {
