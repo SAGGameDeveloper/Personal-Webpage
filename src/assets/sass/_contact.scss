@@ -1,0 +1,40 @@
+.social-link {
+  display: block;
+  height: 4rem;
+  width: 4rem;
+  line-height: 4.3rem;
+  font-size: 1.5rem;
+  background-color: $primary;
+  transition: background-color 0.15s ease-in-out;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: darken($primary, 10%);
+    text-decoration: none;
+  }
+}
+
+.contact-links {
+  margin: auto;
+  width: auto;
+  text-align: center;
+
+  left: 0;
+  right: 0;
+
+  li {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 1rem 3.5rem 0 3.5rem;
+
+    @media (max-width: 992px) {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  svg {
+    fill: $black;
+    width:  100%;
+    height:  100%;
+  }
+}

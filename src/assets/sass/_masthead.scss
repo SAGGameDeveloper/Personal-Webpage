@@ -1,0 +1,116 @@
+.masthead {
+  min-height: 100vh;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: linear-gradient(
+      180deg,
+      fade-out($masthead-gradient, 0.4) 0%,
+      fade-out($masthead-gradient, 0.6) 100%
+    ),
+    url('../images/pawel-czerwinski-IXgSpDrxsgM-unsplash.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  flex-direction: row;
+  justify-content: center;
+  color: $gray-400;
+
+  h1 {
+    font-size: 4.6rem;
+    margin: 0;
+    padding: 0;
+    color: $gray-100;
+  }
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.youtube-container {
+  width: 100%;
+  min-width: 18rem;
+
+  padding-left: 3.5%;
+  padding-right: 3.5%;
+
+  @media (max-width: 992px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-img {
+  width: 7rem;
+  margin: 1.8rem auto 0 auto;
+
+  @media (max-width: 992px) {
+    margin: 1.2rem auto 2.5rem auto;
+  }
+}
+
+.social-links {
+  position: absolute;
+  bottom: 2rem;
+  margin: auto;
+  width: auto;
+  text-align: center;
+
+  left: 0;
+  right: 0;
+
+  li {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 2rem 0 2rem;
+
+    @media (max-width: 992px) {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+
+  svg {
+    fill: $gray-400;
+    width:  100%;
+    height:  100%;
+  }
+}
+
+#cv-icon {
+  svg {
+    fill: $black;
+    width: 4rem;
+    height: 4rem;
+    margin-top: 1rem;
+  }
+}
