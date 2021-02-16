@@ -16,7 +16,7 @@ export default class Icon extends Component {
           </div>
           <div className="row no-gutters">
             <div className="col-lg-6">
-              <a className="portfolio-item" href="/#">
+              <a className="portfolio-item" href="https://github.com/sergioabreu-g/active-ragdolls" target="_blank" rel="noreferrer">
                 <span className="caption">
                   <span className="caption-content">
                     <h2>Active Ragdolls</h2>
@@ -26,11 +26,11 @@ export default class Icon extends Component {
                     </p>
                   </span>
                 </span>
-                <img className="img-fluid" src={ img_activeRagdolls } alt="" />
+                <img className="img-fluid" src={ img_activeRagdolls } alt="Active Ragdolls" />
               </a>
             </div>
             <div className="col-lg-6">
-              <a className="portfolio-item" href="/#">
+              <a className="portfolio-item" href="#Portfolio" rel="noreferrer"> 
                 <span className="caption">
                   <span className="caption-content">
                     <h2>Physics-Based Animation through Reinforcement Learning</h2>
@@ -41,13 +41,13 @@ export default class Icon extends Component {
                     </p>
                   </span>
                 </span>
-                <img className="img-fluid" src={ img_tfg } alt="" />
+                <img className="img-fluid" src={ img_tfg } alt="Galaxy" />
               </a>
             </div>
             <div className="col-lg-6">
-              <a className="portfolio-item" href="/#">
+              <a className="portfolio-item" href="https://github.com/sergioabreu-g/collision-sound" target="_blank" rel="noreferrer">
                 <span className="caption">
-                  <span className="caption-content">
+                  <span className="caption-content text-dark">
                     <h2>Sound on Collision in Unity</h2>
                     <p className="mb-0">
                       A system I made with a friend that allows to use
@@ -55,20 +55,20 @@ export default class Icon extends Component {
                     </p>
                   </span>
                 </span>
-                <img className="img-fluid" src={ img_collisionSound } alt="" />
+                <img className="img-fluid" src={ img_collisionSound } alt="Collision Sound" />
               </a>
             </div>
             <div className="col-lg-6">
-              <a className="portfolio-item" href="/#">
+              <a className="portfolio-item" href="https://github.com/sergioabreu-g" target="_blank" rel="noreferrer">
                 <span className="caption">
-                  <span className="caption-content">
+                  <span className="caption-content text-dark">
                     <h2>Open Source</h2>
                     <p className="mb-0">
                       I'm an active open-source contributor.
                     </p>
                   </span>
                 </span>
-                <img className="img-fluid" src={ img_openSource } alt="" />
+                <img className="img-fluid" src={ img_openSource } alt="GitHub" />
               </a>
             </div>
           </div>

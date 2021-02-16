@@ -1,13 +1,15 @@
 module.exports = {
-  siteTitle: 'Sergio Abreu García', // <title>
-  manifestName: 'Stylish',
-  manifestShortName: 'Landing', // max 12 characters
+  siteTitle: 'Sergio Abreu | Game Dev', // <title>
+  description: "I'm a videogame developer from Galicia, Spain.",
+  keywords: "sergio abreu, sergio abreu garcia, gamedev, videogame development, game developer",
+  manifestName: 'Sergio Abreu | Game Dev',
+  manifestShortName: 'Sergio Abreu', // max 12 characters
   manifestStartUrl: '/',
-  manifestBackgroundColor: '#663399',
-  manifestThemeColor: '#663399',
+  manifestBackgroundColor: '#000',
+  manifestThemeColor: '#fff',
   manifestDisplay: 'standalone',
   manifestIcon: 'src/assets/img/favicon.png',
-  pathPrefix: `/gatsby-starter-stylish/`, // This path is subpath of your hosting https://domain/portfolio
+  pathPrefix: ``, // This path is subpath of your hosting https://domain/portfolio
   heading: 'Sergio Abreu García',
   subHeading: 'Game developer',
 
@@ -30,23 +32,18 @@ module.exports = {
     },
   ],
   email: 'contact@sergioabreu.me',
-  phone: '',
-  address: '',
 
-// contact
-contactLinks: [
-  {
-    icon: 'email',
-    name: 'Email',
-    url: 'mailto:contact@sergioabreu.me',
-  },
-  {
-    icon: 'linkedin',
-    name: 'Linkedin',
-    url: 'https://www.linkedin.com/in/sergioabreu-g/',
-  },
-],
-email: 'contact@sergioabreu.me',
-phone: '',
-address: '',
+  // contact
+  contactLinks: [
+    {
+      icon: 'email',
+      name: 'Email',
+      url: 'mailto:contact@sergioabreu.me',
+    },
+    {
+      icon: 'linkedin',
+      name: 'Linkedin',
+      url: 'https://www.linkedin.com/in/sergioabreu-g/',
+    },
+  ],
 };

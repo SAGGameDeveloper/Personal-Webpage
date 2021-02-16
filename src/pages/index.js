@@ -1,13 +1,10 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-import Scroll from '../components/Scroll';
 
 import config from '../../config';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 import Portfolio from '../components/Portfolio';
-import ScrollToTop from '../components/ScrollToTop';
 import YoutubeVideo from '../components/YoutubeVideo';
 import Icon from '../components/Icon';
 
@@ -22,7 +19,7 @@ const IndexPage = () => (
         <em>{config.subHeading}</em>
       </h3>
         <h1 className="mb-1">{config.heading}</h1>
-        <div class="portrait-img"><img className="img-fluid" src={portrait}/></div>
+        <div class="portrait-img"><img alt="Sergio Abreu" className="img-fluid" src={portrait}/></div>
       </div>
       <div className="youtube-container text-center my-auto col-lg">
         <YoutubeVideo/>

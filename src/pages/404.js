@@ -1,12 +1,10 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-import Header from '../components/Header';
 import { Link } from 'gatsby';
 
 const IndexPage = () => (
   <Layout>
-    <Header />
     <header className="masthead d-flex">
       <div className="container text-center my-auto">
         <h1 className="mb-1">Page not found</h1>

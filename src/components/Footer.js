@@ -1,5 +1,4 @@
 import React from 'react';
-import config from '../../config';
 
 export default function Footer() {
   return (
@@ -7,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <p className="text-muted small mb-0">
           Copyright &copy; Sergio Abreu García
-          <br/> Powered by <a href="https://www.gatsbyjs.com/" target="_blank">Gatsby</a>
+          <br/> Powered by <a href="https://www.gatsbyjs.com/" target="_blank" rel="noreferrer">Gatsby</a>
         </p>
       </div>
     </footer>
