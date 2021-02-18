@@ -50,10 +50,10 @@ const IndexPage = () => (
               I've always had a passion for technology and games, which led
               me to study Videogame Development in Madrid. Still, I was curious
               about many other different topics, so I spent my college years
-              messing around with web development, cryptocurrencies and AI.
+              messing around with web development, cryptocurrencies, and AI.
 
               <br/><br/>But nothing could beat videogames :)
-              <br/><br/> <span id="cv-icon"><Icon icon="cv" name = "Curriculum Vitae" url = "UNFINISHED"/></span>
+              <br/><br/> <span id="cv-icon"><Icon icon="cv" name = "Curriculum Vitae" url = "/resume.pdf"/></span>
             </p>
           </div>
         </div>
