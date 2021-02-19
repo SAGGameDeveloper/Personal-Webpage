@@ -53,7 +53,7 @@ const IndexPage = () => (
               messing around with web development, cryptocurrencies, and AI.
 
               <br/><br/>But nothing could beat videogames :)
-              <br/><br/> <span id="cv-icon"><Icon icon="cv" name = "Curriculum Vitae" url = "/resume.pdf"/></span>
+              <br/><br/> <span id="cv-icon"><Icon icon="cv" name = "Resume" url = "/resume.pdf"/></span>
             </p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import img_activeRagdolls from '../assets/images/activeRagdolls.jpg';
 import img_tfg from '../assets/images/tfg.jpg';
 import img_collisionSound from '../assets/images/collisionSound.png';
-import img_openSource from '../assets/images/openSource.png';
+import img_engine from '../assets/images/engine.jpg';
 
 export default class Icon extends Component {
   render() {
@@ -30,7 +30,7 @@ export default class Icon extends Component {
               </a>
             </div>
             <div className="col-lg-6">
-              <a className="portfolio-item" href="#Portfolio" rel="noreferrer"> 
+              <a className="portfolio-item" href="#Portfolio" rel="noreferrer">
                 <span className="caption">
                   <span className="caption-content">
                     <h2>Physics-Based Animation through Reinforcement Learning</h2>
@@ -59,16 +59,18 @@ export default class Icon extends Component {
               </a>
             </div>
             <div className="col-lg-6">
-              <a className="portfolio-item" href="https://github.com/sergioabreu-g" target="_blank" rel="noreferrer">
+              <a className="portfolio-item" href="https://github.com/freesstylers/Untitled-Motor" target="_blank" rel="noreferrer">
                 <span className="caption">
                   <span className="caption-content text-dark">
-                    <h2>Open Source</h2>
+                    <h2>C++ Game Engine from Scratch</h2>
                     <p className="mb-0">
-                      I'm an active open-source contributor.
+                      A game engine made in college by a team of 8 people. I was
+                      focused on coding the engine arquitecture and abstract
+                      functionality.
                     </p>
                   </span>
                 </span>
-                <img className="img-fluid" src={ img_openSource } alt="GitHub" />
+                <img className="img-fluid" src={ img_engine } alt="GitHub" />
               </a>
             </div>
           </div>
