@@ -62,7 +62,7 @@ extra_syntaxes = []
 # will be accessible in all templates
 
 [extra]
-home_subtitle = "Software developer that loves building stuff"
+home_subtitle = "Game developer that loves making cool stuff"
 
 footer_copyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
