@@ -62,7 +62,7 @@ extra_syntaxes = []
 # will be accessible in all templates
 
 [extra]
-home_subtitle = "Game developer that loves making cool stuff"
+home_subtitle = "Software Engineer that loves building stuff"
 
 footer_copyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
@@ -75,7 +75,7 @@ hermit_social = [
     { name = "youtube", link = "https://www.youtube.com/c/sergioabreu-g" },
     { name = "github", link = "https://github.com/sergioabreu-g" },
     { name = "linkedin", link = "https://www.linkedin.com/in/sergioabreu-g/" },
-    { name = "cv", link = "/Sergio%20Abreu%20García%20-%20Resume.pdf" },
+    { name = "cv", link = "/Sergio%20Abreu%20García%20-%20CV.pdf" },
     { name = "email", link = "mailto:author@domain.com" }
 ]
 
