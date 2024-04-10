@@ -75,7 +75,6 @@ hermit_social = [
     { name = "youtube", link = "https://www.youtube.com/c/sergioabreu-g" },
     { name = "github", link = "https://github.com/sergioabreu-g" },
     { name = "linkedin", link = "https://www.linkedin.com/in/sergioabreu-g/" },
-    { name = "cv", link = "/Sergio%20Abreu%20García%20-%20CV.pdf" },
     { name = "email", link = "mailto:author@domain.com" }
 ]
 
